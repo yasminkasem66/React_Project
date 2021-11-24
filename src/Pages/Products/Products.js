@@ -18,10 +18,7 @@ export default function Products() {
       <LowerHeader />
       <ImageContainer img={image2} />
       <SlideWith2Imgs />
-      <div className="container d-block mx-auto p-3 mt-3 bg-white card">
-        <ImageContainer img={image3} wid="w-100" color={"#fff"} />
-      </div>
-      <div className="container mt-4">
+      <div className="container mt-4 card">
         <div className="row bg-white p-3">
           <div className="col-md-4">
             <ImageContainer img={image4} wid="w-100" />
@@ -32,6 +29,15 @@ export default function Products() {
           <div className="col-md-4">
             <ImageContainer img={image4} wid="w-100" />
           </div>
+        </div>
+      </div>
+      <div className="container d-block mx-auto p-3 mt-3 bg-white card">
+        <ImageContainer img={image3} wid="w-100" color={"#fff"} />
+      </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-4 card"></div>
+          <div className="col-8 card"></div>
         </div>
       </div>
 

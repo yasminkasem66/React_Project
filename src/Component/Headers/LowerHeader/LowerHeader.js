@@ -1,11 +1,38 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 export default function LowerHeader() {
+  useEffect(() => {
+    window.addEventListener("scroll", isSticky);
+    return () => {
+      window.removeEventListener("scroll", isSticky);
+    };
+  });
+
+  /* Method that will fix header after a specific scrollable */
+  const isSticky = () => {
+    var element = document.getElementById("navBarFixed");
+    var height = window.scrollY;
+    console.log(height);
+    if (height >= 111) {
+      element.style.position = "sticky";
+      element.style.top = 0;
+      element.style.left = 0;
+      element.style.width = "100%";
+    }
+  };
   return (
     <>
       <header
-        className="pb-1 pt-2 mb-4 border-bottom  header-underNav  "
+        className="pb-1 pt-2 mb-4 border-bottom  header-underNav"
         id="navBarFixed"
+        style={{
+          backgroundColor: "white",
+          top: "5rem",
+          left: 0,
+          zIndex: "1030",
+        }}
       >
         <div className="row container d-flex justify-content-around m-auto align-items-center  ">
           <div className="col-lg-2 col-md-12">

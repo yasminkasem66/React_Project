@@ -8,6 +8,10 @@ export default function Home() {
       <UperHeader />
       <MiddeleHeader />
       <LowerHeader />
+
+
+      <Footer1 />
+    <Footer2/>
     </div>
   );
 }

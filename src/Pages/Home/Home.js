@@ -31,6 +31,6 @@ export default function Home() {
       
       <JumiaInfo />
       <Footer1 />
-    </div>
+    </>
   );
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 export default function LowerHeader() {
   useEffect(() => {
     window.addEventListener("scroll", isSticky);

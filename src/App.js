@@ -9,8 +9,11 @@ function App() {
   return (
     <div className="App bg-light">
       {/* <Home /> */}
+      
+      <SingleProduct/>
+      
 
-      <Products />
+      {/* <Products /> */}
 
       {/* <SingleProduct/> */}
     </div>

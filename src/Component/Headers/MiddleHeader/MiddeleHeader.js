@@ -1,7 +1,11 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import ar from "../../../assets/imgs/ar.png";
-import en from "../../../assets/imgs/en.png";
+// import ar from "../../../assets/imgs/ar.png";
+// import en from "../../../assets/imgs/en.png";
+
+import ar from '../../../assets/imgs/uk.svg'
+import en from '../../../assets/imgs/eg.svg'
+
 export default function MiddeleHeader() {
   return (
     <>

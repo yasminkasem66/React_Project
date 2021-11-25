@@ -1,6 +1,5 @@
 import { axiosInstance } from "./../../network";
-import { GET_ALL_PRODUCTS } from "../types";
-import { GET_ALL_PRODUCTS_PAGANATION } from "../types";
+import { GET_ALL_PRODUCTS, GET_SINGLE_PRODUCT, GET_ALL_PRODUCTS_PAGANATION } from '../types';
 
 export const getAllProducts = () => async (dispatch) => {
   try {
@@ -26,4 +25,18 @@ export const getAllProductsPaganation = (page) => async (dispatch) => {
   } catch (err) {
     console.log(err);
   }
+};
+
+
+export const ProductById = (id) => async (dispatch) => {
+    try {
+        const response2 = await axiosInstance.get(`/products/${id}`);
+        console.log("response2", response2);
+        dispatch({
+            type: GET_SINGLE_PRODUCT ,
+            payload: response2.data.product,
+        });
+    } catch (err) {
+        console.log(err);
+    }
 };

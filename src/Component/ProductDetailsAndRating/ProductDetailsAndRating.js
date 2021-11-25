@@ -5,7 +5,7 @@ export default function ProductDetailsAndRating(props) {
     return (
         
         <>
-  <p className="fs-5 d-inline-block mb-2">{props.name}</p>
+  <p className="fs-5 d-inline-block mb-2">{props.product.name}</p>
   {/* <p class="d-inline-block   " ><i class="far fa-heart  "></i></p> */}
   <div className="single-start m-0">
     <span className="fa fa-star checked" />
@@ -16,13 +16,13 @@ export default function ProductDetailsAndRating(props) {
     <p className="d-inline-block">
       <a href={3} style={{ textDecoration: "none" }}>
         {" "}
-        {props.rating}
+        {props.product.numOfReviews}
       </a>
     </p>
     <hr className="m-0" />
   </div>
   <div className="fs-4 fw-bold">
-    {props.price}
+    {props.product.price}
     <span className="fs-6 fw-lighter text-decoration-line-through d-block">
       {props.discountedPrice}{" "}
       <span

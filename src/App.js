@@ -8,12 +8,12 @@ import Products from './Pages/Products/Products';
 function App() {
   return (
     <div className="App bg-light">
-      <Home/>
-      {/* <Home /> */}
-      <Products />
+      <Home />
+      
+
+      {/* <Products /> */}
 
 
-      <h2>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</h2>
     </div>
   );
 }

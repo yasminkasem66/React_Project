@@ -5,10 +5,13 @@ export default function SquareComponent(props) {
     <>
       {props.textList.map((item) => {
         return (
-          <div className="d-flex mt-2">
-            <img src={props.img} />
+          <a
+            href="#"
+            className="Filter-img d-flex m-1 text-decoration-none text-dark"
+          >
+            <img className="hoverimg rounded-circle" src={props.img} />
             <p className="m-1">{item}</p>
-          </div>
+          </a>
         );
       })}
     </>

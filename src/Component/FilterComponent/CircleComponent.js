@@ -5,10 +5,10 @@ export default function CircleComponent(props) {
     <>
       {props.imgList.map((item) => {
         return (
-          <div className="d-flex m-1">
-            <img src={props.img} />
+          <a href="#" className="Filter-img d-flex mx text-decoration-none">
+            <img className="hoverimg rounded-circle" src={props.img} />
             <img src={item} />
-          </div>
+          </a>
         );
       })}
     </>

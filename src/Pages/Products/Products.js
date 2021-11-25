@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+// styles
+import "./Products.scss";
+// components
 import ImageContainer from "../../Component/ImageContainer/ImageContainer";
 import MiddeleHeader from "../../Component/Headers/MiddleHeader/MiddeleHeader";
 import LowerHeader from "../../Component/Headers/LowerHeader/LowerHeader";
+import SlideWith2Imgs from "../../Component/SliderWith2Imgs/SlideWith2Imgs";
+import Footer1 from "../../Component/Footer1/Footer1";
+import CircleComponent from "../../Component/FilterComponent/CircleComponent";
+import SearchComponent from "../../Component/FilterComponent/SearchComponent";
+import SquareComponent from "../../Component/FilterComponent/SquareComponent";
+import ProductHeader from "../../Component/ProductHeader/ProductHeader";
+// images
 import image1 from "../../assets/imgs/ads.jpeg";
 import image2 from "../../assets/imgs/6253007438669408234.jfif";
 import image3 from "../../assets/imgs/Single_floor_1152x252_px_copy.jpg";
@@ -20,43 +30,62 @@ import i40 from "../../assets/imgs/p40.PNG";
 import i50 from "../../assets/imgs/p50.PNG";
 import i60 from "../../assets/imgs/p60.PNG";
 import i80 from "../../assets/imgs/p80.PNG";
-import SlideWith2Imgs from "../../Component/SliderWith2Imgs/SlideWith2Imgs";
 
-import ProductsCard from "../../Component/ProductCard/ProductCard";
-import CardHeader from "../../Component/CardHeader/CardHeader";
-import Footer1 from "../../Component/Footer1/Footer1";
-import CircleComponent from "../../Component/FilterComponent/CircleComponent";
-import SearchComponent from "../../Component/FilterComponent/SearchComponent";
-import SquareComponent from "../../Component/FilterComponent/SquareComponent";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getAllProducts,
+  getAllProductsPaganation,
+} from "../../Store/actions/productActions";
+import Paganation from "../../Component/PaganationComponent/Paganation";
+import ProductCard from "../../Component/ProductCard/ProductCard";
+import CardWithHiddenButton from "../../Component/CardWithHidenButton/CardWithHiddenButton";
+
 export default function Products() {
+  const products = useSelector((state) => state.products);
+  const [pageNum, setpageNum] = useState(1);
+  console.log("products", products);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllProductsPaganation(pageNum));
+  }, [pageNum]);
+
+  const pagFun2 = (e) => {
+    console.log("event value", e.target.innerText);
+    setpageNum(e.target.innerText);
+    console.log(pageNum);
+    console.log("test");
+  };
   return (
     <div>
       <ImageContainer img={image1} color={"#a42924"} />
       <MiddeleHeader />
       <LowerHeader />
-      <ImageContainer img={image2} />
+      <div className="container ProductPage-img">
+        <ImageContainer img={image2} />
+      </div>
       <SlideWith2Imgs />
+
       <div className="container mt-4 card">
         <div className="row bg-white p-3">
-          <div className="col-md-4">
+          <div className="col-md-4 ProductPage-img">
             <ImageContainer img={image4} wid="w-100" />
           </div>
-          <div className="col-md-4">
+          <div className="col-md-4 ProductPage-img">
             <ImageContainer img={image4} wid="w-100" />
           </div>
-          <div className="col-md-4">
+          <div className="col-md-4 ProductPage-img">
             <ImageContainer img={image4} wid="w-100" />
           </div>
         </div>
       </div>
-      <div className="container d-block mx-auto p-3 mt-3 bg-white card mb-3">
+      <div className="container d-block mx-auto p-3 mt-3 bg-white card mb-3 ProductPage-img">
         <ImageContainer img={image3} wid="w-100" color={"#fff"} />
       </div>
       <div className="container mb-5">
         <div className="row text-start">
-          <div className="col-3">
-            <div className="row card">
-              <div className="col-11 p-3">
+          <div className="col-md-3">
+            <div className="row">
+              <div className="col-11 p-3 card">
                 <h3 className="mb-3">CATEGORY</h3>
                 <div className="product-allproduct-productType border-bottom">
                   <h4 className="product-allProduct-productType-header">
@@ -133,13 +162,41 @@ export default function Products() {
                 <SquareComponent textList={[0, 1, 2, 3, 4]} img={square} />
                 <hr />
                 <h4>INTERNAL MEMORY</h4>
-                <SquareComponent textList={[-3.5, 0, "FREE SIZE", "ONE-SIZE", "One Size"]} img={square} />
+                <SquareComponent
+                  textList={[-3.5, 0, "FREE SIZE", "ONE-SIZE", "One Size"]}
+                  img={square}
+                />
               </div>
               <div className="col-1"></div>
             </div>
           </div>
-          <div className="col-9">
-            <div className="card">hamada2</div>
+          <div className="col-md-9 card">
+            <ProductHeader />
+            <hr />
+            {/* displaying number of products  */}
+            <div className="d-flex justify-content-between">
+              <p className="text-muted">{products.length} Products Found</p>
+              <p className="d-flex">
+                <span>
+                  <i className="far fa-window-frame" />
+                </span>
+                <span>
+                  <i className="far fa-window-frame-open" />
+                </span>
+              </p>
+            </div>
+            <hr />
+
+            <div className="row my-1">
+              {products.map((product, index) => {
+                return (
+                  <div key={index} className="col-md-4 mb-2">
+                    <CardWithHiddenButton product={product} />
+                  </div>
+                );
+              })}
+            </div>
+            <Paganation pagFun2={pagFun2} />
           </div>
         </div>
       </div>

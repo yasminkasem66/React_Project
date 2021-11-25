@@ -13,7 +13,6 @@ export default function LowerHeader() {
   const isSticky = () => {
     var element = document.getElementById("navBarFixed");
     var height = window.scrollY;
-    console.log(height);
     if (height >= 111) {
       element.style.position = "sticky";
       element.style.top = 0;

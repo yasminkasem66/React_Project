@@ -1,5 +1,9 @@
 import { axiosInstance } from "./../../network";
-import { GET_ALL_PRODUCTS, GET_SINGLE_PRODUCT, GET_ALL_PRODUCTS_PAGANATION } from '../types';
+import {
+  GET_ALL_PRODUCTS,
+  GET_SINGLE_PRODUCT,
+  GET_ALL_PRODUCTS_PAGANATION,
+} from "../types";
 
 export const getAllProducts = () => async (dispatch) => {
   try {
@@ -16,7 +20,7 @@ export const getAllProducts = () => async (dispatch) => {
 export const getAllProductsPaganation = (page) => async (dispatch) => {
   console.log("pagesss", page);
   try {
-    const response = await axiosInstance.get(`/products?page=${page}&limit=6`);
+    const response = await axiosInstance.get(`/products?page=${page}&limit=12`);
     console.log("response", response);
     dispatch({
       type: GET_ALL_PRODUCTS_PAGANATION,
@@ -27,16 +31,15 @@ export const getAllProductsPaganation = (page) => async (dispatch) => {
   }
 };
 
-
 export const ProductById = (id) => async (dispatch) => {
-    try {
-        const response2 = await axiosInstance.get(`/products/${id}`);
-        console.log("response2", response2);
-        dispatch({
-            type: GET_SINGLE_PRODUCT ,
-            payload: response2.data.product,
-        });
-    } catch (err) {
-        console.log(err);
-    }
+  try {
+    const response2 = await axiosInstance.get(`/products/${id}`);
+    console.log("response2", response2);
+    dispatch({
+      type: GET_SINGLE_PRODUCT,
+      payload: response2.data.product,
+    });
+  } catch (err) {
+    console.log(err);
+  }
 };

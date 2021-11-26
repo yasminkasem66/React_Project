@@ -22,7 +22,7 @@ export default function Checkout() {
                     </div>
                     <div className="col-lg-3">
                     <CheckoutOrder/>
-                    <CheckoutHelp/>
+                    {/* <CheckoutHelp/> */}
                     </div>
                 </div>
                

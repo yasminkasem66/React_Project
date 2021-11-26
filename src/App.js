@@ -12,9 +12,9 @@ function App() {
       {/* <Home /> */}
       
       {/* <SingleProduct/> */}
-      <Checkout />
+      {/* <Checkout /> */}
 
-      {/* <Products /> */}
+      <Products />
 
       {/* <SingleProduct/> */}
     </div>

@@ -1,10 +1,11 @@
 import React from 'react'
+import './ProductDetails.scss'
 
 export default function ProductDetails(props) {
     return (
         <>
             <div
-  className="row"
+  className="row testAlign"
   style={{
     backgroundColor: "white",
     padding: 8,

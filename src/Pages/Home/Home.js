@@ -11,8 +11,9 @@ import CatList from "../../Component/CatList/CatList";
 import Sliderwith4imgs from "../../Component/Sliderwith4imgs/Sliderwith4imgs";
 import SmallCard from "../../Component/SmallCard/SmallCard";
 import SeeAll from "../../Component/SeeAll/SeeAll";
-
 import { getAllProducts } from "../../Store/actions/productActions";
+import Carsoual from "../../Component/Carsoual/Carsoual";
+import ProductCard from "../../Component/ProductCard/ProductCard";
 
 
 // images
@@ -31,13 +32,18 @@ import card2 from "../../assets/Homepage/EN(1).jpg";
 import card3 from "../../assets/Homepage/EN(2).jpg";
 import card4 from "../../assets/Homepage/Floor-Desktop-en_copy_2.jpg";
 import card5 from "../../assets/Homepage/Floor-Desktop-en_copy_18.jpg";
+import card6 from "../../assets/Homepage/Icon_260_x_144_-(6).png";
+
 
 
 export default function Home() {
 
   const products = useSelector(state => state.products)
+  const items = products.slice(0, 6)
+
   console.log("products", products);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getAllProducts());
   }, []);
@@ -65,8 +71,8 @@ export default function Home() {
             <ImageContainer img={image2} />
           </div>
           <div className="mt-4">
-          <ImageContainer img={image2} />
-        </div>
+            <ImageContainer img={image2} />
+          </div>
         </div>
       </div>
 
@@ -79,36 +85,32 @@ export default function Home() {
       </div>
 
       {/* here */}
-      <div className="container mt-4">
-        <div className="row   bg-white">
-          <div className="col-12  pt-2">
-            <p className="fw-bold fs-5 ps-2">Top selling items</p>
+      <div className="container card mt-3">
+
+          <div className="row">
+            <div className="col-12  pt-2 text-start">
+              <p className="fw-bold fs-5 ps-2">Top selling items</p>
+            </div>
           </div>
 
-        </div>
-        <div className=" HomePage-img  row bg-white p-1">
-          <div className="col HomePage-imgElementNON">
-            <ImageContainer img={card1} wid="w-100" />
-          </div>
-          <div className="col HomePage-imgElementNON">
-            <ImageContainer img={card1} wid="w-100" />
+        <div className=" HomePage-img  row p-1">
+          <div className="col ">
+            <Carsoual products={products} />
           </div>
         </div>
+
       </div>
-
-
-
       {/* <!-- Start 10.10 TOP DEALS section --> */}
 
-      <div className="container mt-4">
-        <div className="row   bg-white justify-content-center">
+      <div className="container  card mt-4">
+        <div className="row   justify-content-center">
           <div className="col-3  pt-2">
             <p className="fw-bold fs-4">
               10.10 TOP DEALS
             </p>
           </div>
         </div>
-        <div className=" HomePage-img  row bg-white p-1">
+        <div className=" HomePage-img  row p-1">
           <div className="col HomePage-imgElementNON">
             <ImageContainer img={card1} wid="w-100" />
           </div>
@@ -120,32 +122,32 @@ export default function Home() {
 
       {/* <!--  Execlusive Today section --> */}
 
-      <div className="container mt-4">
-        <div className="row   bg-white justify-content-center">
+      <div className="container card mt-4">
+        <div className="row   justify-content-center">
           <div className="col-3  pt-2">
             <p className="fw-bold fs-4">
               Execlusive Today!
             </p>
           </div>
         </div>
-        <div className=" HomePage-img  row bg-white px-2">
+        <div className=" HomePage-img  row px-2">
           <div className="col HomePage-imgElementNON m-2">
             <ImageContainer img={card2} wid="w-100" />
           </div>
         </div>
       </div>
-      
+
       {/* <!--  first Ubder Execlusive Today section --> */}
-      <div className="container mt-4">
-        <div className=" HomePage-img  row bg-white px-2">
+      <div className="container card mt-4">
+        <div className=" HomePage-img  row px-2">
           <div className="col HomePage-imgElementNON m-2">
             <ImageContainer img={card3} wid="w-100" />
           </div>
         </div>
       </div>
       {/* <!--  first Ubder Execlusive Today section --> */}
-      <div className="container mt-4">
-        <div className=" HomePage-img  row bg-white py-3">
+      <div className="container  card mt-4">
+        <div className=" HomePage-img  row py-2 px-1">
           <div className="col HomePage-imgElementNON ">
             <ImageContainer img={card4} wid="w-100" />
           </div>
@@ -153,19 +155,71 @@ export default function Home() {
             <ImageContainer img={card5} wid="w-100" />
           </div>
         </div>
-   
+
       </div>
 
 
-      <div className="container mt-4">
-        <div className="row ">
-            <SeeAll color="#FFFFFF" background="#B60000" title="Weakend Clearnace | Limited Stock" />
-        </div> 
+      <div className="container mt-4 card">
+        <SeeAll color="#FFFFFF" background="#B60000" title="Weakend Clearnace | Limited Stock" />
+        <div className="row mt-3">
+          {
+            items.map((item, index) => {
+              return (
+                <div className="col-md-2 mb-4" key={index}>
+                  <ProductCard product={item} />
+                  {/* {console.log("item", item)} */}
+                </div>
+              );
+            })}
+        </div>
       </div>
 
 
-   
-      
+
+      <div className="container  card mt-4">
+        <div className="row   justify-content-center">
+          <div className="col-3  pt-2">
+            <p className="fw-bold fs-5">
+              Be Prepared for winter
+            </p>
+          </div>
+        </div>
+        <div className="  row">
+          <div className="col">
+              <a href=""> <ImageContainer img={card6} wid="w-100" /></a>
+              <div class="name">Women Autumn Fashon</div>
+          </div>
+          {/* 2 */}
+          <div className="col">
+              <a href=""> <ImageContainer img={card6} wid="w-100" /></a>
+              <div class="name">Women Autumn Fashon</div>
+          </div>
+          {/* 2 */}
+          <div className="col">
+              <a href=""> <ImageContainer img={card6} wid="w-100" /></a>
+              <div class="name">Women Autumn Fashon</div>
+          </div>
+          {/* 2 */}
+          <div className="col">
+              <a href=""> <ImageContainer img={card6} wid="w-100" /></a>
+              <div class="name">Women Autumn Fashon</div>
+          </div>
+          {/* 2 */}
+          <div className="col">
+              <a href=""> <ImageContainer img={card6} wid="w-100" /></a>
+              <div class="name">Women Autumn Fashon</div>
+          </div>
+          {/* 2 */}
+          <div className="col">
+              <a href=""> <ImageContainer img={card6} wid="w-100" /></a>
+              <div class="name">Women Autumn Fashon</div>
+          </div>
+        </div>
+      </div>
+
+
+
+
 
       <JumiaInfo />
       <Footer1 />

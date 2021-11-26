@@ -10,7 +10,7 @@ axiosInstance.interceptors.request.use(
     function (config) {
         // Do something before request is sent
         if (localStorage.getItem("token")) {
-            config.headers["Autherization"] = localStorage.getItem("token");
+            config.headers["autherization"] = localStorage.getItem("token");
         }
         return config;
     },

@@ -1,15 +1,17 @@
 import React from 'react'
+import './ProductSpecifications.scss'
 
 export default function ProductSpecifications(props) {
     return (
         <>
             <div
-  className=""
+          className=" testAlign "
   style={{
-    border: "1px solid #ebe9e9",
-    borderRadius: 4,
-    paddingLeft: 5,
-    paddingBlock: 10
+    backgroundColor: "white",
+    padding: 8,
+    paddingLeft: 20,
+    boxShadow: "0 2px 5px 0 #ededed",
+    borderRadius: 4
   }}
 >
   <h6 className="ps-3">Specifications</h6>

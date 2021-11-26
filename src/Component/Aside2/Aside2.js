@@ -69,16 +69,16 @@ export default function Aside2(props) {
       }}
     >
       <div className="col-5">
-        <img src="1.jpg" width="100%" alt />
+        <img src={props.productImg} width="100%" alt />
       </div>
       <div className="col-7">
         <p className=" d-inline-block mb-2" style={{ fontSize: 11 }}>
-          Ethyl Alcohol 70% - 1 Li..
+          {props.name}
         </p>
         {/* <p class="d-inline-block   " ><i class="far fa-heart  "></i></p> */}
         <div className="single-start m-0"></div>
         <div className="fs-6 fw-bold">
-          EGP 35
+          {props.price}
           <span
             className=" fw-lighter text-decoration-line-through d-block"
             style={{ fontSize: 12 }}

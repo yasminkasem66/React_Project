@@ -6,6 +6,9 @@ import Products from "./Pages/Products/Products";
 import SingleProduct from "./Pages/SingleProduct/SingleProduct";
 import Checkout from "./Pages/Checkout/Checkout";
 import Cart from "./Component/Cart/Cart";
+import Checkout from './Pages/Checkout/Checkout';
+import Login from "./Pages/Login/Login";
+import Registration from './Pages/Registration/Registration'
 
 function App() {
   return (
@@ -18,6 +21,8 @@ function App() {
       <Products />
 
       {/* <SingleProduct/> */}
+      <Login/>
+      {/* <Registration/> */}
     </div>
   );
 }

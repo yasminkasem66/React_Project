@@ -6,7 +6,7 @@ export default function DelivaryMethod() {
     <div>
       <>
         {/* Hello world */}
-        <div className="card mb-3 p-3 mt-3">
+        <div className="card mb-3 pb-3 mt-3">
           <div className="card-header bg-white fw-bolder "><CheckCircleRoundedIcon color="disabled"/>2. DELIVERY METHOD</div>
           
           <div className="card-body">
@@ -50,12 +50,12 @@ export default function DelivaryMethod() {
                 </p>
             </div>
           </div> */}
-          <div className="card ">
-          <div className="card-header  bg-white fw-bolder fs-6">SHIPMENT DETAILS</div>
+          <div className="card ms-4 mt-4">
+          <div className="card-header  bg-white fw-bolder ">SHIPMENT DETAILS</div>
           <div className="card-body">
-            <h5 className="card-title">
+            <p className="card-title fw-bolder DeliveredDes " >
             Shipment 
-            </h5>
+            </p>
             <p className="card-text DeliveredDes">
             1xSuper Emollient Moisturizing Cream Kit - 4 Pcs
             </p>
@@ -64,9 +64,13 @@ export default function DelivaryMethod() {
           </div>
           </div>
           </div>
-          <p>Subtotal</p>
-          <p>Shipping amount</p><hr/>
-          <p className="fw-bolder">Total</p>
+          <div className="ps-5">
+          <p className="fw-light">Subtotal</p>
+          <p className="fw-light">Shipping amount</p><hr/>
+          
+          <p className="fw-bold">Total</p>
+          </div>
+          
           <p className="text-center  vouchertxt">You will be able to add a voucher in the next step</p>
           <button type="button" class="btn proceedBtn text-white fw-bolder mx-3">PROCEED TO NEXT STEP</button>
         </div>

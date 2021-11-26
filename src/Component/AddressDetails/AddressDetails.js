@@ -6,9 +6,9 @@ export default function AddressDetails() {
     <div>
       <h6>CHECKOUT</h6>
       <div className="card">
-        <div className="card-header bg-white">
+        <div className="card-header bg-white  fw-bolder ">
           <CheckCircleRoundedIcon color="success" />
-          1. ADDRESS DETAILS
+        1. ADDRESS DETAILS
           {/* Button trigger modal */}
           <button
             type="button"
@@ -108,7 +108,7 @@ export default function AddressDetails() {
         </div>
         <div className="card-body">
           <h6 className="card-title px-3 fw-bolder ">mohamed hamdy</h6>
-          <p className="card-text px-3 ">
+          <p className="card-text px-3  useAddress">
             qena, Qena, Qena <br />
             +201152558538
           </p>

@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
+import "./LowerHeader.scss";
 export default function LowerHeader() {
   useEffect(() => {
     window.addEventListener("scroll", isSticky);
@@ -47,6 +48,7 @@ export default function LowerHeader() {
               <i style={{ fontSize: 25 }} className="mt-4 fas fa-cart-plus" />
             </a>
           </div>
+          {/* Search Part */}
           <div className="col-lg-7 col-md-12">
             <form className="d-flex">
               <input
@@ -62,13 +64,14 @@ export default function LowerHeader() {
               />
             </form>
           </div>
+
           <div className="col-lg-3 col-md-12 mt-2">
             <ul className="d-flex justify-content-center list-unstyled mt-1">
               <li className="me-2">
                 <div className="dropdown">
                   <a
                     href="#"
-                    className="text-decoration-none  link-dark me-4 dropdown-toggle fw-bold socialIcon"
+                    className="hoverAnchor text-decoration-none  link-dark me-4 dropdown-toggle fw-bold socialIcon"
                     role="button"
                     id="dropdownMenuLink"
                     data-bs-toggle="dropdown"
@@ -110,7 +113,7 @@ export default function LowerHeader() {
                 <div className="dropdown">
                   <a
                     href="#"
-                    className="text-decoration-none  link-dark me-4 dropdown-toggle fw-bold socialIcon"
+                    className="hoverAnchor text-decoration-none  link-dark me-4 dropdown-toggle fw-bold socialIcon"
                     role="button"
                     id="dropdownMenuLink"
                     data-bs-toggle="dropdown"
@@ -160,7 +163,7 @@ export default function LowerHeader() {
               <li>
                 <a
                   href="#"
-                  className="d-flex text-decoration-none  link-dark  fw-bolder socialIcon"
+                  className="hoverAnchor d-flex text-decoration-none  link-dark  fw-bolder socialIcon"
                 >
                   <i className="fal fa-shopping-cart mt-1 me-2" />
                   <span>Cart</span>

@@ -14,10 +14,10 @@ import SearchComponent from "../../Component/FilterComponent/SearchComponent";
 import SquareComponent from "../../Component/FilterComponent/SquareComponent";
 import ProductHeader from "../../Component/ProductHeader/ProductHeader";
 import Paganation from "../../Component/PaganationComponent/Paganation";
-import ProductCard from "../../Component/ProductCard/ProductCard";
 import CardWithHiddenButton from "../../Component/CardWithHidenButton/CardWithHiddenButton";
 import RatingSlider from "../../Component/Price Rating Slider/RatingSlider";
 import JumiaInfo from "../../Component/Jumia-info/JumiaInfo";
+import Carsoual from "../../Component/Carsoual/Carsoual";
 // images
 import image1 from "../../assets/imgs/ads.jpeg";
 import image2 from "../../assets/imgs/6253007438669408234.jfif";
@@ -82,6 +82,11 @@ export default function Products() {
       </div>
       <div className="container d-block mx-auto p-3 mt-3 bg-white card mb-3 ProductPage-img">
         <ImageContainer img={image3} wid="w-100" color={"#fff"} />
+      </div>
+      {/* Carsoule component */}
+
+      <div className="container card mb-3">
+        <Carsoual products={products} />
       </div>
       {/* FILTER AND PRODUCT SECTION */}
       <div className="container">

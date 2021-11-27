@@ -4,8 +4,12 @@ import axios from "axios";
 const accessToken =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSGFtYWR5IiwidXNlcklkIjoiNjE5YWNiZGRiOGU2Mjc1OTU5NTUxNWRiIiwicm9sZSI6ImFkbWluIiwiaW1hZ2UiOiJodHRwczovL2p1bWlhLWFwaXMuaGVyb2t1YXBwLmNvbS9wdWJsaWMvdXBsb2Fkcy9XaGF0c0FwcCBJbWFnZSAyMDIxLTExLTIyIGF0IDEyLjM3LjQ4IEFNLmpwZWciLCJpYXQiOjE2Mzc5NTcyNDEsImV4cCI6MTYzODA0MzY0MX0.KMVaPt1FblKya_s0kPc7-HLOgYRGMR8hH6KmU0nxAHI";
 
+//   url: "http://localhost:5000/api/v1"
+//   https://jumia-apis.herokuapp.com/api/v1
+
 export const axiosInstance = axios.create({
   baseURL: "https://jumia-apis.herokuapp.com/api/v1",
+
   headers: {
     authorization: `Bearer ${accessToken}`,
   },

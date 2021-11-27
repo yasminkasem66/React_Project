@@ -13,12 +13,12 @@ function App() {
       {/* <Home /> */}
       
       {/* <SingleProduct/> */}
-      {/* <Checkout /> */}
+      <Checkout />
 
       {/* <Products /> */}
 
       {/* <SingleProduct/> */}
-      <Login/>
+      {/* <Login/> */}
       {/* <Registration/> */}
     </div>
   );

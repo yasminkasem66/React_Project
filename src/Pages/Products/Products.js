@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllProductsPaganation } from "../../Store/actions/productActions";
 // styles
 import "./Products.scss";
 // components
@@ -11,6 +13,11 @@ import CircleComponent from "../../Component/FilterComponent/CircleComponent";
 import SearchComponent from "../../Component/FilterComponent/SearchComponent";
 import SquareComponent from "../../Component/FilterComponent/SquareComponent";
 import ProductHeader from "../../Component/ProductHeader/ProductHeader";
+import Paganation from "../../Component/PaganationComponent/Paganation";
+import CardWithHiddenButton from "../../Component/CardWithHidenButton/CardWithHiddenButton";
+import RatingSlider from "../../Component/Price Rating Slider/RatingSlider";
+import JumiaInfo from "../../Component/Jumia-info/JumiaInfo";
+import Carsoual from "../../Component/Carsoual/Carsoual";
 // images
 import image1 from "../../assets/imgs/ads.jpeg";
 import image2 from "../../assets/imgs/6253007438669408234.jfif";
@@ -31,14 +38,9 @@ import i50 from "../../assets/imgs/p50.PNG";
 import i60 from "../../assets/imgs/p60.PNG";
 import i80 from "../../assets/imgs/p80.PNG";
 
-import { useDispatch, useSelector } from "react-redux";
-import {
-  getAllProducts,
-  getAllProductsPaganation,
-} from "../../Store/actions/productActions";
-import Paganation from "../../Component/PaganationComponent/Paganation";
-import ProductCard from "../../Component/ProductCard/ProductCard";
-import CardWithHiddenButton from "../../Component/CardWithHidenButton/CardWithHiddenButton";
+// material ui
+import WindowIcon from "@mui/icons-material/Window";
+import HomeIcon from "@mui/icons-material/Home";
 
 export default function Products() {
   const products = useSelector((state) => state.products);
@@ -81,16 +83,23 @@ export default function Products() {
       <div className="container d-block mx-auto p-3 mt-3 bg-white card mb-3 ProductPage-img">
         <ImageContainer img={image3} wid="w-100" color={"#fff"} />
       </div>
-      <div className="container mb-5">
+      {/* Carsoule component */}
+
+      <div className="container card mb-3">
+        <Carsoual products={products} />
+      </div>
+      {/* FILTER AND PRODUCT SECTION */}
+      <div className="container">
         <div className="row text-start">
+          {/* FILTER SECTION */}
           <div className="col-md-3">
             <div className="row">
               <div className="col-11 p-3 card">
-                <h3 className="mb-3">CATEGORY</h3>
+                <h5 className="mb-3">CATEGORY</h5>
                 <div className="product-allproduct-productType border-bottom">
-                  <h4 className="product-allProduct-productType-header">
+                  <h5 className="product-allProduct-productType-header">
                     Phone &amp; Tablets
-                  </h4>
+                  </h5>
                   <a href="#" className=" text-decoration-none text-dark ">
                     <p className="product-allProduct-productType-item ">
                       Cell phones accessories
@@ -122,11 +131,28 @@ export default function Products() {
                     </p>
                   </a>
                 </div>
-                <h4 className="mb-3">PRODUCT RATING</h4>
+                <h5 className="mb-3">PRODUCT RATING</h5>
                 <CircleComponent imgList={[r1, r2, r3, r4]} img={circle} />
                 <hr />
-                <h4 className="mb-3">EPRESS SHIPPING</h4>
+                <h5 className="mb-3">EPRESS SHIPPING</h5>
                 <CircleComponent img={square} imgList={[jumiaexpress]} />
+                <hr />
+                {/* BRAND */}
+                <SearchComponent heading="BRAND" />
+                <SquareComponent
+                  textList={["Alcatel", "Amazfit", "Andoer", "Apple", "Armor"]}
+                  img={square}
+                />
+                <hr />
+                {/* COLOR */}
+                <h5 className="mb-3">COLOR</h5>
+                <SquareComponent
+                  textList={["Orang", "Black", "Brown", "Blue", "White"]}
+                  img={square}
+                />
+                <hr />
+                {/* PRICE RATING */}
+                <RatingSlider />
                 <hr />
                 <SearchComponent heading="MEGAPIXCELS" />
                 <SquareComponent
@@ -149,7 +175,7 @@ export default function Products() {
                   img={square}
                 />
                 <hr />
-                <h4>SELER FROM</h4>
+                <h5>SELER FROM</h5>
                 <CircleComponent imgList={[i80, i60, i40, i20]} img={circle} />
                 <hr />
                 <h5>DISCOUNT PERCENTAGE</h5>
@@ -158,10 +184,10 @@ export default function Products() {
                   img={circle}
                 />
                 <hr />
-                <h4>INTERNAL MEMORY</h4>
+                <h5>INTERNAL MEMORY</h5>
                 <SquareComponent textList={[0, 1, 2, 3, 4]} img={square} />
                 <hr />
-                <h4>INTERNAL MEMORY</h4>
+                <h5>INTERNAL MEMORY</h5>
                 <SquareComponent
                   textList={[-3.5, 0, "FREE SIZE", "ONE-SIZE", "One Size"]}
                   img={square}
@@ -170,19 +196,21 @@ export default function Products() {
               <div className="col-1"></div>
             </div>
           </div>
+          {/* PRODUCT SECTION */}
           <div className="col-md-9 card">
             <ProductHeader />
             <hr />
             {/* displaying number of products  */}
             <div className="d-flex justify-content-between">
               <p className="text-muted">{products.length} Products Found</p>
-              <p className="d-flex">
-                <span>
-                  <i className="far fa-window-frame" />
-                </span>
-                <span>
-                  <i className="far fa-window-frame-open" />
-                </span>
+              {/* Mateial icon */}
+              <p className="d-flex mx-2">
+                <a href="#" className="text-decoration-none text-muted mx-2">
+                  <HomeIcon />
+                </a>
+                <a href="#" className="text-decoration-none text-warning ">
+                  <WindowIcon />
+                </a>
               </p>
             </div>
             <hr />
@@ -196,13 +224,16 @@ export default function Products() {
                 );
               })}
             </div>
-            <Paganation pagFun2={pagFun2} />
+            <div className="d-flex justify-content-center mt-5">
+              <Paganation pagFun2={pagFun2} />
+            </div>
           </div>
         </div>
       </div>
 
       {/* <ProductsCard pic={image2} /> */}
       {/* <CardHeader /> */}
+      <JumiaInfo />
       <Footer1 />
     </div>
   );

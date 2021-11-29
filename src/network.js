@@ -7,9 +7,9 @@ const accessToken ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSGFtYWR5Iiw
 //   https://jumia-apis.herokuapp.com/api/v1
 
 export const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000/api/v1",
+  baseURL: " http://localhost:5000/api/v1",
   headers: {
-    authorization:`Bearer ${accessToken}`,
+    authorization: `Bearer ${accessToken}`,
   },
 });
 

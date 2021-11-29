@@ -8,8 +8,8 @@ import Footer1 from '../../Component/Footer1/Footer1';
 import DetailsCard from '../../Component/DetailsCard/DetailsCard';
 import Carsoual from '../../Component/Carsoual/Carsoual';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllProducts } from '../../Store/actions/productActions';
-import { getAllUsers } from '../../Store/actions/userActions';
+import { getAllProducts } from '../../Store/actions/ProductActions/productActions';
+import { getAllUsers } from '../../Store/actions/UserActions/userActions';
 
 
 

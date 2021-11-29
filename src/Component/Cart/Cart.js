@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllOrders } from "../../Store/actions/orderActions";
+import { getAllOrders } from "../../Store/actions/OrdrActions/orderActions";
 import "./Cart.scss";
 export default function Cart(props) {
   const orders = useSelector((state) => state.orders);

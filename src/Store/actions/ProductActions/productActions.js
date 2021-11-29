@@ -1,9 +1,9 @@
-import { axiosInstance } from "./../../network";
+import { axiosInstance } from "../../../network";
 import {
   GET_ALL_PRODUCTS,
   GET_SINGLE_PRODUCT,
   GET_ALL_PRODUCTS_PAGANATION,
-} from "../types";
+} from "../../types";
 
 export const getAllProducts = () => async (dispatch) => {
   try {

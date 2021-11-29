@@ -2,13 +2,25 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllOrders } from "../../Store/actions/orderActions";
 import "./Cart.scss";
-export default function Cart() {
+export default function Cart(props) {
   const orders = useSelector((state) => state.orders);
   console.log("orders", orders);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllOrders());
   }, []);
+
+
+  // {
+  //   orders.orderItems.map((item, index) => {
+  //     return (
+  //       <div className="col-md-2 mb-4" key={index}>
+  //         <ProductCard product={item} />
+  //         {/* {console.log("item", item)} */}
+  //       </div>
+  //     );
+  //   })
+  // }
   return (
     <>
       <section className="cart">
@@ -35,7 +47,7 @@ export default function Cart() {
               className=" col-6 d-flex "
               style={{ borderRight: "1px solid #F5F5F5" }}
             >
-              <div className="col-2">
+              <div className="col-2" >
                 <img
                   src="./imgs/cart.jpg"
                   className="img-fluid w-100 h-auto"
@@ -44,7 +56,7 @@ export default function Cart() {
               </div>
               <div className="col-9 p-2">
                 <p>Seller: Bazicz</p>
-                <p>Casual Zipped Hooded Sweatshirt - Black</p>
+                <p>{props.orderItems.name}</p>
                 <p>Size: L</p>
                 <div style={{ color: "#FF9800" }}>
                   <span>

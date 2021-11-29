@@ -12,16 +12,16 @@ import Registration from './Pages/Registration/Registration'
 function App() {
   return (
     <div className="App bg-light">
-      {/* <Home /> */}
+      <Home />
 
       {/* <SingleProduct/> */}
       {/* <Checkout /> */}
 
       {/* <Products /> */}
-      <Cart />
+      {/* <Cart /> */}
 
       {/* <SingleProduct/> */}
-      <Login/>
+      {/* <Login/> */}
       {/* <Registration/> */}
     </div>
   );

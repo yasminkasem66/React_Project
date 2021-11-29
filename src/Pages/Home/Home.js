@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { ProductById } from "../../Store/actions/ProductActions/GetSingleProduct";
+
 
 //import UperHeader from "../../Component/UperHeader.js/UperHeader";
 import ImageContainer from "../../Component/ImageContainer/ImageContainer";
@@ -11,7 +13,7 @@ import CatList from "../../Component/CatList/CatList";
 import Sliderwith4imgs from "../../Component/Sliderwith4imgs/Sliderwith4imgs";
 import SmallCard from "../../Component/SmallCard/SmallCard";
 import SeeAll from "../../Component/SeeAll/SeeAll";
-import { getAllProducts } from "../../Store/actions/ProductActions/productActions";
+import { getAllProducts } from "../../Store/actions/ProductActions/getAllProducts";
 import Carsoual from "../../Component/Carsoual/Carsoual";
 import ProductCard from "../../Component/ProductCard/ProductCard";
 import TextCenter from "../../Component/TextCenter/TextCenter";
@@ -60,14 +62,17 @@ import L12 from "../../assets/Homepage/Icon_260_x_144_-(6).png";
 
 export default function Home() {
 
-  const products = useSelector(state => state.products)
+  const products = useSelector(state => state.AllProducts)
+  const singleproduct = useSelector(state => state.SingleProduct)
   const items = products.slice(0, 6)
 
-  console.log("products", products);
+  console.log("productsnnnnnnnnnnnnnnnnnnnn", products);
+  console.log("singleproductnnnnnnnnnnnnnnnnnn", singleproduct);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllProducts());
+    dispatch(ProductById('61a13f2a9b6b3cd7f9b46089'));
   }, []);
 
 

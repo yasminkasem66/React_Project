@@ -1,5 +1,5 @@
-import { GET_ALL_USERS } from "../types";
-import { axiosInstance } from "./../../network";
+import { GET_ALL_USERS } from "../../types";
+import { axiosInstance } from "../../../network";
 
 
 

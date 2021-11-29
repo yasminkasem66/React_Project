@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProductsPaganation } from "../../Store/actions/productActions";
+import { getAllProductsPaganation } from "../../Store/actions/ProductActions/productActions";
 // styles
 import "./Products.scss";
 // components

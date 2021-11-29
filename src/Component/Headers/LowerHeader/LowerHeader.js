@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
 import "./LowerHeader.scss";
+import { Link, NavLink } from "react-router-dom";
 export default function LowerHeader() {
   useEffect(() => {
     window.addEventListener("scroll", isSticky);
@@ -35,18 +36,18 @@ export default function LowerHeader() {
       >
         <div className="row container d-flex justify-content-around m-auto align-items-center  ">
           <div className="col-lg-2 col-md-12">
-            <a
+            <NavLink
               className="d-flex text-decoration-none  link-dark me-4 socialIcon"
-              href="#"
+              to="/"
             >
-              <h2
+           <h2
                 className="fw-bold mt-3"
                 style={{ fontFamily: '"Orbitron", sans-serif' }}
               >
                 JUMIA
               </h2>
               <i style={{ fontSize: 25 }} className="mt-4 fas fa-cart-plus" />
-            </a>
+            </NavLink>
           </div>
           {/* Search Part */}
           <div className="col-lg-7 col-md-12">
@@ -84,17 +85,17 @@ export default function LowerHeader() {
                     aria-labelledby="dropdownMenuLink"
                   >
                     <li>
-                      <a className="dropdown-item" href="#">
+                      <Link className="dropdown-item" to="/login">
                         <button className="text-light btn px-5 py-1 btn-warning">
                           SIGN IN
                         </button>
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="#">
+                      <Link className="dropdown-item" to="/login">
                         <i className="far fa-user" />
                         My Acount
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <a className="dropdown-item" href="#">

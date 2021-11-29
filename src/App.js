@@ -11,14 +11,21 @@ import MyaccountList from "./Component/MyaccountList/MyaccountList";
 import Myaccount from "./Pages/Myaccount/Myaccount";
 import AboutUs from "./Pages/AboutUs/AboutUs";
 import ContactUs from "./Pages/ContactUs/ContactUs";
+import { Beforelogin } from "./Routes/Beforelogin";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 
 function App() {
   return (
+      <Router>
     <div className="App bg-white">
+
+      <Beforelogin/>
+
     {/* <Myaccount/> */}
     {/* <Home/> */}
     {/* <AboutUs/> */}
-    <ContactUs/>
+    {/* <ContactUs/> */}
 
 
       {/* <Products /> */}
@@ -27,7 +34,9 @@ function App() {
       {/* <SingleProduct/> */}
       {/* <Login/> */}
       {/* <Registration/> */}
+
     </div>
+          </Router>
   );
 }
 

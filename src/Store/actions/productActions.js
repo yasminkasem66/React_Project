@@ -33,11 +33,11 @@ export const getAllProductsPaganation = (page) => async (dispatch) => {
 
 export const ProductById = (id) => async (dispatch) => {
   try {
-    const response2 = await axiosInstance.get(`/products/${id}`);
-    console.log("response2", response2);
+    const response = await axiosInstance.get(`/products/${id}`);
+    console.log("response", response);
     dispatch({
       type: GET_SINGLE_PRODUCT,
-      payload: response2.data.product,
+      payload: response.data.product,
     });
   } catch (err) {
     console.log(err);

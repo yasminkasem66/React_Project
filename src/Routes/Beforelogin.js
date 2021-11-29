@@ -20,24 +20,34 @@ export const NotFound = React.lazy(() => import("../Pages/Notfound/Notfound"));
 // import Myaccount from "./Pages/Myaccount/Myaccount";
 
 export const Beforelogin = () => {
-    return (
-        <>
-            {/* it's responsible to show data before lazy loading loading */}
-            <Suspense fallback={<div>Loading... </div>}>
-                {/* first Match win */}
-                <Routes>
-                    <Route path="/" exact element={<Home />}/> 
-                    <Route path="/products" exact element={<Products />}/> 
-                    <Route path="/singleProduct" exact element={<SingleProduct />}/> 
-                    <Route path="/contact" exact element={<ContactUs />}/> 
-                    <Route path="/cart" exact element={<Cart />}/> 
-                    <Route path="/login" exact element={<Login />}/> 
-                    <Route path="/registration" exact element={<Registration />}/> 
-                    <Route path="/aboutus" exact element={<AboutUs />}/> 
-                    <Route path="*" exact element={<NotFound />}/> 
-                </Routes>
-            </Suspense>
+  return (
+    <>
+      {/* it's responsible to show data before lazy loading loading */}
+      <Suspense fallback={<div>Loading... </div>}>
+        {/* first Match win */}
+        <Routes>
+          <Route path="/" exact element={<Home />}>
+            {" "}
+          </Route>
+          <Route path="/products" exact element={<Products />}>
+            {" "}
+          </Route>
+          <Route path="/singleProduct" exact element={<SingleProduct />} />
 
-        </>
-    )
-}
+          <Route path="/singleProduct/:id" exact element={<SingleProduct />} />
+
+          <Route path="/contact" exact element={<ContactUs />} />
+          <Route path="/cart" exact element={<Cart />} />
+
+          <Route path="/login" exact element={<Login />}/>
+          
+          <Route path="/registration" exact element={<Registration />} />
+
+          <Route path="/aboutus" exact element={<AboutUs />} />
+
+          <Route path="*" exact element={<NotFound />} />
+        </Routes>
+      </Suspense>
+    </>
+  );
+};

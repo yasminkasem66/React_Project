@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
 import { ProductById } from "../../Store/actions/ProductActions/GetSingleProduct";
 
 
@@ -13,7 +15,7 @@ import CatList from "../../Component/CatList/CatList";
 import Sliderwith4imgs from "../../Component/Sliderwith4imgs/Sliderwith4imgs";
 import SmallCard from "../../Component/SmallCard/SmallCard";
 import SeeAll from "../../Component/SeeAll/SeeAll";
-import { getAllProducts } from "../../Store/actions/ProductActions/getAllProducts";
+import { getAllProducts } from '../../Store/actions/ProductActions/';
 import Carsoual from "../../Component/Carsoual/Carsoual";
 import ProductCard from "../../Component/ProductCard/ProductCard";
 import TextCenter from "../../Component/TextCenter/TextCenter";
@@ -56,7 +58,6 @@ import L9 from "../../assets/Homepage/Collection__260_x_144.png";
 import L10 from "../../assets/Homepage/Icon_260_x_144_-(6).png";
 import L11 from "../../assets/Homepage/Collection__260_x_144(1).png";
 import L12 from "../../assets/Homepage/Icon_260_x_144_-(6).png";
-import { Link } from "react-router-dom";
 
 
 

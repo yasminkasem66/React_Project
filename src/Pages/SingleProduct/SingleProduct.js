@@ -11,10 +11,13 @@ import ProductDetails from "../../Component/ProductDetails/ProductDetails";
 import ProductSpecifications from "../../Component/ProductSpecifications/ProductSpecifications";
 import DeliveryReturns from "../../Component/Delivery-Returns/DeliveryReturns";
 import Aside2 from "../../Component/Aside2/Aside2";
-import {
-  getAllProducts,
-  ProductById,
-} from "../../Store/actions/ProductActions/productActions";
+// import {
+//   getAllProducts,
+//   ProductById,
+// } from "../../Store/actions/ProductActions/productActions";
+
+import { ProductById } from '../../Store/actions/ProductActions/GetSingleProduct';
+// import { getAllProducts } from '../../Store/actions/ProductActions/getAllProducts';
 import Footer1 from "../../Component/Footer1/Footer1";
 import { useParams } from "react-router-dom";
 

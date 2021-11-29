@@ -22,11 +22,14 @@ export default function SingleProduct() {
  
 
   const product = useSelector(state => state.products)
+  
   console.log("product", product);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(ProductById('6184313cb481012489c88bf2'));
+    dispatch(ProductById('61a13f2a9b6b3cd7f9b46089'));
   }, []);
+
+  
 
 
 

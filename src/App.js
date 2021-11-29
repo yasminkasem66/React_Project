@@ -22,18 +22,7 @@ function App() {
 
       <Beforelogin/>
 
-    {/* <Myaccount/> */}
-    {/* <Home/> */}
-    {/* <AboutUs/> */}
-    {/* <ContactUs/> */}
-
-
-      {/* <Products /> */}
-      {/* <Cart /> */}
-
-      {/* <SingleProduct/> */}
-      {/* <Login/> */}
-      {/* <Registration/> */}
+   
 
     </div>
           </Router>

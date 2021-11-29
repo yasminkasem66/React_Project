@@ -13,11 +13,11 @@ import NextCheckout from "./Pages/NextCheckout/NextCheckout";
 function App() {
   return (
     <div className="App bg-light">
-      {/* <Home /> */}
+      <Home />
 
       {/* <SingleProduct/> */}
       {/* <Checkout /> */}
-      <NextCheckout />
+      {/* <NextCheckout /> */}
 
       {/* <Products /> */}
       {/* <Cart /> */}

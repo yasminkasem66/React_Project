@@ -56,6 +56,7 @@ import L9 from "../../assets/Homepage/Collection__260_x_144.png";
 import L10 from "../../assets/Homepage/Icon_260_x_144_-(6).png";
 import L11 from "../../assets/Homepage/Collection__260_x_144(1).png";
 import L12 from "../../assets/Homepage/Icon_260_x_144_-(6).png";
+import { Link } from "react-router-dom";
 
 
 
@@ -182,7 +183,8 @@ export default function Home() {
             items.map((item, index) => {
               return (
                 <div className="col-md-2 mb-4" key={index}>
-                  <ProductCard product={item} />
+                  <Link to="/singleProduct"><ProductCard product={item} /></Link>
+                  
                   {/* {console.log("item", item)} */}
                 </div>
               );

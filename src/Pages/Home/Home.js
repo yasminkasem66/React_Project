@@ -77,6 +77,13 @@ export default function Home() {
     dispatch(ProductById('61a13f2a9b6b3cd7f9b46089'));
   }, []);
 
+  const women=products.filter(product=>product.category.name==="womans") 
+  const womenProduct= women.slice(0,6)
+  const men=products.filter(product=>product.category.name==="men") 
+  const menProduct=men.slice(0,6)
+  console.log("womenProducts",womenProduct)
+  console.log("menProducts",menProduct)
+
 
 
   return (
@@ -274,14 +281,18 @@ export default function Home() {
         <SeeAll color="black" background="#C7C7CD" title="Women's Sweatshirts | Up to 50% OFF" />
         <div className="row mt-3">
           {
-            items.map((item, index) => {
+            
+           
+            
+            womenProduct.map((item, index) => {
               return (
                 <div className="col-md-2 mb-4" key={index}>
                   <ProductCard product={item} />
                   {/* {console.log("item", item)} */}
                 </div>
               );
-            })}
+            })
+          }
         </div>
       </div>
 
@@ -308,7 +319,7 @@ export default function Home() {
         <SeeAll color="black" background="#C7C7CD" title="Men's Sweatshirts | Up to 50% OFF" />
         <div className="row mt-3">
           {
-            items.map((item, index) => {
+            menProduct.map((item, index) => {
               return (
                 <div className="col-md-2 mb-4" key={index}>
                   <ProductCard product={item} />

@@ -11,13 +11,15 @@ import Registration from './Pages/Registration/Registration'
 import MyaccountList from "./Component/MyaccountList/MyaccountList";
 import Myaccount from "./Pages/Myaccount/Myaccount";
 import AboutUs from "./Pages/AboutUs/AboutUs";
+import ContactUs from "./Pages/ContactUs/ContactUs";
 
 function App() {
   return (
     <div className="App bg-white">
     {/* <Myaccount/> */}
     {/* <Home/> */}
-    <AboutUs/>
+    {/* <AboutUs/> */}
+    <ContactUs/>
 
 
 

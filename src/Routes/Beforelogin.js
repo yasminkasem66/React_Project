@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Loader from "../Component/Loader/Loader";
 
 export const Home = React.lazy(() => import("../Pages/Home/Home"));
 export const Products = React.lazy(() => import("../Pages/Products/Products"));
@@ -23,7 +24,7 @@ export const Beforelogin = () => {
   return (
     <>
       {/* it's responsible to show data before lazy loading loading */}
-      <Suspense fallback={<div>Loading... </div>}>
+      <Suspense fallback={<Loader/>}>
         {/* first Match win */}
         <Routes>
           <Route path="/" exact element={<Home />}/>

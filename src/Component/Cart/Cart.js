@@ -4,7 +4,7 @@ import { getAllOrders } from "../../Store/actions/OrdrActions/orderActions";
 import "./Cart.scss";
 export default function Cart(props) {
   const orders = useSelector((state) => state.orders);
-  console.log("orders", orders);
+  console.log("ordersnnnnnnn", orders);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllOrders());

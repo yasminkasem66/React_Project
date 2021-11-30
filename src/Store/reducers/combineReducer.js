@@ -1,8 +1,12 @@
 import { combineReducers } from "redux";
-import { productReducer, SingleProductReducer } from "./productReducer";
 import { ordersReducer } from "./orderReducer";
+import { userReducer } from "./userReducer";
+import { AllProductsReducer, SingleProductReducer, AllProductsPaginationReducer } from "./GetAllProduct";
 
 export default combineReducers({
-  products: productReducer,
+  AllProducts: AllProductsReducer,
+  AllProductsPagination: AllProductsPaginationReducer,
+  SingleProduct: SingleProductReducer,
   orders: ordersReducer,
+  users:userReducer
 });

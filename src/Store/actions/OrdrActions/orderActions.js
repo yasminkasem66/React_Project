@@ -1,5 +1,5 @@
-import { axiosInstance } from "./../../network";
-import { GET_ALL_ORDERS } from "../types";
+import { axiosInstance } from "../../../network";
+import { GET_ALL_ORDERS } from "../../types";
 
 export const getAllOrders = () => async (dispatch) => {
   try {

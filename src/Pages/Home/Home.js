@@ -1,5 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
+import { ProductById } from "../../Store/actions/ProductActions/GetSingleProduct";
+
 
 //import UperHeader from "../../Component/UperHeader.js/UperHeader";
 import ImageContainer from "../../Component/ImageContainer/ImageContainer";
@@ -11,7 +15,8 @@ import CatList from "../../Component/CatList/CatList";
 import Sliderwith4imgs from "../../Component/Sliderwith4imgs/Sliderwith4imgs";
 import SmallCard from "../../Component/SmallCard/SmallCard";
 import SeeAll from "../../Component/SeeAll/SeeAll";
-import { getAllProducts } from "../../Store/actions/productActions";
+import { getAllProducts } from '../../Store/actions/ProductActions/getAllProducts';
+
 import Carsoual from "../../Component/Carsoual/Carsoual";
 import ProductCard from "../../Component/ProductCard/ProductCard";
 import TextCenter from "../../Component/TextCenter/TextCenter";
@@ -60,15 +65,25 @@ import L12 from "../../assets/Homepage/Icon_260_x_144_-(6).png";
 
 export default function Home() {
 
-  const products = useSelector(state => state.products)
+  const products = useSelector(state => state.AllProducts)
+  const singleproduct = useSelector(state => state.SingleProduct)
   const items = products.slice(0, 6)
 
-  console.log("products", products);
+  console.log("productsnnnnnnnnnnnnnnnnnnnn", products);
+  console.log("singleproductnnnnnnnnnnnnnnnnnn", singleproduct);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllProducts());
+    dispatch(ProductById('61a13f2a9b6b3cd7f9b46089'));
   }, []);
+
+  const women=products.filter(product=>product.category.name==="womans") 
+  const womenProduct= women.slice(0,6)
+  const men=products.filter(product=>product.category.name==="men") 
+  const menProduct=men.slice(0,6)
+  console.log("womenProducts",womenProduct)
+  console.log("menProducts",menProduct)
 
 
 
@@ -177,7 +192,8 @@ export default function Home() {
             items.map((item, index) => {
               return (
                 <div className="col-md-2 mb-4" key={index}>
-                  <ProductCard product={item} />
+                  <Link to="/singleProduct"><ProductCard product={item} /></Link>
+                  
                   {/* {console.log("item", item)} */}
                 </div>
               );
@@ -266,14 +282,18 @@ export default function Home() {
         <SeeAll color="black" background="#C7C7CD" title="Women's Sweatshirts | Up to 50% OFF" />
         <div className="row mt-3">
           {
-            items.map((item, index) => {
+            
+           
+            
+            womenProduct.map((item, index) => {
               return (
                 <div className="col-md-2 mb-4" key={index}>
                   <ProductCard product={item} />
                   {/* {console.log("item", item)} */}
                 </div>
               );
-            })}
+            })
+          }
         </div>
       </div>
 
@@ -300,7 +320,7 @@ export default function Home() {
         <SeeAll color="black" background="#C7C7CD" title="Men's Sweatshirts | Up to 50% OFF" />
         <div className="row mt-3">
           {
-            items.map((item, index) => {
+            menProduct.map((item, index) => {
               return (
                 <div className="col-md-2 mb-4" key={index}>
                   <ProductCard product={item} />

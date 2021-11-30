@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProductsPaganation } from "../../Store/actions/ProductActions/productActions";
 // styles
 import "./Products.scss";
 // components
@@ -41,11 +40,12 @@ import i80 from "../../assets/imgs/p80.PNG";
 // material ui
 import WindowIcon from "@mui/icons-material/Window";
 import HomeIcon from "@mui/icons-material/Home";
+import { getAllProductsPaganation } from "../../Store/actions/ProductActions/GetAllProductsPagination";
 
 export default function Products() {
-  const products = useSelector((state) => state.products);
+  const products = useSelector((state) => state.AllProductsPagination);
   const [pageNum, setpageNum] = useState(1);
-  console.log("products", products);
+  console.log("AllProductsPagination", products);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllProductsPaganation(pageNum));
@@ -202,7 +202,7 @@ export default function Products() {
             <hr />
             {/* displaying number of products  */}
             <div className="d-flex justify-content-between">
-              <p className="text-muted">{products.length} Products Found</p>
+              <p className="text-muted">{products?.length} Products Found</p>
               {/* Mateial icon */}
               <p className="d-flex mx-2">
                 <a href="#" className="text-decoration-none text-muted mx-2">

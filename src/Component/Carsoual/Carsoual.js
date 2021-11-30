@@ -12,7 +12,7 @@ export default function Carsoual({products}) {
     //for(0, i<arrays,1){  arr.push(products.slice(i, x) ) 0 i+5  5 x+5}
     //arr[0].map(item =>)
 
-    let arrlnth = products.length / 6;
+    let arrlnth = products?.length / 6;
     let arr = [];
     let l = 0, x = 6;
     for (let i = 0; i < arrlnth; i++) {

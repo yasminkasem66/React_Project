@@ -11,10 +11,13 @@ import ProductDetails from "../../Component/ProductDetails/ProductDetails";
 import ProductSpecifications from "../../Component/ProductSpecifications/ProductSpecifications";
 import DeliveryReturns from "../../Component/Delivery-Returns/DeliveryReturns";
 import Aside2 from "../../Component/Aside2/Aside2";
-import {
-  getAllProducts,
-  ProductById,
-} from "../../Store/actions/ProductActions/productActions";
+// import {
+//   getAllProducts,
+//   ProductById,
+// } from "../../Store/actions/ProductActions/productActions";
+
+import { ProductById } from '../../Store/actions/ProductActions/GetSingleProduct';
+import { getAllProducts } from '../../Store/actions/ProductActions/getAllProducts';
 import Footer1 from "../../Component/Footer1/Footer1";
 import { useParams } from "react-router-dom";
 
@@ -22,7 +25,7 @@ export default function SingleProduct() {
   const { id } = useParams();
   console.log("id id", id);
 
-  const product = useSelector((state) => state.products);
+  const product = useSelector((state) => state.SingleProduct);
   console.log("product", product);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -52,7 +55,7 @@ export default function SingleProduct() {
               <div className="col-5">
                 <ImageContainer
                   wid="col-12"
-                  img={product.image}
+                  img={product?.image}
                   color={"#a42924"}
                 />
 
@@ -160,12 +163,11 @@ export default function SingleProduct() {
             style={{ backgroundColor: "", position: "relative" }}
           >
             <ProductDetails
-              name="ethyl alcohol"
-              size="1 Liter"
-              specs1="kills 99.9% of all virus and germs"
-              specs2="contains 70% Ethyl alcohol"
+              name={product?.name}
+              specs1={product?.description}
+              size={product?.weight}
+              specs2={product?.model}
               specs3="external use only"
-              specs4="organic product"
               notes="There may be a difference in the appearance of the outer package or the data from the outside only"
             />
             <div
@@ -182,32 +184,31 @@ export default function SingleProduct() {
               <h5>Specifications</h5>
               <div className="col-6">
                 <ProductDetails
-                  name="ethyl alcohol"
-                  size="1 Liter"
-                  specs1="kills 99.9% of all virus and germs"
-                  specs2="contains 70% Ethyl alcohol"
-                  specs3="external use only"
-                  specs4="organic product"
+                  name={product?.name}
+                  specs1={product?.description}
+                  size={product?.weight}
+                  specs2={product?.model}
+                 specs3="external use only"
                   notes="There may be a difference in the appearance of the outer package or the data from the outside only"
                 />
               </div>
               <div className="col-6">
                 <ProductSpecifications
-                  sku="GE810ST01ZZO2NAFAMZ"
-                  model="1 Liter"
+                  sku={product?.sku}
+                  model={product?.model}
                   country="Egypt"
-                  size="15*5"
-                  color="Transparent"
-                  material="حول إثيلي 70% ethyl alcohol 70%"
+                  size={product?.weight}
+                  color={product?.colors}
+                  material={product?.material}
                 />
               </div>
             </div>
           </div>
           <div className="col-3 single-secondcol ms-0">
             <Aside2
-              productImg={product.image}
-              price={product.price}
-              name={product.name}
+              productImg={product?.image}
+              price={product?.price}
+              name={product?.name}
             />
           </div>
         </div>

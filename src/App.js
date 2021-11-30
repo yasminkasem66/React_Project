@@ -16,27 +16,15 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
-      <div className="App bg-white">
-        <Beforelogin />
+      <Router>
+    <div className="App bg-white">
 
-        {/* <Myaccount/> */}
-        {/* <Home/> */}
-        {/* <AboutUs/> */}
-        {/* <ContactUs/> */}
+      <Beforelogin/>
 
-        {/* <SingleProduct/> */}
-        {/* <Checkout /> */}
-        {/* <NextCheckout /> */}
+   
 
-        {/* <Products /> */}
-        {/* <Cart /> */}
-
-        {/* <SingleProduct/> */}
-        {/* <Login/> */}
-        {/* <Registration/> */}
-      </div>
-    </Router>
+    </div>
+          </Router>
   );
 }
 

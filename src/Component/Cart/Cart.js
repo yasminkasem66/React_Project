@@ -56,7 +56,7 @@ export default function Cart(props) {
               </div>
               <div className="col-9 p-2">
                 <p>Seller: Bazicz</p>
-                <p>{props.orderItems.name}</p>
+                {/* <p>{props.orderItems.name}</p> */}
                 <p>Size: L</p>
                 <div style={{ color: "#FF9800" }}>
                   <span>

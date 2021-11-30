@@ -80,8 +80,17 @@ export default function Home() {
   const womenProduct= women.slice(0,6)
   const men=products.filter(product=>product.category.name==="men") 
   const menProduct=men.slice(0,6)
+  const gaming=products.filter(product=>product.category.name==="games") 
+  const gamesProducts=gaming.slice(0,6)
+  const furniture=products.filter(product=>product.category.name==="furniture") 
+  const furnitureProducts=furniture.slice(0,6)
   console.log("womenProducts",womenProduct)
   console.log("menProducts",menProduct)
+  console.log("gamesProduct",gamesProducts)
+  console.log("furnitureProducts",furnitureProducts)
+
+
+
 
 
 
@@ -341,10 +350,10 @@ export default function Home() {
 
       {/*Shavers & hair Removal | Up to 30% OFF */}
       <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title="Shavers & hair Removal | Up to 30% OFF" />
+        <SeeAll color="black" background="#C7C7CD" title="Games | Up to 30% OFF" />
         <div className="row mt-3">
           {
-            items.map((item, index) => {
+            gamesProducts.map((item, index) => {
               return (
                 <div className="col-md-2 mb-4" key={index}>
                   <ProductCard product={item} />
@@ -378,10 +387,10 @@ export default function Home() {
 
       {/*Soft Drinks | Up to 30% OFF */}
       <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title="Soft Drinks | Up to 30% OFF" />
+        <SeeAll color="black" background="#C7C7CD" title="Furniture | Up to 30% OFF" />
         <div className="row mt-3">
           {
-            items.map((item, index) => {
+            furnitureProducts.map((item, index) => {
               return (
                 <div className="col-md-2 mb-4" key={index}>
                   <ProductCard product={item} />

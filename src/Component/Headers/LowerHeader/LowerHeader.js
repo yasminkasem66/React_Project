@@ -162,13 +162,14 @@ export default function LowerHeader() {
                 </div>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/cart"
                   className="hoverAnchor d-flex text-decoration-none  link-dark  fw-bolder socialIcon"
                 >
                   <i className="fal fa-shopping-cart mt-1 me-2" />
+                
                   <span>Cart</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

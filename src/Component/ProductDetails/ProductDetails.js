@@ -22,7 +22,6 @@ export default function ProductDetails(props) {
     <li>{props.specs1}</li>
     <li>{props.specs2}</li>
     <li>{props.specs3}</li>
-    <li>{props.specs4}</li>
     <li id="specifications">
      {props.notes}
     </li>

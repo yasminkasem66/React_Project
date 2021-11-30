@@ -15,7 +15,8 @@ import CatList from "../../Component/CatList/CatList";
 import Sliderwith4imgs from "../../Component/Sliderwith4imgs/Sliderwith4imgs";
 import SmallCard from "../../Component/SmallCard/SmallCard";
 import SeeAll from "../../Component/SeeAll/SeeAll";
-import { getAllProducts } from '../../Store/actions/ProductActions/';
+import { getAllProducts } from '../../Store/actions/ProductActions/getAllProducts';
+
 import Carsoual from "../../Component/Carsoual/Carsoual";
 import ProductCard from "../../Component/ProductCard/ProductCard";
 import TextCenter from "../../Component/TextCenter/TextCenter";

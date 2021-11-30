@@ -1,8 +1,8 @@
 import { GET_SINGLE_PRODUCT } from '../types';
 import { GET_ALL_PRODUCTS_PAGANATION } from '../types';
 import { GET_ALL_PRODUCTS } from '../types';
-
-export const AllProductsReducer = (state = [], action) => {
+import {fproducts} from '../mockdata'
+export const AllProductsReducer = (state = fproducts, action) => {
     console.log("action", action);
     switch (action.type) {
         case GET_ALL_PRODUCTS:
@@ -12,7 +12,7 @@ export const AllProductsReducer = (state = [], action) => {
     }
 };
 
-export const AllProductsPaginationReducer = (state = [], action) => {
+export const AllProductsPaginationReducer = (state = fproducts, action) => {
     console.log("action", action);
     switch (action.type) {
         case GET_ALL_PRODUCTS_PAGANATION:

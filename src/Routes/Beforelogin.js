@@ -26,25 +26,15 @@ export const Beforelogin = () => {
       <Suspense fallback={<div>Loading... </div>}>
         {/* first Match win */}
         <Routes>
-          <Route path="/" exact element={<Home />}>
-            {" "}
-          </Route>
-          <Route path="/products" exact element={<Products />}>
-            {" "}
-          </Route>
+          <Route path="/" exact element={<Home />}/>
+          <Route path="/products" exact element={<Products />}/>
           <Route path="/singleProduct" exact element={<SingleProduct />} />
-
           <Route path="/singleProduct/:id" exact element={<SingleProduct />} />
-
           <Route path="/contact" exact element={<ContactUs />} />
           <Route path="/cart" exact element={<Cart />} />
-
-          <Route path="/login" exact element={<Login />}/>
-          
+          <Route path="/login" exact element={<Login />}/>  
           <Route path="/registration" exact element={<Registration />} />
-
           <Route path="/aboutus" exact element={<AboutUs />} />
-
           <Route path="*" exact element={<NotFound />} />
         </Routes>
       </Suspense>

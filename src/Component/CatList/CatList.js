@@ -20,7 +20,7 @@ export default function CatList() {
                 <li className="list-group-item d-flex justify-content-between align-items-start border-0  p-0">
                     <div className="ms-2 me-auto">
                         <i className="fas fa-tshirt" />{" "}
-                        <NavLink to="/products" className="nav-link text-dark d-inline-block fs-6 fw-light" href="#">
+                        <NavLink to="/products" className="nav-link text-dark d-inline-block fs-6 fw-light" >
                             Fashion
                         </NavLink>
                     </div>

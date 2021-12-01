@@ -20,7 +20,8 @@ function App() {
       <Router>
     <div className="App bg-white">
 
-      <Beforelogin/>
+      {/* <Beforelogin/> */}
+      <Registration/>
 
    
 

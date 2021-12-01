@@ -2,7 +2,9 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
 import "./LowerHeader.scss";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate} from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { signout } from "../../../Store/actions/authen/authen";
 export default function LowerHeader() {
   useEffect(() => {
     window.addEventListener("scroll", isSticky);
@@ -22,6 +24,18 @@ export default function LowerHeader() {
       element.style.width = "100%";
     }
   };
+
+  // check if logged in
+  let navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    dispatch(signout())
+    navigate('/')
+  }
+
+  const token = localStorage.getItem("token");
+
   return (
     <>
       <header
@@ -85,17 +99,25 @@ export default function LowerHeader() {
                     aria-labelledby="dropdownMenuLink"
                   >
                     <li>
-                      <Link className="dropdown-item" to="/login">
-                        <button className="text-light btn px-5 py-1 btn-warning">
-                          SIGN IN
-                        </button>
-                      </Link>
+                      {
+                        !token&& <Link className="dropdown-item" to="/login">
+                          <button className="text-light btn px-5 py-1 btn-warning">
+                            SIGN IN
+                          </button>
+                        </Link>
+                      }
                     </li>
                     <li>
-                      <Link className="dropdown-item" to="/login">
-                        <i className="far fa-user" />
-                        My Acount
-                      </Link>
+                      {
+                        token ? <Link className="dropdown-item" to="/Myaccount">
+                          <i className="far fa-user" />
+                          My Acount
+                        </Link> : <Link className="dropdown-item" to="/login">
+                          <i className="far fa-user" />
+                          My Acount
+                        </Link>
+                      }
+                     
                     </li>
                     <li>
                       <a className="dropdown-item" href="#">
@@ -106,6 +128,15 @@ export default function LowerHeader() {
                       <a className="dropdown-item" href="#">
                         <i className="far fa-heart" /> Saved Items
                       </a>
+                    </li>
+                    <li>
+                      {
+                        token && <Link className="dropdown-item" to="/">
+                          <span onClick={logout} className=" btn px-5 py-1 fs-5 text-warning">
+                            Log out
+                          </span>
+                        </Link>
+                      }
                     </li>
                   </ul>
                 </div>
@@ -162,13 +193,14 @@ export default function LowerHeader() {
                 </div>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/cart"
                   className="hoverAnchor d-flex text-decoration-none  link-dark  fw-bolder socialIcon"
                 >
                   <i className="fal fa-shopping-cart mt-1 me-2" />
+                
                   <span>Cart</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

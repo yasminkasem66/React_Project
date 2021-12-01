@@ -8,15 +8,21 @@ import Footer1 from '../../Component/Footer1/Footer1';
 import DetailsCard from '../../Component/DetailsCard/DetailsCard';
 import Carsoual from '../../Component/Carsoual/Carsoual';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllProducts } from "../../Store/actions/ProductActions/getAllProducts";
+import { getAllProducts } from '../../Store/actions/ProductActions/getAllProducts';
+
+
 import { getAllUsers } from '../../Store/actions/UserActions/userActions';
+import { signout } from '../../Store/actions/authen/authen';
+import { useNavigate } from 'react-router';
 
 
 
 
 export default function Myaccount() {
 
-    const products = useSelector(state => state.products)
+  let navigate = useNavigate();
+
+  const products = useSelector(state => state.AllProducts)
   const items = products.slice(0, 3)
 
   console.log("products", products);
@@ -37,13 +43,20 @@ export default function Myaccount() {
     dispatch2(getAllUsers());
   }, []);
 
+
+  const logout=() => {
+    dispatch(signout())
+    navigate('/')
+  }
+
+
     return (
         <>
       <ImageContainer img={image1} color={"#a42924"} />
       <MiddeleHeader />
       <LowerHeader />
       <section className="row container d-flex  m-auto main-sectionFirst mb-5">
-           <MyaccountList/>
+          <MyaccountList logout={logout}/>
            <div
   className="col-md-9 row   ms-2   "
   style={{

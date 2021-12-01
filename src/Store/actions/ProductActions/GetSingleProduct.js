@@ -1,6 +1,6 @@
 import { axiosInstance } from "../../../network";
-import {GET_SINGLE_PRODUCT
-} from "../../types";
+import { productConstants } from '../../types';
+
 
 
 
@@ -9,7 +9,7 @@ export const ProductById = (id) => async (dispatch) => {
     const response = await axiosInstance.get(`/products/${id}`);
     console.log("response", response);
     dispatch({
-      type: GET_SINGLE_PRODUCT,
+      type: productConstants.GET_SINGLE_PRODUCT,
       payload: response.data.product,
     });
   } catch (err) {

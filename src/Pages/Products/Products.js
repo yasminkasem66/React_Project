@@ -43,9 +43,9 @@ import HomeIcon from "@mui/icons-material/Home";
 import { getAllProductsPaganation } from "../../Store/actions/ProductActions/GetAllProductsPagination";
 
 export default function Products() {
-  const products = useSelector((state) => state.products);
+  const products = useSelector((state) => state.AllProductsPagination);
   const [pageNum, setpageNum] = useState(1);
-  console.log("products", products);
+  console.log("AllProductsPagination", products);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllProductsPaganation(pageNum));
@@ -202,7 +202,7 @@ export default function Products() {
             <hr />
             {/* displaying number of products  */}
             <div className="d-flex justify-content-between">
-              <p className="text-muted">{products.length} Products Found</p>
+              <p className="text-muted">{products?.length} Products Found</p>
               {/* Mateial icon */}
               <p className="d-flex mx-2">
                 <a href="#" className="text-decoration-none text-muted mx-2">

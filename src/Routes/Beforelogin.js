@@ -16,6 +16,7 @@ export const Registration = React.lazy(() =>
   import("../Pages/Registration/Registration")
 );
 export const AboutUs = React.lazy(() => import("../Pages/AboutUs/AboutUs"));
+export const Myaccount = React.lazy(() => import("../Pages/Myaccount/Myaccount"));
 export const NotFound = React.lazy(() => import("../Pages/Notfound/Notfound"));
 
 // import Myaccount from "./Pages/Myaccount/Myaccount";
@@ -29,6 +30,7 @@ export const Beforelogin = () => {
         <Routes>
           <Route path="/" exact element={<Home />}/>
           <Route path="/products" exact element={<Products />}/>
+          <Route path="/Myaccount" exact element={<Myaccount />}/>
           <Route path="/singleProduct" exact element={<SingleProduct />} />
           <Route path="/singleProduct/:id" exact element={<SingleProduct />} />
           <Route path="/contact" exact element={<ContactUs />} />

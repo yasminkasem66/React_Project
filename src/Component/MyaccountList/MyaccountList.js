@@ -1,7 +1,7 @@
 import React from 'react'
 import "./MyaccountList.scss"
 
-export default function MyaccountList() {
+export default function MyaccountList(props) {
     return (
         <>
             <div
@@ -78,7 +78,7 @@ export default function MyaccountList() {
         href
         className="text-decoration-none myaccount-logout p-1"
         style={{ color: "#f68b1e", fontWeight: 500 }}
-      >
+                onClick={props.logout} >
         LOGOUT
       </a>
     </div>

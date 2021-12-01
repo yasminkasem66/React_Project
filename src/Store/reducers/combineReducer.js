@@ -6,8 +6,8 @@ import {
   SingleProductReducer,
   AllProductsPaginationReducer,
 } from "./GetAllProduct";
-import { CartReducer } from "./CartReducer";
-import { StuckReducer } from "./StuckReducer";
+import { SignUpReducer } from "./authReducer";
+
 
 export default combineReducers({
   AllProducts: AllProductsReducer,
@@ -15,6 +15,6 @@ export default combineReducers({
   SingleProduct: SingleProductReducer,
   orders: ordersReducer,
   users: userReducer,
-  cart: CartReducer,
-  stuck: StuckReducer,
+  SignUp: SignUpReducer
+
 });

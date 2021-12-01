@@ -1,16 +1,18 @@
 import axios from "axios";
 
 // common configuration in single instance
-const accessToken ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSGFtYWR5IiwidXNlcklkIjoiNjE5YWNiZGRiOGU2Mjc1OTU5NTUxNWRiIiwicm9sZSI6ImFkbWluIiwiaW1hZ2UiOiJodHRwczovL2p1bWlhLWFwaXMuaGVyb2t1YXBwLmNvbS9wdWJsaWMvdXBsb2Fkcy9XaGF0c0FwcCBJbWFnZSAyMDIxLTExLTIyIGF0IDEyLjM3LjQ4IEFNLmpwZWciLCJpYXQiOjE2MzgwNTI5MDUsImV4cCI6MTYzODEzOTMwNX0.a1FvN_pzh2N-0PGV2wW4rOUHgI6OgBsnDxsXdiXZOoE';
+// const accessToken ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSGFsYSIsInVzZXJJZCI6IjYxYTY4YTE2ZWRiMjRlMTA0NWY1ZWY4MCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjM4Mzg4Njg3LCJleHAiOjE2Mzg0NzUwODd9.o0QPZ7qASxkb0d4pPUyTqqodJTjRORO1lzfMKox30nM';
+
+const accessToken = localStorage.getItem("token");
 
 //   url: "http://localhost:5000/api/v1"
 //   https://jumia-apis.herokuapp.com/api/v1
 
 export const axiosInstance = axios.create({
   baseURL:"http://localhost:5000/api/v1",
-  // headers: {
-  //   authorization:`Bearer ${accessToken}`,
-  // },
+  headers: {
+    authorization:`Bearer ${accessToken}`,
+  },
 });
 
 // interceptor

@@ -1,9 +1,13 @@
 import React from "react";
+import Badge from "@material-ui/core/Badge";
+// import LinearProgress from "@material-ui/core/LinearProgress";
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
 import "./LowerHeader.scss";
 import { Link, NavLink, useNavigate} from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signout } from "../../../Store/actions/authen/authen";
 export default function LowerHeader() {
   useEffect(() => {
@@ -35,6 +39,12 @@ export default function LowerHeader() {
   }
 
   const token = localStorage.getItem("token");
+  // add to cart 
+  const cart = useSelector((state) => state.Orders);
+
+
+
+  
 
   return (
     <>
@@ -198,8 +208,19 @@ export default function LowerHeader() {
                   className="hoverAnchor d-flex text-decoration-none  link-dark  fw-bolder socialIcon"
                 >
                   <i className="fal fa-shopping-cart mt-1 me-2" />
-                
-                  <span>Cart</span>
+                  <span class="position-relative">Cart</span>
+
+          
+                    <span class="position-absolute top-70 start-86 translate-middle badge rounded-pill bg-danger">
+                    {/* {cart.cartItems.length} */}
+                      <span class="visually-hidden">unread messages</span>
+                    </span>
+
+
+                  {/* <Badge count=> */}
+                  {/* <Badge  count={2}>
+                      <AddShoppingCartIcon />
+                    </Badge> */}
                 </Link>
               </li>
             </ul>

@@ -1,15 +1,20 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllOrders } from "../../Store/actions/OrdrActions/orderActions";
+import { getAllOrders, getCartItems } from "../../Store/actions/OrdrActions/orderActions";
 import "./Cart.scss";
+import image1 from "../../assets/imgs/ads.jpeg";
+import CartItem from "../CartItem/CartItem";
+import Footer2 from "../Footer2/Footer2";
+import ImageContainer from "../ImageContainer/ImageContainer";
+import MiddeleHeader from "../Headers/MiddleHeader/MiddeleHeader";
+import LowerHeader from "../Headers/LowerHeader/LowerHeader";
 export default function Cart(props) {
-  const orders = useSelector((state) => state.orders);
-  console.log("orders", orders);
+
+  const orders = useSelector((state) => state.Orders);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllOrders());
+    dispatch(getCartItems());
   }, []);
-
 
   // {
   //   orders.orderItems.map((item, index) => {
@@ -23,8 +28,11 @@ export default function Cart(props) {
   // }
   return (
     <>
-      <section className="cart">
-        <div className="container">
+      <ImageContainer img={image1} color={"#a42924"} />
+      <MiddeleHeader />
+      <LowerHeader />
+      <section className="cart bg-light">
+        <div className="container mb-3">
           <h3>cart (1 item)</h3>
           {/* frist row titles */}
           <div className="row  title" style={{ color: "#8E8EAC" }}>
@@ -42,52 +50,14 @@ export default function Cart(props) {
             </div>
           </div>
           {/* sechond rpw cart description */}
-          <div className="row bg-white p-3">
-            <div
-              className=" col-6 d-flex "
-              style={{ borderRight: "1px solid #F5F5F5" }}
-            >
-              <div className="col-2" >
-                <img
-                  src="./imgs/cart.jpg"
-                  className="img-fluid w-100 h-auto"
-                  alt
-                />
-              </div>
-              <div className="col-9 p-2">
-                <p>Seller: Bazicz</p>
-                {/* <p>{props.orderItems.name}</p> */}
-                <p>Size: L</p>
-                <div style={{ color: "#FF9800" }}>
-                  <span>
-                    <i className="far fa-heart" /> MOVE TO SAVED ITEMS
-                  </span>
-                  <span className="ps-4">
-                    <i className="fas fa-trash" /> REMOVE
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-2 text-center pt-3"
-              style={{ borderRight: "1px solid #F5F5F5" }}
-            >
-              <select className="w-25">
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
-                <option value={4}>4</option>
-              </select>
-            </div>
-            <div
-              className="col-2 pt-3 "
-              style={{ borderRight: "1px solid #F5F5F5" }}
-            >
-              <p className="text-center ">EGP 168</p>
-            </div>
-            <div className="col-2 pt-3" style={{ color: "#FF9800" }}>
-              <p className="text-center">EGP 168</p>
-            </div>
+          <div className="card mb-3">
+            <CartItem />
+          </div>
+          <div className="card mb-3">
+            <CartItem />
+          </div>
+          <div className="card mb-3">
+            <CartItem />
           </div>
           {/* third row total price */}
           <div className="row m-3 text-end">
@@ -131,6 +101,8 @@ export default function Cart(props) {
           </div>
         </div>
       </section>
+      <Footer2 />
+
     </>
   );
 }

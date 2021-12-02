@@ -2,10 +2,6 @@ import { GET_ALL_USERS } from "../../types";
 import { axiosInstance } from "../../../network";
 
 
-
-
-
-
 export const getAllUsers = () => async (dispatch) => {
     try {
       const response = await axiosInstance.get(`/users`);

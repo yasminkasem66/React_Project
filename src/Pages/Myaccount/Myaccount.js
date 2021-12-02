@@ -12,11 +12,15 @@ import { getAllProducts } from '../../Store/actions/ProductActions/getAllProduct
 
 
 import { getAllUsers } from '../../Store/actions/UserActions/userActions';
+import { signout } from '../../Store/actions/authen/authen';
+import { useNavigate } from 'react-router';
 
 
 
 
 export default function Myaccount() {
+
+  let navigate = useNavigate();
 
   const products = useSelector(state => state.AllProducts)
   const items = products.slice(0, 3)
@@ -39,13 +43,20 @@ export default function Myaccount() {
     dispatch2(getAllUsers());
   }, []);
 
+
+  const logout=() => {
+    dispatch(signout())
+    navigate('/')
+  }
+
+
     return (
         <>
       <ImageContainer img={image1} color={"#a42924"} />
       <MiddeleHeader />
       <LowerHeader />
       <section className="row container d-flex  m-auto main-sectionFirst mb-5">
-           <MyaccountList/>
+          <MyaccountList logout={logout}/>
            <div
   className="col-md-9 row   ms-2   "
   style={{

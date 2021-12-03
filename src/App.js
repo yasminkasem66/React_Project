@@ -17,6 +17,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // test
 import './i18n';
 import i18next from "i18next";
+import { CartProvider } from "react-use-cart";
+
 
 
 // i18next.changeLanguage(lang);
@@ -25,18 +27,21 @@ document.documentElement.language = lang;
 
 function App() {
   return (
-      <Router>
-      <div className="App bg-white"
-        dir={lang === "ar" ? "rtl" : "ltr"}
-       >
+    <Router>
+      <CartProvider>
 
-      <Beforelogin/>
+        <div className="App bg-white"
+          dir={lang === "ar" ? "rtl" : "ltr"}
+        >
+
+          <Beforelogin />
 
    
 
-    </div>
-          </Router>
-  );
-}
+        </div>
+      </CartProvider>
+
+    </Router>
+  )}
 
 export default App;

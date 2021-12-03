@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./Pages/Home/Home";
@@ -13,20 +13,42 @@ import AboutUs from "./Pages/AboutUs/AboutUs";
 import ContactUs from "./Pages/ContactUs/ContactUs";
 import { Beforelogin } from "./Routes/Beforelogin";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {PayPalButton} from "react-paypal-button-v2"
+import Paypal from "./Component/Paypal/PayPal";
 
 function App() {
-  return (
-      <Router>
-    <div className="App bg-white">
+  const [checkout, setCheckOut] = useState(false);
 
-      {/* <Beforelogin/> */}
-      <Registration/>
+  // const [checkout, setCheckOut]=useState(false)
+  return (
+
+    <div className="App">
+      {checkout ? (
+        <Paypal />
+      ) : (
+        <button
+          onClick={() => {
+            setCheckOut(true);
+          }}
+        >
+          Checkout
+        </button>
+      )}
+    </div>
+   
+    //   <Router>
+    // <div className="App bg-white">
+
+    //   {/* <Beforelogin/> */}
+    //   <Registration/>
 
    
 
-    </div>
-          </Router>
-  );
+    // </div>
+    //       </Router>
+   
+);
+    
 }
 
 export default App;

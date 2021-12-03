@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { signout } from "../../../Store/actions/authen/authen";
 
 import { useCart } from "react-use-cart";
+import { getCartItems } from "../../../Store/actions/OrdrActions/orderActions";
 
 export default function LowerHeader() {
   // test search

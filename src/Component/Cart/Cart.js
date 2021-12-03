@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllOrders, getCartItems } from "../../Store/actions/OrdrActions/orderActions";
+import {
+  getAllOrders,
+  getCartItems,
+} from "../../Store/actions/OrdrActions/orderActions";
 import "./Cart.scss";
 import image1 from "../../assets/imgs/ads.jpeg";
 import CartItem from "../CartItem/CartItem";
@@ -8,14 +11,28 @@ import Footer2 from "../Footer2/Footer2";
 import ImageContainer from "../ImageContainer/ImageContainer";
 import MiddeleHeader from "../Headers/MiddleHeader/MiddeleHeader";
 import LowerHeader from "../Headers/LowerHeader/LowerHeader";
-export default function Cart(props) {
 
+import { useCart } from "react-use-cart";
+
+export default function Cart(props) {
+  const {
+    items,
+    isEmpty,
+    totalUniqueItems,
+    totalItems,
+    cartTotal,
+    updateItemQuantity,
+    removeItem,
+    emptyCart,
+  } = useCart();
+
+  console.log("items from addItem function", items);
   const orders = useSelector((state) => state.Orders);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCartItems());
   }, []);
-
+  console.log("ooooorderssss", orders);
   // {
   //   orders.orderItems.map((item, index) => {
   //     return (
@@ -50,15 +67,21 @@ export default function Cart(props) {
             </div>
           </div>
           {/* sechond rpw cart description */}
-          <div className="card mb-3">
+
+          {items.map((item, index) => {
+            return (
+              <div className="card mb-3">
+                <CartItem item={item} key={index} />
+              </div>
+            );
+          })}
+
+          {/* <div className="card mb-3">
             <CartItem />
           </div>
           <div className="card mb-3">
             <CartItem />
-          </div>
-          <div className="card mb-3">
-            <CartItem />
-          </div>
+          </div> */}
           {/* third row total price */}
           <div className="row m-3 text-end">
             <p style={{ color: "#f68b1e", fontWeight: "bold" }}>
@@ -102,7 +125,6 @@ export default function Cart(props) {
         </div>
       </section>
       <Footer2 />
-
     </>
   );
 }

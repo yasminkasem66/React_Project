@@ -2,14 +2,31 @@ import React from "react";
 import Badge from "@material-ui/core/Badge";
 // import LinearProgress from "@material-ui/core/LinearProgress";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
-
+import {
+  getAllOrders,
+  getCartItems,
+} from "../../../Store/actions/OrdrActions/orderActions";
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
 import "./LowerHeader.scss";
-import { Link, NavLink, useNavigate} from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signout } from "../../../Store/actions/authen/authen";
+
+import { useCart } from "react-use-cart";
+
 export default function LowerHeader() {
+  const {
+    items,
+    isEmpty,
+    totalUniqueItems,
+    totalItems,
+    cartTotal,
+    updateItemQuantity,
+    removeItem,
+    emptyCart,
+  } = useCart();
+
   useEffect(() => {
     window.addEventListener("scroll", isSticky);
     return () => {
@@ -34,17 +51,19 @@ export default function LowerHeader() {
   const dispatch = useDispatch();
 
   const logout = () => {
-    dispatch(signout())
-    navigate('/')
-  }
+    dispatch(signout());
+    navigate("/");
+  };
 
   const token = localStorage.getItem("token");
-  // add to cart 
-  const cart = useSelector((state) => state.Orders);
+  // add to cart
 
-
-
-  
+  const orders = useSelector((state) => state.Orders);
+  const dispatch2 = useDispatch();
+  useEffect(() => {
+    dispatch2(getCartItems());
+  }, []);
+  console.log("all orders from cart", orders);
 
   return (
     <>
@@ -64,7 +83,7 @@ export default function LowerHeader() {
               className="d-flex text-decoration-none  link-dark me-4 socialIcon"
               to="/"
             >
-           <h2
+              <h2
                 className="fw-bold mt-3"
                 style={{ fontFamily: '"Orbitron", sans-serif' }}
               >
@@ -109,25 +128,26 @@ export default function LowerHeader() {
                     aria-labelledby="dropdownMenuLink"
                   >
                     <li>
-                      {
-                        !token&& <Link className="dropdown-item" to="/login">
+                      {!token && (
+                        <Link className="dropdown-item" to="/login">
                           <button className="text-light btn px-5 py-1 btn-warning">
                             SIGN IN
                           </button>
                         </Link>
-                      }
+                      )}
                     </li>
                     <li>
-                      {
-                        token ? <Link className="dropdown-item" to="/Myaccount">
-                          <i className="far fa-user" />
-                          My Acount
-                        </Link> : <Link className="dropdown-item" to="/login">
+                      {token ? (
+                        <Link className="dropdown-item" to="/Myaccount">
                           <i className="far fa-user" />
                           My Acount
                         </Link>
-                      }
-                     
+                      ) : (
+                        <Link className="dropdown-item" to="/login">
+                          <i className="far fa-user" />
+                          My Acount
+                        </Link>
+                      )}
                     </li>
                     <li>
                       <a className="dropdown-item" href="#">
@@ -140,13 +160,16 @@ export default function LowerHeader() {
                       </a>
                     </li>
                     <li>
-                      {
-                        token && <Link className="dropdown-item" to="/">
-                          <span onClick={logout} className=" btn px-5 py-1 fs-5 text-warning">
+                      {token && (
+                        <Link className="dropdown-item" to="/">
+                          <span
+                            onClick={logout}
+                            className=" btn px-5 py-1 fs-5 text-warning"
+                          >
                             Log out
                           </span>
                         </Link>
-                      }
+                      )}
                     </li>
                   </ul>
                 </div>
@@ -210,12 +233,10 @@ export default function LowerHeader() {
                   <i className="fal fa-shopping-cart mt-1 me-2" />
                   <span class="position-relative">Cart</span>
 
-          
-                    <span class="position-absolute top-70 start-86 translate-middle badge rounded-pill bg-danger">
-                    {/* {cart.cartItems.length} */}
-                      <span class="visually-hidden">unread messages</span>
-                    </span>
-
+                  <span class="position-absolute top-70 start-86 translate-middle badge rounded-pill bg-danger">
+                    {totalUniqueItems}
+                    <span class="visually-hidden">unread messages</span>
+                  </span>
 
                   {/* <Badge count=> */}
                   {/* <Badge  count={2}>

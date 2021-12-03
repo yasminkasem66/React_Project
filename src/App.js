@@ -13,18 +13,16 @@ import AboutUs from "./Pages/AboutUs/AboutUs";
 import ContactUs from "./Pages/ContactUs/ContactUs";
 import { Beforelogin } from "./Routes/Beforelogin";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
+import { CartProvider } from "react-use-cart";
 function App() {
   return (
-      <Router>
-    <div className="App bg-white">
-
-      <Beforelogin/>
-
-   
-
-    </div>
-          </Router>
+    <Router>
+      <CartProvider>
+        <div className="App bg-white">
+          <Beforelogin />
+        </div>
+      </CartProvider>
+    </Router>
   );
 }
 

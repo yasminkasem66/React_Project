@@ -1,14 +1,35 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'
+
 import "./CatList.scss"
 
 export default function CatList() {
+    const { t, i18n } = useTranslation();
+
     return (
         <>
+            {/* <div className="col-lg-2   rounded "> */}
 
+            <div className="col-lg-2  card d-none d-lg-block">
+                <Link to="/productDetails" className="aa"><i className="fas fa-apple-alt" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}> {t("suber")}</span></Link><br />
+                <Link to="/login" href="productPage.html" className="aa">
+                    <i className="fas fa-tshirt" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}> {t('fasion')}</span></Link><br />
+                <Link to="/" href="productPage.html" className="aa"><i className="fas fa-feather-alt" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('healty')}</span></Link><br />
+                <Link to="/" className="aa"><i className="fas fa-child" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('baby')}</span></Link><br />
+                <Link to="/" className="aa"><i className="fas fa-mobile-alt" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}> {t('phones')}</span></Link><br />
+                <Link to="/category" className="aa"><i className="fas fa-home" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('nhome')}</span></Link><br />
+                <Link to="/" className="aa"><i className="fas fa-laptop" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('electro')}</span></Link><br />
+                <Link to="/" className="aa"><i className="fas fa-desktop" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}> {t('computer')}</span></Link><br />
+                <Link to="/" className="aa"><i className="fas fa-dumbbell" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('sport')}</span></Link><br />
+                <Link to="/" className="aa"><i className="fas fa-gamepad" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('game')}</span></Link><br />
+                <Link to="/" className="aa"><i className="fas fa-car" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}> {t('outomobile')}</span></Link><br />
+                <Link to="/" className="aa"><i className="fas fa-ellipsis-h" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}> {t('other')}</span></Link><br />
+            </div>
+            
             
             {/* test */}
-            <ul className="list-group border-0 ">
+            {/* <ul className="list-group border-0 ">
                 <li className="list-group-item d-flex justify-content-between align-items-start border-0  p-0">
                     <div className="ms-2 me-auto">
                         <i className="fas fa-apple-alt" aria-hidden="true" />
@@ -97,7 +118,7 @@ export default function CatList() {
                         </a>
                     </div>
                 </li>
-            </ul>
+            </ul> */}
             {/* test */}
         </>
     )

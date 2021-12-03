@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next'
 
 import { ProductById } from "../../Store/actions/ProductActions/GetSingleProduct";
 
@@ -87,6 +88,10 @@ export default function Home() {
 
 
 
+
+  const { t, i18n } = useTranslation();
+
+
   return (
     <div className="bg-light">
       <ImageContainer img={image1} color={"#a42924"} />
@@ -96,9 +101,9 @@ export default function Home() {
       {/* under header */}
       <div className="row container mx-auto ">
         {/* left */}
-        <div className="col-lg-2  card rounded ">
+        {/* <div className="col-lg-2  card rounded "> */}
           <CatList />
-        </div>
+        {/* </div> */}
         {/* middle */}
         <div className="col-lg-8  rounded ">
           <Sliderwith4imgs slider1={slider1} slider2={slider2} slider3={slider3} slider4={slider4} />

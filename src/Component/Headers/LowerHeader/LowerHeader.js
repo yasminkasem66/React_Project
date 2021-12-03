@@ -1,8 +1,5 @@
-import React from "react";
-import Badge from "@material-ui/core/Badge";
-// import LinearProgress from "@material-ui/core/LinearProgress";
-import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
-
+import React, { useState } from "react";
+import { useTranslation } from 'react-i18next'
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
 import "./LowerHeader.scss";
@@ -10,6 +7,21 @@ import { Link, NavLink, useNavigate} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signout } from "../../../Store/actions/authen/authen";
 export default function LowerHeader() {
+  // test search
+  const [Search, setSearch] = useState();
+  const handleFormChange = (e) => {
+    console.log(e.target.value, e.target.name)
+    setSearch(e.target.value);
+  };
+  const handleFormSubmit = () => {
+    // console.log(Search);
+    localStorage.setItem('SearchValue', Search);
+  };
+ 
+  // test search
+
+  const { t, i18n } = useTranslation();
+
   useEffect(() => {
     window.addEventListener("scroll", isSticky);
     return () => {
@@ -39,15 +51,16 @@ export default function LowerHeader() {
   }
 
   const token = localStorage.getItem("token");
+  let user = JSON.parse(localStorage.getItem("user"));
+  
   // add to cart 
   const cart = useSelector((state) => state.Orders);
-
-
-
-  
-
   return (
     <>
+    {
+        console.log("JSON.parse user", user)
+
+    }
       <header
         className="pb-1 pt-2 mb-4 border-bottom  header-underNav"
         id="navBarFixed"
@@ -78,15 +91,20 @@ export default function LowerHeader() {
             <form className="d-flex">
               <input
                 type="search"
-                className="form-control"
-                placeholder="Search Products, brands and Categories"
+                className="form-control shadow-none "
+                placeholder={t("searchProduct")}
                 aria-label="Search"
+                onChange={handleFormChange}
+                value={Search}
               />
-              <input
+              {/* <input
                 className="ms-2 bg-warning rounded border-warning text-light fw-bold"
                 type="button"
                 defaultValue="Search"
-              />
+              /> */}
+              <Link to="/searchpage" role="button" className="btn d-none d-xl-block mx-1 px-3"
+                onClick={handleFormSubmit}
+                style={{ "background-color": "darkorange", "color": "white", "font-size": "14px", "font-weight": "600", "box-shadow": "0 4px 8px 0 rgba(0,0,0,0.2)", "margin-left": "10px" }}>{t("search")}</Link>
             </form>
           </div>
 
@@ -94,16 +112,29 @@ export default function LowerHeader() {
             <ul className="d-flex justify-content-center list-unstyled mt-1">
               <li className="me-2">
                 <div className="dropdown">
-                  <a
-                    href="#"
-                    className="hoverAnchor text-decoration-none  link-dark me-4 dropdown-toggle fw-bold socialIcon"
-                    role="button"
-                    id="dropdownMenuLink"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <i className="far fa-user" /> Acount
-                  </a>
+              {user?
+                    <a
+                      href="#"
+                      className="hoverAnchor text-decoration-none  link-dark me-4 dropdown-toggle fw-bold socialIcon"
+                      role="button"
+                      id="dropdownMenuLink"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i className="far fa-user" />{t("hi")}, {user?.name}
+                    </a>
+                    
+                 : <a
+                       href="#"
+                       className="hoverAnchor text-decoration-none  link-dark me-4 dropdown-toggle fw-bold socialIcon"
+                       role="button"
+                       id="dropdownMenuLink"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false"
+                     >
+                       <i className="far fa-user" /> Acount
+                       </a>
+                  }
                   <ul
                     className="dropdown-menu"
                     aria-labelledby="dropdownMenuLink"
@@ -161,7 +192,7 @@ export default function LowerHeader() {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    <i className="far fa-question-circle" /> Help
+                    <i className="far fa-question-circle" /> {t("help")}
                   </a>
                   <ul
                     className="dropdown-menu"
@@ -169,7 +200,7 @@ export default function LowerHeader() {
                   >
                     <li>
                       <a className="dropdown-item" href="#">
-                        Help Center
+                        {t("cart")}
                       </a>
                     </li>
                     <li>

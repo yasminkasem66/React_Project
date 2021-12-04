@@ -14,28 +14,21 @@ export default function ProductDetailsAndRating(props) {
     removeItem,
     emptyCart,
   } = useCart();
-  // const [currentItemIndex, setCurrentItemIndex] = useState(0);
-  // const [currentItemCount, setCurrentItemCount] = useState(0);
-  // const [currentItem, setCurrentItem] = useState({});
-  // useEffect(() => {
-  //   items.map((item, index) => {
-  //     if (item.id === props.product.id) {
-  //       setCurrentItemCount(item.quantity);
-  //       setCurrentItem(item);
-  //     }
-  //   });
-  // }, []);
-
-  //console.log("item item ", currentItem);
-
-  // function grtcount() {
-  //   items.map((item, index) => {
-  //     if (item.id === props.product.id) {
-  //       setCurrentItemCount(item.quantity);
-  //     }
-  //   });
+  // if(document.getElementById("quantity") != null){
+  //   var Qty=document.getElementById("quantity").innerText
   // }
-  // grtcount();
+  // // let Qty=document.getElementById("quantity").innerText
+  // if (Qty===0){
+  //   if(document.getElementById("plusMinus").style!=null){
+  //     document.getElementById("plusMinus").style.visibility="hidden";
+  //     document.getElementById("add").style.visibility="visible";
+  //   }
+    
+  // }else{
+  //   document.getElementById("plusMinus").style.visibility="visible";
+  //   document.getElementById("add").style.visibility="hidden";
+
+  // }
   const updateCurrentItem = () => {
     items.map((item, index) => {
       if (item.id === props.product.id) {
@@ -44,20 +37,7 @@ export default function ProductDetailsAndRating(props) {
       }
     });
   };
-  // const additemToCart = () => {
-  //   addItem(props.product);
-  //   // items.map((item, index) => {
-  //   //   // if (item.id === props.product.id) {
-  //   //   //   //setCurrentItemCount(item.quantity + 1);
-  //   //   // } else {
-  //   //   //   //setCurrentItemIndex(index);
-  //   //   //   //setCurrentItemCount(1);
-  //   //   //   //setCurrentItem(item);
-  //   //   //   //console.log("item item item ", currentItem);
-  //   //   // }
-  //   // });
-  // };
-
+  
   return (
     <>
       <p className="fs-5 d-inline-block mb-2">{props.product?.name}</p>
@@ -90,25 +70,14 @@ export default function ProductDetailsAndRating(props) {
         <span className="fw-normal" style={{ fontSize: 12 }}>
           {props?.shippingPrice}
         </span>
-        {/* 
-        {token ? (
-                        <Link className="dropdown-item" to="/Myaccount">
-                          <i className="far fa-user" />
-                          My Acount
-                        </Link>
-                      ) : (
-                        <Link className="dropdown-item" to="/login">
-                          <i className="far fa-user" />
-                          My Acount
-                        </Link>
-                      )}
-        */}
+        
         <div>
           {items.map((item, index) => {
             if (item.id === props.product.id) {
               return (
                 <>
-                  <a href className="me-2">
+                <div id="plusMinus">
+                <a href className="me-2">
                     {" "}
                     <button
                       onClick={() => updateCurrentItem()}
@@ -124,16 +93,11 @@ export default function ProductDetailsAndRating(props) {
                       />
                     </button>
                   </a>
-                  <span>
+                  <span id="quantity">
                     {item.quantity}
-                    {/* <div style={{ fontSize: 15, display: "inline-block" }}> </div> */}
-                    {/* {items.map((item, index) => {
-                    if (item.id === props.product.id) {
-                      return item.quantity;
-                    }
-                  })} */}
+                   
                   </span>
-                  <a href className="ms-2 d-inline-block">
+                  <a  className="ms-2 d-inline-block">
                     {" "}
                     <button
                       onClick={() => addItem(props.product)}
@@ -149,15 +113,18 @@ export default function ProductDetailsAndRating(props) {
                       />
                     </button>
                   </a>
+                </div>
+                 
                 </>
               );
             } else {
               return (
-                <a href className="ms-2 d-inline-block">
+                <a  className="ms-2 d-inline-block" id="add">
                   {" "}
                   <button
                     onClick={() => addItem(props.product)}
                     className="btn btn-info border-0"
+                    
                   >
                     Add To Cart
                   </button>

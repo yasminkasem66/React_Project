@@ -13,6 +13,7 @@ import MiddeleHeader from "../Headers/MiddleHeader/MiddeleHeader";
 import LowerHeader from "../Headers/LowerHeader/LowerHeader";
 
 import { useCart } from "react-use-cart";
+import { Link } from "react-router-dom";
 
 export default function Cart(props) {
   const {
@@ -50,7 +51,7 @@ export default function Cart(props) {
       <LowerHeader />
       <section className="cart bg-light">
         <div className="container mb-3">
-          <h3>cart (1 item)</h3>
+          <h3>cart ({totalUniqueItems} item)</h3>
           {/* frist row titles */}
           <div className="row  title" style={{ color: "#8E8EAC" }}>
             <div className="col-6 ">
@@ -85,7 +86,7 @@ export default function Cart(props) {
           {/* third row total price */}
           <div className="row m-3 text-end">
             <p style={{ color: "#f68b1e", fontWeight: "bold" }}>
-              Total: EGP 168
+              Total: EGP {cartTotal}
             </p>
             <p>Shipping fees not included yet</p>
           </div>
@@ -108,7 +109,9 @@ export default function Cart(props) {
               >
                 Continue Shopping
               </button>
-              <button
+              <Link to="/checkout" >
+              <button 
+                
                 style={{
                   backgroundColor: "#FF9800",
                   color: "#fff",
@@ -120,6 +123,8 @@ export default function Cart(props) {
               >
                 Continue to Checkout
               </button>
+              </Link>
+             
             </div>
           </div>
         </div>

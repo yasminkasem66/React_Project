@@ -1,6 +1,7 @@
 import React from "react";
 import './DelivaryMethod.scss'
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
+import { Link } from "react-router-dom";
 export default function DelivaryMethod() {
   return (
     <div>
@@ -72,7 +73,11 @@ export default function DelivaryMethod() {
           </div>
           
           <p className="text-center  vouchertxt">You will be able to add a voucher in the next step</p>
+          <Link to="/nextcheckout">
           <button type="button" class="btn proceedBtn text-white fw-bolder mx-3">PROCEED TO NEXT STEP</button>
+
+          </Link>
+          {/* <button type="button" class="btn proceedBtn text-white fw-bolder mx-3">PROCEED TO NEXT STEP</button> */}
         </div>
       </>
     </div>

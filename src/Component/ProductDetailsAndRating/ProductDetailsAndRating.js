@@ -14,30 +14,41 @@ export default function ProductDetailsAndRating(props) {
     removeItem,
     emptyCart,
   } = useCart();
-  // if(document.getElementById("quantity") != null){
-  //   var Qty=document.getElementById("quantity").innerText
-  // }
-  // // let Qty=document.getElementById("quantity").innerText
-  // if (Qty===0){
-  //   if(document.getElementById("plusMinus").style!=null){
-  //     document.getElementById("plusMinus").style.visibility="hidden";
-  //     document.getElementById("add").style.visibility="visible";
-  //   }
-    
-  // }else{
-  //   document.getElementById("plusMinus").style.visibility="visible";
-  //   document.getElementById("add").style.visibility="hidden";
+  const [cartItemNum, setCartItemNum] = useState(totalUniqueItems);
 
+  // if (!qty) {
+  //   document.getElementById("add").style.visibility = "visible";
+  //   document.getElementById("IncAndDecQty").style.visibility = "hidden";
+  // } else {
+  //   document.getElementById("add").style.visibility = "hidden";
+  //   document.getElementById("IncAndDecQty").style.visibility = "visible";
   // }
-  const updateCurrentItem = () => {
+  const incCurrentItemQty = () => {
     items.map((item, index) => {
       if (item.id === props.product.id) {
+        updateItemQuantity(item.id, item.quantity + 1);
+        //setCurrentItemCount(item.quantity - 1);
+      }
+    });
+  };
+  const decCurrentItemQty = () => {
+    items.map((item, index) => {
+      if (item.id === props.product.id) {
+        if (item.quantity === 1) {
+          document.getElementById("add").style.visibility = "visible";
+          document.getElementById("IncAndDecQty").style.visibility = "hidden";
+        }
         updateItemQuantity(item.id, item.quantity - 1);
         //setCurrentItemCount(item.quantity - 1);
       }
     });
   };
-  
+  const additemToCart = () => {
+    addItem(props.product);
+    document.getElementById("IncAndDecQty").style.visibility = "visible";
+    document.getElementById("add").style.visibility = "hidden";
+  };
+
   return (
     <>
       <p className="fs-5 d-inline-block mb-2">{props.product?.name}</p>
@@ -70,68 +81,80 @@ export default function ProductDetailsAndRating(props) {
         <span className="fw-normal" style={{ fontSize: 12 }}>
           {props?.shippingPrice}
         </span>
-        
         <div>
-          {items.map((item, index) => {
-            if (item.id === props.product.id) {
-              return (
-                <>
-                <div id="plusMinus">
-                <a href className="me-2">
-                    {" "}
-                    <button
-                      onClick={() => updateCurrentItem()}
-                      className="btn btn-transparent border-0"
-                    >
-                      <i
-                        className="fas fa-minus-square"
-                        style={{
-                          color: "#f68b1e",
-                          fontSize: 35,
-                          fill: "#f68b1e",
-                        }}
-                      />
-                    </button>
-                  </a>
-                  <span id="quantity">
-                    {item.quantity}
-                   
-                  </span>
-                  <a  className="ms-2 d-inline-block">
-                    {" "}
-                    <button
-                      onClick={() => addItem(props.product)}
-                      className="btn btn-white border-0"
-                    >
-                      <i
-                        className="fas fa-plus-square"
-                        style={{
-                          color: "#f68b1e",
-                          fontSize: 35,
-                          fill: "#f68b1e",
-                        }}
-                      />
-                    </button>
-                  </a>
-                </div>
-                 
-                </>
-              );
-            } else {
-              return (
-                <a  className="ms-2 d-inline-block" id="add">
-                  {" "}
-                  <button
-                    onClick={() => addItem(props.product)}
-                    className="btn btn-info border-0"
-                    
-                  >
-                    Add To Cart
-                  </button>
-                </a>
-              );
+          <div
+            style={{ visibility: "hidden" }}
+            id="IncAndDecQty"
+            className="IncAndDecQty"
+          >
+            <a href className="me-2">
+              {" "}
+              <button
+                onClick={() => decCurrentItemQty()}
+                className="btn btn-transparent border-0"
+              >
+                <i
+                  className="fas fa-minus-square"
+                  style={{
+                    color: "#f68b1e",
+                    fontSize: 35,
+                    fill: "#f68b1e",
+                  }}
+                />
+              </button>
+            </a>
+            <span id="count">
+              {/* <div style={{ fontSize: 15, display: "inline-block" }}> </div> */}
+              {items.map((item, index) => {
+                if (item.id === props.product.id) {
+                  return item?.quantity;
+                }
+              })}
+            </span>
+            <a className="ms-2 d-inline-block">
+              {" "}
+              <button
+                onClick={() => incCurrentItemQty()}
+                className="btn btn-white border-0"
+              >
+                <i
+                  className="fas fa-plus-square"
+                  style={{
+                    color: "#f68b1e",
+                    fontSize: 35,
+                    fill: "#f68b1e",
+                  }}
+                />
+              </button>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div
+            style={{ visibility: "visible" }}
+            id="add"
+            className="add ms-2 d-inline-block"
+          >
+            <button
+              onClick={() => additemToCart()}
+              className="btn btn-info border-0"
+            >
+              Add To Cart
+            </button>
+          </div>
+        </div>
+        {items.map((item, index) => {
+          if (item.id === props.product.id) {
+            if (item.quantity > 0) {
+              setTimeout(function () {
+                document.getElementById("IncAndDecQty").style.visibility =
+                  "visible";
+                document.getElementById("add").style.visibility = "hidden";
+              }, 200);
             }
-          })}
+          }
+        })}
+        <div>
           <span style={{ fontSize: 13, fontWeight: 500 }}>
             {props?.quantity} (item(s) added) {props.product.quantity}
           </span>

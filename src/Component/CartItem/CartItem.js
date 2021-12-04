@@ -12,6 +12,10 @@ export default function CartItem(props) {
     removeItem,
     emptyCart,
   } = useCart();
+
+  const handleQty = (e) => {
+    updateItemQuantity(props.item.id, (props.item.quantity = e.target.value));
+  };
   return (
     <>
       <div className="row mb-3 p-3">
@@ -41,14 +45,27 @@ export default function CartItem(props) {
         </div>
         <div className="col-2 border-end mt-2">
           <select className="form-select w-100">
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-            <option value={4}>4</option>
+            <option onChange={handleQty} value={props.item.quantity}>
+              {props.item.quantity}
+            </option>
+            <option onChange={handleQty} value={1}>
+              1
+            </option>
+            <option onChange={handleQty} value={2}>
+              2
+            </option>
+            <option onChange={handleQty} value={3}>
+              3
+            </option>
+            <option onChange={handleQty} value={4}>
+              4
+            </option>
           </select>
         </div>
         <div className="col-2 border-end mt-2">EGP {props.item.price}</div>
-        <div className="col-2 text-warning mt-2">EGP 500</div>
+        <div className="col-2 text-warning mt-2">
+          {props.item.price * props.item.quantity}
+        </div>
       </div>
     </>
   );

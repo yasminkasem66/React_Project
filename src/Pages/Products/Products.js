@@ -43,6 +43,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import { getAllProductsPaganation } from "../../Store/actions/ProductActions/GetAllProductsPagination";
 
 export default function Products() {
+  
   const products = useSelector((state) => state.AllProductsPagination);
   const [pageNum, setpageNum] = useState(1);
   console.log("AllProductsPagination", products);
@@ -219,7 +220,7 @@ export default function Products() {
               {products.map((product, index) => {
                 return (
                   <div key={index} className="col-md-4 mb-2">
-                    <CardWithHiddenButton product={product} />
+                    <CardWithHiddenButton key={index} product={product} />
                   </div>
                 );
               })}

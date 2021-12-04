@@ -1,10 +1,11 @@
 import React from "react";
 import "./CardWithHiddenButton.scss";
 import { Link } from "react-router-dom";
-export default function CardWithHiddenButton(props) {
-  //console.log("props CardWithHiddenButton", props.product);
-  const item = props.product;
+import { useCart } from "react-use-cart";
 
+export default function CardWithHiddenButton(props) {
+  const { addItem } = useCart();
+  const item = props.product;
   return (
     <>
       <div className="card cardStyle">
@@ -16,6 +17,7 @@ export default function CardWithHiddenButton(props) {
           </div>
         </Link>
         <button
+          onClick={() => addItem(item)}
           style={{ width: "15rem" }}
           className="hiddenBtn btn btn-warning mx-auto mb-1 text-white"
         >

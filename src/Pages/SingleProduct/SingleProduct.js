@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import "./SingleProduct.scss";
 // component
 import LowerHeader from "../../Component/Headers/LowerHeader/LowerHeader";
@@ -11,15 +12,15 @@ import ProductDetails from "../../Component/ProductDetails/ProductDetails";
 import ProductSpecifications from "../../Component/ProductSpecifications/ProductSpecifications";
 import DeliveryReturns from "../../Component/Delivery-Returns/DeliveryReturns";
 import Aside2 from "../../Component/Aside2/Aside2";
+
 // import {
 //   getAllProducts,
 //   ProductById,
 // } from "../../Store/actions/ProductActions/productActions";
 
-import { ProductById } from '../../Store/actions/ProductActions/GetSingleProduct';
-import { getAllProducts } from '../../Store/actions/ProductActions/getAllProducts';
+import { ProductById } from "../../Store/actions/ProductActions/GetSingleProduct";
+import { getAllProducts } from "../../Store/actions/ProductActions/getAllProducts";
 import Footer1 from "../../Component/Footer1/Footer1";
-import { useParams } from "react-router-dom";
 
 export default function SingleProduct() {
   const { id } = useParams();
@@ -188,7 +189,7 @@ export default function SingleProduct() {
                   specs1={product?.description}
                   size={product?.weight}
                   specs2={product?.model}
-                 specs3="external use only"
+                  specs3="external use only"
                   notes="There may be a difference in the appearance of the outer package or the data from the outside only"
                 />
               </div>

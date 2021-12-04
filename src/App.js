@@ -16,25 +16,36 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {PayPalButton} from "react-paypal-button-v2"
 import Paypal from "./Component/Paypal/PayPal";
 
+// test
+import './i18n';
+import i18next from "i18next";
+import { CartProvider } from "react-use-cart";
+
+
+
+// i18next.changeLanguage(lang);
+const lang = localStorage.getItem('lang') || 'en';
+document.documentElement.language = lang;
+
 function App() {
   const [checkout, setCheckOut] = useState(false);
 
   // const [checkout, setCheckOut]=useState(false)
   return (
 
-    <div className="App">
-      {checkout ? (
-        <Paypal />
-      ) : (
-        <button
-          onClick={() => {
-            setCheckOut(true);
-          }}
-        >
-          Checkout
-        </button>
-      )}
-    </div>
+    // <div className="App">
+    //   {checkout ? (
+    //     <Paypal />
+    //   ) : (
+    //     <button
+    //       onClick={() => {
+    //         setCheckOut(true);
+    //       }}
+    //     >
+    //       Checkout
+    //     </button>
+    //   )}
+    // </div>
    
     //   <Router>
     // <div className="App bg-white">
@@ -47,8 +58,22 @@ function App() {
     // </div>
     //       </Router>
    
-);
-    
-}
+
+    <Router>
+      <CartProvider>
+
+        <div className="App bg-white"
+          dir={lang === "ar" ? "rtl" : "ltr"}
+        >
+
+          <Beforelogin />
+
+   
+
+        </div>
+      </CartProvider>
+
+    </Router>
+  )}
 
 export default App;

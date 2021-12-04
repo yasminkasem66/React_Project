@@ -1,5 +1,9 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next'
+import i18n from '../../../i18n';
+
 // import ar from "../../../assets/imgs/ar.png";
 // import en from "../../../assets/imgs/en.png";
 
@@ -7,6 +11,18 @@ import ar from '../../../assets/imgs/uk.svg'
 import en from '../../../assets/imgs/eg.svg'
 
 export default function MiddeleHeader() {
+  const changeLanguage = (ln) => {
+    return () => {
+      window.location.reload();
+      console.log(`language change to ${ln}`)
+      localStorage.setItem('lang', ln);
+      i18n.changeLanguage(localStorage.getItem('lang'))
+
+    }
+  }
+
+  const { t, i18n } = useTranslation();
+
   return (
     <>
       <nav className="p-4 bg-light border-bottom " id="Sell-on-Jumia ">
@@ -16,7 +32,7 @@ export default function MiddeleHeader() {
           <div className="col-lg-2 col-md-12">
             <a href="#" className="text-decoration-none  link-dark ms-4 ">
               <span style={{ color: "#f68b1e", fontWeight: "bold" }}>
-                <i className="fad fa-star" /> Sell on Jumia{" "}
+                <i className="fad fa-star" /> {t("sell")}  
               </span>
             </a>
           </div>
@@ -26,7 +42,7 @@ export default function MiddeleHeader() {
               <li className="me-3">
                 <a href="#" className="text-decoration-none  link-dark ms-4 ">
                   <span style={{ color: "#f68b1e", fontWeight: "bold" }}>
-                    <i className="fad fa-star" /> FOOD
+                    <i className="fad fa-star" />{t("FOOD")}   
                   </span>
                 </a>
               </li>
@@ -35,23 +51,25 @@ export default function MiddeleHeader() {
                   className="text-secondary text-decoration-none  link-dark ms-4 "
                   href="#"
                 >
-                  <i className="fas fa-crown" /> PRIMO
+                  <i className="fas fa-crown" />{t("PRIMO")}
                 </a>
               </li>
               <li className="me-3">
                 <a
+                  role="button"
                   className="text-secondary text-decoration-none  link-dark ms-4 "
                   href="#"
                 >
-                  <i className="fad fa-star" /> REWARDS
+                  <i className="fad fa-star" />{t("REWARDS")}
                 </a>
               </li>
               <li>
                 <a
+                  role="button"
                   className="text-secondary text-decoration-none  link-dark ms-4 "
                   href="#"
                 >
-                  <i className="fad fa-shield-alt" /> PAY
+                  <i className="fad fa-shield-alt" />{t("PAY")}
                 </a>
               </li>
             </ul>
@@ -59,31 +77,33 @@ export default function MiddeleHeader() {
           {/* col-3 */}
           <div className="col-lg-3 col-md-12 me-0">
             <ul className="d-flex justify-content-center list-unstyled ">
-              <a
+              <a  onClick={changeLanguage('en')}
                 className="text-decoration-none  link-dark me-4 socialIcon"
-                href="#"
+                value="en"
+              role="button"
               >
-                <li className="d-flex">
-                  <img
-                    className="rounded-circle"
-                    width="25px"
-                    height="25px"
-                    src={en}
-                  />
-                  English
-                </li>
-              </a>
-              |
-              <a
-                className="text-decoration-none  link-dark ms-4 socialIcon "
-                href="#"
-              >
-                <li className="d-flex">
+                <li className="d-flex" >
                   <img
                     className="rounded-circle"
                     width="25px"
                     height="25px"
                     src={ar}
+                  />
+                  English
+                </li>
+              </a>
+              |
+              <a  onClick={changeLanguage('ar')}
+                className="text-decoration-none  link-dark ms-4 socialIcon "
+                value="ar"
+                role="button"
+              >
+                <li className="d-flex" >
+                  <img
+                    className="rounded-circle"
+                    width="25px"
+                    height="25px"
+                    src={en}
                   />
                   عربي
                 </li>

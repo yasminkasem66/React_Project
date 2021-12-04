@@ -121,10 +121,10 @@ export default function Home() {
 
       {/* padge */}
       <div className="row container mx-auto mt-3">
-        <SmallCard statement="Official Stores" pic={padge1} className="col-3" />
-        <SmallCard statement="Jumia Global" pic={padge2} className="col-3" />
-        <SmallCard statement="Recharge&Bill" pic={padge3} className="col-3" />
-        <SmallCard statement="Orange Points" pic={padge4} className="col-3" />
+        <SmallCard statement={t('Official Stores')} pic={padge1} className="col-3" />
+        <SmallCard statement={t('Jumia Global')} pic={padge2} className="col-3" />
+        <SmallCard statement={t('Recharge&Bill')} pic={padge3} className="col-3" />
+        <SmallCard statement={t('Orange Points')} pic={padge4} className="col-3" />
         {/* <ProductCard pic={pic1} /> */}
       </div>
 
@@ -132,8 +132,8 @@ export default function Home() {
       <div className="container card mt-3">
 
           <div className="row">
-            <div className="col-12  pt-2 text-start">
-              <p className="fw-bold fs-5 ps-2">Top selling items</p>
+            <div className="col-12  pt-2 ">
+              <p className="fw-bold fs-5 ps-2">{t('TopSellingItems')}</p>
             </div>
           </div>
 
@@ -146,7 +146,7 @@ export default function Home() {
       </div>
       {/* <!-- Start 10.10 TOP DEALS section --> */}
       <div className="container  card mt-4">
-        <TextCenter title=" 10.10 TOP DEALS" />
+        <TextCenter title={t("TopDeals")} />
         <div className=" HomePage-img  row p-1">
           <div className="col HomePage-imgElementNON">
             <ImageContainer img={card1} wid="w-100" />
@@ -160,7 +160,7 @@ export default function Home() {
       {/* <!--  Execlusive Today section --> */}
 
       <div className="container card mt-4">
-        <TextCenter title=" Execlusive Today!" />
+        <TextCenter title={t('ExeclusiveToday')} />
         <div className=" HomePage-img  row px-2">
           <div className="col HomePage-imgElementNON m-2">
             <ImageContainer img={card2} wid="w-100" />

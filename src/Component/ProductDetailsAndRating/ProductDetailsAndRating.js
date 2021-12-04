@@ -14,49 +14,40 @@ export default function ProductDetailsAndRating(props) {
     removeItem,
     emptyCart,
   } = useCart();
-  // const [currentItemIndex, setCurrentItemIndex] = useState(0);
-  // const [currentItemCount, setCurrentItemCount] = useState(0);
-  // const [currentItem, setCurrentItem] = useState({});
-  // useEffect(() => {
-  //   items.map((item, index) => {
-  //     if (item.id === props.product.id) {
-  //       setCurrentItemCount(item.quantity);
-  //       setCurrentItem(item);
-  //     }
-  //   });
-  // }, []);
+  const [cartItemNum, setCartItemNum] = useState(totalUniqueItems);
 
-  //console.log("item item ", currentItem);
-
-  // function grtcount() {
-  //   items.map((item, index) => {
-  //     if (item.id === props.product.id) {
-  //       setCurrentItemCount(item.quantity);
-  //     }
-  //   });
+  // if (!qty) {
+  //   document.getElementById("add").style.visibility = "visible";
+  //   document.getElementById("IncAndDecQty").style.visibility = "hidden";
+  // } else {
+  //   document.getElementById("add").style.visibility = "hidden";
+  //   document.getElementById("IncAndDecQty").style.visibility = "visible";
   // }
-  // grtcount();
-  const updateCurrentItem = () => {
+  const incCurrentItemQty = () => {
     items.map((item, index) => {
       if (item.id === props.product.id) {
+        updateItemQuantity(item.id, item.quantity + 1);
+        //setCurrentItemCount(item.quantity - 1);
+      }
+    });
+  };
+  const decCurrentItemQty = () => {
+    items.map((item, index) => {
+      if (item.id === props.product.id) {
+        if (item.quantity === 1) {
+          document.getElementById("add").style.visibility = "visible";
+          document.getElementById("IncAndDecQty").style.visibility = "hidden";
+        }
         updateItemQuantity(item.id, item.quantity - 1);
         //setCurrentItemCount(item.quantity - 1);
       }
     });
   };
-  // const additemToCart = () => {
-  //   addItem(props.product);
-  //   // items.map((item, index) => {
-  //   //   // if (item.id === props.product.id) {
-  //   //   //   //setCurrentItemCount(item.quantity + 1);
-  //   //   // } else {
-  //   //   //   //setCurrentItemIndex(index);
-  //   //   //   //setCurrentItemCount(1);
-  //   //   //   //setCurrentItem(item);
-  //   //   //   //console.log("item item item ", currentItem);
-  //   //   // }
-  //   // });
-  // };
+  const additemToCart = () => {
+    addItem(props.product);
+    document.getElementById("IncAndDecQty").style.visibility = "visible";
+    document.getElementById("add").style.visibility = "hidden";
+  };
 
   return (
     <>
@@ -90,81 +81,80 @@ export default function ProductDetailsAndRating(props) {
         <span className="fw-normal" style={{ fontSize: 12 }}>
           {props?.shippingPrice}
         </span>
-        {/* 
-        {token ? (
-                        <Link className="dropdown-item" to="/Myaccount">
-                          <i className="far fa-user" />
-                          My Acount
-                        </Link>
-                      ) : (
-                        <Link className="dropdown-item" to="/login">
-                          <i className="far fa-user" />
-                          My Acount
-                        </Link>
-                      )}
-        */}
         <div>
-          {items.map((item, index) => {
-            if (item.id === props.product.id) {
-              return (
-                <>
-                  <a href className="me-2">
-                    {" "}
-                    <button
-                      onClick={() => updateCurrentItem()}
-                      className="btn btn-transparent border-0"
-                    >
-                      <i
-                        className="fas fa-minus-square"
-                        style={{
-                          color: "#f68b1e",
-                          fontSize: 35,
-                          fill: "#f68b1e",
-                        }}
-                      />
-                    </button>
-                  </a>
-                  <span>
-                    {item.quantity}
-                    {/* <div style={{ fontSize: 15, display: "inline-block" }}> </div> */}
-                    {/* {items.map((item, index) => {
-                    if (item.id === props.product.id) {
-                      return item.quantity;
-                    }
-                  })} */}
-                  </span>
-                  <a href className="ms-2 d-inline-block">
-                    {" "}
-                    <button
-                      onClick={() => addItem(props.product)}
-                      className="btn btn-white border-0"
-                    >
-                      <i
-                        className="fas fa-plus-square"
-                        style={{
-                          color: "#f68b1e",
-                          fontSize: 35,
-                          fill: "#f68b1e",
-                        }}
-                      />
-                    </button>
-                  </a>
-                </>
-              );
-            } else {
-              return (
-                <a href className="ms-2 d-inline-block">
-                  {" "}
-                  <button
-                    onClick={() => addItem(props.product)}
-                    className="btn btn-info border-0"
-                  >
-                    Add To Cart
-                  </button>
-                </a>
-              );
+          <div
+            style={{ visibility: "hidden" }}
+            id="IncAndDecQty"
+            className="IncAndDecQty"
+          >
+            <a href className="me-2">
+              {" "}
+              <button
+                onClick={() => decCurrentItemQty()}
+                className="btn btn-transparent border-0"
+              >
+                <i
+                  className="fas fa-minus-square"
+                  style={{
+                    color: "#f68b1e",
+                    fontSize: 35,
+                    fill: "#f68b1e",
+                  }}
+                />
+              </button>
+            </a>
+            <span id="count">
+              {/* <div style={{ fontSize: 15, display: "inline-block" }}> </div> */}
+              {items.map((item, index) => {
+                if (item.id === props.product.id) {
+                  return item?.quantity;
+                }
+              })}
+            </span>
+            <a className="ms-2 d-inline-block">
+              {" "}
+              <button
+                onClick={() => incCurrentItemQty()}
+                className="btn btn-white border-0"
+              >
+                <i
+                  className="fas fa-plus-square"
+                  style={{
+                    color: "#f68b1e",
+                    fontSize: 35,
+                    fill: "#f68b1e",
+                  }}
+                />
+              </button>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div
+            style={{ visibility: "visible" }}
+            id="add"
+            className="add ms-2 d-inline-block"
+          >
+            <button
+              onClick={() => additemToCart()}
+              className="btn btn-info border-0"
+            >
+              Add To Cart
+            </button>
+          </div>
+        </div>
+        {items.map((item, index) => {
+          if (item.id === props.product.id) {
+            if (item.quantity > 0) {
+              setTimeout(function () {
+                document.getElementById("IncAndDecQty").style.visibility =
+                  "visible";
+                document.getElementById("add").style.visibility = "hidden";
+              }, 200);
             }
-          })}
+          }
+        })}
+        <div>
           <span style={{ fontSize: 13, fontWeight: 500 }}>
             {props?.quantity} (item(s) added) {props.product.quantity}
           </span>

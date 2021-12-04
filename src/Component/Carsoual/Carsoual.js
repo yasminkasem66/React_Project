@@ -2,11 +2,11 @@ import React from 'react'
 import ProductCard from '../ProductCard/ProductCard'
 
 export default function Carsoual({products}) {
-    console.log("propsCarsoual", products);
+    // console.log("propsCarsoual", products);
     const products1 = products.slice(0, 5);
     const products2 = products.slice(6, 12);
-    console.log("products1", products1);
-    console.log("products2", products2);
+    // console.log("products1", products1);
+    // console.log("products2", products2);
 
     // 60   60/10=6    =>   arrays=product.length/6=10    product.map((item, index)=> )
     //for(0, i<arrays,1){  arr.push(products.slice(i, x) ) 0 i+5  5 x+5}

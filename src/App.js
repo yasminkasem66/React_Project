@@ -14,19 +14,35 @@ import ContactUs from "./Pages/ContactUs/ContactUs";
 import { Beforelogin } from "./Routes/Beforelogin";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
+// test
+import './i18n';
+import i18next from "i18next";
+import { CartProvider } from "react-use-cart";
+
+
+
+// i18next.changeLanguage(lang);
+const lang = localStorage.getItem('lang') || 'en';
+document.documentElement.language = lang;
+
 function App() {
  
   return (
-      <Router>
-    <div className="App bg-white">
+    <Router>
+      <CartProvider>
 
-      <Beforelogin/>
+        <div className="App bg-white"
+          dir={lang === "ar" ? "rtl" : "ltr"}
+        >
+
+          <Beforelogin />
 
    
 
-    </div>
-          </Router>
-  );
-}
+        </div>
+      </CartProvider>
+
+    </Router>
+  )}
 
 export default App;

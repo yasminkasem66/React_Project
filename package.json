@@ -15,6 +15,11 @@
     "axios": "^0.24.0",
     "bootstrap": "^5.1.3",
     "i18next": "^21.5.4",
+<<<<<<< HEAD
+=======
+    "i18next-browser-languagedetector": "^6.1.2",
+    "i18next-http-backend": "^1.3.1",
+>>>>>>> 8c57f688560b57327ecf39ec6227514bcb8c1079
     "material-icons": "^1.10.3",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
@@ -24,6 +29,7 @@
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
+    "react-use-cart": "^1.13.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.0",
     "sass": "^1.43.4",

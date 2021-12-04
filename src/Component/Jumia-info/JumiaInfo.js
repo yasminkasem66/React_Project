@@ -1,6 +1,10 @@
 import React from 'react';
-import './Jumia-info.scss'
+import './Jumia-info.scss';
+import { useTranslation } from 'react-i18next'
+
 export default function JumiaInfo() {
+  const { t, i18n } = useTranslation();
+
     return (
       <div>
         <section className="p-5 ">
@@ -10,8 +14,11 @@ export default function JumiaInfo() {
                 <div className="row  ">
                 <h2 className="info-heading">
                   <strong
-                    >Jumia Egypt &ndash; Biggest Online Shopping Website</strong
-                  >
+                    >
+                      {/* Jumia Egypt &ndash; Biggest Online Shopping Website */}
+                      {t("Et1")}
+                    
+                    </strong>
                 </h2>
 
                 <p  className="desc"> 

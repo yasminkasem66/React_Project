@@ -2,7 +2,7 @@ import React from "react";
 import "./ProductCard.scss";
 import { Link } from "react-router-dom";
 export default function ProductCard(props) {
-  console.log("props ProductCard", props.product);
+  // console.log("props ProductCard", props.product);
   const product = props.product;
   return (
     <>

@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { useTranslation } from 'react-i18next';
 import img from '../../assets/imgs/jumia-brand.webp'
@@ -55,7 +54,7 @@ export default function Footer2() {
                 value="male"
                 className=" form-control btn btn-outline-light formBtn"
               >
-                <span>Male</span>
+                <span>{t('mmale')}</span>
               </button>
             </div>
             <div className="col-sm">
@@ -65,7 +64,7 @@ export default function Footer2() {
                 value="female"
                 className=" form-control btn btn-outline-light formBtn"
               >
-                <span>Female</span>
+                <span>{t('fmale')}</span>
               </button>
             </div>
           </div>

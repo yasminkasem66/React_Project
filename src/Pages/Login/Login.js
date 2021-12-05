@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next'
 
 import Footer1 from "../../Component/Footer1/Footer1";
 import MiddeleHeader from "../../Component/Headers/MiddleHeader/MiddeleHeader";
@@ -9,6 +10,8 @@ import { useDispatch } from "react-redux";
 import { login } from "../../Store/actions/authen/authen";
 
 export default function Login() {
+    const { t, i18n } = useTranslation();
+
     const [showPassword, setShowPassword] = useState(false)
     const togglePass = (e) => {
       e.preventDefault() // Important! If you don't include this your page will refresh
@@ -78,9 +81,9 @@ export default function Login() {
       <LowerHeader />
       <div className="container mb-5">
         <div className="row">
-          <div className="col-6  text-start border-end">
+          <div className="col-6  px-4 ">
             <h4 className="text-center"
-             style={{ color: "#f68b1e" }}>Login</h4>
+             style={{ color: "#f68b1e" }}>{t('Elogin')}</h4>
             <form>
                 {/* input email */}
               <div className="col mb-4 border-muted  border-bottom  me-4">
@@ -88,7 +91,7 @@ export default function Login() {
                   className="form-control form-control-lg fs-6 border-0"
                   type="email"
                   name="email"
-                  placeholder="E-mail"
+                  placeholder={t('Eemail')}
                   value={user.email}
                   onChange={handelFormChange}
                 />
@@ -99,7 +102,7 @@ export default function Login() {
                   className="form-control form-control-lg fs-6 border-0"
                   type={showPassword  ? "text" : "password"}
                   
-                  placeholder="Password"
+                  placeholder={t('Epass')}
 
                   name="password"
                   value={user.password}
@@ -113,13 +116,13 @@ export default function Login() {
              {/* remember me */}
             <div className="form-check ">
                 <input
-                  className="form-check-input"
+                  className="form-check-input  "
                   type="checkbox"
                   defaultValue
                   id="defaultCheck1"
                 />
                 <label className="form-check-label " htmlFor="defaultCheck1">
-                  Remember Me
+                 {t('Eremember')}
                 </label>
               </div>
 
@@ -133,7 +136,7 @@ export default function Login() {
                     style={{ backgroundColor: "#f68b1e" }}
                     onClick={loginIn}
                   >
-                      <span className="d-flex justify-content-between text-uppercase "><i className="loginBtn" class="fas fa-envelope"></i><span>Login</span><span></span></span>
+                      <span className="d-flex justify-content-between text-uppercase "><i className="loginBtn" class="fas fa-envelope"></i><span>{t('Elogin')}</span><span></span></span>
                       
                   </button>
                 </div>
@@ -146,7 +149,7 @@ export default function Login() {
                     style={{ backgroundColor: "#344f88" }}
                   >
                      
-                    <span className="d-flex justify-content-between text-uppercase "><i  className="loginBtn"  class="fab fa-facebook-square" /><span> Login WITH FACEBOOK</span><span></span></span>
+                    <span className="d-flex justify-content-between text-uppercase "><i  className="loginBtn"  class="fab fa-facebook-square" /><span> {t('Elogface')}</span><span></span></span>
                   </button>
                 </div>
               </div>
@@ -155,13 +158,11 @@ export default function Login() {
           </div>
 
 
-          <div className="col-6">
-            <h4 className="mb-5"
-            style={{ color: "#f68b1e" }}>Create your Jumia account</h4>
-            <p className="mb-5 text-start">
-              Create your Jumia customer account in just a few clicks! You can
-              register either using your e-mail address or through your Facebook
-              account.
+          <div className="col-6 px-4">
+            <h4 className="mb-5 text-center"
+            style={{ color: "#f68b1e" }}>{t('Ecreate')}</h4>
+            <p className="mb-5 ">
+              {t('Exx')}
             </p>
             {/* create button */}
             <div className="col10 -tac -pvl -mvl  ">
@@ -171,7 +172,7 @@ export default function Login() {
                     className="btn btn-primary border border-none p-2 w-100 rounded  fs-5 fw-bold"
                     style={{ backgroundColor: "#f68b1e" }}
                   >
-                     <span className="d-flex justify-content-between text-uppercase"><i className="loginBtn" class="fas fa-envelope"></i><span>  Create an account via e-mail </span><span></span></span>
+                     <span className="d-flex justify-content-between text-uppercase"><i className="loginBtn" class="fas fa-envelope"></i><span>  {t('Ecema')} </span><span></span></span>
                       
                   
                   </button>
@@ -184,7 +185,7 @@ export default function Login() {
                     style={{ backgroundColor: "#344f88" }}
                   >
 
-                    <span className="d-flex justify-content-between text-uppercase"><i  className="loginBtn"  class="fab fa-facebook-square" /><span>  Register with Facebook</span><span></span></span>
+                    <span className="d-flex justify-content-between text-uppercase"><i  className="loginBtn"  class="fab fa-facebook-square" /><span>{t('Erig')}</span><span></span></span>
                   </button>
                 </div>
               </div>

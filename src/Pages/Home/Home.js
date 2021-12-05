@@ -395,7 +395,7 @@ export default function Home() {
             })}
         </div>
       </div>
-
+{/* 
       <div className="container  card mt-4">
         <SmallImagesContainer img1={card6}
           img2={card6}
@@ -403,7 +403,7 @@ export default function Home() {
           img4={card6}
           img5={card6}
           img6={card6}/>
-      </div>
+      </div> */}
 
 
       {/* <!-- <!-- personalcare --> --> */}

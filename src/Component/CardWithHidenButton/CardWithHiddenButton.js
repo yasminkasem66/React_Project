@@ -17,11 +17,11 @@ export default function CardWithHiddenButton(props) {
     items.map((item, index) => {
       if (item.id === CartItem.id) {
         updateItemQuantity(item.id, item.quantity + 1);
-
         //setCurrentItemCount(item.quantity - 1);
       }
     });
   };
+  
   const decCurrentItemQty = () => {
     items.map((item, index) => {
       if (item.id === CartItem.id){

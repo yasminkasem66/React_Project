@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import img from "../../../assets/imgs/Jumia-logo.png";
 
 export default function CheckHeader() {
@@ -6,7 +7,7 @@ export default function CheckHeader() {
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom">
         <div className="container">
-          <img className="img-fluid col-1 m-0" src={img} alt="" />
+         <Link to="/"><img className="img-fluid col-2 m-0" src={img} alt="" /></Link> 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav m-auto mb-2 mb-lg-0">
               <li className="nav-item">

@@ -14,14 +14,17 @@ import { getAllProducts } from '../../Store/actions/ProductActions/getAllProduct
 import { getAllUsers } from '../../Store/actions/UserActions/userActions';
 import { signout } from '../../Store/actions/authen/authen';
 import { useNavigate } from 'react-router';
+import { getSingleUser } from '../../Store/actions/UserActions/getSingleUser';
 
 
 
 
 export default function Myaccount() {
-
+  const id =JSON.parse(localStorage.getItem("user")).userId 
+  console.log("idddddddddddddddddddd",id)
   let navigate = useNavigate();
-
+  const user = useSelector((state) => state.users);
+  console.log("userrrrrrrrrrrrrrrrr",user)
   const products = useSelector(state => state.AllProducts)
   const items = products.slice(0, 3)
 
@@ -30,6 +33,7 @@ export default function Myaccount() {
 
   useEffect(() => {
     dispatch(getAllProducts());
+    dispatch(getSingleUser(id));
   }, []);
 
 
@@ -71,9 +75,9 @@ export default function Myaccount() {
   <hr />
 </header>
 <div className="row mb-3">
-    <DetailsCard className="mb-2"  header="ACCOUNT DETAILS" main="Mohamed Gaber" secondary="gabermohamed772@gmail.com" orangePart="Change Password"  />
+    <DetailsCard className="mb-2"  header="ACCOUNT DETAILS" main={user.name} secondary={user.email} orangePart="Change Password"  />
     <DetailsCard className="mb-2"  header="ADDRESS BOOK" main="Your default shipping address:" 
-    secondary="Mohamed Gaber 15 st Aziz antwan Seouf shamaa victoria first floorAl Seyouf, Alexandria+20 1204810748 /"
+    secondary="Hala 15 st Aziz antwan Seouf shamaa victoria first floorAl Seyouf, Alexandria+20 1204810748 /"
      orangePart="" />
     <DetailsCard className="mb-2"  header="JUMIA PRIMO" main="Jumia Primo" 
     secondary="Jumia Primo is a loyalty program which offers members free delivery on all Jumia Items (excluding Jumia Global) and Jumia Food orders, plus exclusive access to promotions & deals"

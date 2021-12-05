@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CardWithHiddenButton.scss";
 import { Link } from "react-router-dom";
 import { useCart } from "react-use-cart";
+import PlusAndMinus from "../PlusAndMinus/PlusAndMinus";
 
 export default function CardWithHiddenButton(props) {
   const CartItem = props.product;
-  const { addItem, items, updateItemQuantity } = useCart();
+  const [flag,setFlag]=useState(true) 
+
+  const hide =()=>{
+    setFlag(false)
+
+  }
 
   const incCurrentItemQty = () => {
     items.map((item, index) => {
@@ -18,21 +24,30 @@ export default function CardWithHiddenButton(props) {
   };
   const decCurrentItemQty = () => {
     items.map((item, index) => {
-      if (item.id === CartItem.id) {
-        if (item.quantity === 1) {  
-          document.getElementsByClassName("add")[index].style.visibility = "visible";
-          document.getElementsByClassName("IncAndDecQty")[index].style.visibility = "hidden";
+      if (item.id === CartItem.id){
+        if(item.quantity===1){
+          setFlag(true)
+
         }
         updateItemQuantity(item.id, item.quantity - 1);
-        //setCurrentItemCount(item.quantity - 1);
       }
+     
+       
+      
+      //setCurrentItemCount(item.quantity - 1);
+        
+      
     });
   };
+  
   const additemToCart = () => {
+    hide()
     addItem(CartItem);
-    document.getElementById("IncAndDecQty").style.visibility = "visible";
-    document.getElementById("add").style.visibility = "hidden";
+    // document.getElementById("IncAndDecQty").style.visibility = "visible";
+    // document.getElementById("add").style.visibility = "hidden";
   };
+  const { addItem, items, updateItemQuantity } = useCart();
+
 
   return (
     <>
@@ -47,58 +62,99 @@ export default function CardWithHiddenButton(props) {
             <p className="card-text">EGP {CartItem.price}</p>
           </div>
         </Link>
-        <div
-          style={{ width: "15rem" }}
-          id="IncAndDecQty"
-          className="IncAndDecQty d-flex justify-content-between"
-        >
-          <div href className="me-2">
-            <button
-              onClick={() => decCurrentItemQty()}
-              className="btn btn-transparent border-0"
-            >
-              <i
-                className="fas fa-minus-square"
-                style={{
-                  color: "#f68b1e",
-                  fontSize: 35,
-                  fill: "#f68b1e",
-                }}
-              />
-            </button>
-          </div>
-          <span className="mt-2" id="count">
-            {/* <div style={{ fontSize: 15, display: "inline-block" }}> </div> */}
-            {items.map((item, index) => {
-              if (item.id === CartItem.id) {
-                return item?.quantity;
-              }
-            })}
-          </span>
-          <div className="ms-2 d-inline-block">
-            <button
-              onClick={() => incCurrentItemQty()}
-              className="btn btn-white border-0"
-            >
-              <i
-                className="fas fa-plus-square"
-                style={{
-                  color: "#f68b1e",
-                  fontSize: 35,
-                  fill: "#f68b1e",
-                }}
-              />
-            </button>
-          </div>
+
+        <div className="mx-auto">
+                  
+                        <div>
+                          {!flag&&  <div
+                        style={{ width: "15rem" }}
+                        id="IncAndDecQty"
+                        className="IncAndDecQty d-flex justify-content-between"
+                      >
+                        <div href className="me-2">
+                          <button
+                            onClick={() => decCurrentItemQty()}
+                            className="btn btn-transparent border-0"
+                          >
+                            <i
+                              className="fas fa-minus-square"
+                              style={{
+                                color: "#f68b1e",
+                                fontSize: 35,
+                                fill: "#f68b1e",
+                              }}
+                            />
+                          </button>
+                        </div>
+                        <span className="mt-2" id="count">
+                          {/* <div style={{ fontSize: 15, display: "inline-block" }}> </div> */}
+                          
+                          {items.map((item, index) => {
+                if (item.id === props.product.id) {
+                  return item?.quantity;
+                }
+              })}
+                            
+                          
+                        </span>
+                        <div className="ms-2 d-inline-block">
+                          <button
+                            onClick={() => incCurrentItemQty()}
+                            className="btn btn-white border-0"
+                          >
+                            <i
+                              className="fas fa-plus-square"
+                              style={{
+                                color: "#f68b1e",
+                                fontSize: 35,
+                                fill: "#f68b1e",
+                              }}
+                            />
+                          </button>
+                        </div>
+                      </div> }
+                       
+       
+                      {flag&& <button
+                        id="add"
+                        onClick={() => additemToCart()}
+                        style={{  width: "15rem" }}
+                        className="add btn btn-warning mx-auto mb-1 text-white"
+                      >
+                        ADD TO CART
+                      </button>}
+                       {items.map((item)=>{
+                         if(item.id===CartItem.id){
+                           if(item.quantity>0){
+                             setTimeout(()=>{
+                              setFlag(false)
+
+                             },100)
+                            
+                           }
+                         }
+
+                       })}
+                      </div>
+
+                   
+               
+              
+            
+                 
+                  
+            
+              
+                
+
+            
+
+          
+       
+       
         </div>
-        <button
-          id="add"
-          onClick={() => additemToCart()}
-          style={{ width: "15rem" }}
-          className="add btn btn-warning mx-auto mb-1 text-white"
-        >
-          ADD TO CART
-        </button>
+       
+       
         {/* {items.map((item, index) => {
           if (item.id === CartItem.id) {
             if (item.quantity > 0) {

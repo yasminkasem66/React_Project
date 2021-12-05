@@ -1,6 +1,7 @@
 
 export const GET_ALL_ORDERS = "GET_ALL_ORDERS ";
 export const GET_ALL_USERS = "GET_ALL_USERS ";
+export const GET_SINGLE_USER = "GET_SINGLE_USER"
 
 
 export const productConstants = {

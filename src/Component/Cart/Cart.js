@@ -13,6 +13,7 @@ import MiddeleHeader from "../Headers/MiddleHeader/MiddeleHeader";
 import LowerHeader from "../Headers/LowerHeader/LowerHeader";
 
 import { useCart } from "react-use-cart";
+import { Link } from "react-router-dom";
 
 export default function Cart(props) {
   const {
@@ -108,7 +109,9 @@ export default function Cart(props) {
               >
                 Continue Shopping
               </button>
-              <button
+              <Link to="/checkout" >
+              <button 
+                
                 style={{
                   backgroundColor: "#FF9800",
                   color: "#fff",
@@ -120,6 +123,8 @@ export default function Cart(props) {
               >
                 Continue to Checkout
               </button>
+              </Link>
+             
             </div>
           </div>
         </div>

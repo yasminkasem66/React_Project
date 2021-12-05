@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from "react";
+import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 
-export default function Paypal() {
+
+export default function Paypal(props) {
   const paypal = useRef();
 
   useEffect(() => {
@@ -14,7 +16,7 @@ export default function Paypal() {
                 description: "Cool looking table",
                 amount: {
                   currency_code: "USD",
-                  value: 650.0,
+                  value: props.total,
                 },
               },
             ],
@@ -32,8 +34,14 @@ export default function Paypal() {
   }, []);
 
   return (
+    <>
+    <div className="d-flex">
+            <CheckCircleRoundedIcon style={{ color: "#a3cf62" }} />
+            <p className="fw-bold ms-1">3.PAYMENT METHOD</p>
+          </div>
     <div>
       <div ref={paypal}></div>
     </div>
+    </>
   );
 }

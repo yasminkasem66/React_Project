@@ -6,8 +6,12 @@ import DelivaryMethod2 from "../../Component/DelivaryMethod2/DelivaryMethod2";
 import CheckHeader from "../../Component/Headers/CheckoutHeader/CheckHeader";
 import Paymentmethod from "../../Component/Paymentmethod/Paymentmethod";
 import PaymentMethod2 from "../../Component/PaymentMethod2/PaymentMethod2";
+import Paypal from "../../Component/Paypal/PayPal";
+import { useCart } from "react-use-cart";
+
 
 export default function NextCheckout() {
+  const { cartTotal } = useCart();
   return (
     <>
       <CheckHeader />
@@ -16,7 +20,7 @@ export default function NextCheckout() {
           <div className="col-lg-6 text-start">
             <AddressDetails />
             <DelivaryMethod2 />
-            <PaymentMethod2 />
+            <Paypal total={cartTotal} />
           </div>
           <div className="col-lg-3">
             <CheckoutOrder />

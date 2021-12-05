@@ -1,7 +1,21 @@
 import React from "react";
 import './DelivaryMethod.scss'
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
+import { Link } from "react-router-dom";
+import { useCart } from "react-use-cart";
+import ShipmentDetails from "../ShipmentDetails/ShipmentDetails";
+
 export default function DelivaryMethod() {
+  const {
+    items,
+    isEmpty,
+    totalUniqueItems,
+    totalItems,
+    cartTotal,
+    updateItemQuantity,
+    removeItem,
+    emptyCart,
+  } = useCart();
   return (
     <div>
       <>
@@ -52,27 +66,29 @@ export default function DelivaryMethod() {
           </div> */}
           <div className="card ms-4 mt-4">
           <div className="card-header  bg-white fw-bolder ">SHIPMENT DETAILS</div>
-          <div className="card-body">
-            <p className="card-title fw-bolder DeliveredDes " >
-            Shipment 
-            </p>
-            <p className="card-text DeliveredDes">
-            1xSuper Emollient Moisturizing Cream Kit - 4 Pcs
-            </p>
-            <p className="DeliveredDes">Delivered between <span className="delevaryDays">Sunday 5 Dec</span>  and<span  className="delevaryDays">Thursday 9 Dec</span> </p>
-
-          </div>
+          {items.map((item, index) => {
+            return (
+              <div className="card mb-3">
+                <ShipmentDetails item={item} key={index} />
+              </div>
+            );
+          })}
+          
           </div>
           </div>
           <div className="ps-5">
-          <p className="fw-light">Subtotal</p>
+          <p className="fw-light">Subtotal : {cartTotal} EGP</p>
           <p className="fw-light">Shipping amount</p><hr/>
           
-          <p className="fw-bold">Total</p>
+          <p className="fw-bold">Total : {cartTotal} EGP</p>
           </div>
           
           <p className="text-center  vouchertxt">You will be able to add a voucher in the next step</p>
+          <Link to="/nextcheckout">
           <button type="button" class="btn proceedBtn text-white fw-bolder mx-3">PROCEED TO NEXT STEP</button>
+
+          </Link>
+          {/* <button type="button" class="btn proceedBtn text-white fw-bolder mx-3">PROCEED TO NEXT STEP</button> */}
         </div>
       </>
     </div>

@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./AddressDetails.scss";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllUsers } from "../../Store/actions/UserActions/userActions";
+import { getSingleUser } from "../../Store/actions/UserActions/getSingleUser";
 export default function AddressDetails() {
+
+  const id =JSON.parse(localStorage.getItem("user")).userId 
+  console.log("asdadsasdaaaaaaaaaaa",id)  
+  
+
+  const user = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getSingleUser(id));
+  }, []);
+
+
+  console.log("hhhhhhhhhhhhhhhhhhhhhhh",user)
   return (
     <div>
       <h6>CHECKOUT</h6>
@@ -90,9 +106,9 @@ export default function AddressDetails() {
                   <hr />
                   <div>
                     <p>DEFAULT ADDRESS</p>
-                    <h5 className="card-title ">mohamed hamdy</h5>
+                    <h5 className="card-title ">{user.name}</h5>
                     <p className="card-text ">
-                      qena, Qena, Qena <br />
+                      {user.email} <br />
                       +201152558538
                     </p>
                   </div>
@@ -107,9 +123,9 @@ export default function AddressDetails() {
           </div>
         </div>
         <div className="card-body">
-          <h6 className="card-title px-3 fw-bolder ">mohamed hamdy</h6>
+          <h6 className="card-title px-3 fw-bolder ">  {user.name}</h6>
           <p className="card-text px-3  useAddress">
-            qena, Qena, Qena <br />
+            {user.email} <br />
             +201152558538
           </p>
         </div>

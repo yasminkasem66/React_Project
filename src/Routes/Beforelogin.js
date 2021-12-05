@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Loader from "../Component/Loader/Loader";
 
 export const Home = React.lazy(() => import("../Pages/Home/Home"));
+export const Checkout = React.lazy(() => import("../Pages/Checkout/Checkout"));
+export const NextCheckOut = React.lazy(() => import("../Pages/NextCheckout/NextCheckout"));
+
+
 export const Products = React.lazy(() => import("../Pages/Products/Products"));
 export const SingleProduct = React.lazy(() =>
   import("../Pages/SingleProduct/SingleProduct")
@@ -18,6 +22,7 @@ export const Registration = React.lazy(() =>
 export const AboutUs = React.lazy(() => import("../Pages/AboutUs/AboutUs"));
 export const Myaccount = React.lazy(() => import("../Pages/Myaccount/Myaccount"));
 export const NotFound = React.lazy(() => import("../Pages/Notfound/Notfound"));
+
 
 // import Myaccount from "./Pages/Myaccount/Myaccount";
 
@@ -38,7 +43,11 @@ export const Beforelogin = () => {
           <Route path="/login" exact element={<Login />}/>  
           <Route path="/registration" exact element={<Registration />} />
           <Route path="/aboutus" exact element={<AboutUs />} />
+          <Route path="/checkout" exact element={<Checkout />} />
+          <Route path="/nextcheckout" exact element={<NextCheckOut />} />
+
           <Route path="*" exact element={<NotFound />} />
+
         </Routes>
       </Suspense>
     </>

@@ -13,9 +13,9 @@ export default function CatList() {
 
             <div className="col-lg-2  card d-none d-lg-block">
                 <Link to="/products" className="aa"><i className="fas fa-apple-alt" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}> {t("suber")}</span></Link><br />
-                <Link to="/products" href="productPage.html" className="aa">
+                <Link to="/products"  className="aa">
                     <i className="fas fa-tshirt" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}> {t('fasion')}</span></Link><br />
-                <Link to="/products"  href="productPage.html" className="aa"><i className="fas fa-feather-alt" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('healty')}</span></Link><br />
+                <Link to="/products"   className="aa"><i className="fas fa-feather-alt" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('healty')}</span></Link><br />
                 <Link to="/products"  className="aa"><i className="fas fa-child" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('baby')}</span></Link><br />
                 <Link to="/products"  className="aa"><i className="fas fa-mobile-alt" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}> {t('phones')}</span></Link><br />
                 <Link to="/category" className="aa"><i className="fas fa-home" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('nhome')}</span></Link><br />

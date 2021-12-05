@@ -27,6 +27,8 @@ import SmallImagesContainer from "../../Component/SmallImagesContainer/SmallImag
 // images
 import image1 from "../../assets/imgs/ads.jpeg";
 import image2 from "../../assets/Homepage/bank.jpg";
+import image11 from "../../assets/Homepage/Artboard_1.jpg";
+// import image2 from "../../assets/Homepage/Artboard_1_copy_2-2.jpg";
 import slider1 from "../../assets/Homepage/slider1.jpg";
 import slider2 from "../../assets/Homepage/slider3.png";
 import slider3 from "../../assets/Homepage/slider3.jpg";
@@ -36,6 +38,7 @@ import padge2 from '../../assets/Homepage/padge2.png'
 import padge3 from '../../assets/Homepage/padge3.png'
 import padge4 from '../../assets/Homepage/padge4.png'
 import card1 from "../../assets/Homepage/Alsuhagy_Rice_10_10_-Floor-Desktop-EN.jpg";
+import card1x from "../../assets/Homepage/Your_Home_in_Winter_-_Slider-Desktop-EN_.jpg";
 import card2 from "../../assets/Homepage/EN(1).jpg";
 import card3 from "../../assets/Homepage/EN(2).jpg";
 import card4 from "../../assets/Homepage/Floor-Desktop-en_copy_2.jpg";
@@ -46,6 +49,7 @@ import JumiaFood1 from "../../assets/Homepage/Floor-Desktop-en_copy-(1).jpg";
 import JumiaFood2 from "../../assets/Homepage/Floor-Desktop-en_copy_5.jpg";
 import Pickforyou from "../../assets/Homepage/Pickfor you.jpg";
 import personalcare from "../../assets/Homepage/personalcare.jpg";
+import flash from "../../assets/Homepage/flash.gif";
 import subscribe1 from "../../assets/Homepage/subscribe.jpg";
 import subscribe2 from "../../assets/Homepage/subscribe.png";
 import L1 from "../../assets/Homepage/Collection__260_x_144(1).png";
@@ -59,7 +63,28 @@ import L8 from "../../assets/Homepage/Collection__260_x_144.jpg";
 import L9 from "../../assets/Homepage/Collection__260_x_144.png";
 import L10 from "../../assets/Homepage/Icon_260_x_144_-(6).png";
 import L11 from "../../assets/Homepage/Collection__260_x_144(1).png";
-import L12 from "../../assets/Homepage/Icon_260_x_144_-(6).png";
+import L12 from "../../assets/Homepage/Collection__260_x_144_copy.png";
+import x1 from "../../assets/Homepage/x (1).png";
+import x2 from "../../assets/Homepage/x (2).png";
+import x3 from "../../assets/Homepage/x (3).png";
+import x4 from "../../assets/Homepage/x (4).png";
+import x5 from "../../assets/Homepage/x (5).png";
+import x6 from "../../assets/Homepage/x (6).png";
+import x7 from "../../assets/Homepage/x (7).png";
+import x8 from "../../assets/Homepage/x (8).png";
+import x9 from "../../assets/Homepage/x (9).png";
+import x10 from "../../assets/Homepage/x (10).png";
+import x11 from "../../assets/Homepage/x (11).png";
+import x12 from "../../assets/Homepage/x (12).png";
+import y1 from "../../assets/Homepage/y (1).png";
+import y2 from "../../assets/Homepage/y (2).png";
+import y3 from "../../assets/Homepage/y (3).png";
+import y4 from "../../assets/Homepage/y (4).png";
+import y5 from "../../assets/Homepage/y (5).png";
+import y6 from "../../assets/Homepage/y (6).png";
+import z1 from "../../assets/Homepage/z (1).jpg";
+import z2 from "../../assets/Homepage/z (2).jpg";
+
 
 
 
@@ -123,7 +148,7 @@ export default function Home() {
             <ImageContainer img={image2} />
           </div>
           <div className="mt-4">
-            <ImageContainer img={image2} />
+            <ImageContainer img={image11} />
           </div>
         </div>
       </div>
@@ -161,7 +186,7 @@ export default function Home() {
             <ImageContainer img={card1} wid="w-100" />
           </div>
           <div className="col HomePage-imgElementNON">
-            <ImageContainer img={card1} wid="w-100" />
+            <ImageContainer img={card1x} wid="w-100" />
           </div>
         </div>
       </div>
@@ -219,22 +244,22 @@ export default function Home() {
       {/*  Be Prepared for winter */}
       <div className="container  card mt-4">
         <TextCenter title=" Be Prepared for winter " />
-        <SmallImagesContainer text1="Women Autumn Fashon" text2="Women Autumn Fashon" text3="Women Autumn Fashon" text4="Women Autumn Fashon" text5="Women Autumn Fashon" text6="Women Autumn Fashon"
-          img1={card6}
-          img2={card6}
-          img3={card6}
-          img4={card6}
-          img5={card6}
-          img6={card6}/>
+        <SmallImagesContainer text1="Men's Fashion" text2="Women's Fashion" text3="Beauty & perfumes" text4="Mobile & Accessories" text5="Home & Appliances" text6="Laptop & Accessories"
+          img1={x6}
+          img2={x10}
+          img3={x11}
+          img4={x7}
+          img5={x2}
+          img6={x5}/>
 
         {/* iiiiiiiiiiiiii */}
-        <SmallImagesContainer text1="Women Autumn Fashon" text2="Women Autumn Fashon" text3="Women Autumn Fashon" text4="Women Autumn Fashon" text5="Women Autumn Fashon" text6="Women Autumn Fashon"
-          img1={card6}
-          img2={card6}
-          img3={card6}
-          img4={card6}
-          img5={card6}
-          img6={card6}/>
+        <SmallImagesContainer text1="TVs & Gaming" text2="Sporting" text3="Kids & Baby" text4="Car Essentials" text5="Food & Beverage" text6="Household Care"
+          img1={x9}
+          img2={x8}
+          img3={x4}
+          img4={x12}
+          img5={x1}
+          img6={x3}/>
       </div>
 
       {/* <!-- <!-- Mother Care --> --> */}
@@ -312,12 +337,12 @@ export default function Home() {
       </div>
 
       <div className="container  card mt-4">
-        <SmallImagesContainer img1={card6}
-          img2={card6}
-          img3={card6}
-          img4={card6}
-          img5={card6}
-          img6={card6}/>
+        <SmallImagesContainer img1={y1}
+          img2={y2}
+          img3={y3}
+          img4={y4}
+          img5={y5}
+          img6={y6}/>
         </div>
 
       {/* <!-- <!-- personalcare --> --> */}
@@ -385,7 +410,7 @@ export default function Home() {
       <div className="container card mt-4">
         <div className=" HomePage-img  row px-2">
           <div className="col HomePage-imgElementNON m-2">
-            <ImageContainer img={personalcare} wid="w-100" />
+            <ImageContainer img={flash} wid="w-100" />
           </div>
         </div>
       </div>
@@ -445,10 +470,10 @@ export default function Home() {
       <div className="container  card mt-4">
         <div className=" HomePage-img  row ">
           <div className="col HomePage-imgElementNON m-2">
-            <ImageContainer img={card1} wid="w-100" />
+            <ImageContainer img={z1} wid="w-100" />
           </div>
           <div className="col HomePage-imgElementNON m-2">
-            <ImageContainer img={card1} wid="w-100" />
+            <ImageContainer img={z2} wid="w-100" />
           </div>
         </div>
       </div>
@@ -458,10 +483,10 @@ export default function Home() {
       {/*  Be Prepared for winter */}
       <div className="container  card mt-4">
         <TextCenter title=" Be Prepared for winter " />
-        <SmallImagesContainer text1="Women Autumn Fashon" text2="All In Black" text3="Dress Like a Boss" text4="Your Style Rules" text5="Baby Comfort" text6="Wedding Home"
+        <SmallImagesContainer text1="men Autumn Fashon" text2="All In Black" text3="Dress Like a Boss" text4="Your Style Rules" text5="Baby Comfort" text6="Wedding Home"
           img1={L1}
           img2={L2}
-          img3={L3}
+          img3={L12}
           img4={L4}
           img5={L5}
           img6={L6} />
@@ -471,9 +496,9 @@ export default function Home() {
           img1={L7}
           img2={L8}
           img3={L9}
-          img4={L10}
-          img5={L11}
-          img6={L12} />
+          img4={L11}
+          img5={L10}
+          img6={L3} />
       </div>
 
 

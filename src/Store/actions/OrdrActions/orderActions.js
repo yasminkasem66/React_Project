@@ -1,25 +1,40 @@
-// export const getAllOrders = () => async (dispatch) => {
-//   try {
-//     const response = await axiosInstanceInstance.get(`/orders`);
-//     console.log("response", response);
-//     dispatch({
-//       type: GET_ALL_ORDERS,
-//       payload: response.data.orders,
-//     });
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
-
-
 import { axiosInstance } from "../../../network";
 import { cartConstants } from "../../types";
 import store from "../../Store";
+import { CREATE_ORDER_ACTION } from "../../types";
+
+export const createOrder = (cartContent) => async (dispatch) => {
+  try {
+    const res = await axiosInstance.post(`/orders`, {
+      cartContent,
+      tax: 10,
+      shippingFee: 10,
+    });
+    console.log("response", res);
+    dispatch({
+      type: CREATE_ORDER_ACTION,
+      payload: res.data.orders,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// {
+//    "items":[{"name": "t-shirt2",
+//   "image": "https://eg.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/21/864102/1.jpg?8774",
+//   "price": 109999,
+//   "amount": 2,
+//   "product":"61a13f2a9b6b3cd7f9b46089"}
+//     ],
+// "tax":10,
+// "shippingFee":10
+// }
 
 export const getCartItems = () => async (dispatch) => {
   try {
     const res = await axiosInstance.get(`/orders/showAllMyOrders`);
-    const {orderItems:items} = res.data.orders[0];
+    const { orderItems: items } = res.data.orders[0];
     console.log({ items });
     if (items) {
       dispatch({
@@ -33,57 +48,61 @@ export const getCartItems = () => async (dispatch) => {
 };
 
 const accessToken = localStorage.getItem("token");
-export const addToCart = (product, newQty = 1) => async (dispatch) => {
-  const {
-    Orders: { items },
-    auth,
-  } = store.getState();
-  //console.log('action::products', products);
-  //const product = action.payload.product;
-  //const products = state.products;
-  const amount = items[product._id]
-    ? parseInt(items[product._id].amount + newQty)
-    : 1;
-  items[product._id] = {
-    ...product,
-    amount,
-  };
 
-  if (accessToken) {
-    const payload = {
-      // items: Object.keys(items).map((key, index) => {
-      //     return {
-      //         amount: items[key].amount,
-      //         product: items[key]._id
-      //     }
-      // })
-      items: [
-        {
-          product: product._id,
-          amount: amount,
-        },
-        
-      ],
+export const addToCart =
+  (product, newQty = 1) =>
+  async (dispatch) => {
+    const {
+      Orders: { items },
+      auth,
+    } = store.getState();
+    //console.log('action::products', products);
+    //const product = action.payload.product;
+    //const products = state.products;
+    const amount = items[product._id]
+      ? parseInt(items[product._id].amount + newQty)
+      : 1;
+    items[product._id] = {
+      ...product,
+      amount,
     };
-    console.log(payload);
-    const res = await axiosInstance.post(`/orders`, {payload, tax: 10, shippingFee: 10});
-    console.log(res);
-    if (res.status === 201) {
-      dispatch(getCartItems());
+
+    if (accessToken) {
+      const payload = {
+        // items: Object.keys(items).map((key, index) => {
+        //     return {
+        //         amount: items[key].amount,
+        //         product: items[key]._id
+        //     }
+        // })
+        items: [
+          {
+            product: product._id,
+            amount: amount,
+          },
+        ],
+      };
+      console.log(payload);
+      const res = await axiosInstance.post(`/orders`, {
+        payload,
+        tax: 10,
+        shippingFee: 10,
+      });
+      console.log(res);
+      if (res.status === 201) {
+        dispatch(getCartItems());
+      }
+    } else {
+      localStorage.setItem("cart", JSON.stringify(items));
     }
-  } else {
-    localStorage.setItem("cart", JSON.stringify(items));
-  }
 
-  console.log("addToCart::", items);
+    console.log("addToCart::", items);
 
-  dispatch({
-    type: cartConstants.ADD_TO_CART_SUCCESS,
-    payload: { items },
-  });
-};
-
-
+    dispatch({
+      type: cartConstants.ADD_TO_CART_SUCCESS,
+      payload: { items },
+    });
+  };
 
 // export const removeCartItem = (payload) => async (dispatch) => {
 //     try {
@@ -143,6 +162,3 @@ export const addToCart = (product, newQty = 1) => async (dispatch) => {
 //     }
 //   };
 // };
-
-
-

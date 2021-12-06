@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
-
+import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 
 export default function Paypal(props) {
   const paypal = useRef();
@@ -24,6 +23,7 @@ export default function Paypal(props) {
         },
         onApprove: async (data, actions) => {
           const order = await actions.order.capture();
+          props.creatNewOrder();
           console.log(order);
         },
         onError: (err) => {
@@ -35,13 +35,13 @@ export default function Paypal(props) {
 
   return (
     <>
-    <div className="d-flex">
-            <CheckCircleRoundedIcon style={{ color: "#a3cf62" }} />
-            <p className="fw-bold ms-1">3.PAYMENT METHOD</p>
-          </div>
-    <div>
-      <div ref={paypal}></div>
-    </div>
+      <div className="d-flex">
+        <CheckCircleRoundedIcon style={{ color: "#a3cf62" }} />
+        <p className="fw-bold ms-1">3.PAYMENT METHOD</p>
+      </div>
+      <div>
+        <div ref={paypal}></div>
+      </div>
     </>
   );
 }

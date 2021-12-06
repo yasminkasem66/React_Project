@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useCart } from "react-use-cart";
 import image from "../../assets/imgs/jumia-brand.webp";
 export default function CartItem(props) {
@@ -14,7 +15,7 @@ export default function CartItem(props) {
   } = useCart();
 
   const handleQty = (e) => {
-    updateItemQuantity(props.item.id, (props.item.quantity = e.target.value));
+    updateItemQuantity(props.item.id, e.target.value);
   };
   return (
     <>
@@ -27,7 +28,9 @@ export default function CartItem(props) {
             />
             <div className="">
               <p>Seller: Bazicz</p>
-              <p>{props.item.name}</p>
+              <Link to={"/singleProduct/" + props.item.id}>
+                <p>{props.item.name}</p>
+              </Link>
               <div className="d-flex">
                 <span className="text-warning">
                   <i className="far fa-heart" /> MOVE TO SAVED ITEMS
@@ -44,22 +47,16 @@ export default function CartItem(props) {
           </div>
         </div>
         <div className="col-2 border-end mt-2">
-          <select className="form-select w-100">
-            <option onChange={handleQty} value={props.item.quantity}>
-              {props.item.quantity}
-            </option>
-            <option onChange={handleQty} value={1}>
-              1
-            </option>
-            <option onChange={handleQty} value={2}>
-              2
-            </option>
-            <option onChange={handleQty} value={3}>
-              3
-            </option>
-            <option onChange={handleQty} value={4}>
-              4
-            </option>
+          <select
+            onChange={handleQty}
+            value={props.item.quantity}
+            className="form-select w-100 border-top-0 border-end-0 border-start-0"
+          >
+            <option value={1}>1</option>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+            <option value={4}>4</option>
+            <option value={5}>5</option>
           </select>
         </div>
         <div className="col-2 border-end mt-2">EGP {props.item.price}</div>

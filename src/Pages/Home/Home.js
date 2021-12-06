@@ -225,7 +225,7 @@ export default function Home() {
 
       {/* Weakend Clearnace | Limited Stock */}
       <div className="container mt-4 card">
-        <SeeAll color="#FFFFFF" background="#B60000" title="Weakend Clearnace | Limited Stock" />
+        <SeeAll color="#FFFFFF" background="#B60000" title={t('WeakendClearnace')} />
         <div className="row mt-3">
           {
             items.map((item, index) => {
@@ -241,9 +241,9 @@ export default function Home() {
       </div>
 
 
-      {/*  Be Prepared for winter */}
+      {/*  NEW OFFERS EVERYDAY ON EVERYTHING */}
       <div className="container  card mt-4">
-        <TextCenter title=" Be Prepared for winter " />
+        <TextCenter title={t('NEWOFFERS')} />
         <SmallImagesContainer text1="Men's Fashion" text2="Women's Fashion" text3="Beauty & perfumes" text4="Mobile & Accessories" text5="Home & Appliances" text6="Laptop & Accessories"
           img1={x6}
           img2={x10}
@@ -273,9 +273,9 @@ export default function Home() {
 
 
       
-      {/* <!--  Enjoy Jumai Pay & Jumia Food Offers --> */}
+      {/* <!--  MORE DEALS & OFFERS --> */}
     <div className="container  card mt-4">
-        <TextCenter title=" Enjoy Jumai Pay & Jumia Food Offers "/>
+        <TextCenter title={t('MOREDEALS')}/>
         <div className=" HomePage-img  row p-1">
           <div className="col HomePage-imgElementNON">
             <ImageContainer img={JumiaFood1} wid="w-100" />
@@ -287,9 +287,9 @@ export default function Home() {
       </div>
 
 
-      {/* Weakend Clearnace | Limited Stock */}
+      {/*Most Liked Products*/}
       <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title="Most Liked Products" />
+        <SeeAll color="black" background="#C7C7CD" title={t('MostLikedProducts')} />
         <div className="row mt-3">
           {
             items.map((item, index) => {
@@ -305,9 +305,9 @@ export default function Home() {
 
 
 
-      {/* <!--  Enjoy Jumai Pay & Jumia Food Offers --> */}
+      {/* <!--  Pick For You --> */}
       <div className="container  card mt-3 px-4 pb-1">
-        <TextCenter title=" Pick For You " />
+        <TextCenter title={t('PickForYou')} />
         <div className="   row ">
           <div className="col HomePage-imgElementNON m-2">
             <ImageContainer img={Pickforyou} wid="w-100" />
@@ -317,8 +317,8 @@ export default function Home() {
 
 
       {/*Women's Sweatshirts | Up to 50% OFF */}
-      <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title="Women's Sweatshirts | Up to 50% OFF" />
+      <div className="container mt-4 card ">
+        <SeeAll color="black" background="#C7C7CD" title={t("Women'sFashion")} />
         <div className="row mt-3">
           {
             
@@ -356,7 +356,7 @@ export default function Home() {
 
       {/*Men's Sweatshirts | Up to 50% OFF */}
       <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title="Men's Sweatshirts | Up to 50% OFF" />
+        <SeeAll color="black" background="#C7C7CD" title={t("Men'sFashion")} />
         <div className="row mt-3">
           {
             menProduct.map((item, index) => {
@@ -380,9 +380,9 @@ export default function Home() {
         </div>
       </div>
 
-      {/*Shavers & hair Removal | Up to 30% OFF */}
+      {/*Games | Up to 30% OFF */}
       <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title="Games | Up to 30% OFF" />
+        <SeeAll color="black" background="#C7C7CD" title={t('Games')} />
         <div className="row mt-3">
           {
             gamesProducts.map((item, index) => {
@@ -417,9 +417,9 @@ export default function Home() {
 
 
 
-      {/*Soft Drinks | Up to 30% OFF */}
+      {/*SmartPone */}
       <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title="Furniture | Up to 30% OFF" />
+        <SeeAll color="black" background="#C7C7CD" title={t('SmartPone')} />
         <div className="row mt-3">
           {
             furnitureProducts.map((item, index) => {
@@ -436,7 +436,7 @@ export default function Home() {
       
       {/* <!--   Subscribe Now & Enjoy --> */}
       <div className="container  card mt-4">
-        <TextCenter title="  Subscribe Now & Enjoy " />
+        <TextCenter title={t("SubscribeNow")} />
         <div className=" HomePage-img  row p-1">
           <div className="col HomePage-imgElementNON">
             <ImageContainer img={subscribe1} wid="w-100" />
@@ -451,7 +451,7 @@ export default function Home() {
 
       {/* New On Jumia */}
       <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title=" New On Jumia" />
+        <SeeAll color="black" background="#C7C7CD" title={t('NewOnJumia')} />
         <div className="row mt-3">
           {
             items.map((item, index) => {
@@ -482,7 +482,7 @@ export default function Home() {
 
       {/*  Be Prepared for winter */}
       <div className="container  card mt-4">
-        <TextCenter title=" Be Prepared for winter " />
+        <TextCenter title={t('BePreparedforwinter')} />
         <SmallImagesContainer text1="men Autumn Fashon" text2="All In Black" text3="Dress Like a Boss" text4="Your Style Rules" text5="Baby Comfort" text6="Wedding Home"
           img1={L1}
           img2={L2}

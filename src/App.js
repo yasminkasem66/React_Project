@@ -28,7 +28,7 @@ const lang = localStorage.getItem('lang') || 'en';
 document.documentElement.language = lang;
 
 function App() {
-  const [checkout, setCheckOut] = useState(false);
+  // const [checkout, setCheckOut] = useState(false);
 
   // const [checkout, setCheckOut]=useState(false)
   return (

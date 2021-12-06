@@ -46,9 +46,10 @@
     "Onlineshopping": "Online shopping sites are now part of our everyday lives, because everyone enjoys the possibility of being able to buy whatever they need, whether its clothing or",
     "withouthavingtomove": ", without having to move an inch. It’s even better when you can buy everything you’re looking for, all from the same store. This is what Jumia Egypt offers and that’s what makes it one of the best online shopping websites in Egypt.",
     "NewtoJumia": "New to Jumia? ",
+    
     "subscribe": "Subscribe to our newsletter to get updates on our latest offers!",
-    "mmale": "male",
-    "fmale": "female",
+    "mmale": "Male",
+    "fmale": "Female",
     "download": "DOWNLOAD JUMIA FREE APP",
     "getaccess": "Get access to exclusive offers!",
     "lETUS": "LET US HELP YOU",
@@ -174,5 +175,16 @@
     "Eltoh": "Price: low to high",
     "Esbyy": "Sort by :",
     "EsortRate": "rate : high to low",
-    "nQty": "Qty"
+    "nQty": "Qty",
+    "JoinUsOn":"JOIN US ON",
+    "PaymentMethod":"PAYMENT METHODS",
+    "MakeMoney":"MAKE MONEY WITH JUMIA",
+    "JumiaBlackFriday":" Jumia Black Friday",
+    "TopSellingItems":"Top selling items",
+    "TopDeals":" 10.10 TOP DEALS",
+    "ExeclusiveToday":"Execlusive Today!",
+    "Official Stores":"Official Stores",
+    "Jumia Global":"Jumia Global",
+    "Recharge&Bill":"Recharge&Bill",
+    "Orange Points":"Orange Points"
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import './Footer1.scss';
 import uk from '../../assets/imgs/uk.svg'
 import Egy from '../../assets/imgs/eg.svg'
@@ -6,7 +7,7 @@ import Jumia from '../../assets/imgs/lg-jumia.png'
 import Icon from '../../assets/imgs/icon.png'
 
 export default function Footer1() {
-
+    const { t, i18n } = useTranslation();
 
     return (
         <>
@@ -23,9 +24,9 @@ export default function Footer1() {
                         </div>
                         {/* two */}
                         <div className="col-lg-6 col-md-12 py-4 py-md-4 aside-stretch ">
-                            <div className="f-t -pbs">New to Jumia?</div>
+                            <div className="f-t -pbs">{t('NewtoJumia')}</div>
                             <p className>
-                                Subscribe to our newsletter to get updates on our latest offers!
+                            {t('subscribe')}
                             </p>
                             <div className="row g-3">
                                 <div className="col-sm-8">
@@ -43,7 +44,7 @@ export default function Footer1() {
                                         value="male"
                                         className=" form-control btn btn-outline-light p-1"
                                     >
-                                        <span>Male</span>
+                                        <span>{t('mmale')}</span>
                                     </button>
                                 </div>
                                 <div className="col-sm-2">
@@ -53,7 +54,7 @@ export default function Footer1() {
                                         value="female"
                                         className=" form-control btn btn-outline-light p-1"
                                     >
-                                        <span>Female</span>
+                                        <span>{t('fmale')}</span>
                                     </button>
                                 </div>
                             </div>
@@ -65,8 +66,8 @@ export default function Footer1() {
                                     <img src={Icon} alt="icom" className="w-75 rounded" />{" "}
                                 </div>
                                 <div className=" col-lg-9">
-                                    <div className=" ">DOWNLOAD JUMIA FREE APP</div>
-                                    <p className="  ">Get access to exclusive offers!</p>
+                                    <div className=" ">{t('download')}</div>
+                                    <p className="  ">{t('getaccess')}</p>
                                 </div>
                             </div>
                             <div className="row   row-cols-2">
@@ -111,14 +112,14 @@ export default function Footer1() {
                     <div className="row py-4">
                         {/* one */}
                         <div className="col-lg-3 col-6  mb-md-0 mb-4  d-none   d-md-block">
-                            <span className="footer-heading ">LET US HELP YOU</span>
+                            <span className="footer-heading ">{t('lETUS')}</span>
                             <ul className="list-unstyled pt-3 ">
                                 <li>
                                     <a
                                         className=" text-decoration-none text-muted link-light"
                                         href="https://www.jumia.com.eg/help/"
                                     >
-                                        Help Center
+                                        {t('helpMe')}
                                     </a>
                                 </li>
                                 <li>
@@ -126,7 +127,7 @@ export default function Footer1() {
                                         className=" text-decoration-none text-muted link-light"
                                         href="contact.html"
                                     >
-                                        Contact us
+                                         {t('contactUs')}
                                     </a>
                                 </li>
                                 <li>
@@ -134,7 +135,7 @@ export default function Footer1() {
                                         className=" text-decoration-none text-muted link-light"
                                         href="https://www.jumia.com.eg/how-to-shop/"
                                     >
-                                        How to buy on Jumia?
+                                        {t('howtobuyonJumia')}
                                     </a>
                                 </li>
                                 <li>
@@ -142,7 +143,7 @@ export default function Footer1() {
                                         className=" text-decoration-none text-muted link-light"
                                         href="https://www.jumia.com.eg/how-to-pay/"
                                     >
-                                        How to pay on Jumia?
+                                       {t('HowtopayonJumia')}
                                     </a>
                                 </li>
                                 <li>
@@ -150,7 +151,7 @@ export default function Footer1() {
                                         className=" text-decoration-none text-muted link-light"
                                         href="https://www.jumia.com.eg/delivery-timelines/"
                                     >
-                                        Delivery timelines
+                                        {t('deliverytimelines')}
                                     </a>
                                 </li>
                                 <li>
@@ -158,7 +159,7 @@ export default function Footer1() {
                                         className=" text-decoration-none text-muted link-light"
                                         href="https://www.jumia.com.eg/sp-returns-refunds/"
                                     >
-                                        Return Policy{" "}
+                                       {t('returnPolicy')}{" "}
                                     </a>
                                 </li>
                                 <li>
@@ -166,7 +167,7 @@ export default function Footer1() {
                                         className=" text-decoration-none text-muted link-light"
                                         href="https://www.jumia.com.eg/jumia-corporate/"
                                     >
-                                        Corporate Services
+                                        {t('corporateServices')}
                                     </a>
                                 </li>
                                 <li>
@@ -174,21 +175,21 @@ export default function Footer1() {
                                         className=" text-decoration-none text-muted link-light"
                                         href="https://docs.google.com/forms/d/1poBfqrj0bXCtkvJIm_24mLCTdvKJNebDB7-ATHZwRW4/edit"
                                     >
-                                        Report a Product
+                                        {t('reportaProduct')}
                                     </a>
                                 </li>
                             </ul>
                         </div>
                         {/* two */}
                         <div className="col-lg-3 col-6  mb-md-0 mb-4  d-none   d-md-block">
-                            <span className="footer-heading ">ABOUT JUMIA EGYPT</span>
+                            <span className="footer-heading ">{t('aBOUTJUMIAEGYPT' )}</span>
                             <ul className="list-unstyled pt-3 ">
                                 <li>
                                     <a
                                         className="text-decoration-none text-muted link-light"
                                         href="about.html"
                                     >
-                                        About us
+                                         {t('aboutus' )}
                                     </a>
                                 </li>
                                 <li>
@@ -196,7 +197,7 @@ export default function Footer1() {
                                         className="text-decoration-none text-muted link-light"
                                         href="/careers/?internal=footer"
                                     >
-                                        Jumia Careers
+                                         {t('jumiaCareers' )}
                                     </a>
                                 </li>
                                 <li>
@@ -204,7 +205,7 @@ export default function Footer1() {
                                         className="text-decoration-none text-muted link-light"
                                         href="/terms-of-use/?internal=footer"
                                     >
-                                        Terms and Conditions
+                                        {t('termsandConditions' )}
                                     </a>
                                 </li>
                                 <li>
@@ -212,7 +213,7 @@ export default function Footer1() {
                                         className="text-decoration-none text-muted link-light"
                                         href="/privacy/?internal=footer"
                                     >
-                                        Privacy Policy
+                                        {t('privacyPolicy' )}
                                     </a>
                                 </li>
                                 <li>
@@ -228,7 +229,7 @@ export default function Footer1() {
                                         className="text-decoration-none text-muted link-light"
                                         href="/jumia-mall/?internal=footer"
                                     >
-                                        Jumia Mall
+                                         {t('mall' )}
                                     </a>
                                 </li>
                                 <li>
@@ -236,7 +237,7 @@ export default function Footer1() {
                                         className="text-decoration-none text-muted link-light"
                                         href="/sp-jumia-services/?internal=footer"
                                     >
-                                        Jumia Logistics Services
+                                        {t('jumiaLogisticsServices' )}
                                     </a>
                                 </li>
                                 <li>
@@ -244,21 +245,21 @@ export default function Footer1() {
                                         className="text-decoration-none text-muted link-light"
                                         href="https://www.jumia.com.eg/mlp-black-friday/"
                                     >
-                                        Jumia Black Friday
+                                        {t('JumiaBlackFriday' )}
                                     </a>
                                 </li>
                             </ul>
                         </div>
                         {/* three */}
                         <div className="col-lg-3 col-6  mb-md-0 mb-4  d-none   d-md-block">
-                            <span className="footer-heading ">MAKE MONEY WITH JUMIA</span>
+                            <span className="footer-heading ">{t('MakeMoney')}</span>
                             <ul className="list-unstyled pt-3 ">
                                 <li>
                                     <a
                                         className=" text-decoration-none text-muted link-light"
                                         href="https://vendorhub.jumia.com.eg/terms-and-agreements/"
                                     >
-                                        Sell on Jumia
+                                       {t('sell' )}
                                     </a>
                                 </li>
                                 <li>
@@ -266,7 +267,7 @@ export default function Footer1() {
                                         className=" text-decoration-none text-muted link-light"
                                         href="https://www.jumia.com.eg/logistics-service-partner/?internal=footer"
                                     >
-                                        Become a Logistics Service Partner
+                                        {t('nBecomeaLogistics' )}
                                     </a>
                                 </li>
                                 <li>
@@ -274,7 +275,7 @@ export default function Footer1() {
                                         className=" text-decoration-none text-muted link-light"
                                         href="https://www.jumia.com.eg/jforce-consultant/"
                                     >
-                                        Become a Sales Consultant (J-Force )
+                                        {t('nBecomeaSalesConsultant' )}
                                     </a>
                                 </li>
                             </ul>
@@ -282,7 +283,7 @@ export default function Footer1() {
                         {/* four */}
                         <div className="col-lg-3 col-6 mb-md-0 mb-4">
                             <span className="footer-heading  d-none   d-md-block">
-                                JUMIA INTERNATIONAL
+                            {t('nJUMIAINTERNATIONAL' )}
                             </span>
                             <div className=" row row-cols-2">
                                 <ul className="list-unstyled pt-3 ">
@@ -291,7 +292,7 @@ export default function Footer1() {
                                             className="text-decoration-none text-muted link-light"
                                             href="https://www.jumia.dz/"
                                         >
-                                            Algeria
+                                            {t('nAlgeria' )}{" "}
                                         </a>
                                     </li>
                                     <li>
@@ -299,7 +300,7 @@ export default function Footer1() {
                                             className="text-decoration-none text-muted link-light"
                                             href="https://www.jumia.ci/"
                                         >
-                                            Ivory Coast{" "}
+                                              {t('nIvoryCoast' )}{" "}
                                         </a>
                                     </li>
                                     <li>
@@ -307,7 +308,7 @@ export default function Footer1() {
                                             className="text-decoration-none text-muted link-light"
                                             href="https://www.jumia.com.gh/"
                                         >
-                                            Ghana
+                                           {t('nGhana' )}
                                         </a>
                                     </li>
                                     <li>
@@ -315,7 +316,7 @@ export default function Footer1() {
                                             className="text-decoration-none text-muted link-light"
                                             href="https://www.jumia.co.ke/"
                                         >
-                                            Kenya
+                                            {t('nKenya' )}
                                         </a>
                                     </li>
                                     <li>
@@ -323,7 +324,7 @@ export default function Footer1() {
                                             className="text-decoration-none text-muted link-light"
                                             href="https://www.jumia.ma/"
                                         >
-                                            Morocco
+                                            {t('nMorocco' )}
                                         </a>
                                     </li>
                                 </ul>
@@ -333,7 +334,7 @@ export default function Footer1() {
                                             className="text-decoration-none text-muted link-light"
                                             href="https://www.jumia.com.ng/"
                                         >
-                                            Nigeria
+                                           {t('nNigeria' )}
                                         </a>
                                     </li>
                                     <li>
@@ -341,7 +342,7 @@ export default function Footer1() {
                                             className="text-decoration-none text-muted link-light"
                                             href="https://www.jumia.sn/"
                                         >
-                                            Senegal
+                                            {t('nSenegal' )}
                                         </a>
                                     </li>
                                     <li>
@@ -349,7 +350,7 @@ export default function Footer1() {
                                             className="text-decoration-none text-muted link-light"
                                             href="https://www.jumia.com.tn/"
                                         >
-                                            Tunisia
+                                            {t('nTunisia' )}
                                         </a>
                                     </li>
                                     <li>
@@ -357,7 +358,7 @@ export default function Footer1() {
                                             className="text-decoration-none text-muted link-light"
                                             href="https://www.jumia.ug/"
                                         >
-                                            Uganda
+                                            {t('nUganda')}
                                         </a>
                                     </li>
                                 </ul>
@@ -368,7 +369,7 @@ export default function Footer1() {
                     <div className="row py-4 border-bottom border-secondary  ">
                         {/* one */}
                         <div className="col-lg-3 col-6  mb-md-0 mb-4  d-none   d-md-block">
-                            <span className="footer-heading ">JOIN US ON</span>
+                            <span className="footer-heading "> {t('JoinUsOn')}</span>
                             <div className="list-unstyled pt-2 pb-4">
                                 <a
                                     className=" text-decoration-none me-3 fs-4 link-light"
@@ -398,7 +399,7 @@ export default function Footer1() {
                         </div>
                         {/* two */}
                         <div className="col-lg-3 col-6  mb-md-0 mb-4  d-none   d-md-block">
-                            <span className="footer-heading ">PAYMENT METHODS</span>
+                            <span className="footer-heading ">{t('PaymentMethod')}</span>
                             <div className="list-unstyled pt-2  pb-4">
                                 <a
                                     href="https://www.jumia.com.eg/help/"

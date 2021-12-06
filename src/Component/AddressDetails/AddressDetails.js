@@ -7,7 +7,7 @@ import { getSingleUser } from "../../Store/actions/UserActions/getSingleUser";
 export default function AddressDetails() {
 
   const id =JSON.parse(localStorage.getItem("user")).userId 
-  console.log("asdadsasdaaaaaaaaaaa",id)  
+  // console.log("asdadsasdaaaaaaaaaaa",id)  
   
 
   const user = useSelector((state) => state.users);
@@ -17,7 +17,7 @@ export default function AddressDetails() {
   }, []);
 
 
-  console.log("hhhhhhhhhhhhhhhhhhhhhhh",user)
+  // console.log("hhhhhhhhhhhhhhhhhhhhhhh",user)
   return (
     <div>
       <h6>CHECKOUT</h6>

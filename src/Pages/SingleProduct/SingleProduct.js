@@ -24,10 +24,10 @@ import Footer1 from "../../Component/Footer1/Footer1";
 
 export default function SingleProduct() {
   const { id } = useParams();
-  console.log("id id", id);
+  // console.log("id id", id);
 
   const product = useSelector((state) => state.SingleProduct);
-  console.log("product", product);
+  // console.log("product", product);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(ProductById(id));

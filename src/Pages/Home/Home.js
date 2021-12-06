@@ -99,10 +99,10 @@ export default function Home() {
   console.log("singleproductnnnnnnnnnnnnnnnnnn", singleproduct);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getAllProducts());
-    dispatch(ProductById('61a13f2a9b6b3cd7f9b46089'));
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getAllProducts());
+  //   dispatch(ProductById('61a13f2a9b6b3cd7f9b46089'));
+  // }, []);
 
   const women=products.filter(product=>product.category.name==="womans") 
   const womenProduct= women.slice(0,6)
@@ -183,7 +183,7 @@ export default function Home() {
         <TextCenter title={t("TopDeals")} />
         <div className=" HomePage-img  row p-1">
           <div className="col HomePage-imgElementNON">
-            <ImageContainer img={card1} wid="w-100" />
+            <ImageContainer img={card1x} wid="w-100" />
           </div>
           <div className="col HomePage-imgElementNON">
             <ImageContainer img={card1x} wid="w-100" />

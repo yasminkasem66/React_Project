@@ -6,28 +6,50 @@ import "./CatList.scss"
 
 export default function CatList() {
     const { t, i18n } = useTranslation();
+    // localhost: 5000/api/v1/products?categoryparent=Fashion
+    const StoreCategory = ( cat) => {
+        // e.preventDefault();
+        // console.log("eCat", e);
+        const category = localStorage.setItem("category", cat)
+    }
 
     return (
         <>
             {/* <div className="col-lg-2   rounded "> */}
 
-            <div className="col-lg-2  card d-none d-lg-block">
-                <Link to="/products" className="aa"><i className="fas fa-apple-alt" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}> {t("suber")}</span></Link><br />
-                <Link to="/products"  className="aa">
+            <div className="col-lg-2  card d-none d-lg-block" >
+                <Link to="/products/" className="aa" ><i className="fas fa-apple-alt" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}> {t("suber")}</span></Link><br />
+
+                <Link to="/products" className="aa" value="Fashion" onClick={(e)=>StoreCategory("Fashion")}>
                     <i className="fas fa-tshirt" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}> {t('fasion')}</span></Link><br />
-                <Link to="/products"   className="aa"><i className="fas fa-feather-alt" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('healty')}</span></Link><br />
-                <Link to="/products"  className="aa"><i className="fas fa-child" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('baby')}</span></Link><br />
-                <Link to="/products"  className="aa"><i className="fas fa-mobile-alt" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}> {t('phones')}</span></Link><br />
+
+
+                <Link to="/products" className="aa" onClick={(e) => StoreCategory("Gaming")}><i className="fas fa-gamepad" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('game')}</span></Link><br />
+
+                <Link to="/products" className="aa" onClick={(e) => StoreCategory("smartPhone")}><i className="fas fa-mobile-alt" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}> {t('phones')}</span></Link><br />
+
+                <Link to="/products" className="aa" onClick={(e) => StoreCategory("Fashion")}><i className="fas fa-feather-alt" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('healty')}</span></Link><br />
+
+
+                <Link to="/products" className="aa"><i className="fas fa-laptop" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('electro')}</span></Link><br />
+
+                <Link to="/products" className="aa"><i className="fas fa-child" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('baby')}</span></Link><br />
+
+
                 <Link to="/category" className="aa"><i className="fas fa-home" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('nhome')}</span></Link><br />
-                <Link to="/products"  className="aa"><i className="fas fa-laptop" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('electro')}</span></Link><br />
-                <Link to="/products"  className="aa"><i className="fas fa-desktop" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}> {t('computer')}</span></Link><br />
-                <Link to="/products"  className="aa"><i className="fas fa-dumbbell" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('sport')}</span></Link><br />
-                <Link to="/products"  className="aa"><i className="fas fa-gamepad" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('game')}</span></Link><br />
-                <Link to="/products"  className="aa"><i className="fas fa-car" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}> {t('outomobile')}</span></Link><br />
-                <Link to="/products"  className="aa"><i className="fas fa-ellipsis-h" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}> {t('other')}</span></Link><br />
+
+
+                <Link to="/products" className="aa"><i className="fas fa-desktop" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}> {t('computer')}</span></Link><br />
+
+                <Link to="/products" className="aa"><i className="fas fa-dumbbell" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('sport')}</span></Link><br />
+
+
+                <Link to="/products" className="aa"><i className="fas fa-car" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}> {t('outomobile')}</span></Link><br />
+
+                <Link to="/products" className="aa"><i className="fas fa-ellipsis-h" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}> {t('other')}</span></Link><br />
             </div>
-            
-            
+
+
             {/* test */}
             {/* <ul className="list-group border-0 ">
                 <li className="list-group-item d-flex justify-content-between align-items-start border-0  p-0">

@@ -14,7 +14,7 @@ export const axiosInstance = axios.create({
   baseURL:"http://localhost:5000/api/v1",
   headers: {
     authorization: `Bearer ${accessToken}`,
-    'Accept-Language': `${lang}`
+    // 'Accept-Language': `${lang}`
     
   },
 });

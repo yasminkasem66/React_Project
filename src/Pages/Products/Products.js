@@ -46,10 +46,11 @@ export default function Products() {
   
   const products = useSelector((state) => state.AllProductsPagination);
   const [pageNum, setpageNum] = useState(1);
-  console.log("AllProductsPagination", products);
+  // const cat = undefined ? '': localStorage.getItem("category");
+  const cat =localStorage.getItem("category");
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllProductsPaganation(pageNum));
+    dispatch(getAllProductsPaganation(pageNum, cat));
   }, [pageNum]);
 
   const pagFun2 = (e) => {

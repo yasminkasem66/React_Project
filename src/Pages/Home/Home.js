@@ -6,6 +6,9 @@ import { useTranslation } from 'react-i18next'
 import { ProductById } from "../../Store/actions/ProductActions/GetSingleProduct";
 
 
+
+
+
 //import UperHeader from "../../Component/UperHeader.js/UperHeader";
 import ImageContainer from "../../Component/ImageContainer/ImageContainer";
 import MiddeleHeader from "../../Component/Headers/MiddleHeader/MiddeleHeader";
@@ -22,6 +25,7 @@ import Carsoual from "../../Component/Carsoual/Carsoual";
 import ProductCard from "../../Component/ProductCard/ProductCard";
 import TextCenter from "../../Component/TextCenter/TextCenter";
 import SmallImagesContainer from "../../Component/SmallImagesContainer/SmallImagesContainer";
+
 
 
 // images
@@ -74,10 +78,10 @@ export default function Home() {
   console.log("singleproductnnnnnnnnnnnnnnnnnn", singleproduct);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getAllProducts());
-    dispatch(ProductById('61a13f2a9b6b3cd7f9b46089'));
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getAllProducts());
+  //   dispatch(ProductById('61a13f2a9b6b3cd7f9b46089'));
+  // }, []);
 
   const women=products.filter(product=>product.category.name==="womans") 
   const womenProduct= women.slice(0,6)
@@ -91,6 +95,7 @@ export default function Home() {
   console.log("menProducts",menProduct)
   console.log("gamesProduct",gamesProducts)
   console.log("furnitureProducts",furnitureProducts)
+
 
 
 
@@ -136,6 +141,8 @@ export default function Home() {
         <SmallCard statement="Orange Points" pic={padge4} className="col-3" />
         {/* <ProductCard pic={pic1} /> */}
       </div>
+
+
 
       {/* caresoul products */}
       <div className="container card mt-3">

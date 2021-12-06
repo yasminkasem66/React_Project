@@ -1,6 +1,11 @@
+
 .searchInputs {
-    margin-top: 105px;
+    margin-top: 90px;
     display: flex;
+    border-radius: 2px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border: solid black 2px;
   }
   
   .search input {
@@ -11,7 +16,7 @@
     border-bottom-right-radius: 0px;
     font-size: 18px;
     padding: 15px;
-    height: 30px;
+    height: 10px;
     width: 300px;
   }
   
@@ -61,6 +66,7 @@
   
   a:hover {
     background-color: lightgrey;
+    cursor: pointer;
   }
   
   #clearBtn {

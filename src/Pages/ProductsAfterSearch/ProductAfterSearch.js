@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { GetParentCategory } from "../../Store/actions/categories/category";
-
-import { axiosInstance } from "../../network";
 // styles
-import "./Products.scss";
+import "./ProductAfterSearch.scss";
 // components
 import ImageContainer from "../../Component/ImageContainer/ImageContainer";
 import MiddeleHeader from "../../Component/Headers/MiddleHeader/MiddeleHeader";
@@ -43,21 +40,30 @@ import i80 from "../../assets/imgs/p80.PNG";
 // material ui
 import WindowIcon from "@mui/icons-material/Window";
 import HomeIcon from "@mui/icons-material/Home";
-import { getAllProductsPaganation, sortPrice } from "../../Store/actions/ProductActions/GetAllProductsPagination";
+import { getAllProductsPaganation } from "../../Store/actions/ProductActions/GetAllProductsPagination";
+import { GetParentCategory } from "../../Store/actions/categories/category";
 
-export default function Products() {
-  
-  const products = useSelector((state) => state.AllProductsPagination);
-  const category = useSelector((state) => state.category);
+export default function ProductAfterSearch() {
+    const category = useSelector((state) => state.category);
+    const products = useSelector((state) => state.AllProductsPagination);
+    let catparent,cat
   const [pageNum, setpageNum] = useState(1);
-  console.log("categorycategorycategory", category);
-
-
-
-  const catparent = localStorage.getItem("category");
+  // const cat = undefined ? '': localStorage.getItem("category");
+  const catfromsearch =localStorage.getItem("searchValue");
   const dispatch = useDispatch();
+  for(let i=0;i<category.length;i++){
+      if(category[i]===catfromsearch){
+          catparent=catfromsearch;
+          cat=''
+
+      }else{
+          catparent='';
+          cat=catfromsearch
+      }
+
+  }
   useEffect(() => {
-    dispatch(getAllProductsPaganation(pageNum, catparent,''));
+    dispatch(getAllProductsPaganation(pageNum, catparent,cat));
     dispatch(GetParentCategory());
   }, [pageNum]);
 
@@ -67,13 +73,9 @@ export default function Products() {
     console.log(pageNum);
     console.log("test");
   };
-
-  const sortPricee = (sign) => {
-    // featured
-    dispatch(sortPrice(catparent, sign));
-  }
-  return (
-    <div>
+    return (
+        <div>
+            
       <ImageContainer img={image1} color={"#a42924"} />
       <MiddeleHeader />
       <LowerHeader />
@@ -115,20 +117,12 @@ export default function Products() {
                   <h5 className="product-allProduct-productType-header">
                     Phone &amp; Tablets
                   </h5>
-   
-                  {
-                    category.map((cat, index) => {
-                      return (
-                        <a href="#" className=" text-decoration-none text-dark" key={index}>
-                          <p className="product-allProduct-productType-item ">
-                           {cat}
-                          </p>
-                        </a>
-                      )
-                    })
-                  
-                  }
-                  {/* <a href="#" className="text-decoration-none text-dark ">
+                  <a href="#" className=" text-decoration-none text-dark ">
+                    <p className="product-allProduct-productType-item ">
+                      Cell phones accessories
+                    </p>
+                  </a>
+                  <a href="#" className="text-decoration-none text-dark ">
                     <p className="product-allProduct-productType-item ">
                       mobile phones
                     </p>
@@ -152,7 +146,7 @@ export default function Products() {
                     <p className="product-allProduct-productType-item ">
                       Telephones &amp; accessoriess
                     </p>
-                  </a> */}
+                  </a>
                 </div>
                 <h5 className="mb-3">PRODUCT RATING</h5>
                 <CircleComponent imgList={[r1, r2, r3, r4]} img={circle} />
@@ -221,7 +215,7 @@ export default function Products() {
           </div>
           {/* PRODUCT SECTION */}
           <div className="col-md-9 card">
-            <ProductHeader cat={catparent} sortPrice={sortPricee} />
+            <ProductHeader />
             <hr />
             {/* displaying number of products  */}
             <div className="d-flex justify-content-between">
@@ -259,5 +253,7 @@ export default function Products() {
       <JumiaInfo />
       <Footer1 />
     </div>
-  );
+            
+        
+    )
 }

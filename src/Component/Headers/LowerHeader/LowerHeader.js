@@ -111,9 +111,9 @@ export default function LowerHeader() {
             </NavLink>
           </div>
           {/* Search Part */}
-          <div className="col-lg-7 col-md-12">
+          <div className="col-lg-7 col-md-12 my-auto ">
 
-            <SearchBar/>
+            <SearchBar />
             {/* <form className="d-flex">
               <input
                 type="search"

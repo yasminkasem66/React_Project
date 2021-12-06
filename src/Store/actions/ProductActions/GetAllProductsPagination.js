@@ -6,13 +6,13 @@ export const getAllProductsPaganation = (page,cat) => async (dispatch) => {
     console.log("pagesss", page);
     let response;
     try {
-        if (cat != 'null') {
+    //     if (cat != 'null') {
             
-             response = await axiosInstance.get(`/products?page=${page}&limit=12&categoryparent=${cat}`);
-        }
-       else{           
-             response = await axiosInstance.get(`/products?page=${page}&limit=12`);
-        }
+    //          response = await axiosInstance.get(`/products?page=${page}&limit=12&categoryparent=${cat}`);
+    //     }
+    //    else{           
+        response = await axiosInstance.get(`/products?page=${page}&limit=8&categoryparent=${cat}`);
+        // }
         console.log("response", response);
         dispatch({
             type: productConstants.GET_ALL_PRODUCTS_PAGANATION,
@@ -23,10 +23,11 @@ export const getAllProductsPaganation = (page,cat) => async (dispatch) => {
     }
 };
 
-export const sortPrice = () => async (dispatch) => {
+export const sortPrice = (cat, sign) => async (dispatch) => {
     let response;
     try {
-        response = await axiosInstance.get(`/products?sort=-price`);
+        // &featured=${featured }
+        response = await axiosInstance.get(`/products?categoryparent=${cat}&sort=${sign}price`);
         console.log("response", response);
         dispatch({
             type: productConstants.GET_HightoLowPrice_PRODUCTS,
@@ -36,3 +37,17 @@ export const sortPrice = () => async (dispatch) => {
         console.log(err);
     }
 };
+
+// export const Feautredproducts = (cat, sign) => async (dispatch) => {
+//     let response;
+//     try {
+//         response = await axiosInstance.get(`/products?categoryparent=${cat}&sort=${sign}price`);
+//         console.log("response", response);
+//         dispatch({
+//             type: productConstants.GET_HightoLowPrice_PRODUCTS,
+//             payload: response.data.products,
+//         });
+//     } catch (err) {
+//         console.log(err);
+//     }
+// };

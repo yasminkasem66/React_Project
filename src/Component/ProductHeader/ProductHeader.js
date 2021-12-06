@@ -19,8 +19,8 @@ export default function ProductHeader(  props) {
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <li>
-                <a class="dropdown-item" href="#">
-                  Popularity
+                <a class="dropdown-item" href="#" onClick={() => props.sortPrice()}>
+                 Featured
                 </a>
               </li>
               <li>
@@ -29,12 +29,12 @@ export default function ProductHeader(  props) {
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#" onClick={()=>props.sortPrice()}>
+                <a class="dropdown-item" href="#" onClick={()=>props.sortPrice('+','false')}>
                   Price: Low to High
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#" onClick={() => props.sortPrice()}>
+                <a class="dropdown-item" href="#" onClick={() => props.sortPrice('-','false')}>
                   Price: High to Low
                 </a>
               </li>

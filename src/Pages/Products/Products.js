@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { GetParentCategory } from "../../Store/actions/categories/category";
+
 import { axiosInstance } from "../../network";
 // styles
 import "./Products.scss";
@@ -46,12 +48,17 @@ import { getAllProductsPaganation, sortPrice } from "../../Store/actions/Product
 export default function Products() {
   
   const products = useSelector((state) => state.AllProductsPagination);
+  const category = useSelector((state) => state.category);
   const [pageNum, setpageNum] = useState(1);
-  // const cat = undefined ? '': localStorage.getItem("category");
-  const cat =localStorage.getItem("category");
+  console.log("categorycategorycategory", category);
+
+
+
+  const cat = localStorage.getItem("category");
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllProductsPaganation(pageNum, cat));
+    dispatch(GetParentCategory());
   }, [pageNum]);
 
   const pagFun2 = (e) => {
@@ -61,8 +68,9 @@ export default function Products() {
     console.log("test");
   };
 
-  const sortPricee = () => {
-    dispatch(sortPrice());
+  const sortPricee = (sign) => {
+    // featured
+    dispatch(sortPrice(cat, sign));
   }
   return (
     <div>
@@ -107,12 +115,20 @@ export default function Products() {
                   <h5 className="product-allProduct-productType-header">
                     Phone &amp; Tablets
                   </h5>
-                  <a href="#" className=" text-decoration-none text-dark ">
-                    <p className="product-allProduct-productType-item ">
-                      Cell phones accessories
-                    </p>
-                  </a>
-                  <a href="#" className="text-decoration-none text-dark ">
+   
+                  {
+                    category.map((cat, index) => {
+                      return (
+                        <a href="#" className=" text-decoration-none text-dark" key={index}>
+                          <p className="product-allProduct-productType-item ">
+                           {cat}
+                          </p>
+                        </a>
+                      )
+                    })
+                  
+                  }
+                  {/* <a href="#" className="text-decoration-none text-dark ">
                     <p className="product-allProduct-productType-item ">
                       mobile phones
                     </p>
@@ -136,7 +152,7 @@ export default function Products() {
                     <p className="product-allProduct-productType-item ">
                       Telephones &amp; accessoriess
                     </p>
-                  </a>
+                  </a> */}
                 </div>
                 <h5 className="mb-3">PRODUCT RATING</h5>
                 <CircleComponent imgList={[r1, r2, r3, r4]} img={circle} />

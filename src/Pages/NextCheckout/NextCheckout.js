@@ -14,7 +14,7 @@ import axios from "axios";
 import { axiosInstance } from "../../network";
 
 export default function NextCheckout() {
-  const { items } = useCart();
+  const { items, emptyCart } = useCart();
   const products = useSelector((state) => state.orders);
   const dispatch = useDispatch();
 
@@ -29,6 +29,7 @@ export default function NextCheckout() {
     } else {
       console.log("errorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
     }
+    emptyCart();
   };
   //   async function handleCreateNewGame() {
   //         const data = this.state.data;

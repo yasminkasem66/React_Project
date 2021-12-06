@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from "react";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
-
 export default function Paypal(props) {
   const paypal = useRef();
 

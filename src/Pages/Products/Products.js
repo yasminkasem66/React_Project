@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { axiosInstance } from "../../network";
 // styles
 import "./Products.scss";
 // components
@@ -40,7 +41,7 @@ import i80 from "../../assets/imgs/p80.PNG";
 // material ui
 import WindowIcon from "@mui/icons-material/Window";
 import HomeIcon from "@mui/icons-material/Home";
-import { getAllProductsPaganation } from "../../Store/actions/ProductActions/GetAllProductsPagination";
+import { getAllProductsPaganation, sortPrice } from "../../Store/actions/ProductActions/GetAllProductsPagination";
 
 export default function Products() {
   
@@ -59,6 +60,10 @@ export default function Products() {
     console.log(pageNum);
     console.log("test");
   };
+
+  const sortPricee = () => {
+    dispatch(sortPrice());
+  }
   return (
     <div>
       <ImageContainer img={image1} color={"#a42924"} />
@@ -200,7 +205,7 @@ export default function Products() {
           </div>
           {/* PRODUCT SECTION */}
           <div className="col-md-9 card">
-            <ProductHeader />
+            <ProductHeader cat={cat} sortPrice={sortPricee} />
             <hr />
             {/* displaying number of products  */}
             <div className="d-flex justify-content-between">

@@ -31,7 +31,7 @@ export default function CatList() {
                 <Link to="/products" className="aa" onClick={(e) => StoreCategory("Fashion")}><i className="fas fa-feather-alt" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('healty')}</span></Link><br />
 
 
-                <Link to="/products" className="aa"><i className="fas fa-laptop" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('electro')}</span></Link><br />
+                <Link to="/products" className="aa" onClick={(e) => StoreCategory(null)}><i className="fas fa-laptop" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('electro')}</span></Link><br />
 
                 <Link to="/products" className="aa"><i className="fas fa-child" style={{ "padding": "8px" }}></i><span style={{ "fontSize": "13px" }}>{t('baby')}</span></Link><br />
 

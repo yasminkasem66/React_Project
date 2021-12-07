@@ -5,7 +5,7 @@ import { productConstants } from  '../../types';
 export const getAllProducts = () => async (dispatch) => {
     try {
         const response = await axiosInstance.get(`/products`);
-        console.log("response", response);
+        // console.log("response", response);
         dispatch({
             type: productConstants.GET_ALL_PRODUCTS,
             payload: response.data.products,

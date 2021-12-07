@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { GetParentCategory } from "../../Store/actions/categories/category";
+import { GetChildCategory, GetParentCategory } from "../../Store/actions/categories/category";
 
 import { axiosInstance } from "../../network";
 import { useTranslation } from 'react-i18next'
@@ -46,34 +46,52 @@ import i80 from "../../assets/imgs/p80.PNG";
 import WindowIcon from "@mui/icons-material/Window";
 import HomeIcon from "@mui/icons-material/Home";
 import { getAllProductsPaganation, sortPrice } from "../../Store/actions/ProductActions/GetAllProductsPagination";
+import { Link } from "react-router-dom";
 
 export default function Products() {
   const { t, i18n } = useTranslation();
   
   const products = useSelector((state) => state.AllProductsPagination);
-  const category = useSelector((state) => state.category);
+  const category = useSelector((state) => state.category); 
+  const categoryChild = useSelector((state) => state.categoryChild); 
   const [pageNum, setpageNum] = useState(1);
-  console.log("categorycategorycategory", category);
 
-
-
-  const catparent = localStorage.getItem("category");
+  let catparent = localStorage.getItem("category");
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllProductsPaganation(pageNum, catparent,''));
     dispatch(GetParentCategory());
+    dispatch(GetChildCategory());
+  }, []);
+  
+  useEffect(() => {
+    dispatch(getAllProductsPaganation(pageNum, catparent,''));
   }, [pageNum]);
 
   const pagFun2 = (e) => {
     console.log("event value", e.target.innerText);
     setpageNum(e.target.innerText);
     console.log(pageNum);
-    console.log("test");
   };
 
   const sortPricee = (sign) => {
     // featured
     dispatch(sortPrice(catparent, sign));
+  }
+
+  const resetCategry = (cat) => {
+    localStorage.setItem('category', cat)
+    catparent = localStorage.getItem("category");
+    // console.log("catparentcatparentcatparent", catparent);
+    dispatch(getAllProductsPaganation(pageNum, catparent, ''));
+  }
+
+  const resetCategryChild = (cat) => {
+    let categoryChild = localStorage.setItem('categoryChild', cat)
+    catparent = localStorage.getItem("category");
+    categoryChild = localStorage.getItem("categoryChild");
+    console.log("catparentcatparentcatparent", catparent);
+    console.log("categoryChildcategoryChildcategoryChild", categoryChild);
+    dispatch(getAllProductsPaganation(pageNum, catparent, categoryChild));
   }
   return (
     <div>
@@ -122,41 +140,42 @@ export default function Products() {
                   {
                     category.map((cat, index) => {
                       return (
-                        <a href="#" className=" text-decoration-none text-dark" key={index}>
+                        <Link to="/products" className=" text-decoration-none text-dark" key={index} onClick={() => resetCategry(`${cat}`)}>
                           <p className="product-allProduct-productType-item ">
                            {cat}
                           </p>
-                        </a>
+                        </Link>
                       )
                     })
                   
                   }
-                  {/* <a href="#" className="text-decoration-none text-dark ">
-                    <p className="product-allProduct-productType-item ">
-                      mobile phones
-                    </p>
-                  </a>
-                  <a href="#" className="text-decoration-none text-dark ">
-                    <p className="product-allProduct-productType-item ">
-                      phones &amp; Fax
-                    </p>
-                  </a>
-                  <a href="#" className="text-decoration-none text-dark ">
-                    <p className="product-allProduct-productType-item ">
-                      Tablet accessories
-                    </p>
-                  </a>
-                  <a href="#" className="text-decoration-none text-dark ">
-                    <p className="product-allProduct-productType-item ">
-                      tablets
-                    </p>
-                  </a>
-                  <a href="#" className="text-decoration-none text-dark ">
-                    <p className="product-allProduct-productType-item ">
-                      Telephones &amp; accessoriess
-                    </p>
-                  </a> */}
+
                 </div>
+                <h5 className="mb-3">{t("SUBCATEGORY")}</h5>
+                <div className="product-allproduct-productType border-bottom">
+                  {/* <h5 className="product-allProduct-productType-header">
+                    {catparent}
+                  </h5> */}
+   
+                  {
+                    categoryChild.map((cat, index) => {
+                      return (
+                        <Link to="/products" className=" text-decoration-none text-dark" key={index} onClick={() => resetCategryChild(`${cat}`)}>
+                          <p className="product-allProduct-productType-item ">
+                           {cat}
+                          </p>
+                        </Link>
+                      )
+                    })
+                  
+                  }
+
+                </div>
+
+
+
+
+
                 <h5 className="mb-3">{t('PRODUCTRATING')}</h5>
                 <CircleComponent imgList={[r1, r2, r3, r4]} img={circle} />
                 <hr />

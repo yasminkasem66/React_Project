@@ -6,11 +6,22 @@ import { catConstants } from '../../types';
 export const GetParentCategory = () => async (dispatch) => {
     try {
         const response = await axiosInstance.get(`/products/ParentCategories`);
-        console.log("response", response);
-
         dispatch({
             type: catConstants.GET_PARENT_CATEGORY ,
             payload: response.data.categoriesparent,
+        });
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+export const GetChildCategory = () => async (dispatch) => {
+    try {
+        const response = await axiosInstance.get(`/products/categories`);
+        console.log("responseGetChildCategoryGetChildCategory", response);
+        dispatch({
+            type: catConstants.GET_CHILD_CATEGORY,
+            payload: response.data.categories,
         });
     } catch (err) {
         console.log(err);

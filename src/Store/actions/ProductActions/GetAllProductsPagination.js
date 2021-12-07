@@ -3,7 +3,7 @@ import { productConstants } from '../../types';
 
 
 export const getAllProductsPaganation = (page,catparent, cat) => async (dispatch) => {
-    console.log("pagesss", page);
+    // console.log("pagesss", page);
     let response;
     try {
     //     if (cat != 'null') {
@@ -13,7 +13,7 @@ export const getAllProductsPaganation = (page,catparent, cat) => async (dispatch
     //    else{           
         response = await axiosInstance.get(`/products?page=${page}&limit=8&categoryparent=${catparent}&category=${cat}`);
         // }
-        console.log("response", response);
+        // console.log("response", response);
         dispatch({
             type: productConstants.GET_ALL_PRODUCTS_PAGANATION,
             payload: response.data.products,
@@ -28,7 +28,7 @@ export const sortPrice = (catparent, sign) => async (dispatch) => {
     try {
         // &featured=${featured }
         response = await axiosInstance.get(`/products?categoryparent=${catparent}&sort=${sign}price`);
-        console.log("response", response);
+        // console.log("response", response);
         dispatch({
             type: productConstants.GET_HightoLowPrice_PRODUCTS,
             payload: response.data.products,

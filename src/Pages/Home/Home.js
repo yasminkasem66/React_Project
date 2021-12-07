@@ -99,10 +99,10 @@ export default function Home() {
   console.log("singleproductnnnnnnnnnnnnnnnnnn", singleproduct);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getAllProducts());
-  //   dispatch(ProductById('61a13f2a9b6b3cd7f9b46089'));
-  // }, []);
+  useEffect(() => {
+    dispatch(getAllProducts());
+    // dispatch(ProductById('61a13f2a9b6b3cd7f9b46089'));
+  }, []);
 
   const women=products.filter(product=>product.category.name==="womans") 
   const womenProduct= women.slice(0,6)
@@ -289,7 +289,7 @@ export default function Home() {
 
       {/*Most Liked Products*/}
       <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title={t('MostLikedProducts')} />
+        <SeeAll    className="container-fluid" color="black" background="#C7C7CD" title={t('MostLikedProducts')} />
         <div className="row mt-3">
           {
             items.map((item, index) => {

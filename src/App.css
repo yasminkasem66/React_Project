@@ -4,3 +4,7 @@
  html:lang(ar)*{
  text-align: right;
 }
+
+*{
+  font-family: 'Roboto', sans-serif;
+}

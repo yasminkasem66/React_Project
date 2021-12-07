@@ -113,7 +113,7 @@ export default function Footer1() {
                         {/* one */}
                         <div className="col-lg-3 col-6  mb-md-0 mb-4  d-none   d-md-block">
                             <span className="footer-heading ">{t('lETUS')}</span>
-                            <ul className="list-unstyled pt-3 ">
+                            <ul className="list-unstyled pt-3  ">
                                 <li>
                                     <a
                                         className=" text-decoration-none text-muted link-light"

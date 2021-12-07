@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { GetParentCategory } from "../../Store/actions/categories/category";
 
 import { axiosInstance } from "../../network";
+import { useTranslation } from 'react-i18next'
+
 // styles
 import "./Products.scss";
 // components
@@ -46,6 +48,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import { getAllProductsPaganation, sortPrice } from "../../Store/actions/ProductActions/GetAllProductsPagination";
 
 export default function Products() {
+  const { t, i18n } = useTranslation();
   
   const products = useSelector((state) => state.AllProductsPagination);
   const category = useSelector((state) => state.category);
@@ -105,12 +108,12 @@ export default function Products() {
       </div>
       {/* FILTER AND PRODUCT SECTION */}
       <div className="container">
-        <div className="row text-start">
+        <div className="row ">
           {/* FILTER SECTION */}
           <div className="col-md-3">
             <div className="row">
               <div className="col-11 p-3 card">
-                <h5 className="mb-3">CATEGORY</h5>
+                <h5 className="mb-3">{t("CATEGORY")}</h5>
                 <div className="product-allproduct-productType border-bottom">
                   <h5 className="product-allProduct-productType-header">
                     {catparent}
@@ -154,21 +157,21 @@ export default function Products() {
                     </p>
                   </a> */}
                 </div>
-                <h5 className="mb-3">PRODUCT RATING</h5>
+                <h5 className="mb-3">{t('PRODUCTRATING')}</h5>
                 <CircleComponent imgList={[r1, r2, r3, r4]} img={circle} />
                 <hr />
-                <h5 className="mb-3">EPRESS SHIPPING</h5>
+                <h5 className="mb-3">{t('EPRESSSHIPPING')}</h5>
                 <CircleComponent img={square} imgList={[jumiaexpress]} />
                 <hr />
                 {/* BRAND */}
-                <SearchComponent heading="BRAND" />
+                <SearchComponent heading={t('BRAND')} />
                 <SquareComponent
                   textList={["Alcatel", "Amazfit", "Andoer", "Apple", "Armor"]}
                   img={square}
                 />
                 <hr />
                 {/* COLOR */}
-                <h5 className="mb-3">COLOR</h5>
+                <h5 className="mb-3">{t('COLOR')}</h5>
                 <SquareComponent
                   textList={["Orang", "Black", "Brown", "Blue", "White"]}
                   img={square}
@@ -177,37 +180,37 @@ export default function Products() {
                 {/* PRICE RATING */}
                 <RatingSlider />
                 <hr />
-                <SearchComponent heading="MEGAPIXCELS" />
+                <SearchComponent heading={t('MEGAPIXCELS')} />
                 <SquareComponent
                   textList={[0.0, 0.3, 1.3, 2, 2.0]}
                   img={square}
                 />
                 <hr />
-                <h5>OPTICAL ZOOM</h5>
+                <h5>{t('OPTICALZOOM')}</h5>
                 <SquareComponent textList={[0.0]} img={square} />
                 <hr />
-                <SearchComponent heading="SCREEN SIZE" />
+                <SearchComponent heading={t('SCREENSIZE')} />
                 <SquareComponent
                   textList={[1.7, 2.4, 4.7, 5, 2.0]}
                   img={square}
                 />
                 <hr />
-                <SearchComponent heading="SHIPPED FROM" />
+                <SearchComponent heading={t('SHIPPEDFROM')} />
                 <SquareComponent
                   textList={["Shipped from Egypt", "Shipped From Abroad"]}
                   img={square}
                 />
                 <hr />
-                <h5>SELER FROM</h5>
+                <h5>{t('SELERFROM')}</h5>
                 <CircleComponent imgList={[i80, i60, i40, i20]} img={circle} />
                 <hr />
-                <h5>DISCOUNT PERCENTAGE</h5>
+                <h5>{t('DISCOUNTPERCENTAGE')}</h5>
                 <CircleComponent
                   imgList={[i50, i40, i30, i20, i10]}
                   img={circle}
                 />
                 <hr />
-                <h5>INTERNAL MEMORY</h5>
+                <h5>{t('INTERNALMEMORY')}</h5>
                 <SquareComponent textList={[0, 1, 2, 3, 4]} img={square} />
                 <hr />
                 <h5>INTERNAL MEMORY</h5>
@@ -225,7 +228,7 @@ export default function Products() {
             <hr />
             {/* displaying number of products  */}
             <div className="d-flex justify-content-between">
-              <p className="text-muted">{products?.length} Products Found</p>
+              <p className="text-muted">{products?.length} {t('ProductsFound')}</p>
               {/* Mateial icon */}
               <p className="d-flex mx-2">
                 <a href="#" className="text-decoration-none text-muted mx-2">

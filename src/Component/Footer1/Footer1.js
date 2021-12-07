@@ -123,12 +123,11 @@ export default function Footer1() {
                         {/* one */}
                         <div className="col-lg-3 col-6  mb-md-0 mb-4  d-none   d-md-block">
                             <span className="footer-heading ">{t('lETUS')}</span>
-                            <ul className="list-unstyled pt-3 ">
+                            <ul className="list-unstyled pt-3  ">
                                 <li>
                                     <a
                                         className=" text-decoration-none text-muted link-light"
-                                        href="https://www.jumia.com.eg/help/"
-                                    >
+                                        >
                                         {t('helpMe')}
                                     </a>
                                 </li>
@@ -383,25 +382,21 @@ export default function Footer1() {
                             <div className="list-unstyled pt-2 pb-4">
                                 <a
                                     className=" text-decoration-none me-3 fs-4 link-light"
-                                    href="https://www.jumia.com.eg/help/"
                                 >
                                     <i className="fab fa-facebook-f  socialIcon " />
                                 </a>
                                 <a
                                     className=" text-decoration-none me-3 fs-4 link-light"
-                                    href="https://www.jumia.com.eg/help/"
                                 >
                                     <i className="fab fa-twitter socialIcon  " />
                                 </a>
                                 <a
                                     className=" text-decoration-none me-3 fs-4 link-light"
-                                    href="https://www.jumia.com.eg/help/"
                                 >
                                     <i className="fab fa-instagram socialIcon" />
                                 </a>
                                 <a
                                     className=" text-decoration-none me-3 fs-4 link-light"
-                                    href="https://www.jumia.com.eg/help/"
                                 >
                                     <i className="fab fa-youtube socialIcon" />
                                 </a>
@@ -412,28 +407,24 @@ export default function Footer1() {
                             <span className="footer-heading ">{t('PaymentMethod')}</span>
                             <div className="list-unstyled pt-2  pb-4">
                                 <a
-                                    href="https://www.jumia.com.eg/help/"
                                     className=" text-decoration-none me-3 fs-4 link-light"
                                     title="Payment on delivery"
                                 >
                                     <i className="fas fa-hand-holding socialIcon " />
                                 </a>
                                 <a
-                                    href="https://www.jumia.com.eg/help/"
                                     className=" text-decoration-none me-3 fs-4 link-light"
                                     title="Mastercard"
                                 >
                                     <i className="fab fa-cc-mastercard  socialIcon " />
                                 </a>
                                 <a
-                                    href="https://www.jumia.com.eg/help/"
                                     className=" text-decoration-none me-3 fs-4 link-light"
                                     title="Visa"
                                 >
                                     <i className="fab fa-cc-visa  socialIcon " />
                                 </a>
                                 <a
-                                    href="https://www.jumia.com.eg/help/"
                                     className=" text-decoration-none me-3 fs-4 link-light"
                                     title="Fawry"
                                 >
@@ -450,7 +441,6 @@ export default function Footer1() {
                                 <span className="me-2  ">
                                     <i className="far fa-star socialIcon" />
                                     <a
-                                        href="https://www.jumia.com.eg/help/"
                                         className=" text-decoration-none me-3 fs-6 link-light"
                                         title="Fawry"
                                     >
@@ -460,7 +450,6 @@ export default function Footer1() {
                                 <span className="me-2">
                                     <i className="fas fa-star-half-alt socialIcon" />
                                     <a
-                                        href="https://www.jumia.com.eg/help/"
                                         className=" text-decoration-none me-3 fs-6 link-light"
                                         title="Fawry"
                                     >
@@ -470,7 +459,6 @@ export default function Footer1() {
                                 <span className="me-2">
                                     <i className="fas fa-shield-alt socialIcon" />
                                     <a
-                                        href="https://www.jumia.com.eg/help/"
                                         className=" text-decoration-none me-3 fs-6 link-light"
                                         title="Fawry"
                                     >

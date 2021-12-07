@@ -20,11 +20,11 @@ export default function AddressDetails() {
   // console.log("hhhhhhhhhhhhhhhhhhhhhhh",user)
   return (
     <div>
-      <h6>CHECKOUT</h6>
+      <h6 style={{"font-size":"14px", "color":"#ABABAB" }}>CHECKOUT</h6>
       <div className="card">
-        <div className="card-header bg-white  fw-bolder ">
+        <div className="card-header bg-white  fw-bolder  ">
           <CheckCircleRoundedIcon color="success" />
-        1. ADDRESS DETAILS
+        <span style={{"fontSize":"14px", "fontWeight":"500"}}> 1. ADDRESS DETAILS</span>
           {/* Button trigger modal */}
           <button
             type="button"

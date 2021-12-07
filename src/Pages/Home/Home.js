@@ -95,14 +95,14 @@ export default function Home() {
   const singleproduct = useSelector(state => state.SingleProduct)
   const items = products.slice(0, 6)
 
-  console.log("productsnnnnnnnnnnnnnnnnnnnn", products);
-  console.log("singleproductnnnnnnnnnnnnnnnnnn", singleproduct);
+  // console.log("productsnnnnnnnnnnnnnnnnnnnn", products);
+  // console.log("singleproductnnnnnnnnnnnnnnnnnn", singleproduct);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getAllProducts());
-  //   dispatch(ProductById('61a13f2a9b6b3cd7f9b46089'));
-  // }, []);
+  useEffect(() => {
+    dispatch(getAllProducts());
+    // dispatch(ProductById('61a13f2a9b6b3cd7f9b46089'));
+  }, []);
 
   const women=products.filter(product=>product.category.name==="womans") 
   const womenProduct= women.slice(0,6)

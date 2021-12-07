@@ -2,7 +2,7 @@ import { axiosInstance } from "../../../network";
 import { productConstants } from '../../types';
 
 
-export const getAllProductsPaganation = (page,cat) => async (dispatch) => {
+export const getAllProductsPaganation = (page,catparent, cat) => async (dispatch) => {
     console.log("pagesss", page);
     let response;
     try {
@@ -11,7 +11,7 @@ export const getAllProductsPaganation = (page,cat) => async (dispatch) => {
     //          response = await axiosInstance.get(`/products?page=${page}&limit=12&categoryparent=${cat}`);
     //     }
     //    else{           
-        response = await axiosInstance.get(`/products?page=${page}&limit=8&categoryparent=${cat}`);
+        response = await axiosInstance.get(`/products?page=${page}&limit=8&categoryparent=${catparent}&category=${cat}`);
         // }
         console.log("response", response);
         dispatch({
@@ -23,11 +23,11 @@ export const getAllProductsPaganation = (page,cat) => async (dispatch) => {
     }
 };
 
-export const sortPrice = (cat, sign) => async (dispatch) => {
+export const sortPrice = (catparent, sign) => async (dispatch) => {
     let response;
     try {
         // &featured=${featured }
-        response = await axiosInstance.get(`/products?categoryparent=${cat}&sort=${sign}price`);
+        response = await axiosInstance.get(`/products?categoryparent=${catparent}&sort=${sign}price`);
         console.log("response", response);
         dispatch({
             type: productConstants.GET_HightoLowPrice_PRODUCTS,

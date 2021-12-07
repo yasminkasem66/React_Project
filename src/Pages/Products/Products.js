@@ -54,10 +54,10 @@ export default function Products() {
 
 
 
-  const cat = localStorage.getItem("category");
+  const catparent = localStorage.getItem("category");
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllProductsPaganation(pageNum, cat));
+    dispatch(getAllProductsPaganation(pageNum, catparent,''));
     dispatch(GetParentCategory());
   }, [pageNum]);
 
@@ -70,7 +70,7 @@ export default function Products() {
 
   const sortPricee = (sign) => {
     // featured
-    dispatch(sortPrice(cat, sign));
+    dispatch(sortPrice(catparent, sign));
   }
   return (
     <div>
@@ -113,7 +113,7 @@ export default function Products() {
                 <h5 className="mb-3">CATEGORY</h5>
                 <div className="product-allproduct-productType border-bottom">
                   <h5 className="product-allProduct-productType-header">
-                    Phone &amp; Tablets
+                    {catparent}
                   </h5>
    
                   {
@@ -221,7 +221,7 @@ export default function Products() {
           </div>
           {/* PRODUCT SECTION */}
           <div className="col-md-9 card">
-            <ProductHeader cat={cat} sortPrice={sortPricee} />
+            <ProductHeader cat={catparent} sortPrice={sortPricee} />
             <hr />
             {/* displaying number of products  */}
             <div className="d-flex justify-content-between">

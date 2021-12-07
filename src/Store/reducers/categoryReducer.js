@@ -1,5 +1,5 @@
 import { catConstants } from '../types';
-const cat =["smartPhones", "Gaming", "Fashion"]
+const cat =["smartPhones", "Gaming", "Fashion", "Furniture"]
 export const GetParentCategory = (state = cat, action) => {
     console.log("GetParentCategoryaction", action);
 

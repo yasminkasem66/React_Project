@@ -55,7 +55,7 @@ export default function CardWithHiddenButton(props) {
      
       {
         (lang == 'en') ? <div className="card cardStyle">
-          <Link to={"/singleProduct/" + CartItem.id} className="text-dark">
+          <Link to={"/singleProduct/"+ CartItem.id} className="text-dark">
             <img
               style={{ width: "100%", height: "200px" }}
               src={CartItem.image}

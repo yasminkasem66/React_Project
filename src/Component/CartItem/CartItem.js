@@ -18,12 +18,12 @@ export default function CartItem(props) {
     updateItemQuantity(props.item.id, e.target.value);
   };
 
-  const lang = localStorage.getItem('lang') || 'en';
+  const lang = localStorage.getItem("lang") || "en";
 
   return (
     <>
-      {
-        (lang == 'en') ? <div className="row mb-3 p-3">
+      {lang == "en" ? (
+        <div className="row mb-3 p-3">
           <div className="col-6 border-end">
             <div className="d-flex">
               <img
@@ -32,9 +32,7 @@ export default function CartItem(props) {
               />
               <div className="">
                 <p>Seller: Bazicz</p>
-                            <Link to={"/singleProduct/" + props.item.id}>
                 <p>{props.item.name}</p>
-              </Link>
                 <div className="d-flex">
                   <span className="text-warning">
                     <i className="far fa-heart" /> MOVE TO SAVED ITEMS
@@ -73,7 +71,9 @@ export default function CartItem(props) {
           <div className="col-2 text-warning mt-2">
             {props.item.price * props.item.quantity}
           </div>
-        </div> : <div className="row mb-3 p-3">
+        </div>
+      ) : (
+        <div className="row mb-3 p-3">
           <div className="col-6 border-end">
             <div className="d-flex">
               <img
@@ -92,7 +92,8 @@ export default function CartItem(props) {
                     className="ps-4 text-warning"
                     style={{ cursor: "pointer" }}
                   >
-                    <i className="fas fa-trash" />احذف 
+                    <i className="fas fa-trash" />
+                    احذف
                   </span>
                 </div>
               </div>
@@ -104,7 +105,7 @@ export default function CartItem(props) {
                 {props.item.quantity}
               </option>
               <option onChange={handleQty} value={1}>
-               1
+                1
               </option>
               <option onChange={handleQty} value={2}>
                 2
@@ -122,7 +123,7 @@ export default function CartItem(props) {
             {props.item.price * props.item.quantity}
           </div>
         </div>
-}
+      )}
     </>
   );
 }

@@ -47,14 +47,14 @@ export default function Cart(props) {
   //     );
   //   })
   // }
-  const lang = localStorage.getItem('lang') || 'en';
+  const lang = localStorage.getItem("lang") || "en";
   return (
     <>
       <ImageContainer img={image1} color={"#a42924"} />
       <MiddeleHeader />
       <LowerHeader />
-      {
-        (lang == 'en') ? <section className="cart bg-light">
+      {lang == "en" ? (
+        <section className="cart bg-light">
           <div className="container mb-3">
             <h3>cart ({totalUniqueItems} item)</h3>
             {/* frist row titles */}
@@ -96,7 +96,9 @@ export default function Cart(props) {
               <p>Shipping fees not included yet</p>
             </div>
           </div>
-        </section> : <section className="cart bg-light">
+        </section>
+      ) : (
+        <section className="cart bg-light">
           <div className="container mb-3">
             <h3>العربه ({totalUniqueItems} عناصر)</h3>
             {/* frist row titles */}
@@ -133,18 +135,17 @@ export default function Cart(props) {
             {/* third row total price */}
             <div className="row m-3 text-end">
               <p style={{ color: "#f68b1e", fontWeight: "bold" }}>
-                السعر الكلي:  {cartTotal}جنيه 
+                السعر الكلي: {cartTotal}جنيه
               </p>
               <p>سعر الضريبه لم يضف بعد </p>
             </div>
           </div>
-        </section>}
-      
-
+        </section>
+      )}
 
       {/* shopping &  */}
-      {
-        (lang == 'en') ? <section>
+      {lang == "en" ? (
+        <section>
           <div className="container-fluid   bg-white">
             <div className="row  p-4">
               <div className="text-end">
@@ -192,65 +193,64 @@ export default function Cart(props) {
                     </button>
                   </Link>
                 )}
-             
               </div>
             </div>
           </div>
-        </section> :< section >
-        <div className="container-fluid   bg-white">
-          <div className="row  p-4">
-            <div className="text-end">
-              <button
-                style={{
-                  backgroundColor: "#fff",
-                  color: "#FF9800",
-                  fontSize: 17,
-                  fontWeight: "bold",
-                }}
-                type="button"
-                className="btn  w-25 me-5  shadow rounded"
-              >
-               أستكمل التسوق
-                  </button>
-                  
+        </section>
+      ) : (
+        <section>
+          <div className="container-fluid   bg-white">
+            <div className="row  p-4">
+              <div className="text-end">
+                <button
+                  style={{
+                    backgroundColor: "#fff",
+                    color: "#FF9800",
+                    fontSize: 17,
+                    fontWeight: "bold",
+                  }}
+                  type="button"
+                  className="btn  w-25 me-5  shadow rounded"
+                >
+                  أستكمل التسوق
+                </button>
 
-                  {token ? (
-                    <Link to="/checkout">
-                      <button
-                        style={{
-                          backgroundColor: "#FF9800",
-                          color: "#fff",
-                          fontSize: 17,
-                          fontWeight: "bold",
-                        }}
-                        type="button"
-                        className="btn  w-25 shadow rounded"
-                      >
-                        Continue to Checkout
-                      </button>
-                    </Link>
-                  ) : (
-                    <Link to="/login">
-                      <button
-                        style={{
-                          backgroundColor: "#FF9800",
-                          color: "#fff",
-                          fontSize: 17,
-                          fontWeight: "bold",
-                        }}
-                        type="button"
-                        className="btn  w-25 shadow rounded"
-                   >
-                        متابعة الشراء 
-                      </button>
-                    </Link>
-                  )}
-  
-
+                {token ? (
+                  <Link to="/checkout">
+                    <button
+                      style={{
+                        backgroundColor: "#FF9800",
+                        color: "#fff",
+                        fontSize: 17,
+                        fontWeight: "bold",
+                      }}
+                      type="button"
+                      className="btn  w-25 shadow rounded"
+                    >
+                      Continue to Checkout
+                    </button>
+                  </Link>
+                ) : (
+                  <Link to="/login">
+                    <button
+                      style={{
+                        backgroundColor: "#FF9800",
+                        color: "#fff",
+                        fontSize: 17,
+                        fontWeight: "bold",
+                      }}
+                      type="button"
+                      className="btn  w-25 shadow rounded"
+                    >
+                      متابعة الشراء
+                    </button>
+                  </Link>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      </section>}
+        </section>
+      )}
       <Footer2 />
     </>
   );

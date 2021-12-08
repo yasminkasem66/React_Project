@@ -13,11 +13,9 @@ export const productConstants = {
 };
 
 export const catConstants = {
-     GET_CHILD_CATEGORY : "GET_CHILD_CATEGORY ",
-     GET_PARENT_CATEGORY : "GET_PARENT_CATEGORY ",
-    
+  GET_CHILD_CATEGORY: "GET_CHILD_CATEGORY ",
+  GET_PARENT_CATEGORY: "GET_PARENT_CATEGORY ",
 };
-
 
 export const authConstants = {
   LOGIN_SUCCESS: "LOGIN_SUCCESS",

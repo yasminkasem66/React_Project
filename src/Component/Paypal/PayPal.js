@@ -17,7 +17,7 @@ export default function Paypal(props) {
               {
                 description: "Cool looking table",
                 amount: {
-                  currency_code: "USD",
+                  currency_code: "EUR",
                   value: props.total,
                 },
               },

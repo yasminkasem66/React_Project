@@ -1,5 +1,5 @@
 import { axiosInstance } from "../../../network";
-import { productConstants } from '../../types';
+import { productConstants } from "../../types";
 
 
 export const getAllProductsPaganation = (page,catparent, cat) => async (dispatch) => {
@@ -19,9 +19,9 @@ export const getAllProductsPaganation = (page,catparent, cat) => async (dispatch
             payload: response.data.products,
         });
     } catch (err) {
-        console.log(err);
+      console.log(err);
     }
-};
+  };
 
 export const sortPrice = (catparent, sign) => async (dispatch) => {
     let response;

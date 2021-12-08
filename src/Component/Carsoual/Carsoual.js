@@ -21,7 +21,7 @@ export default function Carsoual({products}) {
         x += 6;
     }
 
-    console.log("arr", arr);
+    // console.log("arr", arr);
 
 
     return (
@@ -34,7 +34,7 @@ export default function Carsoual({products}) {
                 <div className="carousel-inner">
                     <div className="carousel-item active">
                         <div className="row mt-3">
-                            { console.log("arr[0]", arr[0])}
+                            {/* { console.log("arr[0]", arr[0])} */}
                         
                             {
                                 arr[0]?.map((item, index) => {

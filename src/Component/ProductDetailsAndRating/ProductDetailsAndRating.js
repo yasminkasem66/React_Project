@@ -15,19 +15,19 @@ export default function ProductDetailsAndRating(props) {
     emptyCart,
   } = useCart();
   const [cartItemNum, setCartItemNum] = useState(totalUniqueItems);
+  const [Buttonflag, setButtonflag] = useState(false);
 
-  // if (!qty) {
-  //   document.getElementById("add").style.visibility = "visible";
-  //   document.getElementById("IncAndDecQty").style.visibility = "hidden";
-  // } else {
-  //   document.getElementById("add").style.visibility = "hidden";
-  //   document.getElementById("IncAndDecQty").style.visibility = "visible";
-  // }
+  const disableFunc = () => {
+    setButtonflag(true);
+  };
   const incCurrentItemQty = () => {
     items.map((item, index) => {
       if (item.id === props.product.id) {
-        updateItemQuantity(item.id, item.quantity + 1);
-        //setCurrentItemCount(item.quantity - 1);
+        if (item.quantity >= 5 || item.quantity === props.product.quantity) {
+          disableFunc();
+        } else {
+          updateItemQuantity(item.id, item.quantity + 1);
+        }
       }
     });
   };
@@ -38,8 +38,10 @@ export default function ProductDetailsAndRating(props) {
           document.getElementById("add").style.visibility = "visible";
           document.getElementById("IncAndDecQty").style.visibility = "hidden";
         }
+        if (item.quantity === 5 || item.quantity === props.product.quantity) {
+          setButtonflag(false);
+        }
         updateItemQuantity(item.id, item.quantity - 1);
-        //setCurrentItemCount(item.quantity - 1);
       }
     });
   };
@@ -115,6 +117,7 @@ export default function ProductDetailsAndRating(props) {
               {" "}
               <button
                 onClick={() => incCurrentItemQty()}
+                disabled={Buttonflag}
                 className="btn btn-white border-0"
               >
                 <i

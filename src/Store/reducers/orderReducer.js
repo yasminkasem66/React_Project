@@ -1,10 +1,13 @@
 import { cartConstants } from "../types";
 import { GET_ALL_ORDERS } from "../types";
+import { CREATE_ORDER_ACTION } from "../types";
 
 export const ordersReducer = (state = [], action) => {
   // console.log("action", action);
   switch (action.type) {
     case GET_ALL_ORDERS:
+      return [...action.payload];
+    case CREATE_ORDER_ACTION:
       return [...action.payload];
     default:
       return state;
@@ -22,21 +25,19 @@ const initState = {
     // }
   },
   updatingCart: false,
-  error: null
+  error: null,
 };
 
 export const orderReducer = (state = initState, action) => {
   // console.log("orderReducerAction", action);
   switch (action.type) {
     case cartConstants.ADD_TO_CART_SUCCESS:
-      return state = {
+      return (state = {
         ...state,
         orderItems: action.payload.items,
-        updatingCart: false
-      }
+        updatingCart: false,
+      });
     default:
-      return state;   
+      return state;
   }
-}
-
-
+};

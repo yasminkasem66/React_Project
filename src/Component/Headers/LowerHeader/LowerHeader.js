@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from "react-i18next";
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
 import "./LowerHeader.scss";
@@ -15,14 +15,14 @@ export default function LowerHeader() {
   // test search
   const [Search, setSearch] = useState();
   const handleFormChange = (e) => {
-    console.log(e.target.value, e.target.name)
+    // console.log(e.target.value, e.target.name);
     setSearch(e.target.value);
   };
   const handleFormSubmit = () => {
     // console.log(Search);
-    localStorage.setItem('SearchValue', Search);
+    localStorage.setItem("SearchValue", Search);
   };
- 
+
   // test search
 
   const { t, i18n } = useTranslation();
@@ -67,8 +67,8 @@ export default function LowerHeader() {
 
   const token = localStorage.getItem("token");
   let user = JSON.parse(localStorage.getItem("user"));
-  
-  // add to cart 
+
+  // add to cart
   const cart = useSelector((state) => state.Orders);
   // add to cart
 
@@ -77,14 +77,11 @@ export default function LowerHeader() {
   useEffect(() => {
     dispatch2(getCartItems());
   }, []);
-  console.log("all orders from cart", orders);
+  // console.log("all orders from cart", orders);
 
   return (
     <>
-    {
-        console.log("JSON.parse user", user)
-
-    }
+      {/* {console.log("JSON.parse user", user)} */}
       <header
         className="pb-1 pt-2 mb-4 border-bottom  header-underNav"
         id="navBarFixed"
@@ -95,7 +92,7 @@ export default function LowerHeader() {
           zIndex: "1030",
         }}
       >
-        <div className="row container d-flex justify-content-around m-auto align-items-center  ">
+        <div className="container d-flex justify-content-around m-auto align-items-center  ">
           <div className="col-lg-2 col-md-12">
             <NavLink
               className="d-flex text-decoration-none  link-dark me-4 socialIcon"
@@ -138,7 +135,19 @@ export default function LowerHeader() {
             <ul className="d-flex justify-content-center list-unstyled mt-1">
               <li className="me-2">
                 <div className="dropdown">
-              {user?
+                  {user ? (
+                    <a
+                      href="#"
+                      className="text-truncate hoverAnchor text-decoration-none  link-dark me-4 dropdown-toggle fw-bold socialIcon"
+                      role="button"
+                      id="dropdownMenuLink"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i className="far fa-user" />
+                      {t("hi")}, {user?.name}
+                    </a>
+                  ) : (
                     <a
                       href="#"
                       className="hoverAnchor text-decoration-none  link-dark me-4 dropdown-toggle fw-bold socialIcon"
@@ -147,20 +156,9 @@ export default function LowerHeader() {
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      <i className="far fa-user" />{t("hi")}, {user?.name}
+                      <i className="far fa-user" /> Acount
                     </a>
-                    
-                 : <a
-                       href="#"
-                       className="hoverAnchor text-decoration-none  link-dark me-4 dropdown-toggle fw-bold socialIcon"
-                       role="button"
-                       id="dropdownMenuLink"
-                       data-bs-toggle="dropdown"
-                       aria-expanded="false"
-                     >
-                       <i className="far fa-user" /> Acount
-                       </a>
-                  }
+                  )}
                   <ul
                     className="dropdown-menu"
                     aria-labelledby="dropdownMenuLink"

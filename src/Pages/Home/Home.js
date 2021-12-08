@@ -99,7 +99,7 @@ export default function Home() {
   const singleproduct = useSelector(state => state.SingleProduct)
   const items = products.slice(0, 6)
 
-  // console.log("productsnnnnnnnnnnnnnnnnnnnn", products);
+  console.log("productsnnnnnnnnnnnnnnnnnnnn", products);
   // console.log("singleproductnnnnnnnnnnnnnnnnnn", singleproduct);
   const dispatch = useDispatch();
 
@@ -108,17 +108,17 @@ export default function Home() {
     // dispatch(ProductById('61a13f2a9b6b3cd7f9b46089'));
   }, []);
 
-  const women = products.filter(product => product.category==="Women")
+  const women = products.filter(product => product.category === "Women" || product.category === "مرأه ")
   const womenProduct= women.slice(0,6)
-  const men=products.filter(product=>product.category==="Men") 
+  const men = products.filter(product => product.category === "Men " || product.category === "رجال ")
   const menProduct=men.slice(0,6)
-  const gaming = products.filter(product => product.categoryparent==="Gaming")
+  const gaming = products.filter(product => product.categoryparent === "Gaming" || product.categoryparent === "ألعاب")
   const gamesProducts=gaming.slice(0,6)
-  const smartPhone = products.filter(product => product.categoryparent ==="smartPhone")
-  const Detergent = products.filter(product => product.categoryparent ==="Detergent")
+  const smartPhone = products.filter(product => product.categoryparent === "smartPhone" || product.categoryparent === "موبيلات")
+  const Detergent = products.filter(product => product.categoryparent === "Detergent" || product.categoryparent === "منظفات")
   const smartPhoneProducts=smartPhone.slice(0,6)
   // console.log("womenProducts",womenProduct)
-  // console.log("menProducts",menProduct)
+  console.log("gaming", gaming)
   // console.log("gamesProduct",gamesProducts)
   // console.log("smartPhoneProducts",smartPhoneProducts)
 

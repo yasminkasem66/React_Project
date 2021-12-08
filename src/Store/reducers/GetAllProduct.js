@@ -12,7 +12,7 @@ export const AllProductsReducer = (state = fproducts, action) => {
 };
 
 export const AllProductsPaginationReducer = (state = fproducts, action) => {
-    console.log("action", action);
+    // console.log("action", action);
     switch (action.type) {
         case productConstants.GET_ALL_PRODUCTS_PAGANATION:
             return [...action.payload];

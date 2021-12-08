@@ -110,7 +110,14 @@ function SearchBar() {
 
     const sendCategory=()=>{
       localStorage.setItem("searchValue",selectedCategory)
-      navigate("/productaftersearch")
+      if(window.location.href==="http://localhost:3000/productaftersearch"){
+        window.location.reload()
+
+      }else{
+        navigate("/productaftersearch")
+        
+      }
+      
 
 
     }

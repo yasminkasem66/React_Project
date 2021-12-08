@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useCart } from "react-use-cart";
 import image from "../../assets/imgs/jumia-brand.webp";
 export default function CartItem(props) {
@@ -14,7 +15,7 @@ export default function CartItem(props) {
   } = useCart();
 
   const handleQty = (e) => {
-    updateItemQuantity(props.item.id, (props.item.quantity = e.target.value));
+    updateItemQuantity(props.item.id, e.target.value);
   };
 
   const lang = localStorage.getItem('lang') || 'en';
@@ -31,7 +32,9 @@ export default function CartItem(props) {
               />
               <div className="">
                 <p>Seller: Bazicz</p>
+                            <Link to={"/singleProduct/" + props.item.id}>
                 <p>{props.item.name}</p>
+              </Link>
                 <div className="d-flex">
                   <span className="text-warning">
                     <i className="far fa-heart" /> MOVE TO SAVED ITEMS

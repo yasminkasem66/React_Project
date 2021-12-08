@@ -1,4 +1,4 @@
-import { GET_ALL_USERS, GET_SINGLE_USER } from "../types";
+import { GET_ALL_USERS, GET_SINGLE_USER, UPDATE_USER_PASSWORD } from "../types";
 
 export const userReducer = (state = [], action) => {
   // console.log("action", action);

@@ -55,10 +55,9 @@ export default function CardWithHiddenButton(props) {
 
   return (
     <>
-     
-      {
-        (lang == 'en') ? <div className="card cardStyle">
-          <Link to={"/singleProduct/"+ CartItem.id} className="text-dark">
+      {lang == "en" ? (
+        <div className="card cardStyle">
+          <Link to={"/singleProduct/" + CartItem.id} className="text-dark">
             <img
               style={{ width: "100%", height: "200px" }}
               src={CartItem.image}
@@ -199,7 +198,6 @@ export default function CardWithHiddenButton(props) {
                   <div className="ms-2 d-inline-block">
                     <button
                       onClick={() => incCurrentItemQty()}
-                      disabled={Buttonflag}
                       className="btn btn-white border-0"
                     >
                       <i

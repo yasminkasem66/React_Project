@@ -61,9 +61,9 @@ export default function NextCheckout() {
             <DelivaryMethod2 />
 
             <Paypal total={cartTotal} creatNewOrder={creatNewOrder} />
-            <button onClick={creatNewOrder} className="btn btn-warning w-100">
+            {/* <button onClick={creatNewOrder} className="btn btn-warning w-100">
               click to add to DB
-            </button>
+            </button> */}
           </div>
           <div className="col-lg-3">
             <CheckoutOrder />

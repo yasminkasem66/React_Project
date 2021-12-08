@@ -161,20 +161,38 @@ export default function Cart(props) {
                 >
                   Continue Shopping
                 </button>
-                <Link to="/checkout">
-                  <button
-                    style={{
-                      backgroundColor: "#FF9800",
-                      color: "#fff",
-                      fontSize: 17,
-                      fontWeight: "bold",
-                    }}
-                    type="button"
-                    className="btn  w-25 shadow rounded"
-                  >
-                    Continue to Checkout
-                  </button>
-                </Link>
+
+                {token ? (
+                  <Link to="/checkout">
+                    <button
+                      style={{
+                        backgroundColor: "#FF9800",
+                        color: "#fff",
+                        fontSize: 17,
+                        fontWeight: "bold",
+                      }}
+                      type="button"
+                      className="btn  w-25 shadow rounded"
+                    >
+                      Continue to Checkout
+                    </button>
+                  </Link>
+                ) : (
+                  <Link to="/login">
+                    <button
+                      style={{
+                        backgroundColor: "#FF9800",
+                        color: "#fff",
+                        fontSize: 17,
+                        fontWeight: "bold",
+                      }}
+                      type="button"
+                      className="btn  w-25 shadow rounded"
+                    >
+                      Continue to Checkout
+                    </button>
+                  </Link>
+                )}
               </div>
             </div>
           </div>
@@ -196,20 +214,38 @@ export default function Cart(props) {
                 >
                   أستكمل التسوق
                 </button>
-                <Link to="/checkout">
-                  <button
-                    style={{
-                      backgroundColor: "#FF9800",
-                      color: "#fff",
-                      fontSize: 17,
-                      fontWeight: "bold",
-                    }}
-                    type="button"
-                    className="btn  w-25 shadow rounded"
-                  >
-                    متابعة الشراء
-                  </button>
-                </Link>
+
+                {token ? (
+                  <Link to="/checkout">
+                    <button
+                      style={{
+                        backgroundColor: "#FF9800",
+                        color: "#fff",
+                        fontSize: 17,
+                        fontWeight: "bold",
+                      }}
+                      type="button"
+                      className="btn  w-25 shadow rounded"
+                    >
+                      Continue to Checkout
+                    </button>
+                  </Link>
+                ) : (
+                  <Link to="/login">
+                    <button
+                      style={{
+                        backgroundColor: "#FF9800",
+                        color: "#fff",
+                        fontSize: 17,
+                        fontWeight: "bold",
+                      }}
+                      type="button"
+                      className="btn  w-25 shadow rounded"
+                    >
+                      متابعة الشراء
+                    </button>
+                  </Link>
+                )}
               </div>
             </div>
           </div>

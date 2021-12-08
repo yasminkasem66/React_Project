@@ -14,7 +14,7 @@ export default function LowerHeader() {
   // test search
   const [Search, setSearch] = useState();
   const handleFormChange = (e) => {
-    console.log(e.target.value, e.target.name);
+    // console.log(e.target.value, e.target.name);
     setSearch(e.target.value);
   };
   const handleFormSubmit = () => {
@@ -76,11 +76,11 @@ export default function LowerHeader() {
   useEffect(() => {
     dispatch2(getCartItems());
   }, []);
-  console.log("all orders from cart", orders);
+  // console.log("all orders from cart", orders);
 
   return (
     <>
-      {console.log("JSON.parse user", user)}
+      {/* {console.log("JSON.parse user", user)} */}
       <header
         className="pb-1 pt-2 mb-4 border-bottom  header-underNav"
         id="navBarFixed"

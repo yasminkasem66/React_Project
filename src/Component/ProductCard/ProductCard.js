@@ -7,8 +7,7 @@ export default function ProductCard(props) {
   const product = props.product;
   return (
     <>
-      {
-      (lang=='en')?<div className="itm col HomePage-imgElement ms-2   position-relative">
+ <div className="itm col HomePage-imgElement ms-2   position-relative">
         <Link to={"/singleProduct/" + product?.id} className="text-dark">
           <span
             style={{
@@ -18,7 +17,7 @@ export default function ProductCard(props) {
             }}
             className="product-card-discount badge fw-bold p-1"
           >
-            -25%
+            {Math.ceil(Math.random() * 30)}%
           </span>
 
           <img src={product?.image} alt="..." className="w-100" />
@@ -28,43 +27,74 @@ export default function ProductCard(props) {
               className="name d-inline-block text-truncate"
               style={{ maxWidth: 100 }}
             >
-              {product?.nameEn}
+              {product?.name}
             </div>
             <div className="fw-bold">EGP {product?.price}</div>
-            <div className="text-decoration-line-through text-muted">56%</div>
+            <div className="text-decoration-line-through text-muted">{Math.ceil(Math.random() * 70)}%</div>
           </div>
         </Link>
-        </div> : <div className="itm col HomePage-imgElement ms-2   position-relative">
-          <Link to={"/singleProduct/" + product?.id} className="text-dark">
-            <span
-              style={{
-                fontSize: 15,
-                color: "#f68b1e",
-                backgroundColor: "#feefde",
-              }}
-              className="product-card-discount badge fw-bold p-1"
-            >
-              -25%
-            </span>
-
-            <img src={product?.image} alt="..." className="w-100" />
-
-            <div className="card-body">
-              <div
-                className="name d-inline-block text-truncate"
-                style={{ maxWidth: 100 }}
-              >
-                {product?.nameAr}
-              </div>
-                <div className="fw-bold">{product?.price}جنيه </div>
-              <div className="text-decoration-line-through text-muted">56%</div>
-            </div>
-          </Link>
-        </div>
-        
-     } 
+        </div> 
 
 
     </>
   );
 }
+
+
+
+// {
+//   (lang == 'en') ? <div className="itm col HomePage-imgElement ms-2   position-relative">
+//     <Link to={"/singleProduct/" + product?.id} className="text-dark">
+//       <span
+//         style={{
+//           fontSize: 15,
+//           color: "#f68b1e",
+//           backgroundColor: "#feefde",
+//         }}
+//         className="product-card-discount badge fw-bold p-1"
+//       >
+//         -25%
+//       </span>
+
+//       <img src={product?.image} alt="..." className="w-100" />
+
+//       <div className="card-body">
+//         <div
+//           className="name d-inline-block text-truncate"
+//           style={{ maxWidth: 100 }}
+//         >
+//           {product?.nameEn}
+//         </div>
+//         <div className="fw-bold">EGP {product?.price}</div>
+//         <div className="text-decoration-line-through text-muted">56%</div>
+//       </div>
+//     </Link>
+//   </div> : <div className="itm col HomePage-imgElement ms-2   position-relative">
+//     <Link to={"/singleProduct/" + product?.id} className="text-dark">
+//       <span
+//         style={{
+//           fontSize: 15,
+//           color: "#f68b1e",
+//           backgroundColor: "#feefde",
+//         }}
+//         className="product-card-discount badge fw-bold p-1"
+//       >
+//         -25%
+//       </span>
+
+//       <img src={product?.image} alt="..." className="w-100" />
+
+//       <div className="card-body">
+//         <div
+//           className="name d-inline-block text-truncate"
+//           style={{ maxWidth: 100 }}
+//         >
+//           {product?.nameAr}
+//         </div>
+//         <div className="fw-bold">{product?.price}جنيه </div>
+//         <div className="text-decoration-line-through text-muted">56%</div>
+//       </div>
+//     </Link>
+//   </div>
+
+// }

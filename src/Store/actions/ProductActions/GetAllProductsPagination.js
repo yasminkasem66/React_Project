@@ -2,6 +2,7 @@ import { axiosInstance } from "../../../network";
 import { productConstants } from "../../types";
 
 
+
 export const getAllProductsPaganation = (page,catparent, cat) => async (dispatch) => {
     const lang = localStorage.getItem('lang') || 'en';
     console.log("langProductByIdProductById", lang);

@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Loader from "../Component/Loader/Loader";
 import { LinearProgress } from '@material-ui/core';
+import Orders from "../Pages/Orders/Orders";
 
 export const Home = React.lazy(() => import("../Pages/Home/Home"));
 export const Checkout = React.lazy(() => import("../Pages/Checkout/Checkout"));
@@ -29,6 +30,10 @@ export const UpdatePassword = React.lazy(() =>
   import("../Component/UpdatePassword/UpdatePassword")
 );
 export const NotFound = React.lazy(() => import("../Pages/Notfound/Notfound"));
+export const ProductAfterSearch = React.lazy(() => import("../Pages/ProductsAfterSearch/ProductAfterSearch"));
+export const Order = React.lazy(() => import("../Pages/Orders/Orders"));
+
+
 
 // import Myaccount from "./Pages/Myaccount/Myaccount";
 
@@ -53,6 +58,8 @@ export const Beforelogin = () => {
           <Route path="/checkout" exact element={<Checkout />} />
           <Route path="/nextcheckout" exact element={<NextCheckOut />} />
           <Route path="/updatepassword" exact element={<UpdatePassword />} />
+          <Route path="/productaftersearch" exact element={<ProductAfterSearch/>}></Route>
+          <Route path="/orders" exact element={<Orders/>}></Route>
 
           <Route path="*" exact element={<NotFound />} />
         </Routes>

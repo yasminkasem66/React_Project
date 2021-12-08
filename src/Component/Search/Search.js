@@ -134,7 +134,7 @@ function SearchBar() {
         {filteredData.length != 0 && (
       <div className="dataResult ">
         
-         {filteredData.slice(0, 15).map((value, key) => {
+         {filteredData.slice(0, 3).map((value, key) => {
           return (
             <>
             
@@ -161,7 +161,7 @@ function SearchBar() {
         {filteredData1.length != 0 && (
       <div className="dataResult" >
           
-         {filteredData1.slice(0, 15).map((value, key) => {
+         {filteredData1.slice(0, 3).map((value, key) => {
           return (
 
             <>
@@ -183,7 +183,7 @@ function SearchBar() {
         {filteredData2.length != 0 && (
       <div className="dataResult" >
          
-         {filteredData2.slice(0, 15).map((value, key) => {
+         {filteredData2.slice(0, 3).map((value, key) => {
           return (
             <>
             

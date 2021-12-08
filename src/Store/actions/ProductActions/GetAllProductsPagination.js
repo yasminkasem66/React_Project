@@ -13,7 +13,7 @@ export const getAllProductsPaganation = (page,catparent, cat) => async (dispatch
     //          response = await axiosInstance.get(`/products?page=${page}&limit=12&categoryparent=${cat}`);
     //     }
     //    else{           
-        response = await axiosInstance.get(`/products/${lang}?page=${page}&limit=8&categoryparent=${catparent}&category=${cat}`);
+        response = await axiosInstance.get(`/products/${lang}?page=${page}&limit=8&categoryparentEn=${catparent}&categoryEn=${cat}`);
         // }
         // console.log("response", response);
         dispatch({

@@ -2,23 +2,20 @@ import { axiosInstance } from "../../../network";
 import { productConstants } from "../../types";
 
 export const getAllProductsPaganation =
-  (page, cat, sigin) => async (dispatch) => {
-    console.log("pagesss", page);
+  (page, catparent, cat) => async (dispatch) => {
+    // console.log("pagesss", page);
     let response;
     try {
-      if (cat != "null") {
-        response = await axiosInstance.get(
-          `/products?page=${page}&limit=12&categoryparent=${cat}`
-        );
-      }
-      if (cat != "null" && sigin != "null") {
-        response = await axiosInstance.get(
-          `/products?page=${page}&limit=12&categoryparent=${cat}&${sigin}price`
-        );
-      } else {
-        response = await axiosInstance.get(`/products?page=${page}&limit=12`);
-      }
-      console.log("response", response);
+      //     if (cat != 'null') {
+
+      //          response = await axiosInstance.get(`/products?page=${page}&limit=12&categoryparent=${cat}`);
+      //     }
+      //    else{
+      response = await axiosInstance.get(
+        `/products?page=${page}&limit=8&categoryparent=${catparent}&category=${cat}`
+      );
+      // }
+      // console.log("response", response);
       dispatch({
         type: productConstants.GET_ALL_PRODUCTS_PAGANATION,
         payload: response.data.products,
@@ -28,11 +25,14 @@ export const getAllProductsPaganation =
     }
   };
 
-export const sortPrice = () => async (dispatch) => {
+export const sortPrice = (catparent, sign) => async (dispatch) => {
   let response;
   try {
-    response = await axiosInstance.get(`/products?sort=-price`);
-    console.log("response", response);
+    // &featured=${featured }
+    response = await axiosInstance.get(
+      `/products?categoryparent=${catparent}&sort=${sign}price`
+    );
+    // console.log("response", response);
     dispatch({
       type: productConstants.GET_HightoLowPrice_PRODUCTS,
       payload: response.data.products,
@@ -41,3 +41,17 @@ export const sortPrice = () => async (dispatch) => {
     console.log(err);
   }
 };
+
+// export const Feautredproducts = (cat, sign) => async (dispatch) => {
+//     let response;
+//     try {
+//         response = await axiosInstance.get(`/products?categoryparent=${cat}&sort=${sign}price`);
+//         console.log("response", response);
+//         dispatch({
+//             type: productConstants.GET_HightoLowPrice_PRODUCTS,
+//             payload: response.data.products,
+//         });
+//     } catch (err) {
+//         console.log(err);
+//     }
+// };

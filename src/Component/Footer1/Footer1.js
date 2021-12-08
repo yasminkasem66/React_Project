@@ -5,8 +5,18 @@ import uk from '../../assets/imgs/uk.svg'
 import Egy from '../../assets/imgs/eg.svg'
 import Jumia from '../../assets/imgs/lg-jumia.png'
 import Icon from '../../assets/imgs/icon.png'
+import { Link } from 'react-router-dom';
 
 export default function Footer1() {
+    const changeLanguage = (ln) => {
+        return () => {
+            window.location.reload();
+            console.log(`language change to ${ln}`)
+            localStorage.setItem('lang', ln);
+            i18n.changeLanguage(localStorage.getItem('lang'))
+
+        }
+    }
     const { t, i18n } = useTranslation();
 
     return (
@@ -113,22 +123,21 @@ export default function Footer1() {
                         {/* one */}
                         <div className="col-lg-3 col-6  mb-md-0 mb-4  d-none   d-md-block">
                             <span className="footer-heading ">{t('lETUS')}</span>
-                            <ul className="list-unstyled pt-3 ">
+                            <ul className="list-unstyled pt-3  ">
                                 <li>
                                     <a
                                         className=" text-decoration-none text-muted link-light"
-                                        href="https://www.jumia.com.eg/help/"
-                                    >
+                                        >
                                         {t('helpMe')}
                                     </a>
                                 </li>
                                 <li>
-                                    <a
+                                    <Link to="/contact"
                                         className=" text-decoration-none text-muted link-light"
                                         href="contact.html"
                                     >
                                          {t('contactUs')}
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
                                     <a
@@ -185,12 +194,12 @@ export default function Footer1() {
                             <span className="footer-heading ">{t('aBOUTJUMIAEGYPT' )}</span>
                             <ul className="list-unstyled pt-3 ">
                                 <li>
-                                    <a
+                                    <Link to="/aboutus"
                                         className="text-decoration-none text-muted link-light"
                                         href="about.html"
                                     >
                                          {t('aboutus' )}
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
                                     <a
@@ -373,25 +382,21 @@ export default function Footer1() {
                             <div className="list-unstyled pt-2 pb-4">
                                 <a
                                     className=" text-decoration-none me-3 fs-4 link-light"
-                                    href="https://www.jumia.com.eg/help/"
                                 >
                                     <i className="fab fa-facebook-f  socialIcon " />
                                 </a>
                                 <a
                                     className=" text-decoration-none me-3 fs-4 link-light"
-                                    href="https://www.jumia.com.eg/help/"
                                 >
                                     <i className="fab fa-twitter socialIcon  " />
                                 </a>
                                 <a
                                     className=" text-decoration-none me-3 fs-4 link-light"
-                                    href="https://www.jumia.com.eg/help/"
                                 >
                                     <i className="fab fa-instagram socialIcon" />
                                 </a>
                                 <a
                                     className=" text-decoration-none me-3 fs-4 link-light"
-                                    href="https://www.jumia.com.eg/help/"
                                 >
                                     <i className="fab fa-youtube socialIcon" />
                                 </a>
@@ -402,28 +407,24 @@ export default function Footer1() {
                             <span className="footer-heading ">{t('PaymentMethod')}</span>
                             <div className="list-unstyled pt-2  pb-4">
                                 <a
-                                    href="https://www.jumia.com.eg/help/"
                                     className=" text-decoration-none me-3 fs-4 link-light"
                                     title="Payment on delivery"
                                 >
                                     <i className="fas fa-hand-holding socialIcon " />
                                 </a>
                                 <a
-                                    href="https://www.jumia.com.eg/help/"
                                     className=" text-decoration-none me-3 fs-4 link-light"
                                     title="Mastercard"
                                 >
                                     <i className="fab fa-cc-mastercard  socialIcon " />
                                 </a>
                                 <a
-                                    href="https://www.jumia.com.eg/help/"
                                     className=" text-decoration-none me-3 fs-4 link-light"
                                     title="Visa"
                                 >
                                     <i className="fab fa-cc-visa  socialIcon " />
                                 </a>
                                 <a
-                                    href="https://www.jumia.com.eg/help/"
                                     className=" text-decoration-none me-3 fs-4 link-light"
                                     title="Fawry"
                                 >
@@ -440,7 +441,6 @@ export default function Footer1() {
                                 <span className="me-2  ">
                                     <i className="far fa-star socialIcon" />
                                     <a
-                                        href="https://www.jumia.com.eg/help/"
                                         className=" text-decoration-none me-3 fs-6 link-light"
                                         title="Fawry"
                                     >
@@ -450,7 +450,6 @@ export default function Footer1() {
                                 <span className="me-2">
                                     <i className="fas fa-star-half-alt socialIcon" />
                                     <a
-                                        href="https://www.jumia.com.eg/help/"
                                         className=" text-decoration-none me-3 fs-6 link-light"
                                         title="Fawry"
                                     >
@@ -460,7 +459,6 @@ export default function Footer1() {
                                 <span className="me-2">
                                     <i className="fas fa-shield-alt socialIcon" />
                                     <a
-                                        href="https://www.jumia.com.eg/help/"
                                         className=" text-decoration-none me-3 fs-6 link-light"
                                         title="Fawry"
                                     >
@@ -471,7 +469,7 @@ export default function Footer1() {
                         </div>
                         <div className="col-lg-3  col-md-4  ">
                             <div className="section-title text-center  ">
-                                <span className="me-2">
+                                <span className="me-2"   onClick={changeLanguage('en')}>
                                     <img
                                         src={uk}
                                         alt="uk-flag"
@@ -479,24 +477,27 @@ export default function Footer1() {
                                         style={{ width: 20 }}
                                     />
                                     <a
-                                        href="https://www.jumia.com.eg/help/"
-                                        className=" text-decoration-none me-3 fs-6 link-light"
+                                        // href="https://www.jumia.com.eg/help/"
+                                        className=" text-decoration-none me-3 fs-6 link-light curser"
                                         title="Fawry"
+                                      
+                                        // role="button"
                                     >
                                         English
                                     </a>
                                 </span>
-                                <span className="me-2">
+                                <span className="me-2" onClick={changeLanguage('ar')}>
                                     {/* <i class="bi bi-shield-fill-check"></i> */}
                                     <img
                                         src={Egy}
                                         alt="ar-flag"
-                                        className="img-circle"
+                                        className="img-circle "
                                         style={{ width: 18 }}
+                                    
                                     />
                                     <a
-                                        href="https://www.jumia.com.eg/help/"
-                                        className=" text-decoration-none me-3 fs-6 link-light"
+                                        // href="https://www.jumia.com.eg/help/"
+                                        className=" text-decoration-none me-3 fs-6 link-light curser"
                                         title="Fawry"
                                     >
                                         Arabic

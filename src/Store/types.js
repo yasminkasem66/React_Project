@@ -12,6 +12,11 @@ export const productConstants = {
   GET_HightoLowPrice_PRODUCTS: "GET_HightoLowPrice_PRODUCTS",
 };
 
+export const catConstants = {
+  GET_CHILD_CATEGORY: "GET_CHILD_CATEGORY ",
+  GET_PARENT_CATEGORY: "GET_PARENT_CATEGORY ",
+};
+
 export const authConstants = {
   LOGIN_SUCCESS: "LOGIN_SUCCESS",
   LOGOUT_REQUEST: "LOGOUT_REQUEST",

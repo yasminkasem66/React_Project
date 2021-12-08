@@ -3,7 +3,7 @@ import { GET_ALL_ORDERS } from "../types";
 import { CREATE_ORDER_ACTION } from "../types";
 
 export const ordersReducer = (state = [], action) => {
-  console.log("action", action);
+  // console.log("action", action);
   switch (action.type) {
     case GET_ALL_ORDERS:
       return [...action.payload];
@@ -29,7 +29,7 @@ const initState = {
 };
 
 export const orderReducer = (state = initState, action) => {
-  console.log("orderReducerAction", action);
+  // console.log("orderReducerAction", action);
   switch (action.type) {
     case cartConstants.ADD_TO_CART_SUCCESS:
       return (state = {

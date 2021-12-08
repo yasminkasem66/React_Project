@@ -47,72 +47,120 @@ export default function Cart(props) {
   //     );
   //   })
   // }
+  const lang = localStorage.getItem("lang") || "en";
   return (
     <>
       <ImageContainer img={image1} color={"#a42924"} />
       <MiddeleHeader />
       <LowerHeader />
-      <section className="cart bg-light">
-        <div className="container mb-3">
-          <h3>cart ({totalUniqueItems} item)</h3>
-          {/* frist row titles */}
-          <div className="row  title" style={{ color: "#8E8EAC" }}>
-            <div className="col-6 ">
-              <span>Item</span>
-            </div>
-            <div className="col-2 text-center">
-              <span>QUANTITY</span>
-            </div>
-            <div className="col-2 text-center">
-              <span>UNIT PRICE</span>
-            </div>
-            <div className="col-2 text-center">
-              <span>SUBTOTAL</span>
-            </div>
-          </div>
-          {/* sechond rpw cart description */}
-
-          {items.map((item, index) => {
-            return (
-              <div className="card mb-3">
-                <CartItem item={item} key={index} />
+      {lang == "en" ? (
+        <section className="cart bg-light">
+          <div className="container mb-3">
+            <h3>cart ({totalUniqueItems} item)</h3>
+            {/* frist row titles */}
+            <div className="row  title" style={{ color: "#8E8EAC" }}>
+              <div className="col-6 ">
+                <span>Item</span>
               </div>
-            );
-          })}
+              <div className="col-2 text-center">
+                <span>QUANTITY</span>
+              </div>
+              <div className="col-2 text-center">
+                <span>UNIT PRICE</span>
+              </div>
+              <div className="col-2 text-center">
+                <span>SUBTOTAL</span>
+              </div>
+            </div>
+            {/* sechond rpw cart description */}
 
-          {/* <div className="card mb-3">
+            {items.map((item, index) => {
+              return (
+                <div className="card mb-3">
+                  <CartItem item={item} key={index} />
+                </div>
+              );
+            })}
+
+            {/* <div className="card mb-3">
             <CartItem />
           </div>
           <div className="card mb-3">
             <CartItem />
           </div> */}
-          {/* third row total price */}
-          <div className="row m-3 text-end">
-            <p style={{ color: "#f68b1e", fontWeight: "bold" }}>
-              Total: EGP {cartTotal}
-            </p>
-            <p>Shipping fees not included yet</p>
+            {/* third row total price */}
+            <div className="row m-3 text-end">
+              <p style={{ color: "#f68b1e", fontWeight: "bold" }}>
+                Total: EGP {cartTotal}
+              </p>
+              <p>Shipping fees not included yet</p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : (
+        <section className="cart bg-light">
+          <div className="container mb-3">
+            <h3>العربه ({totalUniqueItems} عناصر)</h3>
+            {/* frist row titles */}
+            <div className="row  title" style={{ color: "#8E8EAC" }}>
+              <div className="col-6 ">
+                <span>عنصر </span>
+              </div>
+              <div className="col-2 text-center">
+                <span>كميه</span>
+              </div>
+              <div className="col-2 text-center">
+                <span>سعر الوحده</span>
+              </div>
+              <div className="col-2 text-center">
+                <span>سعر ما قبل الضريبه </span>
+              </div>
+            </div>
+            {/* sechond rpw cart description */}
+
+            {items.map((item, index) => {
+              return (
+                <div className="card mb-3">
+                  <CartItem item={item} key={index} />
+                </div>
+              );
+            })}
+
+            {/* <div className="card mb-3">
+            <CartItem />
+          </div>
+          <div className="card mb-3">
+            <CartItem />
+          </div> */}
+            {/* third row total price */}
+            <div className="row m-3 text-end">
+              <p style={{ color: "#f68b1e", fontWeight: "bold" }}>
+                السعر الكلي: {cartTotal}جنيه
+              </p>
+              <p>سعر الضريبه لم يضف بعد </p>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* shopping &  */}
-      <section>
-        <div className="container-fluid   bg-white">
-          <div className="row  p-4">
-            <div className="text-end">
-              <button
-                style={{
-                  backgroundColor: "#fff",
-                  color: "#FF9800",
-                  fontSize: 17,
-                  fontWeight: "bold",
-                }}
-                type="button"
-                className="btn  w-25 me-5  shadow rounded"
-              >
-                Continue Shopping
-              </button>
-              {token ? (
+      {lang == "en" ? (
+        <section>
+          <div className="container-fluid   bg-white">
+            <div className="row  p-4">
+              <div className="text-end">
+                <button
+                  style={{
+                    backgroundColor: "#fff",
+                    color: "#FF9800",
+                    fontSize: 17,
+                    fontWeight: "bold",
+                  }}
+                  type="button"
+                  className="btn  w-25 me-5  shadow rounded"
+                >
+                  Continue Shopping
+                </button>
                 <Link to="/checkout">
                   <button
                     style={{
@@ -127,8 +175,28 @@ export default function Cart(props) {
                     Continue to Checkout
                   </button>
                 </Link>
-              ) : (
-                <Link to="/login">
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : (
+        <section>
+          <div className="container-fluid   bg-white">
+            <div className="row  p-4">
+              <div className="text-end">
+                <button
+                  style={{
+                    backgroundColor: "#fff",
+                    color: "#FF9800",
+                    fontSize: 17,
+                    fontWeight: "bold",
+                  }}
+                  type="button"
+                  className="btn  w-25 me-5  shadow rounded"
+                >
+                  أستكمل التسوق
+                </button>
+                <Link to="/checkout">
                   <button
                     style={{
                       backgroundColor: "#FF9800",
@@ -139,14 +207,14 @@ export default function Cart(props) {
                     type="button"
                     className="btn  w-25 shadow rounded"
                   >
-                    Continue to Checkout
+                    متابعة الشراء
                   </button>
                 </Link>
-              )}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
       <Footer2 />
     </>
   );

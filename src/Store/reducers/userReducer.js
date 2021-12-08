@@ -1,7 +1,7 @@
-import { GET_ALL_USERS, GET_SINGLE_USER, UPDATE_USER_PASSWORD } from "../types";
+import { GET_ALL_USERS, GET_SINGLE_USER } from "../types";
 
 export const userReducer = (state = [], action) => {
-  console.log("action", action);
+  // console.log("action", action);
   switch (action.type) {
     case GET_ALL_USERS:
       return [...action.payload];

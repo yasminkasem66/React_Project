@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 import "./RatingSlider.scss";
 export default function RatingSlider() {
+  const { t, i18n } = useTranslation();
   //   useEffect(() => {
   //     window.addEventListener("scroll", isSticky);
   //     return () => {
@@ -46,7 +48,7 @@ export default function RatingSlider() {
   return (
     <>
       <div className="d-flex justify-content-between mb-2">
-        <p className="mt-3">PRICS EGP</p>
+        <p className="mt-3">{t('PRICSEGP')}</p>
         <button className="btn btn-outline-light text-warning py-0 border-0">
           APPLY
         </button>

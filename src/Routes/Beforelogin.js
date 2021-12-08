@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Loader from "../Component/Loader/Loader";
+import { LinearProgress } from "@material-ui/core";
 
 export const Home = React.lazy(() => import("../Pages/Home/Home"));
 export const Checkout = React.lazy(() => import("../Pages/Checkout/Checkout"));
@@ -35,6 +36,7 @@ export const Beforelogin = () => {
   return (
     <>
       {/* it's responsible to show data before lazy loading loading */}
+      {/* <Suspense fallback={<Loader/>}> */}
       <Suspense fallback={<Loader />}>
         {/* first Match win */}
         <Routes>

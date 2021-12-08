@@ -1,10 +1,13 @@
 import React from "react";
 
-export default function ProductHeader() {
+export default function ProductHeader(props) {
+  const setSign = (sigin) => {
+    localStorage.setItem("sigin", sigin);
+  };
   return (
     <>
       <div className="d-flex justify-content-between mt-1 align-items-center ps-2">
-        <h5>Phones & Tablets</h5>
+        <h5>{props.cat}</h5>
         <p className="d-flex align-items-center">
           <h6 className="mt-3">Sort by:</h6>
           <div class="dropdown mt-2">
@@ -29,12 +32,12 @@ export default function ProductHeader() {
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="#" onClick={() => setSign("+")}>
                   Price: Low to High
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="#" onClick={() => setSign("-")}>
                   Price: High to Low
                 </a>
               </li>

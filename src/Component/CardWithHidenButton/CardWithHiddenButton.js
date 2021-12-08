@@ -3,10 +3,13 @@ import "./CardWithHiddenButton.scss";
 import { Link } from "react-router-dom";
 import { useCart } from "react-use-cart";
 import PlusAndMinus from "../PlusAndMinus/PlusAndMinus";
+import { useTranslation } from 'react-i18next'
+
 
 export default function CardWithHiddenButton(props) {
+  const { t, i18n } = useTranslation();
 
-  console.log("props", props)
+  // console.log("props", props)
   const CartItem = props.product;
   const [flag, setFlag] = useState(true);
   const [Buttonflag, setButtonflag] = useState(false);
@@ -66,9 +69,7 @@ export default function CardWithHiddenButton(props) {
               src={CartItem.image}
             />
             <div className="card-body">
-            {lang == 'en' ? <h5 className="card-title text-truncate">{CartItem.nameEn}</h5> :
-              <h5 className="card-title text-truncate">{CartItem.nameAr}</h5>
-            }
+      <h5 className="card-title text-truncate">{CartItem.name}</h5> 
               <p className="card-text">EGP {CartItem.price}</p>
             </div>
           </Link>
@@ -129,7 +130,7 @@ export default function CardWithHiddenButton(props) {
                   style={{ width: "15rem" }}
                   className="add btn btn-warning mx-auto mb-1 text-white"
                 >
-                  ADD TO CART
+                {t('ADDTOCART')}
                 </button>
               )}
               {items.map((item) => {

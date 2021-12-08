@@ -229,6 +229,7 @@
     "GOHOMEPAGE":"GO To HOMEPAGE",
     "PRICSEGP":"PRICS (EGP)",
     "DELIVERY METHOD":"DELIVERY METHOD",
-    "orderDelivered?":"How do you want your order delivered?"
+    "orderDelivered?":"How do you want your order delivered?",
+        " ADDTOCART":" ADD TO CART"
     
 }

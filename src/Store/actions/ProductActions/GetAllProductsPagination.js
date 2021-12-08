@@ -3,7 +3,8 @@ import { productConstants } from "../../types";
 
 
 export const getAllProductsPaganation = (page,catparent, cat) => async (dispatch) => {
-    // console.log("pagesss", page);
+    const lang = localStorage.getItem('lang') || 'en';
+    console.log("langProductByIdProductById", lang);
     let response;
     try {
     //     if (cat != 'null') {
@@ -11,7 +12,7 @@ export const getAllProductsPaganation = (page,catparent, cat) => async (dispatch
     //          response = await axiosInstance.get(`/products?page=${page}&limit=12&categoryparent=${cat}`);
     //     }
     //    else{           
-        response = await axiosInstance.get(`/products?page=${page}&limit=8&categoryparent=${catparent}&category=${cat}`);
+        response = await axiosInstance.get(`/products/${lang}?page=${page}&limit=8&categoryparent=${catparent}&category=${cat}`);
         // }
         // console.log("response", response);
         dispatch({

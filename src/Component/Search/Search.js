@@ -12,7 +12,7 @@ function SearchBar() {
     const navigate = useNavigate()
     const products = useSelector(state => state.AllProducts)
     const dispatch = useDispatch();
-    // console.log("asdadadasdadasdasd",products)
+    console.log("asdadadasdadasdasd",products)
 
     useEffect(() => {
            dispatch(getAllProducts());
@@ -37,21 +37,22 @@ function SearchBar() {
     setWordEntered(searchWord);
 
     const newFilter = products.filter((product) => {
-      return product.categoryparent.toLowerCase().includes(searchWord.toLowerCase());
+      
+      return product.categoryparentEn.toLowerCase().includes(searchWord.toLowerCase());
     
     });
     const newFilter2 = products.filter((product) => {
-        return product.category.toLowerCase().includes(searchWord.toLowerCase());
+        return product.categoryEn.toLowerCase().includes(searchWord.toLowerCase());
       
       });
       const newFilter3 = products.filter((product) => {
         return product.nameEn.toLowerCase().includes(searchWord.toLowerCase());
       
       });
-    const key = "categoryparent"
+    const key = "categoryparentEn"
     const arrayUniqueByKey = [...new Map(newFilter.map(item =>
     [item[key], item])).values()];
-    const key2 = "category"
+    const key2 = "categoryEn"
     const arrayUniqueByKey2 = [...new Map(newFilter2.map(item =>
     [item[key2], item])).values()];
     const key3 = "nameEn"
@@ -101,9 +102,17 @@ function SearchBar() {
     // console.log("asdas",arrayUniqueByKey)
     const getCategoty=(e)=>{
         setselectedCategory(e.target.innerText)
-        localStorage.setItem("searchValue",e.target.innerText)
-        navigate("/productaftersearch")
+        setWordEntered(e.target.innerText)
+        // localStorage.setItem("searchValue",setselectedCategory)
+        // navigate("/productaftersearch")
         // console.log(e.target.innerText)
+    }
+
+    const sendCategory=()=>{
+      localStorage.setItem("searchValue",selectedCategory)
+      navigate("/productaftersearch")
+
+
     }
   
   return (
@@ -124,9 +133,9 @@ function SearchBar() {
       defaultValue="Search"
     /> */}
     
-    <Link to="/searchpage" role="button" className="btn d-inline d-xl-block mx-1 px-3   "
-      onClick={getCategoty}
-      style={{"width":"100px" ,"background-color": "darkorange", "color": "white", "font-size": "14px", "font-weight": "600", "box-shadow": "0 4px 8px 0 rgba(0,0,0,0.2)", "margin-left": "10px" }}>{("search")}</Link> 
+    <div role="button" className="btn d-inline d-xl-block mx-1 px-3   "
+      onClick={sendCategory}
+      style={{"width":"100px" ,"background-color": "darkorange", "color": "white", "font-size": "14px", "font-weight": "600", "box-shadow": "0 4px 8px 0 rgba(0,0,0,0.2)", "margin-left": "10px" }}>{("search")}</div> 
         </div>
 
 
@@ -140,7 +149,7 @@ function SearchBar() {
             
          
             <a onClick={getCategoty} className="dataItem " style={{"height":"30px"}} >
-             <p style={{"margin-left":"3px","padding-top":"5px"}} >{value.categoryparent} 
+             <p style={{"margin-left":"3px","padding-top":"5px"}} >{value.categoryparentEn} 
                </p>
                 
             </a>
@@ -168,7 +177,7 @@ function SearchBar() {
            
          
             <a onClick={getCategoty} className="dataItem " style={{"height":"30px"}}  >
-             <p style={{"margin-left":"3px","padding-top":"5px"}}>{value.category} 
+             <p style={{"margin-left":"3px","padding-top":"5px"}}>{value.categoryEn} 
                </p>
                 
             </a>

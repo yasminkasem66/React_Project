@@ -47,19 +47,24 @@ export default function ProductAfterSearch() {
     const category = useSelector((state) => state.category);
     const products = useSelector((state) => state.AllProductsPagination);
     let catparent,cat
+    console.log("hamdyyyyyyyyy",category)
   const [pageNum, setpageNum] = useState(1);
   // const cat = undefined ? '': localStorage.getItem("category");
   const catfromsearch =localStorage.getItem("searchValue");
   const dispatch = useDispatch();
+  
   for(let i=0;i<category.length;i++){
       if(category[i]===catfromsearch){
           catparent=catfromsearch;
           cat=''
+          break;
 
       }else{
-          catparent='';
+          catparent=''
           cat=catfromsearch
       }
+      console.log("catparent",catparent)
+      console.log("cat",cat)
 
   }
   useEffect(() => {

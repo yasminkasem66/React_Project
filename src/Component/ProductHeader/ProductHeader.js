@@ -1,12 +1,14 @@
 import React from "react";
+import { useTranslation } from 'react-i18next'
 
 export default function ProductHeader(  props) {
+  const { t, i18n } = useTranslation();
   return (
     <>
       <div className="d-flex justify-content-between mt-1 align-items-center ps-2">
         <h5>{props.cat}</h5>
         <p className="d-flex align-items-center">
-          <h6 className="mt-3">Sort by:</h6>
+          <h6 className="mt-3">{t('Sortby')}:</h6>
           <div class="dropdown mt-2">
             <button
               class="btn btn-white dropdown-toggle"
@@ -15,32 +17,32 @@ export default function ProductHeader(  props) {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Popularity
+              {t('Popularity')}
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <li>
                 <a class="dropdown-item" href="#" onClick={() => props.sortPrice()}>
-                 Featured
+                {t('Popularity')}
                 </a>
               </li>
               <li>
                 <a class="dropdown-item" href="#">
-                  Newest Arrivals
+                  {t('NewestArrivals')}
                 </a>
               </li>
               <li>
                 <a class="dropdown-item" href="#" onClick={()=>props.sortPrice('+','false')}>
-                  Price: Low to High
+                  {t('PriceLowtoHigh')}
                 </a>
               </li>
               <li>
                 <a class="dropdown-item" href="#" onClick={() => props.sortPrice('-','false')}>
-                  Price: High to Low
+                  {t('PriceHightoLow')}
                 </a>
               </li>
               <li>
                 <a class="dropdown-item" href="#">
-                  Product Rating
+                  {t("ProductRating")}
                 </a>
               </li>
             </ul>

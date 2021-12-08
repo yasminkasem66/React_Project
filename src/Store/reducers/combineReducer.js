@@ -7,7 +7,7 @@ import {
   AllProductsPaginationReducer,
 } from "./GetAllProduct";
 import { SignUpReducer } from "./authReducer";
-import { GetParentCategory } from "./categoryReducer";
+import { GetChildCategory, GetParentCategory } from "./categoryReducer";
 
 
 export default combineReducers({
@@ -18,6 +18,7 @@ export default combineReducers({
   users: userReducer,
   SignUp: SignUpReducer, //auth
   Orders: orderReducer , //cart
-  category: GetParentCategory
+  category: GetParentCategory,
+  categoryChild: GetChildCategory
 
 });

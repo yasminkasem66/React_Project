@@ -41,8 +41,8 @@ import padge1 from '../../assets/Homepage/padge1.png'
 import padge2 from '../../assets/Homepage/padge2.png'
 import padge3 from '../../assets/Homepage/padge3.png'
 import padge4 from '../../assets/Homepage/padge4.png'
-import card1 from "../../assets/Homepage/Alsuhagy_Rice_10_10_-Floor-Desktop-EN.jpg";
-import card1x from "../../assets/Homepage/Your_Home_in_Winter_-_Slider-Desktop-EN_.jpg";
+import card1 from "../../assets/Homepage/Snooze_-_Floor-Desktop_-EN.jpg";
+import card1x from "../../assets/Homepage/Akai-_Floor-Desktop_-EN.jpg";
 import card2 from "../../assets/Homepage/EN(1).jpg";
 import card3 from "../../assets/Homepage/EN(2).jpg";
 import card4 from "../../assets/Homepage/Floor-Desktop-en_copy_2.jpg";
@@ -99,27 +99,28 @@ export default function Home() {
   const singleproduct = useSelector(state => state.SingleProduct)
   const items = products.slice(0, 6)
 
-  console.log("productsnnnnnnnnnnnnnnnnnnnn", products);
-  console.log("singleproductnnnnnnnnnnnnnnnnnn", singleproduct);
+  // console.log("productsnnnnnnnnnnnnnnnnnnnn", products);
+  // console.log("singleproductnnnnnnnnnnnnnnnnnn", singleproduct);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getAllProducts());
-  //   dispatch(ProductById('61a13f2a9b6b3cd7f9b46089'));
-  // }, []);
+  useEffect(() => {
+    dispatch(getAllProducts());
+    // dispatch(ProductById('61a13f2a9b6b3cd7f9b46089'));
+  }, []);
 
-  const women=products.filter(product=>product.category.name==="womans") 
+  const women = products.filter(product => product.category==="Women")
   const womenProduct= women.slice(0,6)
-  const men=products.filter(product=>product.category.name==="men") 
+  const men=products.filter(product=>product.category==="Men") 
   const menProduct=men.slice(0,6)
-  const gaming=products.filter(product=>product.category.name==="games") 
+  const gaming = products.filter(product => product.categoryparent==="Gaming")
   const gamesProducts=gaming.slice(0,6)
-  const furniture=products.filter(product=>product.category.name==="furniture") 
-  const furnitureProducts=furniture.slice(0,6)
-  console.log("womenProducts",womenProduct)
-  console.log("menProducts",menProduct)
-  console.log("gamesProduct",gamesProducts)
-  console.log("furnitureProducts",furnitureProducts)
+  const smartPhone = products.filter(product => product.categoryparent ==="smartPhone")
+  const Detergent = products.filter(product => product.categoryparent ==="Detergent")
+  const smartPhoneProducts=smartPhone.slice(0,6)
+  // console.log("womenProducts",womenProduct)
+  // console.log("menProducts",menProduct)
+  // console.log("gamesProduct",gamesProducts)
+  // console.log("smartPhoneProducts",smartPhoneProducts)
 
 
 
@@ -190,7 +191,7 @@ export default function Home() {
         <TextCenter title={t("TopDeals")} />
         <div className=" HomePage-img  row p-1">
           <div className="col HomePage-imgElementNON">
-            <ImageContainer img={card1x} wid="w-100" />
+            <ImageContainer img={card1} wid="w-100" />
           </div>
           <div className="col HomePage-imgElementNON">
             <ImageContainer img={card1x} wid="w-100" />
@@ -232,10 +233,10 @@ export default function Home() {
 
       {/* Weakend Clearnace | Limited Stock */}
       <div className="container mt-4 card">
-        <SeeAll color="#FFFFFF" background="#B60000" title="Weakend Clearnace | Limited Stock" />
+        <SeeAll color="#FFFFFF" background="#B60000" title={t('WeakendClearnace')} />
         <div className="row mt-3">
           {
-            items.map((item, index) => {
+            Detergent.map((item, index) => {
               return (
                 <div className="col-md-2 mb-4" key={index}>
                   <Link to="/singleProduct"><ProductCard product={item} /></Link>
@@ -248,9 +249,9 @@ export default function Home() {
       </div>
 
 
-      {/*  Be Prepared for winter */}
+      {/*  NEW OFFERS EVERYDAY ON EVERYTHING */}
       <div className="container  card mt-4">
-        <TextCenter title=" Be Prepared for winter " />
+        <TextCenter title={t('NEWOFFERS')} />
         <SmallImagesContainer text1="Men's Fashion" text2="Women's Fashion" text3="Beauty & perfumes" text4="Mobile & Accessories" text5="Home & Appliances" text6="Laptop & Accessories"
           img1={x6}
           img2={x10}
@@ -280,9 +281,9 @@ export default function Home() {
 
 
       
-      {/* <!--  Enjoy Jumai Pay & Jumia Food Offers --> */}
+      {/* <!--  MORE DEALS & OFFERS --> */}
     <div className="container  card mt-4">
-        <TextCenter title=" Enjoy Jumai Pay & Jumia Food Offers "/>
+        <TextCenter title={t('MOREDEALS')}/>
         <div className=" HomePage-img  row p-1">
           <div className="col HomePage-imgElementNON">
             <ImageContainer img={JumiaFood1} wid="w-100" />
@@ -294,9 +295,9 @@ export default function Home() {
       </div>
 
 
-      {/* Weakend Clearnace | Limited Stock */}
+      {/*Most Liked Products*/}
       <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title="Most Liked Products" />
+        <SeeAll    className="container-fluid" color="black" background="#C7C7CD" title={t('MostLikedProducts')} />
         <div className="row mt-3">
           {
             items.map((item, index) => {
@@ -312,9 +313,9 @@ export default function Home() {
 
 
 
-      {/* <!--  Enjoy Jumai Pay & Jumia Food Offers --> */}
+      {/* <!--  Pick For You --> */}
       <div className="container  card mt-3 px-4 pb-1">
-        <TextCenter title=" Pick For You " />
+        <TextCenter title={t('PickForYou')} />
         <div className="   row ">
           <div className="col HomePage-imgElementNON m-2">
             <ImageContainer img={Pickforyou} wid="w-100" />
@@ -324,8 +325,8 @@ export default function Home() {
 
 
       {/*Women's Sweatshirts | Up to 50% OFF */}
-      <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title="Women's Sweatshirts | Up to 50% OFF" />
+      <div className="container mt-4 card ">
+        <SeeAll color="black" background="#C7C7CD" title={t("Women'sFashion")} />
         <div className="row mt-3">
           {
             
@@ -363,7 +364,7 @@ export default function Home() {
 
       {/*Men's Sweatshirts | Up to 50% OFF */}
       <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title="Men's Sweatshirts | Up to 50% OFF" />
+        <SeeAll color="black" background="#C7C7CD" title={t("Men'sFashion")} />
         <div className="row mt-3">
           {
             menProduct.map((item, index) => {
@@ -387,9 +388,9 @@ export default function Home() {
         </div>
       </div>
 
-      {/*Shavers & hair Removal | Up to 30% OFF */}
+      {/*Games | Up to 30% OFF */}
       <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title="Games | Up to 30% OFF" />
+        <SeeAll color="black" background="#C7C7CD" title={t('Games')} />
         <div className="row mt-3">
           {
             gamesProducts.map((item, index) => {
@@ -424,12 +425,12 @@ export default function Home() {
 
 
 
-      {/*Soft Drinks | Up to 30% OFF */}
+      {/*SmartPone */}
       <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title="Furniture | Up to 30% OFF" />
+        <SeeAll color="black" background="#C7C7CD" title={t('SmartPone')} />
         <div className="row mt-3">
           {
-            furnitureProducts.map((item, index) => {
+            smartPhoneProducts.map((item, index) => {
               return (
                 <div className="col-md-2 mb-4" key={index}>
                   <ProductCard product={item} />
@@ -443,7 +444,7 @@ export default function Home() {
       
       {/* <!--   Subscribe Now & Enjoy --> */}
       <div className="container  card mt-4">
-        <TextCenter title="  Subscribe Now & Enjoy " />
+        <TextCenter title={t("SubscribeNow")} />
         <div className=" HomePage-img  row p-1">
           <div className="col HomePage-imgElementNON">
             <ImageContainer img={subscribe1} wid="w-100" />
@@ -458,7 +459,7 @@ export default function Home() {
 
       {/* New On Jumia */}
       <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title=" New On Jumia" />
+        <SeeAll color="black" background="#C7C7CD" title={t('NewOnJumia')} />
         <div className="row mt-3">
           {
             items.map((item, index) => {
@@ -489,7 +490,7 @@ export default function Home() {
 
       {/*  Be Prepared for winter */}
       <div className="container  card mt-4">
-        <TextCenter title=" Be Prepared for winter " />
+        <TextCenter title={t('BePreparedforwinter')} />
         <SmallImagesContainer text1="men Autumn Fashon" text2="All In Black" text3="Dress Like a Boss" text4="Your Style Rules" text5="Baby Comfort" text6="Wedding Home"
           img1={L1}
           img2={L2}

@@ -113,7 +113,7 @@ export default function LowerHeader() {
           {/* Search Part */}
           <div className="col-lg-7 col-md-12 my-auto ">
 
-            <SearchBar />
+            <SearchBar/>
             {/* <form className="d-flex">
               <input
                 type="search"
@@ -122,7 +122,7 @@ export default function LowerHeader() {
                 aria-label="Search"
                 onChange={handleFormChange}
                 value={Search}
-              /> */}
+              />
               {/* <input
                 className="ms-2 bg-warning rounded border-warning text-light fw-bold"
                 type="button"
@@ -130,8 +130,8 @@ export default function LowerHeader() {
               /> */}
               {/* <Link to="/searchpage" role="button" className="btn d-none d-xl-block mx-1 px-3"
                 onClick={handleFormSubmit}
-                style={{ "background-color": "darkorange", "color": "white", "font-size": "14px", "font-weight": "600", "box-shadow": "0 4px 8px 0 rgba(0,0,0,0.2)", "margin-left": "10px" }}>{t("search")}</Link> */}
-            {/* </form> */}
+                style={{ "background-color": "darkorange", "color": "white", "font-size": "14px", "font-weight": "600", "box-shadow": "0 4px 8px 0 rgba(0,0,0,0.2)", "margin-left": "10px" }}>{t("search")}</Link> 
+             </form>  */}
           </div>
 
           <div className="col-lg-3 col-md-12 mt-2">

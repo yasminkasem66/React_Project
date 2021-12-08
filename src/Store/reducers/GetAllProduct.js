@@ -2,7 +2,7 @@ import { productConstants } from '../types';
 
 import {fproducts} from '../mockdata'
 export const AllProductsReducer = (state = fproducts, action) => {
-    console.log("action", action);
+    // console.log("action", action);
     switch (action.type) {
         case productConstants.GET_ALL_PRODUCTS:
             return [...action.payload];
@@ -26,7 +26,7 @@ export const AllProductsPaginationReducer = (state = fproducts, action) => {
 
 
 export const SingleProductReducer = (state = [], action) => {
-    console.log("action", action);
+    // console.log("action", action);
     switch (action.type) {
         case productConstants.GET_SINGLE_PRODUCT:
             return action.payload;

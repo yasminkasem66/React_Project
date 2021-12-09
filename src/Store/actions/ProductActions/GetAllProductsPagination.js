@@ -2,10 +2,10 @@ import { axiosInstance } from "../../../network";
 import { productConstants } from "../../types";
 
 
+const lang = localStorage.getItem('lang') || 'en';
+console.log("langProductByIdProductById", lang);
 
 export const getAllProductsPaganation = (page,catparent, cat) => async (dispatch) => {
-    const lang = localStorage.getItem('lang') || 'en';
-    console.log("langProductByIdProductById", lang);
     let response;
     try {
     //     if (cat != 'null') {
@@ -29,7 +29,7 @@ export const sortPrice = (catparent, sign) => async (dispatch) => {
     let response;
     try {
         // &featured=${featured }
-        response = await axiosInstance.get(`/products?categoryparent=${catparent}&sort=${sign}price`);
+        response = await axiosInstance.get(`/products/${lang}?categoryparent=${catparent}&sort=${sign}price`);
         // console.log("response", response);
         dispatch({
             type: productConstants.GET_HightoLowPrice_PRODUCTS,

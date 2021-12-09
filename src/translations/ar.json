@@ -233,6 +233,16 @@
     "SHIPMENT DETAILS":"تفاصيل الشحنة",
     "Delivered between Wednesday 15 Dec and Thursday 16 Dec":"يصل اليك بين يوم الأربعاء ديسمبر/15 و الخميس ديسمبر/16.",
 
-    " ADDTOCART":"أضف الي السله"
+    " ADDTOCART":"أضف الي السله",
+    "Item":"عنصر",
+    "QUANTITY":"كميه",
+    "UNITPRICE":"سعر الوحده",
+    "SUBTOTAL":"إجمالي المبلغ",
+    "Shippingfeesnot":"لم يتم إضافة مصاريف الشحن بعد",
+    "ContinueShopping":"الرجوع للموقع",
+    "ContinuetoCheckout":"متابعة الشراء",
+    "EGP": "جنيه",
+    "MOVETOSAVEDITEMS":"العناصر المحفوظه",
+    "REMOVE": "احذف"
 }
 

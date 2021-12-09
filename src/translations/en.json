@@ -230,6 +230,14 @@
     "PRICSEGP":"PRICS (EGP)",
     "DELIVERY METHOD":"DELIVERY METHOD",
     "orderDelivered?":"How do you want your order delivered?",
-        " ADDTOCART":" ADD TO CART"
-    
+"Item":"Item",
+"QUANTITY":"QUANTITY",
+"UNITPRICE":"UNIT PRICE",
+"SUBTOTAL":"SUBTOTAL",
+"Shippingfeesnot":"Shipping fees not included yet",
+"ContinueShopping":" Continue Shopping",
+"ContinuetoCheckout":"Continue to Checkout",
+"EGP":"EGP",
+"MOVETOSAVEDITEMS":"MOVE TO SAVED ITEMS",
+"REMOVE":"REMOVE"
 }

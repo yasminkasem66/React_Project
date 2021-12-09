@@ -62,15 +62,15 @@ export default function CardWithHiddenButton(props) {
     <>
      
 
-          <div className="card cardStyle">
+          <div className="card cardStyle m-1">
         <Link to={`/singleProduct/${CartItem.id}`} className="text-dark">
             <img
-              style={{ width: "100%", height: "200px" }}
+              style={{ width: "100%", height: "20%" }}
               src={CartItem.image}
             />
             <div className="card-body">
       <h5 className="card-title text-truncate">{CartItem.name}</h5> 
-              <p className="card-text">EGP {CartItem.price}</p>
+            <p className="card-text">{CartItem.price} {t('EGP') } </p>
             </div>
           </Link>
 
@@ -127,8 +127,8 @@ export default function CardWithHiddenButton(props) {
                 <button
                   id="add"
                   onClick={() => additemToCart()}
-                  style={{ width: "15rem" }}
-                  className="add btn btn-warning mx-auto mb-1 text-white"
+                style={{ width: "15rem", backgroundColor: "#f68b1e"  }}
+                  className="add btn btn-warning mx-auto mb-1 text-white mb-2 p-2"
                 >
                 {t('ADDTOCART')}
                 </button>

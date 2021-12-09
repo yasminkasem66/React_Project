@@ -38,15 +38,15 @@ function SearchBar() {
 
     const newFilter = products.filter((product) => {
       
-      return product.categoryparentEn.toLowerCase().includes(searchWord.toLowerCase());
+      return product.categoryparent.toLowerCase().includes(searchWord.toLowerCase());
     
     });
     const newFilter2 = products.filter((product) => {
-        return product.categoryEn.toLowerCase().includes(searchWord.toLowerCase());
+        return product.category.toLowerCase().includes(searchWord.toLowerCase());
       
       });
       const newFilter3 = products.filter((product) => {
-        return product.nameEn.toLowerCase().includes(searchWord.toLowerCase());
+        return product.name.toLowerCase().includes(searchWord.toLowerCase());
       
       });
     const key = "categoryparentEn"
@@ -149,7 +149,7 @@ function SearchBar() {
             
          
             <a onClick={getCategoty} className="dataItem " style={{"height":"30px"}} >
-             <p style={{"margin-left":"3px","padding-top":"5px"}} >{value.categoryparentEn} 
+             <p style={{"margin-left":"3px","padding-top":"5px"}} >{value.categoryparent} 
                </p>
                 
             </a>
@@ -177,7 +177,7 @@ function SearchBar() {
            
          
             <a onClick={getCategoty} className="dataItem " style={{"height":"30px"}}  >
-             <p style={{"margin-left":"3px","padding-top":"5px"}}>{value.categoryEn} 
+             <p style={{"margin-left":"3px","padding-top":"5px"}}>{value.category} 
                </p>
                 
             </a>
@@ -198,7 +198,7 @@ function SearchBar() {
             
          
             <a onClick={getCategoty} className="dataItem "style={{"height":"30px"}}  >
-             <p style={{"margin-left":"3px","padding-top":"5px"}}>{value.nameEn} 
+             <p style={{"margin-left":"3px","padding-top":"5px"}}>{value.name} 
                </p>
                 
             </a>

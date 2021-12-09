@@ -110,7 +110,7 @@ export default function Home() {
 
   const women = products.filter(product => product.category === "Women" || product.category === "مرأه ")
   const womenProduct= women.slice(0,6)
-  const men = products.filter(product => product.category === "Men " || product.category === "رجال ")
+  const men = products.filter(product => product.category === "Men" || product.category === "رجال ")
   const menProduct=men.slice(0,6)
   const gaming = products.filter(product => product.categoryparent === "Gaming" || product.categoryparent === "ألعاب")
   const gamesProducts=gaming.slice(0,6)
@@ -118,7 +118,7 @@ export default function Home() {
   const Detergent = products.filter(product => product.categoryparent === "Detergent" || product.categoryparent === "منظفات")
   const smartPhoneProducts=smartPhone.slice(0,6)
   // console.log("womenProducts",womenProduct)
-  console.log("gaming", gaming)
+  console.log("men", men)
   // console.log("gamesProduct",gamesProducts)
   // console.log("smartPhoneProducts",smartPhoneProducts)
 

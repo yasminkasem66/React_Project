@@ -42,7 +42,7 @@ export const Beforelogin = () => {
     <>
       {/* it's responsible to show data before lazy loading loading */}
       {/* <Suspense fallback={<Loader/>}> */}
-      <Suspense fallback={<Loader/>}>
+      <Suspense fallback={<LinearProgress/>}>
         {/* first Match win */}
         <Routes>
           <Route path="/" exact element={<Home />} />

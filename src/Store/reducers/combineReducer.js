@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
-import {orderReducer, ordersReducer} from "./orderReducer";
+import { orderReducer, ordersReducer } from "./orderReducer";
 import { userReducer } from "./userReducer";
+import { reviewReducer } from "./ReviewReducer";
 import {
   AllProductsReducer,
   SingleProductReducer,
@@ -9,7 +10,6 @@ import {
 import { SignUpReducer } from "./authReducer";
 import { GetChildCategory, GetParentCategory } from "./categoryReducer";
 
-
 export default combineReducers({
   AllProducts: AllProductsReducer,
   AllProductsPagination: AllProductsPaginationReducer,
@@ -17,8 +17,8 @@ export default combineReducers({
   orders: ordersReducer,
   users: userReducer,
   SignUp: SignUpReducer, //auth
-  Orders: orderReducer , //cart
+  Orders: orderReducer, //cart
   category: GetParentCategory,
-  categoryChild: GetChildCategory
-
+  categoryChild: GetChildCategory,
+  review: reviewReducer,
 });

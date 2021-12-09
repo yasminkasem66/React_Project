@@ -9,6 +9,7 @@ import { signout } from "../../../Store/actions/authen/authen";
 
 import { useCart } from "react-use-cart";
 import { getCartItems } from "../../../Store/actions/OrdrActions/orderActions";
+import SearchBar from "../../Search/Search";
 
 export default function LowerHeader() {
   // test search
@@ -107,8 +108,10 @@ export default function LowerHeader() {
             </NavLink>
           </div>
           {/* Search Part */}
-          <div className="col-lg-7 col-md-12">
-            <form className="d-flex">
+          <div className="col-lg-7 col-md-12 my-auto ">
+
+            <SearchBar/>
+            {/* <form className="d-flex">
               <input
                 type="search"
                 className="form-control shadow-none "
@@ -122,23 +125,10 @@ export default function LowerHeader() {
                 type="button"
                 defaultValue="Search"
               /> */}
-              <Link
-                to="/searchpage"
-                role="button"
-                className="btn d-none d-xl-block mx-1 px-3"
+              {/* <Link to="/searchpage" role="button" className="btn d-none d-xl-block mx-1 px-3"
                 onClick={handleFormSubmit}
-                style={{
-                  "background-color": "darkorange",
-                  color: "white",
-                  "font-size": "14px",
-                  "font-weight": "600",
-                  "box-shadow": "0 4px 8px 0 rgba(0,0,0,0.2)",
-                  "margin-left": "10px",
-                }}
-              >
-                {t("search")}
-              </Link>
-            </form>
+                style={{ "background-color": "darkorange", "color": "white", "font-size": "14px", "font-weight": "600", "box-shadow": "0 4px 8px 0 rgba(0,0,0,0.2)", "margin-left": "10px" }}>{t("search")}</Link> 
+             </form>  */}
           </div>
 
           <div className="col-lg-3 col-md-12 mt-2">

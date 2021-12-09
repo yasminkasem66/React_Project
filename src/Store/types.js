@@ -1,8 +1,9 @@
 export const GET_ALL_ORDERS = "GET_ALL_ORDERS ";
+export const GET_ALL_MYORDERS = "GET_ALL_MYORDERS ";
 export const GET_ALL_USERS = "GET_ALL_USERS ";
 export const GET_SINGLE_USER = "GET_SINGLE_USER";
 export const UPDATE_USER_PASSWORD = "UPDATE_USER_PASSWORD";
-
+export const CREATE_ORDER_REVIEW = "CREATE_ORDER_REVIEW ";
 export const CREATE_ORDER_ACTION = "CREATE_ORDER_ACTION";
 
 export const productConstants = {

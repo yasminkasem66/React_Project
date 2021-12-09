@@ -12,7 +12,7 @@ export const GetParentCategory = () => async (dispatch) => {
         const response = await axiosInstance.get(`/products/ParentCategories/${lang}`);
         dispatch({
             type: catConstants.GET_PARENT_CATEGORY ,
-            payload: response.data.categoriesparent,
+            payload: response.data.categoriesparentEn,
         });
     } catch (err) {
         console.log(err);

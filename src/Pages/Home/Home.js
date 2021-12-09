@@ -6,6 +6,9 @@ import { useTranslation } from 'react-i18next'
 import { ProductById } from "../../Store/actions/ProductActions/GetSingleProduct";
 
 
+
+
+
 //import UperHeader from "../../Component/UperHeader.js/UperHeader";
 import ImageContainer from "../../Component/ImageContainer/ImageContainer";
 import MiddeleHeader from "../../Component/Headers/MiddleHeader/MiddeleHeader";
@@ -22,6 +25,7 @@ import Carsoual from "../../Component/Carsoual/Carsoual";
 import ProductCard from "../../Component/ProductCard/ProductCard";
 import TextCenter from "../../Component/TextCenter/TextCenter";
 import SmallImagesContainer from "../../Component/SmallImagesContainer/SmallImagesContainer";
+
 
 
 // images
@@ -124,6 +128,7 @@ export default function Home() {
 
 
 
+
   const { t, i18n } = useTranslation();
 
 
@@ -162,6 +167,8 @@ export default function Home() {
         <SmallCard statement={t('Orange Points')} pic={padge4} className="col-3" />
         {/* <ProductCard pic={pic1} /> */}
       </div>
+
+
 
       {/* caresoul products */}
       <div className="container card mt-3">

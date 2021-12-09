@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 import "./MyaccountList.scss";
 
 export default function MyaccountList(props) {
@@ -16,15 +17,17 @@ export default function MyaccountList(props) {
         <ul className="nav flex-column align-middle aside-nav p-2 myaccount-a">
           <li className="nav-item ">
             <i className="far fa-user    " style={{ fontSize: 20 }} />{" "}
-            <a className="nav-link text-dark active d-inline-block" href="#">
-              My Jumia Account
-            </a>
+            <NavLink to="/Myaccount">
+              <a className="nav-link text-dark active d-inline-block" href="#">
+                My Jumia Account
+              </a>
+            </NavLink>
           </li>
           <li className="nav-item">
             <i className="far fa-box" style={{ fontSize: 20 }} />{" "}
-            <a className="nav-link text-dark d-inline-block" href="#">
-              Orders
-            </a>
+            <NavLink to="/orders">
+              <a className="nav-link text-dark d-inline-block">Orders</a>
+            </NavLink>
           </li>
           <li className="nav-item">
             <i className="far fa-envelope" style={{ fontSize: 20 }} />

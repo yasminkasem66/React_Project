@@ -13,7 +13,7 @@ export default function Paypal(props) {
               {
                 description: "Cool looking table",
                 amount: {
-                  currency_code: "EUR",
+                  currency_code: "USD",
                   value: props.total,
                 },
               },
@@ -21,11 +21,13 @@ export default function Paypal(props) {
           });
         },
         onApprove: async (data, actions) => {
+          console.log("onAprove order");
           const order = await actions.order.capture();
           props.creatNewOrder();
           console.log(order);
         },
         onError: (err) => {
+          console.log("hamasa order");
           console.log(err);
         },
       })

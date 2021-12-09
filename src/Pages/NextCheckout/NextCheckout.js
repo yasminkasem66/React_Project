@@ -19,14 +19,17 @@ export default function NextCheckout() {
   const dispatch = useDispatch();
 
   const creatNewOrder = async () => {
+    console.log("create New order");
     const res = await axiosInstance.post(`/orders`, {
       items,
       tax: 10,
       shippingFee: 10,
     });
     if (res) {
+      console.log("create New order if");
       console.log("res res", res);
     } else {
+      console.log("create New order else");
       console.log("errorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
     }
     emptyCart();

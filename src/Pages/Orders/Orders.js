@@ -77,7 +77,7 @@ export default function Orders() {
   <hr />
 </div>
 <div className="row mb-3">
-    <OrderComponent className="mb-2"  header="ACCOUNT DETAILS" main={user.name} secondary={user.email} orangePart="Change Password"  />
+    <OrderComponent className="mb-2"  image=" " name=""   />
    
 
 </div>

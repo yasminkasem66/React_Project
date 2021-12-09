@@ -27,10 +27,11 @@ export default function Paypal(props) {
         onApprove: async (data, actions) => {
           const order = await actions.order.capture();
           props.creatNewOrder();
-          console.log(order);
+          console.log("Gabouur");
         },
         onError: (err) => {
           console.log(err);
+          console.log("da5al fe al error")
         },
       })
       .render(paypal.current);

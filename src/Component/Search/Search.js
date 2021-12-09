@@ -38,24 +38,24 @@ function SearchBar() {
 
     const newFilter = products.filter((product) => {
       
-      return product.categoryparentEn.toLowerCase().includes(searchWord.toLowerCase());
+      return product.categoryparent.toLowerCase().includes(searchWord.toLowerCase());
     
     });
     const newFilter2 = products.filter((product) => {
-        return product.categoryEn.toLowerCase().includes(searchWord.toLowerCase());
+        return product.category.toLowerCase().includes(searchWord.toLowerCase());
       
       });
       const newFilter3 = products.filter((product) => {
-        return product.nameEn.toLowerCase().includes(searchWord.toLowerCase());
+        return product.name.toLowerCase().includes(searchWord.toLowerCase());
       
       });
-    const key = "categoryparentEn"
+    const key = "categoryparent"
     const arrayUniqueByKey = [...new Map(newFilter.map(item =>
     [item[key], item])).values()];
-    const key2 = "categoryEn"
+    const key2 = "category"
     const arrayUniqueByKey2 = [...new Map(newFilter2.map(item =>
     [item[key2], item])).values()];
-    const key3 = "nameEn"
+    const key3 = "name"
     const arrayUniqueByKey3 = [...new Map(newFilter3.map(item =>
     [item[key3], item])).values()];
 
@@ -156,7 +156,7 @@ function SearchBar() {
             
          
             <a onClick={getCategoty} className="dataItem " style={{"height":"30px"}} >
-             <p style={{"margin-left":"3px","padding-top":"5px"}} >{value.categoryparentEn} 
+             <p style={{"margin-left":"3px","padding-top":"5px"}} >{value.categoryparent} 
                </p>
                 
             </a>
@@ -184,7 +184,7 @@ function SearchBar() {
            
          
             <a onClick={getCategoty} className="dataItem " style={{"height":"30px"}}  >
-             <p style={{"margin-left":"3px","padding-top":"5px"}}>{value.categoryEn} 
+             <p style={{"margin-left":"3px","padding-top":"5px"}}>{value.category} 
                </p>
                 
             </a>
@@ -205,7 +205,7 @@ function SearchBar() {
             
          
             <a onClick={getCategoty} className="dataItem "style={{"height":"30px"}}  >
-             <p style={{"margin-left":"3px","padding-top":"5px"}}>{value.nameEn} 
+             <p style={{"margin-left":"3px","padding-top":"5px"}}>{value.name} 
                </p>
                 
             </a>

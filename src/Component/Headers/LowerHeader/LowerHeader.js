@@ -10,6 +10,7 @@ import { signout } from "../../../Store/actions/authen/authen";
 import { useCart } from "react-use-cart";
 import { getCartItems } from "../../../Store/actions/OrdrActions/orderActions";
 import SearchBar from "../../Search/Search";
+import BasicPopover from "../../CategoryPopoverList/CategoryPopoverList";
 
 export default function LowerHeader() {
   // test search
@@ -95,16 +96,20 @@ export default function LowerHeader() {
         <div className="container d-flex justify-content-around m-auto align-items-center  ">
           <div className="col-lg-2 col-md-12">
             <NavLink
-              className="d-flex text-decoration-none  link-dark me-4 socialIcon"
+              className="d-flex align-items-center text-decoration-none  link-dark me-4 socialIcon"
               to="/"
             >
-              <h2
+              <BasicPopover />
+              <p
                 className="fw-bold mt-3"
-                style={{ fontFamily: '"Orbitron", sans-serif' }}
+                style={{ fontFamily: '"Orbitron", sans-serif', fontSize: 28 }}
               >
                 JUMIA
-              </h2>
-              <i style={{ fontSize: 25 }} className="mt-4 fas fa-cart-plus" />
+              </p>
+              <i
+                style={{ fontSize: 28, marginBottom: "1rem" }}
+                className="mt-4 fas fa-cart-plus"
+              />
             </NavLink>
           </div>
           {/* Search Part */}

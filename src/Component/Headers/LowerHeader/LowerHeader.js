@@ -109,8 +109,7 @@ export default function LowerHeader() {
           </div>
           {/* Search Part */}
           <div className="col-lg-7 col-md-12 my-auto ">
-
-            <SearchBar/>
+            <SearchBar />
             {/* <form className="d-flex">
               <input
                 type="search"
@@ -125,7 +124,7 @@ export default function LowerHeader() {
                 type="button"
                 defaultValue="Search"
               /> */}
-              {/* <Link to="/searchpage" role="button" className="btn d-none d-xl-block mx-1 px-3"
+            {/* <Link to="/searchpage" role="button" className="btn d-none d-xl-block mx-1 px-3"
                 onClick={handleFormSubmit}
                 style={{ "background-color": "darkorange", "color": "white", "font-size": "14px", "font-weight": "600", "box-shadow": "0 4px 8px 0 rgba(0,0,0,0.2)", "margin-left": "10px" }}>{t("search")}</Link> 
              </form>  */}
@@ -187,7 +186,9 @@ export default function LowerHeader() {
                     </li>
                     <li>
                       <a className="dropdown-item" href="#">
-                        <i className="far fa-bags-shopping" /> Orders
+                        <NavLink to="/orders">
+                          <i className="far fa-bags-shopping" /> Orders
+                        </NavLink>
                       </a>
                     </li>
                     <li>

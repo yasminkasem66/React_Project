@@ -216,7 +216,7 @@ export default function SingleProduct() {
                 borderRadius: 4,
               }}
             >
-              <ShowReview id={id} />
+              <ShowReview id={id} averageRating={product?.averageRating} />
             </div>
           </div>
           <div className="col-3 single-secondcol ms-0">

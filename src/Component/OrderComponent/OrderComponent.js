@@ -6,6 +6,11 @@ export default function OrderComponent(props) {
   let userOrder = props.orderItems;
   //console.log("props orderComponent", props.orderItems);
   const navigate = useNavigate();
+  const singleProductNavigate=(e,id)=>{
+    console.log("asdasdasd",id)
+    navigate("/singleProduct/"+id)
+
+  }
 
   const reviewFuncNavigate = (e, id) => {
     console.log("navigate to review id", id);
@@ -16,7 +21,10 @@ export default function OrderComponent(props) {
       {userOrder.map((item, index) => {
         return (
           <>
+          
             <div className="col-md-12 mb-3">
+            <Link to={"/singleProduct/" + item?.product}>
+              <button className="border-0" onClick={(e)=>singleProductNavigate(e,item.product)}>
               <div className="card">
                 <div className="card-body row">
                   <div className="col-2">
@@ -43,6 +51,8 @@ export default function OrderComponent(props) {
                   </div>
                 </div>
               </div>
+              </button>
+              </Link>
               <div className="mt-2">
                 {/* <Link to={`/review/${item.product}`}> */}
                 <button
@@ -59,6 +69,7 @@ export default function OrderComponent(props) {
                 {/* </Link> */}
               </div>
             </div>
+            
           </>
         );
       })}

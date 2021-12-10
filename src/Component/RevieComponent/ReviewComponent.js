@@ -4,7 +4,7 @@ import Footer2 from "../Footer2/Footer2";
 import LowerHeader from "../Headers/LowerHeader/LowerHeader";
 import MiddeleHeader from "../Headers/MiddleHeader/MiddeleHeader";
 import { createReview } from "../../Store/actions/Review/ReviewAction";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function ReviewComponent() {
   const { id } = useParams();
@@ -23,6 +23,7 @@ export default function ReviewComponent() {
     commentErr: "",
   });
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handelFormChange = (e) => {
     console.log(e.target.name, " :", e.target.value);
     console.log("Reviewrrrr", " :", Review);
@@ -76,8 +77,14 @@ export default function ReviewComponent() {
   };
   const createOrderReview = (e) => {
     e.preventDefault();
-    console.log("Review Review", Review);
     dispatch(createReview(Review));
+    setTimeout(()=>{
+      navigate("/singleProduct/"+id)
+
+    },800)
+   
+    console.log("Review Review", Review);
+    
   };
   return (
     <>

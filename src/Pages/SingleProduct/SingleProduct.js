@@ -21,9 +21,10 @@ import Aside2 from "../../Component/Aside2/Aside2";
 import { ProductById } from "../../Store/actions/ProductActions/GetSingleProduct";
 import { getAllProducts } from "../../Store/actions/ProductActions/getAllProducts";
 import Footer1 from "../../Component/Footer1/Footer1";
+import ShowReview from "../../Component/ShowReview/ShowReview";
 
 export default function SingleProduct() {
-  const { id} = useParams();
+  const { id } = useParams();
   // console.log("id id", id);
 
   const product = useSelector((state) => state.SingleProduct);
@@ -204,6 +205,19 @@ export default function SingleProduct() {
                 />
               </div>
             </div>
+            <div
+              className="row"
+              style={{
+                backgroundColor: "white",
+                marginTop: 15,
+                padding: 8,
+                paddingLeft: 20,
+                boxShadow: "0 2px 5px 0 #ededed",
+                borderRadius: 4,
+              }}
+            >
+              <ShowReview id={id} />
+            </div>
           </div>
           <div className="col-3 single-secondcol ms-0">
             <Aside2
@@ -214,7 +228,6 @@ export default function SingleProduct() {
           </div>
         </div>
       </div>
-
       {/* </div>            */}
       <Footer1 />
     </>

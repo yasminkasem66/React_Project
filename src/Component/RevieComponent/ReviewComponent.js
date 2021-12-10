@@ -15,7 +15,7 @@ export default function ReviewComponent() {
     title: "",
     comment: "",
     user: user_Id,
-    Product: id,
+    product: id,
   });
   const [ReviewErrors, setReviewErrors] = useState({
     ratingErr: null,

@@ -101,7 +101,7 @@ export default function LowerHeader() {
             >
               <BasicPopover />
               <p
-                className="fw-bold mt-3"
+                className="fw-bold mt-3 ms-2"
                 style={{ fontFamily: '"Orbitron", sans-serif', fontSize: 28 }}
               >
                 JUMIA

@@ -12,11 +12,13 @@ import { createOrder } from "../../Store/actions/OrdrActions/orderActions";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { axiosInstance } from "../../network";
+import { useNavigate } from "react-router-dom";
 
 export default function NextCheckout() {
   const { items, emptyCart } = useCart();
   const products = useSelector((state) => state.orders);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const creatNewOrder = async () => {
     console.log("create New order");
@@ -33,6 +35,8 @@ export default function NextCheckout() {
       console.log("errorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
     }
     emptyCart();
+
+    navigate("/orders");
   };
   //   async function handleCreateNewGame() {
   //         const data = this.state.data;

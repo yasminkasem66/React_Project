@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getSinglePrReview } from "../../Store/actions/Review/ReviewAction";
+import {
+  deleteReview,
+  getSinglePrReview,
+  updateReview,
+} from "../../Store/actions/Review/ReviewAction";
 import SeeAll from "../SeeAll/SeeAll";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 
@@ -13,18 +17,31 @@ import r4 from "../../assets/imgs/Rate4.PNG";
 import r5 from "../../assets/imgs/Rate5.PNG";
 import { getSingleUser } from "../../Store/actions/UserActions/getSingleUser";
 import { getAllUsers } from "../../Store/actions/UserActions/userActions";
+import { Button } from "bootstrap";
+import { useNavigate } from "react-router-dom";
 
 export default function ShowReview(props) {
   const Reviews = useSelector((state) => state.review);
-  const users = useSelector((state) => state.users);
+  //const users = useSelector((state) => state.users);
+  const user_Id = JSON.parse(localStorage.getItem("user")).userId;
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getSinglePrReview(props.id));
-    dispatch(getAllUsers());
+    //dispatch(getAllUsers());
   }, []);
 
+  const EditReview = (e, itemInfo) => {
+    console.log("itemInfo", itemInfo);
+    localStorage.setItem("review", JSON.stringify(itemInfo));
+    navigate("/updateReview");
+  };
+  const DeleteReview = (e, id) => {
+    dispatch(deleteReview(id));
+    window.location.reload();
+  };
   console.log("Reviews Reviews rrrrrrrrrr", Reviews);
-  console.log("Get all Users", users);
+  //console.log("Get all Users", users);
 
   // const getUserFun = (user_ID) => {
   //   dispatch(getSingleUser(user_ID));
@@ -80,10 +97,28 @@ export default function ShowReview(props) {
                   <div className="text-muted">
                     created at {item.updatedAt.substring(0, 10)}
                   </div>
-                  <div style={{ color: "#ffe086" }}>
+                  <div className="mb-3" style={{ color: "#ffe086" }}>
                     <CheckCircleRoundedIcon />
                     Verified Purchase
                   </div>
+                </div>
+                <div className="d-flex justify-content-between mb-3">
+                  {user_Id === item.user && (
+                    <>
+                      <button
+                        onClick={(e) => EditReview(e, item)}
+                        className="btn btn-warning text-white"
+                      >
+                        Edit Review
+                      </button>
+                      <button
+                        onClick={(e) => DeleteReview(e, item._id)}
+                        className="btn btn-danger text-white"
+                      >
+                        Delete Review
+                      </button>
+                    </>
+                  )}
                 </div>
               </div>
             );

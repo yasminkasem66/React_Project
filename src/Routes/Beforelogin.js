@@ -39,6 +39,9 @@ export const Order = React.lazy(() => import("../Pages/Orders/Orders"));
 export const ReviewComponent = React.lazy(() =>
   import("../Component/RevieComponent/ReviewComponent")
 );
+export const SellerLogin = React.lazy(() => import("../Pages/SellerLogin/SellerLogin"));
+
+
 
 // import Myaccount from "./Pages/Myaccount/Myaccount";
 
@@ -75,6 +78,7 @@ export const Beforelogin = () => {
             exact
             element={<UpdateReviewComponent />}
           />
+          <Route path="/Seller" exact element={<SellerLogin />}></Route>
 
           <Route path="*" exact element={<NotFound />} />
         </Routes>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from 'react-i18next'
+import { Link } from "react-router-dom";
 
 export default function ProductHeader(  props) {
   const { t, i18n } = useTranslation();
@@ -21,29 +22,29 @@ export default function ProductHeader(  props) {
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <li>
-                <a class="dropdown-item" href="#" onClick={() => props.sortPrice()}>
+                <Link class="dropdown-item" to="/products" onClick={() => props.sortPrice()}>
                 {t('Popularity')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a class="dropdown-item" href="#">
+                <Link class="dropdown-item" to="/products">
                   {t('NewestArrivals')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a class="dropdown-item" href="#" onClick={()=>props.sortPrice('+','false')}>
+                <Link class="dropdown-item" to="/products" onClick={()=>props.sortPrice('+','false')}>
                   {t('PriceLowtoHigh')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a class="dropdown-item" href="#" onClick={() => props.sortPrice('-','false')}>
+                <Link class="dropdown-item" to="/products" onClick={() => props.sortPrice('-','false')}>
                   {t('PriceHightoLow')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a class="dropdown-item" href="#">
+                <Link class="dropdown-item" to="/products">
                   {t("ProductRating")}
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

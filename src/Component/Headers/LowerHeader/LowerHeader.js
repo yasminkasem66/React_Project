@@ -6,11 +6,10 @@ import "./LowerHeader.scss";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signout } from "../../../Store/actions/authen/authen";
-
 import { useCart } from "react-use-cart";
 import { getCartItems } from "../../../Store/actions/OrdrActions/orderActions";
 import SearchBar from "../../Search/Search";
-import BasicPopover from "../../CategoryPopoverList/CategoryPopoverList";
+// import BasicPopover from "../../CategoryPopoverList/CategoryPopoverList";
 
 export default function LowerHeader() {
   // test search
@@ -93,13 +92,14 @@ export default function LowerHeader() {
           zIndex: "1030",
         }}
       >
+        
         <div className="container d-flex justify-content-around m-auto align-items-center  ">
           <div className="col-lg-2 col-md-12">
             <NavLink
               className="d-flex align-items-center text-decoration-none  link-dark me-4 socialIcon"
               to="/"
             >
-              <BasicPopover />
+              {/* <BasicPopover /> */}
               <p
                 className="fw-bold mt-3 ms-2"
                 style={{ fontFamily: '"Orbitron", sans-serif', fontSize: 28 }}

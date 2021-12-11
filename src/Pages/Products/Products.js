@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { GetChildCategory, GetParentCategory } from "../../Store/actions/categories/category";
+import {
+  GetChildCategory,
+  GetParentCategory,
+} from "../../Store/actions/categories/category";
 
 import { axiosInstance } from "../../network";
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from "react-i18next";
 
 // styles
 import "./Products.scss";
@@ -45,15 +48,18 @@ import i80 from "../../assets/imgs/p80.PNG";
 // material ui
 import WindowIcon from "@mui/icons-material/Window";
 import HomeIcon from "@mui/icons-material/Home";
-import { getAllProductsPaganation, sortPrice } from "../../Store/actions/ProductActions/GetAllProductsPagination";
+import {
+  getAllProductsPaganation,
+  sortPrice,
+} from "../../Store/actions/ProductActions/GetAllProductsPagination";
 import { Link } from "react-router-dom";
 
 export default function Products() {
   const { t, i18n } = useTranslation();
-  
+
   const products = useSelector((state) => state.AllProductsPagination);
-  const category = useSelector((state) => state.category); 
-  const categoryChild = useSelector((state) => state.categoryChild); 
+  const category = useSelector((state) => state.category);
+  const categoryChild = useSelector((state) => state.categoryChild);
   const [pageNum, setpageNum] = useState(1);
 
   let catparent = localStorage.getItem("category");
@@ -62,9 +68,9 @@ export default function Products() {
     dispatch(GetParentCategory());
     dispatch(GetChildCategory());
   }, []);
-  
+
   useEffect(() => {
-    dispatch(getAllProductsPaganation(pageNum, catparent,''));
+    dispatch(getAllProductsPaganation(pageNum, catparent, ""));
   }, [pageNum]);
 
   const pagFun2 = (e) => {
@@ -76,23 +82,23 @@ export default function Products() {
   const sortPricee = (sign) => {
     // featured
     dispatch(sortPrice(catparent, sign));
-  }
+  };
 
   const resetCategry = (cat) => {
-    localStorage.setItem('category', cat)
+    localStorage.setItem("category", cat);
     catparent = localStorage.getItem("category");
     // console.log("catparentcatparentcatparent", catparent);
-    dispatch(getAllProductsPaganation(pageNum, catparent, ''));
-  }
+    dispatch(getAllProductsPaganation(pageNum, catparent, ""));
+  };
 
   const resetCategryChild = (cat) => {
-    let categoryChild = localStorage.setItem('categoryChild', cat)
+    let categoryChild = localStorage.setItem("categoryChild", cat);
     catparent = localStorage.getItem("category");
     categoryChild = localStorage.getItem("categoryChild");
     console.log("catparentcatparentcatparent", catparent);
     console.log("categoryChildcategoryChildcategoryChild", categoryChild);
     dispatch(getAllProductsPaganation(pageNum, catparent, categoryChild));
-  }
+  };
   return (
     <div>
       <ImageContainer img={image1} color={"#a42924"} />
@@ -150,47 +156,58 @@ export default function Products() {
                   
                   }
 
+                  {category.map((cat, index) => {
+                    return (
+                      <Link
+                        to="/products"
+                        className=" text-decoration-none text-dark"
+                        key={index}
+                        onClick={() => resetCategry(`${cat}`)}
+                      >
+                        <p className="product-allProduct-productType-item ">
+                          {cat}
+                        </p>
+                      </Link>
+                    );
+                  })}
                 </div>
                 <h5 className="mb-3">{t("SUBCATEGORY")}</h5>
                 <div className="product-allproduct-productType border-bottom">
                   {/* <h5 className="product-allProduct-productType-header">
                     {catparent}
                   </h5> */}
-   
-                  {
-                    categoryChild.map((cat, index) => {
-                      return (
-                        <Link to="/products" className=" text-decoration-none text-dark" key={index} onClick={() => resetCategryChild(`${cat}`)}>
-                          <p className="product-allProduct-productType-item ">
-                           {cat}
-                          </p>
-                        </Link>
-                      )
-                    })
-                  
-                  }
 
+                  {categoryChild.map((cat, index) => {
+                    return (
+                      <Link
+                        to="/products"
+                        className=" text-decoration-none text-dark"
+                        key={index}
+                        onClick={() => resetCategryChild(`${cat}`)}
+                      >
+                        <p className="product-allProduct-productType-item ">
+                          {cat}
+                        </p>
+                      </Link>
+                    );
+                  })}
                 </div>
 
-
-
-
-
-                <h5 className="mb-3">{t('PRODUCTRATING')}</h5>
+                <h5 className="mb-3">{t("PRODUCTRATING")}</h5>
                 <CircleComponent imgList={[r1, r2, r3, r4]} img={circle} />
                 <hr />
-                <h5 className="mb-3">{t('EPRESSSHIPPING')}</h5>
+                <h5 className="mb-3">{t("EPRESSSHIPPING")}</h5>
                 <CircleComponent img={square} imgList={[jumiaexpress]} />
                 <hr />
                 {/* BRAND */}
-                <SearchComponent heading={t('BRAND')} />
+                <SearchComponent heading={t("BRAND")} />
                 <SquareComponent
                   textList={["Alcatel", "Amazfit", "Andoer", "Apple", "Armor"]}
                   img={square}
                 />
                 <hr />
                 {/* COLOR */}
-                <h5 className="mb-3">{t('COLOR')}</h5>
+                <h5 className="mb-3">{t("COLOR")}</h5>
                 <SquareComponent
                   textList={["Orang", "Black", "Brown", "Blue", "White"]}
                   img={square}
@@ -199,37 +216,37 @@ export default function Products() {
                 {/* PRICE RATING */}
                 <RatingSlider />
                 <hr />
-                <SearchComponent heading={t('MEGAPIXCELS')} />
+                <SearchComponent heading={t("MEGAPIXCELS")} />
                 <SquareComponent
                   textList={[0.0, 0.3, 1.3, 2, 2.0]}
                   img={square}
                 />
                 <hr />
-                <h5>{t('OPTICALZOOM')}</h5>
+                <h5>{t("OPTICALZOOM")}</h5>
                 <SquareComponent textList={[0.0]} img={square} />
                 <hr />
-                <SearchComponent heading={t('SCREENSIZE')} />
+                <SearchComponent heading={t("SCREENSIZE")} />
                 <SquareComponent
                   textList={[1.7, 2.4, 4.7, 5, 2.0]}
                   img={square}
                 />
                 <hr />
-                <SearchComponent heading={t('SHIPPEDFROM')} />
+                <SearchComponent heading={t("SHIPPEDFROM")} />
                 <SquareComponent
                   textList={["Shipped from Egypt", "Shipped From Abroad"]}
                   img={square}
                 />
                 <hr />
-                <h5>{t('SELERFROM')}</h5>
+                <h5>{t("SELERFROM")}</h5>
                 <CircleComponent imgList={[i80, i60, i40, i20]} img={circle} />
                 <hr />
-                <h5>{t('DISCOUNTPERCENTAGE')}</h5>
+                <h5>{t("DISCOUNTPERCENTAGE")}</h5>
                 <CircleComponent
                   imgList={[i50, i40, i30, i20, i10]}
                   img={circle}
                 />
                 <hr />
-                <h5>{t('INTERNALMEMORY')}</h5>
+                <h5>{t("INTERNALMEMORY")}</h5>
                 <SquareComponent textList={[0, 1, 2, 3, 4]} img={square} />
                 <hr />
                 <h5>INTERNAL MEMORY</h5>
@@ -247,7 +264,9 @@ export default function Products() {
             <hr />
             {/* displaying number of products  */}
             <div className="d-flex justify-content-between">
-              <p className="text-muted">{products?.length} {t('ProductsFound')}</p>
+              <p className="text-muted">
+                {products?.length} {t("ProductsFound")}
+              </p>
               {/* Mateial icon */}
               <p className="d-flex mx-2">
                 <a href="#" className="text-decoration-none text-muted mx-2">

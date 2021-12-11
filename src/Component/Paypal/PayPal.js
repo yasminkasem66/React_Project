@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 
 
 export default function Paypal(props) {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const paypal = useRef();
 
   useEffect(() => {
@@ -30,7 +30,9 @@ export default function Paypal(props) {
           // console.log(order);
         },
         onError: (err) => {
+          console.log("hamasa order");
           console.log(err);
+          console.log("da5al fe al error");
         },
       })
       .render(paypal.current);

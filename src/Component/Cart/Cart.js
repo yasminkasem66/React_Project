@@ -50,7 +50,7 @@ export default function Cart(props) {
   //     );
   //   })
   // }
-  const lang = localStorage.getItem('lang') || 'en';
+  const lang = localStorage.getItem("lang") || "en";
   return (
     <>
       <ImageContainer img={image1} color={"#a42924"} />
@@ -62,7 +62,7 @@ export default function Cart(props) {
           {/* frist row titles */}
           <div className="row  title" style={{ color: "#8E8EAC" }}>
             <div className="col-6 ">
-              <span>{t('Item') }</span>
+              <span>{t('Item')}</span>
             </div>
             <div className="col-2 text-center">
               <span> {t('QUANTITY')}</span>
@@ -86,11 +86,11 @@ export default function Cart(props) {
           })}
 
           {/* <div className="card mb-3">
-            <CartItem />
-          </div>
-          <div className="card mb-3">
-            <CartItem />
-          </div> */}
+      <CartItem />
+    </div>
+    <div className="card mb-3">
+      <CartItem />
+    </div> */}
           {/* third row total price */}
           <div className="row m-3 text-end">
             <p style={{ color: "#f68b1e", fontWeight: "bold" }}>
@@ -146,11 +146,42 @@ export default function Cart(props) {
                     type="button"
                     className="btn  w-25 shadow rounded"
                   >
-                      {t('ContinuetoCheckout')}
+                    {t('ContinuetoCheckout')}
                   </button>
                 </Link>
               )}
 
+              {/* {token ? (
+                <Link to="/checkout">
+                  <button
+                    style={{
+                      backgroundColor: "#FF9800",
+                      color: "#fff",
+                      fontSize: 17,
+                      fontWeight: "bold",
+                    }}
+                    type="button"
+                    className="btn  w-25 shadow rounded"
+                  >
+                    Continue to Checkout
+                  </button>
+                </Link>
+              ) : (
+                <Link to="/login">
+                  <button
+                    style={{
+                      backgroundColor: "#FF9800",
+                      color: "#fff",
+                      fontSize: 17,
+                      fontWeight: "bold",
+                    }}
+                    type="button"
+                    className="btn  w-25 shadow rounded"
+                  >
+                    متابعة الشراء
+                  </button>
+                </Link>
+              )} */}
             </div>
           </div>
         </div>

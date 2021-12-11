@@ -12,24 +12,31 @@ import { createOrder } from "../../Store/actions/OrdrActions/orderActions";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { axiosInstance } from "../../network";
+import { useNavigate } from "react-router-dom";
 
 export default function NextCheckout() {
   const { items, emptyCart } = useCart();
   const products = useSelector((state) => state.orders);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const creatNewOrder = async () => {
+    console.log("create New order");
     const res = await axiosInstance.post(`/orders`, {
       items,
       tax: 10,
       shippingFee: 10,
     });
     if (res) {
+      console.log("create New order if");
       console.log("res res", res);
     } else {
+      console.log("create New order else");
       console.log("errorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
     }
     emptyCart();
+
+    navigate("/orders");
   };
   //   async function handleCreateNewGame() {
   //         const data = this.state.data;
@@ -61,9 +68,6 @@ export default function NextCheckout() {
             <DelivaryMethod2 />
 
             <Paypal total={cartTotal} creatNewOrder={creatNewOrder} />
-            <button onClick={creatNewOrder} className="btn btn-warning w-100">
-              click to add to DB
-            </button>
           </div>
           <div className="col-lg-3">
             <CheckoutOrder />

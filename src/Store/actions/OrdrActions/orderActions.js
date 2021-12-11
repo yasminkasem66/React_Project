@@ -20,6 +20,19 @@ export const createOrder = (cartContent) => async (dispatch) => {
   }
 };
 
+export const getAllMyOrders = (cartContent) => async (dispatch) => {
+  try {
+    const res = await axiosInstance.get(`/orders/showAllMyOrders`);
+    console.log("response", res);
+    dispatch({
+      type: CREATE_ORDER_ACTION,
+      payload: res.data.orders,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 // {
 //    "items":[{"name": "t-shirt2",
 //   "image": "https://eg.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/21/864102/1.jpg?8774",

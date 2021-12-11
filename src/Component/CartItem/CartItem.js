@@ -23,7 +23,7 @@ export default function CartItem(props) {
     updateItemQuantity(props.item.id, e.target.value);
   };
 
-  const lang = localStorage.getItem('lang') || 'en';
+  const lang = localStorage.getItem("lang") || "en";
 
   return (
     <>
@@ -36,9 +36,7 @@ export default function CartItem(props) {
               />
               <div className="">
                 <p>Seller: Bazicz</p>
-                            <Link to={"/singleProduct/" + props.item.id}>
                 <p>{props.item.name}</p>
-              </Link>
                 <div className="d-flex">
                 <span 
                   style={{ cursor: "pointer", color: "#f68b1e" }}>

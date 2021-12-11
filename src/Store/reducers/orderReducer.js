@@ -1,6 +1,7 @@
 import { cartConstants } from "../types";
 import { GET_ALL_ORDERS } from "../types";
 import { CREATE_ORDER_ACTION } from "../types";
+import { GET_ALL_MYORDERS } from "../types";
 
 export const ordersReducer = (state = [], action) => {
   // console.log("action", action);
@@ -8,6 +9,8 @@ export const ordersReducer = (state = [], action) => {
     case GET_ALL_ORDERS:
       return [...action.payload];
     case CREATE_ORDER_ACTION:
+      return [...action.payload];
+    case GET_ALL_MYORDERS:
       return [...action.payload];
     default:
       return state;

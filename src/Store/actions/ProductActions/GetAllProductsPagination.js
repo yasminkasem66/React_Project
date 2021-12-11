@@ -8,18 +8,20 @@ console.log("langProductByIdProductById", lang);
 export const getAllProductsPaganation = (page,catparent, cat) => async (dispatch) => {
     let response;
     try {
-    //     if (cat != 'null') {
-            
-    //          response = await axiosInstance.get(`/products?page=${page}&limit=12&categoryparent=${cat}`);
-    //     }
-    //    else{           
-        response = await axiosInstance.get(`/products/${lang}?page=${page}&limit=8&categoryparent=${catparent}&category=${cat}`);
-        // }
-        // console.log("response", response);
-        dispatch({
-            type: productConstants.GET_ALL_PRODUCTS_PAGANATION,
-            payload: response.data.products,
-        });
+      //     if (cat != 'null') {
+
+      //          response = await axiosInstance.get(`/products?page=${page}&limit=12&categoryparent=${cat}`);
+      //     }
+      //    else{
+      response = await axiosInstance.get(
+        `/products/${lang}?page=${page}&limit=8&categoryparent=${catparent}&category=${cat}`
+      );
+      // }
+      // console.log("response", response);
+      dispatch({
+        type: productConstants.GET_ALL_PRODUCTS_PAGANATION,
+        payload: response.data.products,
+      });
     } catch (err) {
       console.log(err);
     }

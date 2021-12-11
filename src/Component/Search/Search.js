@@ -49,13 +49,13 @@ function SearchBar() {
         return product.name.toLowerCase().includes(searchWord.toLowerCase());
       
       });
-    const key = "categoryparentEn"
+    const key = "categoryparent"
     const arrayUniqueByKey = [...new Map(newFilter.map(item =>
     [item[key], item])).values()];
-    const key2 = "categoryEn"
+    const key2 = "category"
     const arrayUniqueByKey2 = [...new Map(newFilter2.map(item =>
     [item[key2], item])).values()];
-    const key3 = "nameEn"
+    const key3 = "name"
     const arrayUniqueByKey3 = [...new Map(newFilter3.map(item =>
     [item[key3], item])).values()];
 
@@ -110,7 +110,14 @@ function SearchBar() {
 
     const sendCategory=()=>{
       localStorage.setItem("searchValue",selectedCategory)
-      navigate("/productaftersearch")
+      if(window.location.href==="http://localhost:3000/productaftersearch"){
+        window.location.reload()
+
+      }else{
+        navigate("/productaftersearch")
+        
+      }
+      
 
 
     }

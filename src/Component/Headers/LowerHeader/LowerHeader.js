@@ -131,7 +131,7 @@ export default function LowerHeader() {
              </form>  */}
           </div>
 
-          <div className="col-lg-3 col-md-12 mt-2">
+          <div className="col-lg-3 col-md-12 mt-2 ms-2">
             <ul className="d-flex justify-content-center list-unstyled mt-1">
               <li className="me-2">
                 <div className="dropdown">
@@ -156,7 +156,7 @@ export default function LowerHeader() {
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      <i className="far fa-user" /> Acount
+                      <i className="far fa-user" /> {t('login')}
                     </a>
                   )}
                   <ul
@@ -167,7 +167,7 @@ export default function LowerHeader() {
                       {!token && (
                         <Link className="dropdown-item" to="/login">
                           <button className="text-light btn px-5 py-1 btn-warning">
-                            SIGN IN
+                            {t('Sign')}
                           </button>
                         </Link>
                       )}
@@ -181,18 +181,18 @@ export default function LowerHeader() {
                       ) : (
                         <Link className="dropdown-item" to="/login">
                           <i className="far fa-user" />
-                          My Acount
+                          {t("Account")}
                         </Link>
                       )}
                     </li>
                     <li>
                       <a className="dropdown-item" href="#">
-                        <i className="far fa-bags-shopping" /> Orders
+                        <i className="far fa-bags-shopping" /> {t("order")}
                       </a>
                     </li>
                     <li>
                       <a className="dropdown-item" href="#">
-                        <i className="far fa-heart" /> Saved Items
+                        <i className="far fa-heart" /> {t('SavedItems')}
                       </a>
                     </li>
                     <li>
@@ -267,7 +267,7 @@ export default function LowerHeader() {
                   className="hoverAnchor d-flex text-decoration-none  link-dark  fw-bolder socialIcon"
                 >
                   <i className="fal fa-shopping-cart mt-1 me-2" />
-                  <span class="position-relative">Cart</span>
+                  <span class="position-relative">{t('cart')}</span>
 
                   <span class="position-absolute top-70 start-86 translate-middle badge rounded-pill bg-danger">
                     {totalUniqueItems}

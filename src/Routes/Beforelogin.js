@@ -32,6 +32,7 @@ export const UpdatePassword = React.lazy(() =>
 export const NotFound = React.lazy(() => import("../Pages/Notfound/Notfound"));
 export const ProductAfterSearch = React.lazy(() => import("../Pages/ProductsAfterSearch/ProductAfterSearch"));
 export const Order = React.lazy(() => import("../Pages/Orders/Orders"));
+export const SellerLogin = React.lazy(() => import("../Pages/SellerLogin/SellerLogin"));
 
 
 
@@ -60,7 +61,7 @@ export const Beforelogin = () => {
           <Route path="/updatepassword" exact element={<UpdatePassword />} />
           <Route path="/productaftersearch" exact element={<ProductAfterSearch/>}></Route>
           <Route path="/orders" exact element={<Orders/>}></Route>
-
+          <Route path="/Seller" exact element={<SellerLogin/>}></Route>
           <Route path="*" exact element={<NotFound />} />
         </Routes>
       </Suspense>

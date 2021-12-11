@@ -9,7 +9,9 @@ export const Checkout = React.lazy(() => import("../Pages/Checkout/Checkout"));
 export const NextCheckOut = React.lazy(() =>
   import("../Pages/NextCheckout/NextCheckout")
 );
-
+export const UpdateReviewComponent = React.lazy(() =>
+  import("../Component/UpdateReviewComponent/UpdateReviewComponent")
+);
 export const Products = React.lazy(() => import("../Pages/Products/Products"));
 export const SingleProduct = React.lazy(() =>
   import("../Pages/SingleProduct/SingleProduct")
@@ -68,6 +70,11 @@ export const Beforelogin = () => {
           ></Route>
           <Route path="/orders" exact element={<Orders />}></Route>
           <Route path="/updatepassword" exact element={<UpdatePassword />} />
+          <Route
+            path="/updateReview"
+            exact
+            element={<UpdateReviewComponent />}
+          />
 
           <Route path="*" exact element={<NotFound />} />
         </Routes>

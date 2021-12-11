@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { updateReview } from "../../Store/actions/Review/ReviewAction";
 import Footer2 from "../Footer2/Footer2";
 import LowerHeader from "../Headers/LowerHeader/LowerHeader";
 import MiddeleHeader from "../Headers/MiddleHeader/MiddeleHeader";
-import { createReview } from "../../Store/actions/Review/ReviewAction";
-import { useNavigate, useParams } from "react-router-dom";
 
-export default function ReviewComponent() {
-  const { id } = useParams();
-  const user_Id = JSON.parse(localStorage.getItem("user")).userId;
-  console.log("id id", id, " user id ", user_Id);
+export default function UpdateReviewComponent() {
+  const oldReview = JSON.parse(localStorage.getItem("review"));
+  console.log("update review", oldReview);
+  //   const { id } = useParams();
+  //   const user_Id = JSON.parse(localStorage.getItem("user")).userId;
+  //console.log("id id", id, " user id ", user_Id);
+
   const [Review, setReview] = useState({
     rating: "",
     title: "",
     comment: "",
-    user: user_Id,
-    product: id,
+    user: oldReview.user,
+    product: oldReview.product,
   });
   const [ReviewErrors, setReviewErrors] = useState({
     ratingErr: null,
@@ -75,27 +78,32 @@ export default function ReviewComponent() {
         break;
     }
   };
-  const createOrderReview = (e) => {
-    e.preventDefault();
-    dispatch(createReview(Review));
-    setTimeout(() => {
-      navigate("/singleProduct/" + id);
-    }, 800);
-
-    console.log("Review Review", Review);
+  const updateOrderReview = () => {
+    dispatch(updateReview(Review, oldReview._id));
+    navigate("/SingleProduct/" + oldReview.product);
   };
+  //   const createOrderReview = (e) => {
+  //     e.preventDefault();
+  //     dispatch(createReview(Review));
+  //     setTimeout(() => {
+  //       navigate("/singleProduct/" + id);
+  //     }, 800);
+
+  //     console.log("Review Review", Review);
+  //   };
   return (
     <>
       <MiddeleHeader />
       <LowerHeader />
       <div className="w-50 mx-auto mt-5">
         <label className="mb-1 text-muted">Select Product Rate</label>
-        <form onSubmit={createOrderReview}>
+        <form onSubmit={updateOrderReview}>
           <div className="col  mb-4 border-muted  border-bottom  me-4 d-flex justify-content-between">
             <select
               name="rating"
               onChange={handelFormChange}
               className="form-select"
+              value={oldReview.rating}
             >
               <option value={1}>1</option>
               <option value={2}>2</option>
@@ -109,7 +117,7 @@ export default function ReviewComponent() {
             <input
               className="form-control form-control-lg fs-6 border-0 shadow-none"
               type="text"
-              placeholder="Enter Review Title"
+              placeholder={oldReview.title}
               name="title"
               onChange={handelFormChange}
             />
@@ -119,7 +127,7 @@ export default function ReviewComponent() {
             <input
               className="form-control form-control-lg fs-6 border-0 shadow-none"
               type="text"
-              placeholder="Enter Review Comment"
+              placeholder={oldReview.comment}
               name="comment"
               onChange={handelFormChange}
             />

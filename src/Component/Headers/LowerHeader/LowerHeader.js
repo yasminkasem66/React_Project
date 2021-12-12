@@ -9,9 +9,9 @@ import { signout } from "../../../Store/actions/authen/authen";
 import { useCart } from "react-use-cart";
 import { getCartItems } from "../../../Store/actions/OrdrActions/orderActions";
 import SearchBar from "../../Search/Search";
-// import BasicPopover from "../../CategoryPopoverList/CategoryPopoverList";
+import BasicPopover from "../../CategoryPopoverList/CategoryPopoverList";
 
-export default function LowerHeader() {
+export default function LowerHeader(props) {
   // test search
   const [Search, setSearch] = useState();
   const handleFormChange = (e) => {
@@ -99,7 +99,7 @@ export default function LowerHeader() {
               className="d-flex align-items-center text-decoration-none  link-dark me-4 socialIcon"
               to="/"
             >
-              {/* <BasicPopover /> */}
+              <BasicPopover />
               <p
                 className="fw-bold mt-3 ms-2"
                 style={{ fontFamily: '"Orbitron", sans-serif', fontSize: 28 }}
@@ -189,13 +189,13 @@ export default function LowerHeader() {
                         </Link>
                       )}
                     </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        <Link to="/orders">
+                    {
+                      user&&<li>
+                        <Link  className="dropdown-item" to="/orders">
                           <i className="far fa-bags-shopping" /> Orders
                         </Link>
-                      </a>
                     </li>
+                    }
                     <li>
                       <a className="dropdown-item" href="#">
                         <i className="far fa-heart" /> {t('SavedItems')}
@@ -259,7 +259,7 @@ export default function LowerHeader() {
                     </li>
                     <li>
                       <a className="dropdown-item" href="#">
-                        <button className="text-light btn px-5 py-1 btn-warning">
+                        <button className="text-light btn px-5 py-1 btn-warning" onClick={props.LiveChat}>
                           <i className="far fa-comment-alt-dots" /> LIVE HELP
                         </button>
                       </a>

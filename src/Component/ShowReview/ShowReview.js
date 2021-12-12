@@ -23,7 +23,12 @@ import { useNavigate } from "react-router-dom";
 export default function ShowReview(props) {
   const Reviews = useSelector((state) => state.review);
   //const users = useSelector((state) => state.users);
-  const user_Id = JSON.parse(localStorage.getItem("user")).userId;
+  let user_Id 
+  if(JSON.parse(localStorage.getItem("user")).userId){
+    user_Id = JSON.parse(localStorage.getItem("user")).userId
+  }else{
+    user_Id="mohamed"
+  } ;
   const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {

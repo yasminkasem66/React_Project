@@ -6,13 +6,12 @@ import "./LowerHeader.scss";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signout } from "../../../Store/actions/authen/authen";
-
 import { useCart } from "react-use-cart";
 import { getCartItems } from "../../../Store/actions/OrdrActions/orderActions";
 import SearchBar from "../../Search/Search";
 import BasicPopover from "../../CategoryPopoverList/CategoryPopoverList";
 
-export default function LowerHeader() {
+export default function LowerHeader(props) {
   // test search
   const [Search, setSearch] = useState();
   const handleFormChange = (e) => {
@@ -93,6 +92,7 @@ export default function LowerHeader() {
           zIndex: "1030",
         }}
       >
+        
         <div className="container d-flex justify-content-around m-auto align-items-center  ">
           <div className="col-lg-2 col-md-12">
             <NavLink
@@ -129,13 +129,13 @@ export default function LowerHeader() {
                 type="button"
                 defaultValue="Search"
               /> */}
-            {/* <Link to="/searchpage" role="button" className="btn d-none d-xl-block mx-1 px-3"
+              {/* <Link to="/searchpage" role="button" className="btn d-none d-xl-block mx-1 px-3"
                 onClick={handleFormSubmit}
                 style={{ "background-color": "darkorange", "color": "white", "font-size": "14px", "font-weight": "600", "box-shadow": "0 4px 8px 0 rgba(0,0,0,0.2)", "margin-left": "10px" }}>{t("search")}</Link> 
              </form>  */}
           </div>
 
-          <div className="col-lg-3 col-md-12 mt-2">
+          <div className="col-lg-3 col-md-12 mt-2 ms-2">
             <ul className="d-flex justify-content-center list-unstyled mt-1">
               <li className="me-2">
                 <div className="dropdown">
@@ -160,7 +160,7 @@ export default function LowerHeader() {
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      <i className="far fa-user" /> Acount
+                      <i className="far fa-user" /> {t('login')}
                     </a>
                   )}
                   <ul
@@ -171,7 +171,7 @@ export default function LowerHeader() {
                       {!token && (
                         <Link className="dropdown-item" to="/login">
                           <button className="text-light btn px-5 py-1 btn-warning">
-                            SIGN IN
+                            {t('Sign')}
                           </button>
                         </Link>
                       )}
@@ -185,20 +185,20 @@ export default function LowerHeader() {
                       ) : (
                         <Link className="dropdown-item" to="/login">
                           <i className="far fa-user" />
-                          My Acount
+                          {t("Account")}
                         </Link>
                       )}
                     </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        <NavLink to="/orders">
+                    {
+                      user&&<li>
+                        <Link  className="dropdown-item" to="/orders">
                           <i className="far fa-bags-shopping" /> Orders
-                        </NavLink>
-                      </a>
+                        </Link>
                     </li>
+                    }
                     <li>
                       <a className="dropdown-item" href="#">
-                        <i className="far fa-heart" /> Saved Items
+                        <i className="far fa-heart" /> {t('SavedItems')}
                       </a>
                     </li>
                     <li>
@@ -259,7 +259,7 @@ export default function LowerHeader() {
                     </li>
                     <li>
                       <a className="dropdown-item" href="#">
-                        <button className="text-light btn px-5 py-1 btn-warning">
+                        <button className="text-light btn px-5 py-1 btn-warning" onClick={props.LiveChat}>
                           <i className="far fa-comment-alt-dots" /> LIVE HELP
                         </button>
                       </a>
@@ -273,7 +273,7 @@ export default function LowerHeader() {
                   className="hoverAnchor d-flex text-decoration-none  link-dark  fw-bolder socialIcon"
                 >
                   <i className="fal fa-shopping-cart mt-1 me-2" />
-                  <span class="position-relative">Cart</span>
+                  <span class="position-relative">{t('cart')}</span>
 
                   <span class="position-absolute top-70 start-86 translate-middle badge rounded-pill bg-danger">
                     {totalUniqueItems}

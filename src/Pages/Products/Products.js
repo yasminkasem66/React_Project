@@ -139,9 +139,22 @@ export default function Products() {
               <div className="col-11 p-3 card">
                 <h5 className="mb-3">{t("CATEGORY")}</h5>
                 <div className="product-allproduct-productType border-bottom">
-                  <h5 className="product-allProduct-productType-header">
+                  {/* <h5 className="product-allProduct-productType-header">
                     {catparent}
-                  </h5>
+                  </h5> */}
+   
+                  {
+                    category.map((cat, index) => {
+                      return (
+                        <Link to="/products" className=" text-decoration-none text-dark" key={index} onClick={() => resetCategry(`${cat}`)}>
+                          <p className="product-allProduct-productType-item ">
+                           {cat}
+                          </p>
+                        </Link>
+                      )
+                    })
+                  
+                  }
 
                   {category.map((cat, index) => {
                     return (

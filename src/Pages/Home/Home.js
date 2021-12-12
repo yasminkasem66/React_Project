@@ -1,13 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from "react-i18next";
+import MessengerCustomerChat from 'react-messenger-customer-chat';
+
 
 import { ProductById } from "../../Store/actions/ProductActions/GetSingleProduct";
-
-
-
-
 
 //import UperHeader from "../../Component/UperHeader.js/UperHeader";
 import ImageContainer from "../../Component/ImageContainer/ImageContainer";
@@ -19,14 +17,12 @@ import CatList from "../../Component/CatList/CatList";
 import Sliderwith4imgs from "../../Component/Sliderwith4imgs/Sliderwith4imgs";
 import SmallCard from "../../Component/SmallCard/SmallCard";
 import SeeAll from "../../Component/SeeAll/SeeAll";
-import { getAllProducts } from '../../Store/actions/ProductActions/getAllProducts';
+import { getAllProducts } from "../../Store/actions/ProductActions/getAllProducts";
 
 import Carsoual from "../../Component/Carsoual/Carsoual";
 import ProductCard from "../../Component/ProductCard/ProductCard";
 import TextCenter from "../../Component/TextCenter/TextCenter";
 import SmallImagesContainer from "../../Component/SmallImagesContainer/SmallImagesContainer";
-
-
 
 // images
 import image1 from "../../assets/imgs/ads.jpeg";
@@ -37,10 +33,10 @@ import slider1 from "../../assets/Homepage/slider1.jpg";
 import slider2 from "../../assets/Homepage/slider3.png";
 import slider3 from "../../assets/Homepage/slider3.jpg";
 import slider4 from "../../assets/Homepage/Slider-Desktop-EN__copy_5.jpg";
-import padge1 from '../../assets/Homepage/padge1.png'
-import padge2 from '../../assets/Homepage/padge2.png'
-import padge3 from '../../assets/Homepage/padge3.png'
-import padge4 from '../../assets/Homepage/padge4.png'
+import padge1 from "../../assets/Homepage/padge1.png";
+import padge2 from "../../assets/Homepage/padge2.png";
+import padge3 from "../../assets/Homepage/padge3.png";
+import padge4 from "../../assets/Homepage/padge4.png";
 import card1 from "../../assets/Homepage/Snooze_-_Floor-Desktop_-EN.jpg";
 import card1x from "../../assets/Homepage/Akai-_Floor-Desktop_-EN.jpg";
 import card2 from "../../assets/Homepage/EN(1).jpg";
@@ -89,15 +85,10 @@ import y6 from "../../assets/Homepage/y (6).png";
 import z1 from "../../assets/Homepage/z (1).jpg";
 import z2 from "../../assets/Homepage/z (2).jpg";
 
-
-
-
-
 export default function Home() {
-
-  const products = useSelector(state => state.AllProducts)
-  const singleproduct = useSelector(state => state.SingleProduct)
-  const items = products.slice(0, 6)
+  const products = useSelector((state) => state.AllProducts);
+  const singleproduct = useSelector((state) => state.SingleProduct);
+  const items = products.slice(0, 6);
 
   console.log("productsnnnnnnnnnnnnnnnnnnnn", products);
   // console.log("singleproductnnnnnnnnnnnnnnnnnn", singleproduct);
@@ -108,83 +99,122 @@ export default function Home() {
     // dispatch(ProductById('61a13f2a9b6b3cd7f9b46089'));
   }, []);
 
-  const women = products.filter(product => product.category === "Women" || product.category === "مرأه ")
-  const womenProduct= women.slice(0,6)
-  const men = products.filter(product => product.category === "Men " || product.category === "رجال ")
-  const menProduct=men.slice(0,6)
-  const gaming = products.filter(product => product.categoryparent === "Gaming" || product.categoryparent === "ألعاب")
-  const gamesProducts=gaming.slice(0,6)
-  const smartPhone = products.filter(product => product.categoryparent === "smartPhone" || product.categoryparent === "موبيلات")
-  const Detergent = products.filter(product => product.categoryparent === "Detergent" || product.categoryparent === "منظفات")
-  const smartPhoneProducts=smartPhone.slice(0,6)
+  const women = products.filter(
+    (product) => product.category === "Women" || product.category === "مرأه "
+  );
+  const womenProduct = women.slice(0, 6);
+  const men = products.filter(
+    (product) => product.category === "Men" || product.category === "رجال "
+  );
+  const menProduct = men.slice(0, 6);
+  const gaming = products.filter(
+    (product) =>
+      product.categoryparent === "Gaming" || product.categoryparent === "ألعاب"
+  );
+  const gamesProducts = gaming.slice(0, 6);
+  const smartPhone = products.filter(
+    (product) =>
+      product.categoryparent === "smartPhone" ||
+      product.categoryparent === "موبيلات"
+  );
+  const Detergent = products.filter(
+    (product) =>
+      product.categoryparent === "Detergent" ||
+      product.categoryparent === "منظفات"
+  );
+  const smartPhoneProducts = smartPhone.slice(0, 6);
   // console.log("womenProducts",womenProduct)
-  console.log("gaming", gaming)
+  // console.log("men", men);
   // console.log("gamesProduct",gamesProducts)
   // console.log("smartPhoneProducts",smartPhoneProducts)
-
-
-
-
-
-
-
+  
+  const LiveChat=()=>{
+    return(
+        <MessengerCustomerChat
+        pageId="106293271909112"
+        appId="424217142629496"
+      /> 
+    )
+  }
 
   const { t, i18n } = useTranslation();
 
-
   return (
     <div className="bg-light">
-      <ImageContainer img={image1} color={"#a42924"} />
+      
+      <ImageContainer img={image1} color={"#a42924"}  />
       <MiddeleHeader />
-      <LowerHeader />
-
-      {/* under header */}
-      <div className="row container mx-auto ">
-        {/* left */}
-        {/* <div className="col-lg-2  card rounded "> */}
+      <LowerHeader LiveChat={LiveChat}/>
+      <div className="container pe-5  ">
+        {/* under header */}
+        <div className="row">
+          {/* left */}
+          <div className="col-lg-2 card rounded ">
           <CatList />
-        {/* </div> */}
-        {/* middle */}
-        <div className="col-lg-8  rounded ">
-          <Sliderwith4imgs slider1={slider1} slider2={slider2} slider3={slider3} slider4={slider4} />
-        </div>
-        {/* right */}
-        <div className="col-lg-2 rounded ">
-          <div className="mb-4 ">
-            <ImageContainer img={image2} />
           </div>
-          <div className="mt-4">
-            <ImageContainer img={image11} />
+          {/* middle */}
+          <div className="col-lg-8  rounded  ">
+            <Sliderwith4imgs
+              slider1={slider1}
+              slider2={slider2}
+              slider3={slider3}
+              slider4={slider4}
+            />
+          </div>
+          {/* right */}
+          <div className="col-lg-2 rounded ps-0 pe-0 ">
+            <div className="mb-3 ">
+              <ImageContainer img={image2} />
+            </div>
+            <div className="">
+              <ImageContainer img={image11} />
+            </div>
           </div>
         </div>
+
+       
       </div>
-
-      {/* padge */}
-      <div className="row container mx-auto mt-3">
-        <SmallCard statement={t('Official Stores')} pic={padge1} className="col-3" />
-        <SmallCard statement={t('Jumia Global')} pic={padge2} className="col-3" />
-        <SmallCard statement={t('Recharge&Bill')} pic={padge3} className="col-3" />
-        <SmallCard statement={t('Orange Points')} pic={padge4} className="col-3" />
-        {/* <ProductCard pic={pic1} /> */}
-      </div>
-
-
+       {/* padge */}
+       <div className=" container ">
+          <div className="row  mt-3">
+            <SmallCard
+              statement={t("Official Stores")}
+              pic={padge1}
+              className="col-3"
+            />
+            <SmallCard
+              statement={t("Jumia Global")}
+              pic={padge2}
+              className="col-3"
+            />
+            <SmallCard
+              statement={t("Recharge&Bill")}
+              pic={padge3}
+              className="col-3"
+            />
+            <SmallCard
+              statement={t("Orange Points")}
+              pic={padge4}
+              className="col-3 "
+              
+            />
+            {/* <ProductCard pic={pic1} /> */}
+          </div>
+        </div>
 
       {/* caresoul products */}
       <div className="container card mt-3">
-
-          <div className="row">
-            <div className="col-12  pt-2 ">
-              <p className="fw-bold fs-5 ps-2">{t('TopSellingItems')}</p>
-            </div>
+        <div className="row">
+          <div className="col-12  pt-2 ">
+            <p className="fw-bold fs-5 ps-2">{t("TopSellingItems")}</p>
           </div>
+        </div>
 
         <div className=" HomePage-img  row p-1">
           <div className="col ">
             <Carsoual products={products} />
           </div>
         </div>
-
       </div>
       {/* <!-- Start 10.10 TOP DEALS section --> */}
       <div className="container  card mt-4">
@@ -202,7 +232,7 @@ export default function Home() {
       {/* <!--  Execlusive Today section --> */}
 
       <div className="container card mt-4">
-        <TextCenter title={t('ExeclusiveToday')} />
+        <TextCenter title={t("ExeclusiveToday")} />
         <div className=" HomePage-img  row px-2">
           <div className="col HomePage-imgElementNON m-2">
             <ImageContainer img={card2} wid="w-100" />
@@ -228,46 +258,63 @@ export default function Home() {
             <ImageContainer img={card5} wid="w-100" />
           </div>
         </div>
-
       </div>
 
       {/* Weakend Clearnace | Limited Stock */}
       <div className="container mt-4 card">
-        <SeeAll color="#FFFFFF" background="#B60000" title={t('WeakendClearnace')} />
+        <SeeAll
+          color="#FFFFFF"
+          background="#B60000"
+          title={t("WeakendClearnace")}
+        />
         <div className="row mt-3">
-          {
-            Detergent.map((item, index) => {
-              return (
-                <div className="col-md-2 mb-4" key={index}>
-                  <Link to="/singleProduct"><ProductCard product={item} /></Link>
-                  
-                  {/* {console.log("item", item)} */}
-                </div>
-              );
-            })}
+          {Detergent.map((item, index) => {
+            return (
+              <div className="col-md-2 mb-4" key={index}>
+                <Link to="/singleProduct">
+                  <ProductCard product={item} />
+                </Link>
+
+                {/* {console.log("item", item)} */}
+              </div>
+            );
+          })}
         </div>
       </div>
 
-
       {/*  NEW OFFERS EVERYDAY ON EVERYTHING */}
-      <div className="container  card mt-4">
-        <TextCenter title={t('NEWOFFERS')} />
-        <SmallImagesContainer text1="Men's Fashion" text2="Women's Fashion" text3="Beauty & perfumes" text4="Mobile & Accessories" text5="Home & Appliances" text6="Laptop & Accessories"
+      <div className="container  card mt-4 text-center">
+        <TextCenter title={t("NEWOFFERS")} />
+        <SmallImagesContainer
+          text1={t("MenFashion")}
+          text2={t("WomenFashion")}
+          text3={t("Beautyperfumes")}
+          text4={t("MobileAccessories")}
+          text5={t("HomeAppliances")}
+          text6={t("LaptopAccessories")}
           img1={x6}
           img2={x10}
           img3={x11}
           img4={x7}
           img5={x2}
-          img6={x5}/>
+          img6={x5}
+        />
 
         {/* iiiiiiiiiiiiii */}
-        <SmallImagesContainer text1="TVs & Gaming" text2="Sporting" text3="Kids & Baby" text4="Car Essentials" text5="Food & Beverage" text6="Household Care"
+        <SmallImagesContainer
+          text1={t("TVsGaming")}
+          text2={t("Sporting")}
+          text3={t("KidsBaby")}
+          text4={t("CarEssentials")}
+          text5={t("FoodBeverage")}
+          text6={t("HouseholdCare")}
           img1={x9}
           img2={x8}
           img3={x4}
           img4={x12}
           img5={x1}
-          img6={x3}/>
+          img6={x3}
+        />
       </div>
 
       {/* <!-- <!-- Mother Care --> --> */}
@@ -279,11 +326,9 @@ export default function Home() {
         </div>
       </div>
 
-
-      
       {/* <!--  MORE DEALS & OFFERS --> */}
-    <div className="container  card mt-4">
-        <TextCenter title={t('MOREDEALS')}/>
+      <div className="container  card mt-4">
+        <TextCenter title={t("MOREDEALS")} />
         <div className=" HomePage-img  row p-1">
           <div className="col HomePage-imgElementNON">
             <ImageContainer img={JumiaFood1} wid="w-100" />
@@ -294,28 +339,29 @@ export default function Home() {
         </div>
       </div>
 
-
       {/*Most Liked Products*/}
       <div className="container mt-4 card">
-        <SeeAll    className="container-fluid" color="black" background="#C7C7CD" title={t('MostLikedProducts')} />
+        <SeeAll
+          className="container-fluid"
+          color="black"
+          background="#C7C7CD"
+          title={t("MostLikedProducts")}
+        />
         <div className="row mt-3">
-          {
-            items.map((item, index) => {
-              return (
-                <div className="col-md-2 mb-4" key={index}>
-                  <ProductCard product={item} />
-                  {/* {console.log("item", item)} */}
-                </div>
-              );
-            })}
+          {items.map((item, index) => {
+            return (
+              <div className="col-md-2 mb-4" key={index}>
+                <ProductCard product={item} />
+                {/* {console.log("item", item)} */}
+              </div>
+            );
+          })}
         </div>
       </div>
 
-
-
       {/* <!--  Pick For You --> */}
       <div className="container  card mt-3 px-4 pb-1">
-        <TextCenter title={t('PickForYou')} />
+        <TextCenter title={t("PickForYou")} />
         <div className="   row ">
           <div className="col HomePage-imgElementNON m-2">
             <ImageContainer img={Pickforyou} wid="w-100" />
@@ -323,35 +369,35 @@ export default function Home() {
         </div>
       </div>
 
-
       {/*Women's Sweatshirts | Up to 50% OFF */}
       <div className="container mt-4 card ">
-        <SeeAll color="black" background="#C7C7CD" title={t("Women'sFashion")} />
+        <SeeAll
+          color="black"
+          background="#C7C7CD"
+          title={t("Women'sFashion")}
+        />
         <div className="row mt-3">
-          {
-            
-           
-            
-            womenProduct.map((item, index) => {
-              return (
-                <div className="col-md-2 mb-4" key={index}>
-                  <ProductCard product={item} />
-                  {/* {console.log("item", item)} */}
-                </div>
-              );
-            })
-          }
+          {womenProduct.map((item, index) => {
+            return (
+              <div className="col-md-2 mb-4" key={index}>
+                <ProductCard product={item} />
+                {/* {console.log("item", item)} */}
+              </div>
+            );
+          })}
         </div>
       </div>
 
       <div className="container  card mt-4">
-        <SmallImagesContainer img1={y1}
+        <SmallImagesContainer
+          img1={y1}
           img2={y2}
           img3={y3}
           img4={y4}
           img5={y5}
-          img6={y6}/>
-        </div>
+          img6={y6}
+        />
+      </div>
 
       {/* <!-- <!-- personalcare --> --> */}
       <div className="container card mt-4">
@@ -366,18 +412,16 @@ export default function Home() {
       <div className="container mt-4 card">
         <SeeAll color="black" background="#C7C7CD" title={t("Men'sFashion")} />
         <div className="row mt-3">
-          {
-            menProduct.map((item, index) => {
-              return (
-                <div className="col-md-2 mb-4" key={index}>
-                  <ProductCard product={item} />
-                  {/* {console.log("item", item)} */}
-                </div>
-              );
-            })}
+          {menProduct.map((item, index) => {
+            return (
+              <div className="col-md-2 mb-4" key={index}>
+                <ProductCard product={item} />
+                {/* {console.log("item", item)} */}
+              </div>
+            );
+          })}
         </div>
       </div>
-
 
       {/* <!-- <!-- personalcare --> --> */}
       <div className="container card mt-4">
@@ -390,20 +434,19 @@ export default function Home() {
 
       {/*Games | Up to 30% OFF */}
       <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title={t('Games')} />
+        <SeeAll color="black" background="#C7C7CD" title={t("Games")} />
         <div className="row mt-3">
-          {
-            gamesProducts.map((item, index) => {
-              return (
-                <div className="col-md-2 mb-4" key={index}>
-                  <ProductCard product={item} />
-                  {/* {console.log("item", item)} */}
-                </div>
-              );
-            })}
+          {gamesProducts.map((item, index) => {
+            return (
+              <div className="col-md-2 mb-4" key={index}>
+                <ProductCard product={item} />
+                {/* {console.log("item", item)} */}
+              </div>
+            );
+          })}
         </div>
       </div>
-{/* 
+      {/* 
       <div className="container  card mt-4">
         <SmallImagesContainer img1={card6}
           img2={card6}
@@ -412,7 +455,6 @@ export default function Home() {
           img5={card6}
           img6={card6}/>
       </div> */}
-
 
       {/* <!-- <!-- personalcare --> --> */}
       <div className="container card mt-4">
@@ -423,25 +465,21 @@ export default function Home() {
         </div>
       </div>
 
-
-
       {/*SmartPone */}
       <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title={t('SmartPone')} />
+        <SeeAll color="black" background="#C7C7CD" title={t("SmartPone")} />
         <div className="row mt-3">
-          {
-            smartPhoneProducts.map((item, index) => {
-              return (
-                <div className="col-md-2 mb-4" key={index}>
-                  <ProductCard product={item} />
-                  {/* {console.log("item", item)} */}
-                </div>
-              );
-            })}
+          {smartPhoneProducts.map((item, index) => {
+            return (
+              <div className="col-md-2 mb-4" key={index}>
+                <ProductCard product={item} />
+                {/* {console.log("item", item)} */}
+              </div>
+            );
+          })}
         </div>
       </div>
 
-      
       {/* <!--   Subscribe Now & Enjoy --> */}
       <div className="container  card mt-4">
         <TextCenter title={t("SubscribeNow")} />
@@ -455,25 +493,21 @@ export default function Home() {
         </div>
       </div>
 
-
-
       {/* New On Jumia */}
       <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title={t('NewOnJumia')} />
+        <SeeAll color="black" background="#C7C7CD" title={t("NewOnJumia")} />
         <div className="row mt-3">
-          {
-            items.map((item, index) => {
-              return (
-                <div className="col-md-2 mb-4" key={index}>
-                  <ProductCard product={item} />
-                  {/* {console.log("item", item)} */}
-                </div>
-              );
-            })}
+          {items.map((item, index) => {
+            return (
+              <div className="col-md-2 mb-4" key={index}>
+                <ProductCard product={item} />
+                {/* {console.log("item", item)} */}
+              </div>
+            );
+          })}
         </div>
       </div>
 
-      
       {/* <!-- Start 10.10 TOP DEALS section --> */}
       <div className="container  card mt-4">
         <div className=" HomePage-img  row ">
@@ -486,29 +520,40 @@ export default function Home() {
         </div>
       </div>
 
-
-
       {/*  Be Prepared for winter */}
-      <div className="container  card mt-4">
-        <TextCenter title={t('BePreparedforwinter')} />
-        <SmallImagesContainer text1="men Autumn Fashon" text2="All In Black" text3="Dress Like a Boss" text4="Your Style Rules" text5="Baby Comfort" text6="Wedding Home"
+      <div className="container  card mt-4 text-center">
+        <TextCenter title={t("BePreparedforwinter")} />
+        <SmallImagesContainer
+          text1={t("menAutumnFashon")}
+          text2={t("AllInBlack")}
+          text3={t("DressLikeaBoss")}
+          text4={t("YourStyleRules")}
+          text5={t("BabyComfort")}
+          text6={t("WeddingHome")}
           img1={L1}
           img2={L2}
           img3={L12}
           img4={L4}
           img5={L5}
-          img6={L6} />
+          img6={L6}
+        />
 
         {/* iiiiiiiiiiiiii */}
-        <SmallImagesContainer text1="Busy Mums" text2="Breakfast Essentials" text3="Holiday Break" text4="Capture Your Moments" text5="Women Autumn Fashon" text6="More Collections"
+        <SmallImagesContainer
+          text1={t("BusyMums")}
+          text2={t("BreakfastEssentials")}
+          text3={t("HolidayBreak")}
+          text4={t("CaptureYourMoments")}
+          text5={t("WomenAutumnFashon")}
+          text6={t("MoreCollections")}
           img1={L7}
           img2={L8}
           img3={L9}
           img4={L11}
           img5={L10}
-          img6={L3} />
+          img6={L3}
+        />
       </div>
-
 
       <JumiaInfo />
       <Footer1 />

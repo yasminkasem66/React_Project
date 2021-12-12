@@ -14,6 +14,7 @@ import LowerHeader from "../Headers/LowerHeader/LowerHeader";
 
 import { useCart } from "react-use-cart";
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next'
 
 export default function Cart(props) {
   const {
@@ -26,6 +27,8 @@ export default function Cart(props) {
     removeItem,
     emptyCart,
   } = useCart();
+
+  const { t, i18n } = useTranslation();
 
   const token = localStorage.getItem("token");
   let user = JSON.parse(localStorage.getItem("user"));
@@ -53,204 +56,136 @@ export default function Cart(props) {
       <ImageContainer img={image1} color={"#a42924"} />
       <MiddeleHeader />
       <LowerHeader />
-      {lang == "en" ? (
-        <section className="cart bg-light">
-          <div className="container mb-3">
-            <h3>cart ({totalUniqueItems} item)</h3>
-            {/* frist row titles */}
-            <div className="row  title" style={{ color: "#8E8EAC" }}>
-              <div className="col-6 ">
-                <span>Item</span>
-              </div>
-              <div className="col-2 text-center">
-                <span>QUANTITY</span>
-              </div>
-              <div className="col-2 text-center">
-                <span>UNIT PRICE</span>
-              </div>
-              <div className="col-2 text-center">
-                <span>SUBTOTAL</span>
-              </div>
+      <section className="cart bg-light">
+        <div className="container mb-3">
+          <h3>{t('cart')} ({totalUniqueItems}{t('nitems')})</h3>
+          {/* frist row titles */}
+          <div className="row  title" style={{ color: "#8E8EAC" }}>
+            <div className="col-6 ">
+              <span>{t('Item')}</span>
             </div>
-            {/* sechond rpw cart description */}
-
-            {items.map((item, index) => {
-              return (
-                <div className="card mb-3">
-                  <CartItem item={item} key={index} />
-                </div>
-              );
-            })}
-
-            {/* <div className="card mb-3">
-            <CartItem />
-          </div>
-          <div className="card mb-3">
-            <CartItem />
-          </div> */}
-            {/* third row total price */}
-            <div className="row m-3 text-end">
-              <p style={{ color: "#f68b1e", fontWeight: "bold" }}>
-                Total: EGP {cartTotal}
-              </p>
-              <p>Shipping fees not included yet</p>
+            <div className="col-2 text-center">
+              <span> {t('QUANTITY')}</span>
+            </div>
+            <div className="col-2 text-center">
+              <span>
+                {t('UNITPRICE')}</span>
+            </div>
+            <div className="col-2 text-center">
+              <span>  {t('SUBTOTAL')}</span>
             </div>
           </div>
-        </section>
-      ) : (
-        <section className="cart bg-light">
-          <div className="container mb-3">
-            <h3>العربه ({totalUniqueItems} عناصر)</h3>
-            {/* frist row titles */}
-            <div className="row  title" style={{ color: "#8E8EAC" }}>
-              <div className="col-6 ">
-                <span>عنصر </span>
-              </div>
-              <div className="col-2 text-center">
-                <span>كميه</span>
-              </div>
-              <div className="col-2 text-center">
-                <span>سعر الوحده</span>
-              </div>
-              <div className="col-2 text-center">
-                <span>سعر ما قبل الضريبه </span>
-              </div>
-            </div>
-            {/* sechond rpw cart description */}
+          {/* sechond rpw cart description */}
 
-            {items.map((item, index) => {
-              return (
-                <div className="card mb-3">
-                  <CartItem item={item} key={index} />
-                </div>
-              );
-            })}
+          {items.map((item, index) => {
+            return (
+              <div className="card mb-3">
+                <CartItem item={item} key={index} />
+              </div>
+            );
+          })}
 
-            {/* <div className="card mb-3">
-            <CartItem />
+          {/* <div className="card mb-3">
+      <CartItem />
+    </div>
+    <div className="card mb-3">
+      <CartItem />
+    </div> */}
+          {/* third row total price */}
+          <div className="row m-3 text-end">
+            <p style={{ color: "#f68b1e", fontWeight: "bold" }}>
+              {t('nTotal')}: {t('PRICSEGP')} {cartTotal}
+            </p>
+            <p>{t('Shippingfeesnot')}</p>
           </div>
-          <div className="card mb-3">
-            <CartItem />
-          </div> */}
-            {/* third row total price */}
-            <div className="row m-3 text-end">
-              <p style={{ color: "#f68b1e", fontWeight: "bold" }}>
-                السعر الكلي: {cartTotal}جنيه
-              </p>
-              <p>سعر الضريبه لم يضف بعد </p>
-            </div>
-          </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* shopping &  */}
-      {lang == "en" ? (
-        <section>
-          <div className="container-fluid   bg-white">
-            <div className="row  p-4">
-              <div className="text-end">
-                <button
-                  style={{
-                    backgroundColor: "#fff",
-                    color: "#FF9800",
-                    fontSize: 17,
-                    fontWeight: "bold",
-                  }}
-                  type="button"
-                  className="btn  w-25 me-5  shadow rounded"
-                >
-                  Continue Shopping
-                </button>
+      <section>
+        <div className="container-fluid   bg-white">
+          <div className="row  p-4">
+            <div className="text-end">
+              <button
+                style={{
+                  backgroundColor: "#fff",
+                  color: "#FF9800",
+                  fontSize: 17,
+                  fontWeight: "bold",
+                }}
+                type="button"
+                className="btn  w-25 me-5  shadow rounded"
+              >
+                {t('ContinueShopping')}
+              </button>
 
-                {token ? (
-                  <Link to="/checkout">
-                    <button
-                      style={{
-                        backgroundColor: "#FF9800",
-                        color: "#fff",
-                        fontSize: 17,
-                        fontWeight: "bold",
-                      }}
-                      type="button"
-                      className="btn  w-25 shadow rounded"
-                    >
-                      Continue to Checkout
-                    </button>
-                  </Link>
-                ) : (
-                  <Link to="/login">
-                    <button
-                      style={{
-                        backgroundColor: "#FF9800",
-                        color: "#fff",
-                        fontSize: 17,
-                        fontWeight: "bold",
-                      }}
-                      type="button"
-                      className="btn  w-25 shadow rounded"
-                    >
-                      Continue to Checkout
-                    </button>
-                  </Link>
-                )}
-              </div>
+              {token ? (
+                <Link to="/checkout">
+                  <button
+                    style={{
+                      backgroundColor: "#FF9800",
+                      color: "#fff",
+                      fontSize: 17,
+                      fontWeight: "bold",
+                    }}
+                    type="button"
+                    className="btn  w-25 shadow rounded ms-2"
+                  >
+                    {t('ContinuetoCheckout')}
+                  </button>
+                </Link>
+              ) : (
+                <Link to="/login">
+                  <button
+                    style={{
+                      backgroundColor: "#FF9800",
+                      color: "#fff",
+                      fontSize: 17,
+                      fontWeight: "bold",
+                    }}
+                    type="button"
+                    className="btn  w-25 shadow rounded"
+                  >
+                    {t('ContinuetoCheckout')}
+                  </button>
+                </Link>
+              )}
+
+              {/* {token ? (
+                <Link to="/checkout">
+                  <button
+                    style={{
+                      backgroundColor: "#FF9800",
+                      color: "#fff",
+                      fontSize: 17,
+                      fontWeight: "bold",
+                    }}
+                    type="button"
+                    className="btn  w-25 shadow rounded"
+                  >
+                    Continue to Checkout
+                  </button>
+                </Link>
+              ) : (
+                <Link to="/login">
+                  <button
+                    style={{
+                      backgroundColor: "#FF9800",
+                      color: "#fff",
+                      fontSize: 17,
+                      fontWeight: "bold",
+                    }}
+                    type="button"
+                    className="btn  w-25 shadow rounded"
+                  >
+                    متابعة الشراء
+                  </button>
+                </Link>
+              )} */}
             </div>
           </div>
-        </section>
-      ) : (
-        <section>
-          <div className="container-fluid   bg-white">
-            <div className="row  p-4">
-              <div className="text-end">
-                <button
-                  style={{
-                    backgroundColor: "#fff",
-                    color: "#FF9800",
-                    fontSize: 17,
-                    fontWeight: "bold",
-                  }}
-                  type="button"
-                  className="btn  w-25 me-5  shadow rounded"
-                >
-                  أستكمل التسوق
-                </button>
-
-                {token ? (
-                  <Link to="/checkout">
-                    <button
-                      style={{
-                        backgroundColor: "#FF9800",
-                        color: "#fff",
-                        fontSize: 17,
-                        fontWeight: "bold",
-                      }}
-                      type="button"
-                      className="btn  w-25 shadow rounded"
-                    >
-                      Continue to Checkout
-                    </button>
-                  </Link>
-                ) : (
-                  <Link to="/login">
-                    <button
-                      style={{
-                        backgroundColor: "#FF9800",
-                        color: "#fff",
-                        fontSize: 17,
-                        fontWeight: "bold",
-                      }}
-                      type="button"
-                      className="btn  w-25 shadow rounded"
-                    >
-                      متابعة الشراء
-                    </button>
-                  </Link>
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
+        </div>
+      </section>
       <Footer2 />
     </>
   );

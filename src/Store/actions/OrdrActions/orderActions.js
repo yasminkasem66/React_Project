@@ -1,14 +1,14 @@
 import { axiosInstance } from "../../../network";
 import { cartConstants } from "../../types";
 import store from "../../Store";
-import { CREATE_ORDER_ACTION } from "../../types";
+import { CREATE_ORDER_ACTION ,  GET_ALL_ORDERS } from "../../types";
 
 export const createOrder = (cartContent) => async (dispatch) => {
   try {
     const res = await axiosInstance.post(`/orders`, {
       cartContent,
       tax: 10,
-      shippingFee: 10,
+      shippingFee: 10, 
     });
     console.log("response", res);
     dispatch({
@@ -25,7 +25,7 @@ export const getAllMyOrders = (cartContent) => async (dispatch) => {
     const res = await axiosInstance.get(`/orders/showAllMyOrders`);
     console.log("response", res);
     dispatch({
-      type: CREATE_ORDER_ACTION,
+      type: GET_ALL_ORDERS,
       payload: res.data.orders,
     });
   } catch (err) {

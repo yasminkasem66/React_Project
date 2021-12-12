@@ -24,11 +24,14 @@ export default function ShowReview(props) {
   const Reviews = useSelector((state) => state.review);
   //const users = useSelector((state) => state.users);
   let user_Id 
-  if(JSON.parse(localStorage.getItem("user")).userId){
-    user_Id = JSON.parse(localStorage.getItem("user")).userId
+  if(JSON.parse(localStorage.getItem("user"))==null){
+    user_Id = ""
   }else{
-    user_Id="mohamed"
-  } ;
+    user_Id=JSON.parse(localStorage.getItem("user")).userId; 
+
+  }
+  // let user_Id = JSON.parse(localStorage.getItem("user")).userId;
+  console.log("user",user_Id)
   const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -108,7 +111,7 @@ export default function ShowReview(props) {
                   </div>
                 </div>
                 <div className="d-flex justify-content-between mb-3">
-                  {user_Id === item.user && (
+                  {user_Id === item.user &&(
                     <>
                       <button
                         onClick={(e) => EditReview(e, item)}

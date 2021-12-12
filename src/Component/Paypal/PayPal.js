@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
-import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
+import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 import { useNavigate } from "react-router";
+
 
 export default function Paypal(props) {
   const navigate = useNavigate();
@@ -24,9 +25,9 @@ export default function Paypal(props) {
           });
         },
         onApprove: async (data, actions) => {
-          console.log("onAprove order");
           const order = await actions.order.capture();
           props.creatNewOrder();
+          // console.log(order);
         },
         onError: (err) => {
           console.log("hamasa order");

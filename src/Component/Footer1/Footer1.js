@@ -123,7 +123,7 @@ export default function Footer1() {
                         {/* one */}
                         <div className="col-lg-3 col-6  mb-md-0 mb-4  d-none   d-md-block">
                             <span className="footer-heading ">{t('lETUS')}</span>
-                            <ul className="list-unstyled pt-3  ">
+                            <ul className="list-unstyled pt-3  pe-0 ">
                                 <li>
                                     <a
                                         className=" text-decoration-none text-muted link-light"
@@ -192,7 +192,7 @@ export default function Footer1() {
                         {/* two */}
                         <div className="col-lg-3 col-6  mb-md-0 mb-4  d-none   d-md-block">
                             <span className="footer-heading ">{t('aBOUTJUMIAEGYPT' )}</span>
-                            <ul className="list-unstyled pt-3 ">
+                            <ul className="list-unstyled pt-3  pe-0 ">
                                 <li>
                                     <Link to="/aboutus"
                                         className="text-decoration-none text-muted link-light"
@@ -262,14 +262,14 @@ export default function Footer1() {
                         {/* three */}
                         <div className="col-lg-3 col-6  mb-md-0 mb-4  d-none   d-md-block">
                             <span className="footer-heading ">{t('MakeMoney')}</span>
-                            <ul className="list-unstyled pt-3 ">
+                            <ul className="list-unstyled pt-3   pe-0">
                                 <li>
-                                    <a
+                                    <Link to="/Seller"
                                         className=" text-decoration-none text-muted link-light"
                                         href="https://vendorhub.jumia.com.eg/terms-and-agreements/"
                                     >
                                        {t('sell' )}
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
                                     <a

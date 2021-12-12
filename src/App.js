@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
 import Home from "./Pages/Home/Home";
 import Products from "./Pages/Products/Products";
 import SingleProduct from "./Pages/SingleProduct/SingleProduct";
@@ -15,7 +16,7 @@ import { Beforelogin } from "./Routes/Beforelogin";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {PayPalButton} from "react-paypal-button-v2"
 import Paypal from "./Component/Paypal/PayPal";
-
+import SellerLogin from "./Pages/SellerLogin/SellerLogin";
 // test
 import './i18n';
 import i18next from "i18next";

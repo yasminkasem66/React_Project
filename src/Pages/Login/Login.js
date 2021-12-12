@@ -33,7 +33,7 @@ export default function Login() {
   });
 
   const handelFormChange = (e) => {
-    console.log(e.target.name, " :", e.target.value);
+    // console.log(e.target.name, " :", e.target.value);
     switch (e.target.name) {
       case "email":
         setUser({
@@ -70,7 +70,7 @@ export default function Login() {
 
   const loginIn = (e) => {
     // e.preventDefault();
-    console.log("adduser", user);
+    // console.log("adduser", user);
     dispatch(login(user));
     navigate("/");
   };

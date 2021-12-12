@@ -19,15 +19,15 @@ import { getAllMyOrders } from "../../Store/actions/OrdrActions/orderActions";
 
 export default function Orders() {
   const id = JSON.parse(localStorage.getItem("user")).userId;
-  console.log("idddddddddddddddddddd", id);
+  // console.log("idddddddddddddddddddd", id);
   let navigate = useNavigate();
   const user = useSelector((state) => state.users);
-  console.log("userrrrrrrrrrrrrrrrr", user);
+  // console.log("userrrrrrrrrrrrrrrrr", user);
   const products = useSelector((state) => state.AllProducts);
   const items = products.slice(0, 3);
   const orders = useSelector((state) => state.orders);
-  console.log("User Orders", orders);
-  console.log("products", products);
+  // console.log("User Orders", orders);
+  // console.log("products", products);
   const dispatch = useDispatch();
 
   useEffect(() => {

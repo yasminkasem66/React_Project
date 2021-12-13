@@ -56,10 +56,14 @@ import { Link } from "react-router-dom";
 
 export default function Products() {
   const { t, i18n } = useTranslation();
+  let products = useSelector((state) => state.AllProductsPagination);
 
-  const products = useSelector((state) => state.AllProductsPagination);
+  let [ratingproducts, setratingproducts] = useState([])
+  // if (ratingproducts.length != 0) {
+  //   products = ratingproducts
+  // }
   const category = useSelector((state) => state.category);
-  // console.log("categorycategorycategory", category);
+  console.log("ratingproductsratingproducts", ratingproducts);
 
   const categoryChildfrmdb = useSelector((state) => state.categoryChild);
   const [pageNum, setpageNum] = useState(1);
@@ -162,7 +166,7 @@ export default function Products() {
                     );
                   })}
                 </div>
-                <h5 className="mb-3">{t("SUBCATEGORY")}</h5>
+                <h5 className="mb-3 mt-3">{t("SUBCATEGORY")}</h5>
                 <div className="product-allproduct-productType border-bottom">
                   {/* <h5 className="product-allProduct-productType-header">
                     {catparent}
@@ -184,9 +188,11 @@ export default function Products() {
                   })}
                 </div>
 
-                <h5 className="mb-3">{t("PRODUCTRATING")}</h5>
-                <CircleComponent imgList={[r1, r2, r3, r4]} img={circle} />
+                <h5 className="mb-3 mt-3">{t("PRODUCTRATING")}</h5>
+                <CircleComponent imgList={[r4, r3, r2, r1]} img={circle} setratingproducts={setratingproducts} />
                 <hr />
+
+
                 <h5 className="mb-3">{t("EPRESSSHIPPING")}</h5>
                 <CircleComponent img={square} imgList={[jumiaexpress]} />
                 <hr />
@@ -271,6 +277,24 @@ export default function Products() {
             <hr />
 
             <div className="row my-1">
+              {ratingproducts.length>0?ratingproducts.map((product, index) => {
+                return (
+                  <div key={index} className="col-md-4 mb-2">
+                    <CardWithHiddenButton key={index} product={product} />
+                  </div>
+                );
+              }) : products.map((product, index) => {
+                return (
+                  <div key={index} className="col-md-4 mb-2">
+                    <CardWithHiddenButton key={index} product={product} />
+                  </div>
+                );
+              })
+            
+            
+            }
+            </div>
+            {/* <div className="row my-1">
               {products.map((product, index) => {
                 return (
                   <div key={index} className="col-md-4 mb-2">
@@ -278,7 +302,7 @@ export default function Products() {
                   </div>
                 );
               })}
-            </div>
+            </div> */}
             <div className="d-flex justify-content-center mt-5">
               <Paganation pagFun2={pagFun2} />
             </div>

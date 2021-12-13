@@ -9,7 +9,7 @@ export const updatePassword = (user) => async (dispatch) => {
     console.log("response", response);
     dispatch({
       type: UPDATE_USER_PASSWORD,
-      payload: response.data.user,
+      payload: response.data.msg,
     });
   } catch (err) {
     console.log(err);

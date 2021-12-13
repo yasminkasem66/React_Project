@@ -35,7 +35,7 @@ export default function CartItem(props) {
               src={props.item.image}
             />
             <div className="">
-              <p>Seller: Bazicz</p>
+              {/* <p>Seller: Bazicz</p> */}
               <p>{props.item.name}</p>
               <div className="d-flex">
                 <span style={{ cursor: "pointer", color: "#f68b1e" }}>

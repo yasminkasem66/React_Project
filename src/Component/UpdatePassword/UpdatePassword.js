@@ -16,8 +16,8 @@ export default function UpdatePassword() {
     dispatch(getSingleUser(id));
   }, []);
 
-  const userinfo = useSelector((state) => state.users);
-  console.log("userrrrrrrrrrrrrrrrr", userinfo);
+  // const userinfo = useSelector((state) => state.users);
+  // console.log("userrrrrrrrrrrrrrrrr", userinfo);
   const [user, setUser] = useState({
     // name: userinfo.name,
     // email: userinfo.email,
@@ -36,8 +36,8 @@ export default function UpdatePassword() {
     setShowPassword(!showPassword);
   };
   const handelFormChange = (e) => {
-    console.log(e.target.name, " :", e.target.value);
-    console.log("Userrrrr", " :", user);
+    // console.log(e.target.name, " :", e.target.value);
+    // console.log("Userrrrr", " :", user);
     switch (e.target.name) {
       case "oldPassword":
         setUser({
@@ -73,7 +73,7 @@ export default function UpdatePassword() {
   };
 
   const updateUserPassword = (e) => {
-    console.log("welcome");
+    // console.log("welcome");
     //e.preventDefault();
     console.log("adduser", user);
     dispatch(updatePassword(user));
@@ -119,7 +119,7 @@ export default function UpdatePassword() {
               style={{ backgroundColor: "#f68b1e" }}
             >
               <i className="loginBtn" class="fas fa-envelope mt-1 ms-1"></i>
-              <span>Login</span>
+              <span>Update Password</span>
               <span></span>
             </button>
           </div>

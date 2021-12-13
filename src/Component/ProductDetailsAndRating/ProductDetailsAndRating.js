@@ -137,10 +137,15 @@ export default function ProductDetailsAndRating(props) {
             style={{ visibility: "visible" }}
             id="add"
             className="add ms-2 d-inline-block"
+
           >
             <button
               onClick={() => additemToCart()}
-              className="btn btn-info border-0"
+              className="btn btn-warning px-5 border-0"
+              style={{
+                    background: "#f68b1e",
+                 
+                  }}
             >
               Add To Cart
             </button>

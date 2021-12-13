@@ -31,7 +31,7 @@ export default function ShowReview(props) {
 
   }
   // let user_Id = JSON.parse(localStorage.getItem("user")).userId;
-  console.log("user",user_Id)
+  // console.log("user",user_Id)
   const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {

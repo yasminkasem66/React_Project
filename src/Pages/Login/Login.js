@@ -101,7 +101,7 @@ export default function Login() {
               {/* input password */}
               <div className="col  mb-4 border-muted  border-bottom  me-4 d-flex justify-content-between">
                 <input
-                  className="form-control form-control-lg fs-6 border-0"
+                  className="form-control form-control-lg fs-6 border-0  shadow-none"
                   type={showPassword ? "text" : "password"}
                   placeholder={t("Epass")}
                   name="password"
@@ -115,7 +115,7 @@ export default function Login() {
             </form>
             <div></div>
             {/* remember me */}
-            <div className="form-check ">
+            {/* <div className="form-check ">
               <input
                 className="form-check-input  shadow-none"
                 type="checkbox"
@@ -125,7 +125,7 @@ export default function Login() {
               <label className="form-check-label " htmlFor="defaultCheck1">
                 {t("Eremember")}
               </label>
-            </div>
+            </div> */}
 
             {/* buttons */}
             <div className="col10 -tac -pvl -mvl">

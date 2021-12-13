@@ -259,7 +259,8 @@ export default function LowerHeader(props) {
                     </li>
                     <li>
                       <a className="dropdown-item" href="#">
-                        <button className="text-light btn px-5 py-1 btn-warning" onClick={props.LiveChat}>
+                      {/* onClick={props.LiveChat} */}
+                        <button className="text-light btn px-5 py-1 btn-warning" >
                           <i className="far fa-comment-alt-dots" /> LIVE HELP
                         </button>
                       </a>

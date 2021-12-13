@@ -25,7 +25,6 @@ import ShowReview from "../../Component/ShowReview/ShowReview";
 
 export default function SingleProduct() {
   const { id } = useParams();
-  // console.log("id id", id);
 
   const product = useSelector((state) => state.SingleProduct);
   console.log("product", product);
@@ -66,13 +65,11 @@ export default function SingleProduct() {
                 <div>
                   <a
                     className=" text-decoration-none me-3 fs-4 link-dark"
-                    href="https://www.jumia.com.eg/help/"
                   >
                     <i className="fab fa-facebook-f  socialIcon " />
                   </a>
                   <a
                     className=" text-decoration-none me-3 fs-4 link-dark"
-                    href="https://www.jumia.com.eg/help/"
                   >
                     <i className="fab fa-twitter socialIcon  " />
                   </a>

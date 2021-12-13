@@ -128,14 +128,11 @@ export default function Home() {
   // console.log("gamesProduct",gamesProducts)
   // console.log("smartPhoneProducts",smartPhoneProducts)
   
-  const LiveChat=()=>{
-    return(
-        <MessengerCustomerChat
-        pageId="106293271909112"
-        appId="424217142629496"
-      /> 
-    )
-  }
+  // const LiveChat=()=>{
+  //   return(
+  //  LiveChat={LiveChat}
+  //   )
+  // }
 
   const { t, i18n } = useTranslation();
 
@@ -144,7 +141,7 @@ export default function Home() {
       
       <ImageContainer img={image1} color={"#a42924"}  />
       <MiddeleHeader />
-      <LowerHeader LiveChat={LiveChat}/>
+      <LowerHeader />
       <div className="container pe-5  ">
         {/* under header */}
         <div className="row">
@@ -557,6 +554,10 @@ export default function Home() {
 
       <JumiaInfo />
       <Footer1 />
+       <MessengerCustomerChat
+        pageId="106293271909112"
+        appId="424217142629496"
+      /> 
     </div>
   );
 }

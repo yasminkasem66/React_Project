@@ -90,7 +90,7 @@ export default function Home() {
   const singleproduct = useSelector((state) => state.SingleProduct);
   const items = products.slice(0, 6);
 
-  console.log("productsnnnnnnnnnnnnnnnnnnnn", products);
+  // console.log("productsnnnnnnnnnnnnnnnnnnnn", products);
   // console.log("singleproductnnnnnnnnnnnnnnnnnn", singleproduct);
   const dispatch = useDispatch();
 
@@ -136,6 +136,16 @@ export default function Home() {
 
   const { t, i18n } = useTranslation();
 
+  // home links
+  let categoryChild = localStorage.getItem("categoryChild") || "";
+  let catparent = localStorage.getItem("category") || "";
+
+
+  const resetCategryChild = (catParnt, catChild) => {
+    localStorage.setItem("categoryChild", catChild);
+    localStorage.setItem("category", catParnt);
+  };
+
   return (
     <div className="bg-light">
       
@@ -160,6 +170,7 @@ export default function Home() {
           </div>
           {/* right */}
           <div className="col-lg-2 rounded ps-0 pe-0 ">
+
             <div className="mb-3 ">
               <ImageContainer img={image2} />
             </div>
@@ -260,6 +271,7 @@ export default function Home() {
       {/* Weakend Clearnace | Limited Stock */}
       <div className="container mt-4 card">
         <SeeAll
+          resetCategryChild={() => resetCategryChild("Detergent", "")}
           color="#FFFFFF"
           background="#B60000"
           title={t("WeakendClearnace")}
@@ -283,29 +295,37 @@ export default function Home() {
       <div className="container  card mt-4 text-center">
         <TextCenter title={t("NEWOFFERS")} />
         <SmallImagesContainer
+          resetCategryChild1={()=>resetCategryChild("", "Men")}
+          resetCategryChild2={() => resetCategryChild("", "Women")}
+          resetCategryChild3={() => resetCategryChild("smartPhone", "")}
+          resetCategryChild4={() => resetCategryChild("Electronic", "")}
+          resetCategryChild5={() => resetCategryChild("laptop", "")}
           text1={t("MenFashion")}
           text2={t("WomenFashion")}
-          text3={t("Beautyperfumes")}
-          text4={t("MobileAccessories")}
-          text5={t("HomeAppliances")}
-          text6={t("LaptopAccessories")}
+          text3={t("MobileAccessories")}
+          text4={t("LaptopAccessories")}
+          text5={t("TVsGaming")}
+          text6={t("HomeAppliances")}
           img1={x6}
           img2={x10}
-          img3={x11}
-          img4={x7}
-          img5={x2}
-          img6={x5}
+          img3={x7}
+          img4={x5}
+          img5={x9}
+
+          img6={x2}
         />
 
         {/* iiiiiiiiiiiiii */}
         <SmallImagesContainer
-          text1={t("TVsGaming")}
+          text1={t("Beautyperfumes")}
+
           text2={t("Sporting")}
           text3={t("KidsBaby")}
           text4={t("CarEssentials")}
           text5={t("FoodBeverage")}
           text6={t("HouseholdCare")}
-          img1={x9}
+          img1={x11}
+
           img2={x8}
           img3={x4}
           img4={x12}
@@ -554,7 +574,8 @@ export default function Home() {
 
       <JumiaInfo />
       <Footer1 />
-       <MessengerCustomerChat
+       <MessengerCustomerChat 
+       className="hidemsg"
         pageId="106293271909112"
         appId="424217142629496"
       /> 

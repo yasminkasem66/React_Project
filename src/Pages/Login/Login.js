@@ -108,7 +108,7 @@ export default function Login() {
                   value={user.password}
                   onChange={handelFormChange}
                 />
-                <span className="me-1 mt-3" onClick={togglePass}>
+                <span className="me-1 mt-3 " onClick={togglePass}>
                   <i class="fas fa-eye"></i>
                 </span>
               </div>

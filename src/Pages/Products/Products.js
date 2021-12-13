@@ -59,10 +59,13 @@ export default function Products() {
 
   const products = useSelector((state) => state.AllProductsPagination);
   const category = useSelector((state) => state.category);
-  const categoryChild = useSelector((state) => state.categoryChild);
+  // console.log("categorycategorycategory", category);
+
+  const categoryChildfrmdb = useSelector((state) => state.categoryChild);
   const [pageNum, setpageNum] = useState(1);
 
-  let catparent = localStorage.getItem("category");
+  let catparent = localStorage.getItem("category") || "";
+  let categoryChild = localStorage.getItem("categoryChild") || "";
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(GetParentCategory());
@@ -70,7 +73,7 @@ export default function Products() {
   }, []);
 
   useEffect(() => {
-    dispatch(getAllProductsPaganation(pageNum, catparent, ""));
+    dispatch(getAllProductsPaganation(pageNum, catparent, categoryChild));
   }, [pageNum]);
 
   const pagFun2 = (e) => {
@@ -92,7 +95,7 @@ export default function Products() {
   };
 
   const resetCategryChild = (cat) => {
-    let categoryChild = localStorage.setItem("categoryChild", cat);
+    localStorage.setItem("categoryChild", cat);
     catparent = localStorage.getItem("category");
     categoryChild = localStorage.getItem("categoryChild");
     console.log("catparentcatparentcatparent", catparent);
@@ -142,19 +145,7 @@ export default function Products() {
                   {/* <h5 className="product-allProduct-productType-header">
                     {catparent}
                   </h5> */}
-   
-                  {
-                    category.map((cat, index) => {
-                      return (
-                        <Link to="/products" className=" text-decoration-none text-dark" key={index} onClick={() => resetCategry(`${cat}`)}>
-                          <p className="product-allProduct-productType-item ">
-                           {cat}
-                          </p>
-                        </Link>
-                      )
-                    })
-                  
-                  }
+
 
                   {category.map((cat, index) => {
                     return (
@@ -177,7 +168,7 @@ export default function Products() {
                     {catparent}
                   </h5> */}
 
-                  {categoryChild.map((cat, index) => {
+                  {categoryChildfrmdb.map((cat, index) => {
                     return (
                       <Link
                         to="/products"

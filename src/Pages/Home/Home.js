@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import MessengerCustomerChat from 'react-messenger-customer-chat';
-
+import MessengerCustomerChat from "react-messenger-customer-chat";
 
 import { ProductById } from "../../Store/actions/ProductActions/GetSingleProduct";
 
@@ -127,30 +126,26 @@ export default function Home() {
   // console.log("men", men);
   // console.log("gamesProduct",gamesProducts)
   // console.log("smartPhoneProducts",smartPhoneProducts)
-  
-  const LiveChat=()=>{
-    return(
-        <MessengerCustomerChat
-        pageId="106293271909112"
-        appId="424217142629496"
-      /> 
-    )
-  }
+
+  const LiveChat = () => {
+    return (
+      <MessengerCustomerChat pageId="106293271909112" appId="424217142629496" />
+    );
+  };
 
   const { t, i18n } = useTranslation();
 
   return (
     <div className="bg-light">
-      
-      <ImageContainer img={image1} color={"#a42924"}  />
+      <ImageContainer img={image1} color={"#a42924"} />
       <MiddeleHeader />
-      <LowerHeader LiveChat={LiveChat}/>
+      <LowerHeader LiveChat={LiveChat} />
       <div className="container pe-5  ">
         {/* under header */}
         <div className="row">
           {/* left */}
           <div className="col-lg-2 card rounded ">
-          <CatList />
+            <CatList />
           </div>
           {/* middle */}
           <div className="col-lg-8  rounded  ">
@@ -162,7 +157,7 @@ export default function Home() {
             />
           </div>
           {/* right */}
-          <div className="col-lg-2 rounded ps-0 pe-0 ">
+          <div className="col-lg-2 d-lg-block  d-sm-none rounded ps-0 pe-0 ">
             <div className="mb-3 ">
               <ImageContainer img={image2} />
             </div>
@@ -171,36 +166,33 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-       
       </div>
-       {/* padge */}
-       <div className=" container ">
-          <div className="row  mt-3">
-            <SmallCard
-              statement={t("Official Stores")}
-              pic={padge1}
-              className="col-3"
-            />
-            <SmallCard
-              statement={t("Jumia Global")}
-              pic={padge2}
-              className="col-3"
-            />
-            <SmallCard
-              statement={t("Recharge&Bill")}
-              pic={padge3}
-              className="col-3"
-            />
-            <SmallCard
-              statement={t("Orange Points")}
-              pic={padge4}
-              className="col-3 "
-              
-            />
-            {/* <ProductCard pic={pic1} /> */}
-          </div>
+      {/* padge */}
+      <div className=" container ">
+        <div className="row  mt-3">
+          <SmallCard
+            statement={t("Official Stores")}
+            pic={padge1}
+            className="col-3"
+          />
+          <SmallCard
+            statement={t("Jumia Global")}
+            pic={padge2}
+            className="col-3"
+          />
+          <SmallCard
+            statement={t("Recharge&Bill")}
+            pic={padge3}
+            className="col-3"
+          />
+          <SmallCard
+            statement={t("Orange Points")}
+            pic={padge4}
+            className="col-3 "
+          />
+          {/* <ProductCard pic={pic1} /> */}
         </div>
+      </div>
 
       {/* caresoul products */}
       <div className="container card mt-3">

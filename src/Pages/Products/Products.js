@@ -13,7 +13,7 @@ import "./Products.scss";
 // components
 import ImageContainer from "../../Component/ImageContainer/ImageContainer";
 import MiddeleHeader from "../../Component/Headers/MiddleHeader/MiddeleHeader";
-import LowerHeader from "../../Component/Headers/LowerHeader/LowerHeader";
+import LowerHeader2 from "../../Component/Headers/LowerHeader2/LowerHeader2";
 import SlideWith2Imgs from "../../Component/SliderWith2Imgs/SlideWith2Imgs";
 import Footer1 from "../../Component/Footer1/Footer1";
 import CircleComponent from "../../Component/FilterComponent/CircleComponent";
@@ -103,7 +103,7 @@ export default function Products() {
     <div>
       <ImageContainer img={image1} color={"#a42924"} />
       <MiddeleHeader />
-      <LowerHeader />
+      <LowerHeader2 />
       <div className="container ProductPage-img">
         <ImageContainer img={image2} />
       </div>
@@ -142,19 +142,21 @@ export default function Products() {
                   {/* <h5 className="product-allProduct-productType-header">
                     {catparent}
                   </h5> */}
-   
-                  {
-                    category.map((cat, index) => {
-                      return (
-                        <Link to="/products" className=" text-decoration-none text-dark" key={index} onClick={() => resetCategry(`${cat}`)}>
-                          <p className="product-allProduct-productType-item ">
-                           {cat}
-                          </p>
-                        </Link>
-                      )
-                    })
-                  
-                  }
+
+                  {category.map((cat, index) => {
+                    return (
+                      <Link
+                        to="/products"
+                        className=" text-decoration-none text-dark"
+                        key={index}
+                        onClick={() => resetCategry(`${cat}`)}
+                      >
+                        <p className="product-allProduct-productType-item ">
+                          {cat}
+                        </p>
+                      </Link>
+                    );
+                  })}
 
                   {category.map((cat, index) => {
                     return (

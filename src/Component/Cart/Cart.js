@@ -12,6 +12,7 @@ import ImageContainer from "../ImageContainer/ImageContainer";
 import MiddeleHeader from "../Headers/MiddleHeader/MiddeleHeader";
 import LowerHeader from "../Headers/LowerHeader/LowerHeader";
 
+
 import { useCart } from "react-use-cart";
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next'
@@ -186,6 +187,9 @@ export default function Cart(props) {
           </div>
         </div>
       </section>
+
+      
+
       <Footer2 />
     </>
   );

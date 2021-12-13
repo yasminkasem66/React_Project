@@ -16,7 +16,12 @@ import { useNavigate } from "react-router";
 import { getSingleUser } from "../../Store/actions/UserActions/getSingleUser";
 
 export default function Myaccount() {
-  const id = JSON.parse(localStorage.getItem("user")).userId;
+  let  id
+  if(JSON.parse(localStorage.getItem("user"))==null){
+    id = ""
+  } else {
+    id =JSON.parse(localStorage.getItem("user")).userId;
+  }
   //console.log("idddddddddddddddddddd",id)
   let navigate = useNavigate();
   const user = useSelector((state) => state.users);

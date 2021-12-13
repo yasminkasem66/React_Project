@@ -34,7 +34,7 @@ export default function SmallImagesContainer(props) {
                     </div>
                 {/* 4 */}
                     <div className="col HomePage-imgElementNON p-2">
-                    <Link to="/products" className=""  >
+                    <Link to="/products" className="" onClick={(e) => props.resetCategryChild5()} >
                         <a href=""> <ImageContainer img={props.img4} wid="w-100" /></a>
                         <div class="name">{props.text4}</div>
                 </Link>

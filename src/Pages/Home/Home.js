@@ -389,6 +389,7 @@ export default function Home() {
       {/*Women's Sweatshirts | Up to 50% OFF */}
       <div className="container mt-4 card ">
         <SeeAll
+          resetCategryChild={() => resetCategryChild("", "Women")}
           color="black"
           background="#C7C7CD"
           title={t("Women'sFashion")}
@@ -427,7 +428,9 @@ export default function Home() {
 
       {/*Men's Sweatshirts | Up to 50% OFF */}
       <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title={t("Men'sFashion")} />
+        <SeeAll
+          resetCategryChild={() => resetCategryChild("", "Men")}
+          color="black" background="#C7C7CD" title={t("Men'sFashion")} />
         <div className="row mt-3">
           {menProduct.map((item, index) => {
             return (
@@ -451,7 +454,9 @@ export default function Home() {
 
       {/*Games | Up to 30% OFF */}
       <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title={t("Games")} />
+        <SeeAll
+          resetCategryChild={() => resetCategryChild("Gaming", "")}
+          color="black" background="#C7C7CD" title={t("Games")} />
         <div className="row mt-3">
           {gamesProducts.map((item, index) => {
             return (
@@ -484,7 +489,9 @@ export default function Home() {
 
       {/*SmartPone */}
       <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title={t("SmartPone")} />
+        <SeeAll
+          resetCategryChild={() => resetCategryChild("smartPhone", "")}
+          color="black" background="#C7C7CD" title={t("SmartPone")} />
         <div className="row mt-3">
           {smartPhoneProducts.map((item, index) => {
             return (

@@ -126,12 +126,6 @@ export default function Home() {
   // console.log("men", men);
   // console.log("gamesProduct",gamesProducts)
   // console.log("smartPhoneProducts",smartPhoneProducts)
-  
-  // const LiveChat=()=>{
-  //   return(
-  //  LiveChat={LiveChat}
-  //   )
-  // }
 
   const { t, i18n } = useTranslation();
 

@@ -7,8 +7,10 @@ import MiddeleHeader from "../Headers/MiddleHeader/MiddeleHeader";
 import ImageContainer from "../ImageContainer/ImageContainer";
 import { getSingleUser } from "../../Store/actions/UserActions/getSingleUser";
 import { updatePassword } from "../../Store/actions/UserActions/updatePassword";
+import { useTranslation } from 'react-i18next';
 
 export default function UpdatePassword() {
+  const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const id = JSON.parse(localStorage.getItem("user")).userId;
@@ -92,7 +94,7 @@ export default function UpdatePassword() {
             <input
               className="form-control form-control-lg fs-6 border-0 shadow-none"
               type={showPassword ? "text" : "password"}
-              placeholder="Old Password"
+              placeholder={t("oldPassword")}
               name="oldPassword"
               onChange={handelFormChange}
             />
@@ -105,7 +107,7 @@ export default function UpdatePassword() {
             <input
               className="form-control form-control-lg fs-6 border-0 shadow-none"
               type={showPassword ? "text" : "password"}
-              placeholder="New Password"
+              placeholder={t("New Password")}
               name="newPassword"
               onChange={handelFormChange}
             />
@@ -119,7 +121,7 @@ export default function UpdatePassword() {
               style={{ backgroundColor: "#f68b1e" }}
             >
               <i className="loginBtn" class="fas fa-envelope mt-1 ms-1"></i>
-              <span>Update Password</span>
+              <span>{t('Elogin')}</span>
               <span></span>
             </button>
           </div>

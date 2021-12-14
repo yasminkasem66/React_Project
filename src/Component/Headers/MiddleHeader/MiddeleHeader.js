@@ -32,7 +32,7 @@ export default function MiddeleHeader() {
           <div className="col-lg-2 col-md-12">
             <Link to="/Seller" className="text-decoration-none  link-dark ms-4 ">
               <span style={{ color: "#f68b1e", fontWeight: "bold" }}>
-                <i className="fad fa-star" /> {t("sell")}  
+                <i className="fad fa-star" /> {t("sell")}
               </span>
             </Link>
           </div>

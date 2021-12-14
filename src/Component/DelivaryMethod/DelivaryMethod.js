@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from 'react-i18next'
 import "./DelivaryMethod.scss";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import { Link } from "react-router-dom";
@@ -6,6 +7,7 @@ import { useCart } from "react-use-cart";
 import ShipmentDetails from "../ShipmentDetails/ShipmentDetails";
 
 export default function DelivaryMethod() {
+  const { t, i18n } = useTranslation();
   const {
     items,
     isEmpty,
@@ -23,12 +25,12 @@ export default function DelivaryMethod() {
         <div className="card my-3 pb-3  px-2">
           <div className="card-header bg-white fw-bolder ps-0">
             <CheckCircleRoundedIcon color="disabled"  />
-            <span style={{"fontSize":"14px", "fontWeight":"500"}}> 2. DELIVERY METHOD</span>
+            <span style={{"fontSize":"14px", "fontWeight":"500"}}> 2.{t('DELIVERYMETHOD')}</span>
           </div>
 
           <div className="card-body px-4">
             <h5 className="card-title  fw-bolder fs-6 ">
-              How do you want your order delivered?
+              {t('orderDelivered')}
             </h5>
             <div className="form-check  pt-3 ">
               <input
@@ -41,7 +43,7 @@ export default function DelivaryMethod() {
                 className="form-check-label fw-bolder"
                 htmlFor="flexRadioDefault1"
               >
-                Door Delivery.
+                {t('DoorDelivery')}
               </label>
               <p className="DeliveredDes">
                 Delivered between{" "}
@@ -51,13 +53,10 @@ export default function DelivaryMethod() {
               </p>
               <div className="border p-2 mb-2 fw-bolder doortxt ">
                 <p>
-                  * Living in Cairo, Giza or Alexandria,{" "}
-                  <span className="cash">JUMIA PRIMO </span> Members enjoy free
-                  delivery on all local orders and Jumia Food.
+                  * {t('Living in Cairo, Giza or Alexandria, JUMIA PRIMO Members enjoy free delivery on all local orders and Jumia Food.')}
                 </p>
                 <p>
-                  *Please make sure you have entered your home address, not your
-                  office one, so that we can deliver your order successfully
+                  {t('*Please make sure you have entered your home address, not your office one, so that we can deliver your order successfully')}
                 </p>
               </div>
             </div>
@@ -80,7 +79,7 @@ export default function DelivaryMethod() {
           </div> */}
             <div className="card  mt-4">
               <div className="card-header  bg-white fw-bolder ">
-                <p style={{"fontSize":"13px"}}>SHIPMENT DETAILS</p>
+                <p style={{"fontSize":"13px"}}>{t('SHIPMENT DETAILS')}</p>
               </div>
               {items.map((item, index) => {
                 return (
@@ -93,23 +92,23 @@ export default function DelivaryMethod() {
           </div>
           <div className=" px-4">
             <p className="fw-light d-flex justify-content-between">
-              <span>Subtotal :</span>
-              <span>{cartTotal} EGP</span>
+              <span>{t("Subtotal")} :</span>
+              <span>{cartTotal}  {t('nEGP')}</span>
             </p>
             <p className="fw-light  d-flex justify-content-between">
-              <span> Shipping amount</span>
-              <span className="fw-bold "> 0 EGP</span>
+              <span> {t('Shipping amount')}</span>
+              <span className="fw-bold "> {t('nEGP')}</span>
             </p>
             <hr />
 
             <p className="fw-bold  d-flex justify-content-between">
-              <span>Total :</span>
-              <span style={{ color: "#F17E0A" }}>{cartTotal} EGP</span>
+              <span>{t('Total')} :</span>
+              <span style={{ color: "#F17E0A" }}>{cartTotal}  {t('nEGP')}</span>
             </p>
           </div>
 
           <p className="text-center vouchertxt">
-            You will be able to add a voucher in the next step
+            {t('You will be able to add a voucher in the next step')}
           </p>
 
           <div className="mx-4">
@@ -118,7 +117,7 @@ export default function DelivaryMethod() {
                 type="button"
                 class="btn proceedBtn text-white fw-bolder  "
               >
-                PROCEED TO NEXT STEP
+                {t('PROCEED TO NEXT STEP')}
               </button>
             </Link>
           </div>

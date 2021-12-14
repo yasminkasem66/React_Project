@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useTranslation } from 'react-i18next';
 import MyaccountList from "../../Component/MyaccountList/MyaccountList";
 import image1 from "../../assets/imgs/ads.jpeg";
 import ImageContainer from "../../Component/ImageContainer/ImageContainer";
@@ -9,13 +10,15 @@ import DetailsCard from "../../Component/DetailsCard/DetailsCard";
 import Carsoual from "../../Component/Carsoual/Carsoual";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "../../Store/actions/ProductActions/getAllProducts";
-
+import './Myaccount.scss'
 import { getAllUsers } from "../../Store/actions/UserActions/userActions";
 import { signout } from "../../Store/actions/authen/authen";
 import { useNavigate } from "react-router";
 import { getSingleUser } from "../../Store/actions/UserActions/getSingleUser";
 
 export default function Myaccount() {
+  const { t, i18n } = useTranslation();
+  // const id = JSON.parse(localStorage.getItem("user")).userId;
   let  id
   if(JSON.parse(localStorage.getItem("user"))==null){
     id = ""
@@ -58,7 +61,8 @@ export default function Myaccount() {
       <ImageContainer img={image1} color={"#a42924"} />
       <MiddeleHeader />
       <LowerHeader />
-      <section className="row container d-flex  m-auto main-sectionFirst mb-5">
+      <section className="row container d-flex  m-auto main-sectionFirst mb-5 "
+      style={{backgroundColor:""}}>
         <MyaccountList logout={logout} />
         <div
           className="col-md-9 row   ms-2   "
@@ -69,21 +73,21 @@ export default function Myaccount() {
           }}
         >
           <header>
-            <h3 className="pt-2">Account Overview</h3>
+            <h3 className="pt-2">{t('Account Overview')}</h3>
             <hr />
           </header>
           <div className="row mb-3">
             <DetailsCard
               className="mb-2"
-              header="ACCOUNT DETAILS"
+              header={t("ACCOUNT DETAILS")}
               main={user.name}
               secondary={user.email}
-              orangePart="Change Password"
+              orangePart={t('Change Password')}
             />
             <DetailsCard
               className="mb-2"
-              header="ADDRESS BOOK"
-              main="Your default shipping address:"
+              header={t("ADDRESS BOOK")}
+              main={t("Your default shipping address")}
               secondary="Hala 15 st Aziz antwan Seouf shamaa victoria first floorAl Seyouf, Alexandria+20 1204810748 /"
               orangePart=""
             />
@@ -91,8 +95,8 @@ export default function Myaccount() {
               className="mb-2"
               header="JUMIA PRIMO"
               main="Jumia Primo"
-              secondary="Jumia Primo is a loyalty program which offers members free delivery on all Jumia Items (excluding Jumia Global) and Jumia Food orders, plus exclusive access to promotions & deals"
-              orangePart="SUBSCRIBE JUMIA PRIMO"
+              secondary={t("Jumia Primo is a loyalty ")}
+              orangePart={t("SUBSCRIBE JUMIA PRIMO")}
             />
             <DetailsCard className="mb-2" main="EGP 0.00" />
           </div>
@@ -103,7 +107,7 @@ export default function Myaccount() {
       <div className="container card mt-3 mb-5">
         <div className="row">
           <div className="col-12  pt-2 text-start">
-            <p className="fw-bold fs-5 ps-2">Recommended for you</p>
+            <p className="fw-bold fs-5 ps-2">{t('Recommended for you')}</p>
           </div>
         </div>
 
@@ -117,7 +121,7 @@ export default function Myaccount() {
       <div className="container card mt-3 mb-5">
         <div className="row">
           <div className="col-12  pt-2 text-start">
-            <p className="fw-bold fs-5 ps-2"> Recently Viewed</p>
+            <p className="fw-bold fs-5 ps-2">{t(' Recently Viewed')}</p>
           </div>
         </div>
 

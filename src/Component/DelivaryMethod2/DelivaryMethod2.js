@@ -1,14 +1,16 @@
 import React from "react";
+import { useTranslation } from 'react-i18next'
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 
 export default function DelivaryMethod2() {
+  const { t, i18n } = useTranslation();
   return (
     <>
       <div className="card mt-3">
         <div className="d-flex justify-content-between ps-2">
           <div className="d-flex">
             <CheckCircleRoundedIcon style={{ color: "#a3cf62" }} />
-            <p className="fw-bold ms-1">2.DELIVERY METHOD</p>
+            <p className="fw-bold ms-1">2.{t('DELIVERY METHOD')}</p>
           </div>
           <div className="  me-0">
             <button

@@ -225,13 +225,14 @@ export default function Footer1() {
                                         {t('privacyPolicy' )}
                                     </a>
                                 </li>
+                                {/* express page */}
                                 <li>
-                                    <a
+                                    <Link to="/Express"
                                         className="text-decoration-none text-muted link-light"
-                                        href="/jumia-express/?internal=footer"
+                                        // href="/jumia-express/?internal=footer"
                                     >
                                         Jumia Express
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
                                     <a

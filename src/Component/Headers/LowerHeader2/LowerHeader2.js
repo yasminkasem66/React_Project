@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
-import "./LowerHeader.scss";
+import "./LowerHeader2.scss";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signout } from "../../../Store/actions/authen/authen";
@@ -17,9 +17,7 @@ import styled from "styled-components";
 import { mobile } from "../responsive";
 
 import JumiaLogo from "../../../assets/imgs/Jumia.PNG";
-
-export default function LowerHeader(props) {
-  // test search
+export default function LowerHeader2(props) {
   const [Search, setSearch] = useState();
   const handleFormChange = (e) => {
     // console.log(e.target.value, e.target.name);
@@ -116,6 +114,7 @@ export default function LowerHeader(props) {
               className="d-flex align-items-center text-decoration-none  link-dark me-4 socialIcon"
               to="/"
             >
+              <BasicPopover />
               <img src={JumiaLogo} />
             </NavLink>
             <button

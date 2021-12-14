@@ -1,6 +1,6 @@
 import React from 'react';
-
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom';
 export default function SeeAll(props) {
     const { t, i18n } = useTranslation();
     return (
@@ -12,13 +12,13 @@ export default function SeeAll(props) {
             >
                 <p className="  fw-bold fs-5 m-0 p-0"> {props.title}</p>
                  
-                <a
+                <Link to="/products" className="" onClick={(e) => props.resetCategryChild()} 
                     style={{ color: props.color }}
                     className=" float-end text-decoration-none fw-bold   d-inline-block  fs-6 mt-1 "
                     href="#"
                 >
                     {t('Eseeall')} &gt;
-                </a>
+                </Link>
             </div>
         </>
     )

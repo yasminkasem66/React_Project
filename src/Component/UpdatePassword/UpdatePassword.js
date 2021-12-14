@@ -18,8 +18,8 @@ export default function UpdatePassword() {
     dispatch(getSingleUser(id));
   }, []);
 
-  const userinfo = useSelector((state) => state.users);
-  console.log("userrrrrrrrrrrrrrrrr", userinfo);
+  // const userinfo = useSelector((state) => state.users);
+  // console.log("userrrrrrrrrrrrrrrrr", userinfo);
   const [user, setUser] = useState({
     // name: userinfo.name,
     // email: userinfo.email,
@@ -38,8 +38,8 @@ export default function UpdatePassword() {
     setShowPassword(!showPassword);
   };
   const handelFormChange = (e) => {
-    console.log(e.target.name, " :", e.target.value);
-    console.log("Userrrrr", " :", user);
+    // console.log(e.target.name, " :", e.target.value);
+    // console.log("Userrrrr", " :", user);
     switch (e.target.name) {
       case "oldPassword":
         setUser({
@@ -75,7 +75,7 @@ export default function UpdatePassword() {
   };
 
   const updateUserPassword = (e) => {
-    console.log("welcome");
+    // console.log("welcome");
     //e.preventDefault();
     console.log("adduser", user);
     dispatch(updatePassword(user));

@@ -18,7 +18,15 @@ import { getSingleUser } from "../../Store/actions/UserActions/getSingleUser";
 
 export default function Myaccount() {
   const { t, i18n } = useTranslation();
-  const id = JSON.parse(localStorage.getItem("user")).userId;
+  // const id = JSON.parse(localStorage.getItem("user")).userId;
+  let  id
+  if(JSON.parse(localStorage.getItem("user"))==null){
+    id = ""
+  } else {
+    id = JSON.parse(localStorage.getItem("user")).userId;
+  }
+  console.log("IDIDIDIDIDI", id)
+
   //console.log("idddddddddddddddddddd",id)
   let navigate = useNavigate();
   const user = useSelector((state) => state.users);
@@ -36,12 +44,12 @@ export default function Myaccount() {
 
   const users = useSelector((state) => state.users);
 
-  console.log("users", users);
-  const dispatch2 = useDispatch();
+  // console.log("users", users);
+  // const dispatch2 = useDispatch();
 
-  useEffect(() => {
-    dispatch2(getAllUsers());
-  }, []);
+  // useEffect(() => {
+  //   dispatch2(getAllUsers());
+  // }, []);
 
   const logout = () => {
     dispatch(signout());

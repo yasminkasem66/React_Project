@@ -13,7 +13,7 @@ import "./Products.scss";
 // components
 import ImageContainer from "../../Component/ImageContainer/ImageContainer";
 import MiddeleHeader from "../../Component/Headers/MiddleHeader/MiddeleHeader";
-import LowerHeader from "../../Component/Headers/LowerHeader/LowerHeader";
+import LowerHeader2 from "../../Component/Headers/LowerHeader2/LowerHeader2";
 import SlideWith2Imgs from "../../Component/SliderWith2Imgs/SlideWith2Imgs";
 import Footer1 from "../../Component/Footer1/Footer1";
 import CircleComponent from "../../Component/FilterComponent/CircleComponent";
@@ -56,13 +56,20 @@ import { Link } from "react-router-dom";
 
 export default function Products() {
   const { t, i18n } = useTranslation();
+  let products = useSelector((state) => state.AllProductsPagination);
 
-  const products = useSelector((state) => state.AllProductsPagination);
+  let [ratingproducts, setratingproducts] = useState([])
+  // if (ratingproducts.length != 0) {
+  //   products = ratingproducts
+  // }
   const category = useSelector((state) => state.category);
-  const categoryChild = useSelector((state) => state.categoryChild);
+  console.log("ratingproductsratingproducts", ratingproducts);
+
+  const categoryChildfrmdb = useSelector((state) => state.categoryChild);
   const [pageNum, setpageNum] = useState(1);
 
-  let catparent = localStorage.getItem("category");
+  let catparent = localStorage.getItem("category") || "";
+  let categoryChild = localStorage.getItem("categoryChild") || "";
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(GetParentCategory());
@@ -70,7 +77,7 @@ export default function Products() {
   }, []);
 
   useEffect(() => {
-    dispatch(getAllProductsPaganation(pageNum, catparent, ""));
+    dispatch(getAllProductsPaganation(pageNum, catparent, categoryChild));
   }, [pageNum]);
 
   const pagFun2 = (e) => {
@@ -92,7 +99,7 @@ export default function Products() {
   };
 
   const resetCategryChild = (cat) => {
-    let categoryChild = localStorage.setItem("categoryChild", cat);
+    localStorage.setItem("categoryChild", cat);
     catparent = localStorage.getItem("category");
     categoryChild = localStorage.getItem("categoryChild");
     console.log("catparentcatparentcatparent", catparent);
@@ -103,7 +110,7 @@ export default function Products() {
     <div>
       <ImageContainer img={image1} color={"#a42924"} />
       <MiddeleHeader />
-      <LowerHeader />
+      <LowerHeader2 />
       <div className="container ProductPage-img">
         <ImageContainer img={image2} />
       </div>
@@ -142,19 +149,7 @@ export default function Products() {
                   {/* <h5 className="product-allProduct-productType-header">
                     {catparent}
                   </h5> */}
-   
-                  {
-                    category.map((cat, index) => {
-                      return (
-                        <Link to="/products" className=" text-decoration-none text-dark" key={index} onClick={() => resetCategry(`${cat}`)}>
-                          <p className="product-allProduct-productType-item ">
-                           {cat}
-                          </p>
-                        </Link>
-                      )
-                    })
-                  
-                  }
+
 
                   {category.map((cat, index) => {
                     return (
@@ -171,13 +166,13 @@ export default function Products() {
                     );
                   })}
                 </div>
-                <h5 className="mb-3">{t("SUBCATEGORY")}</h5>
+                <h5 className="mb-3 mt-3">{t("SUBCATEGORY")}</h5>
                 <div className="product-allproduct-productType border-bottom">
                   {/* <h5 className="product-allProduct-productType-header">
                     {catparent}
                   </h5> */}
 
-                  {categoryChild.map((cat, index) => {
+                  {categoryChildfrmdb.map((cat, index) => {
                     return (
                       <Link
                         to="/products"
@@ -193,9 +188,11 @@ export default function Products() {
                   })}
                 </div>
 
-                <h5 className="mb-3">{t("PRODUCTRATING")}</h5>
-                <CircleComponent imgList={[r1, r2, r3, r4]} img={circle} />
+                <h5 className="mb-3 mt-3">{t("PRODUCTRATING")}</h5>
+                <CircleComponent imgList={[r4, r3, r2, r1]} img={circle} setratingproducts={setratingproducts} />
                 <hr />
+
+
                 <h5 className="mb-3">{t("EPRESSSHIPPING")}</h5>
                 <CircleComponent img={square} imgList={[jumiaexpress]} />
                 <hr />
@@ -280,6 +277,24 @@ export default function Products() {
             <hr />
 
             <div className="row my-1">
+              {ratingproducts.length>0?ratingproducts.map((product, index) => {
+                return (
+                  <div key={index} className="col-md-4 mb-2">
+                    <CardWithHiddenButton key={index} product={product} />
+                  </div>
+                );
+              }) : products.map((product, index) => {
+                return (
+                  <div key={index} className="col-md-4 mb-2">
+                    <CardWithHiddenButton key={index} product={product} />
+                  </div>
+                );
+              })
+            
+            
+            }
+            </div>
+            {/* <div className="row my-1">
               {products.map((product, index) => {
                 return (
                   <div key={index} className="col-md-4 mb-2">
@@ -287,7 +302,7 @@ export default function Products() {
                   </div>
                 );
               })}
-            </div>
+            </div> */}
             <div className="d-flex justify-content-center mt-5">
               <Paganation pagFun2={pagFun2} />
             </div>

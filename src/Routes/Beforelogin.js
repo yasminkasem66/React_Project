@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Loader from "../Component/Loader/Loader";
 import { LinearProgress } from "@material-ui/core";
 import Orders from "../Pages/Orders/Orders";
+import ProtectedRoutes from "./ProtectedRoutes"
 
 export const Home = React.lazy(() => import("../Pages/Home/Home"));
 export const Checkout = React.lazy(() => import("../Pages/Checkout/Checkout"));
@@ -55,7 +56,10 @@ export const Beforelogin = () => {
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/products" exact element={<Products />} />
-          <Route path="/Myaccount" exact element={<Myaccount />} />
+          {/* <Route path="/Myaccount" exact element={<Myaccount />} /> */}
+          <Route exact  element={<ProtectedRoutes/>}>
+          <Route exact path='/Myaccount' element={<Myaccount/>}/>
+          </Route>
           <Route path="/singleProduct" exact element={<SingleProduct />} />
           <Route path="/singleProduct/:id" exact element={<SingleProduct />} />
           <Route path="/contact" exact element={<ContactUs />} />
@@ -71,7 +75,11 @@ export const Beforelogin = () => {
             exact
             element={<ProductAfterSearch />}
           ></Route>
-          <Route path="/orders" exact element={<Orders />}></Route>
+          {/* <Route path="/orders" exact element={<Orders />}></Route> */}
+          <Route exact  element={<ProtectedRoutes/>}>
+          <Route exact path='/orders' element={<Orders/>}/>
+          </Route>
+          
           <Route path="/updatepassword" exact element={<UpdatePassword />} />
           <Route
             path="/updateReview"

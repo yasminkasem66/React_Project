@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import MessengerCustomerChat from "react-messenger-customer-chat";
 
 import { ProductById } from "../../Store/actions/ProductActions/GetSingleProduct";
 
@@ -88,7 +89,7 @@ export default function Home() {
   const singleproduct = useSelector((state) => state.SingleProduct);
   const items = products.slice(0, 6);
 
-  console.log("productsnnnnnnnnnnnnnnnnnnnn", products);
+  // console.log("productsnnnnnnnnnnnnnnnnnnnn", products);
   // console.log("singleproductnnnnnnnnnnnnnnnnnn", singleproduct);
   const dispatch = useDispatch();
 
@@ -128,10 +129,19 @@ export default function Home() {
 
   const { t, i18n } = useTranslation();
 
+  // home links
+  let categoryChild = localStorage.getItem("categoryChild") || "";
+  let catparent = localStorage.getItem("category") || "";
+
+
+  const resetCategryChild = (catParnt, catChild) => {
+    localStorage.setItem("categoryChild", catChild);
+    localStorage.setItem("category", catParnt);
+  };
+
   return (
     <div className="bg-light">
-      
-      <ImageContainer img={image1} color={"#a42924"}  />
+      <ImageContainer img={image1} color={"#a42924"} />
       <MiddeleHeader />
       <LowerHeader />
       <div className="container pe-5  ">
@@ -139,7 +149,7 @@ export default function Home() {
         <div className="row">
           {/* left */}
           <div className="col-lg-2 card rounded ">
-          <CatList />
+            <CatList />
           </div>
           {/* middle */}
           <div className="col-lg-8  rounded  ">
@@ -151,7 +161,7 @@ export default function Home() {
             />
           </div>
           {/* right */}
-          <div className="col-lg-2 rounded ps-0 pe-0 ">
+          <div className="col-lg-2 d-lg-block  d-sm-none rounded ps-0 pe-0 ">
             <div className="mb-3 ">
               <ImageContainer img={image2} />
             </div>
@@ -160,36 +170,33 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-       
       </div>
-       {/* padge */}
-       <div className=" container ">
-          <div className="row  mt-3">
-            <SmallCard
-              statement={t("Official Stores")}
-              pic={padge1}
-              className="col-3"
-            />
-            <SmallCard
-              statement={t("Jumia Global")}
-              pic={padge2}
-              className="col-3"
-            />
-            <SmallCard
-              statement={t("Recharge&Bill")}
-              pic={padge3}
-              className="col-3"
-            />
-            <SmallCard
-              statement={t("Orange Points")}
-              pic={padge4}
-              className="col-3 "
-              
-            />
-            {/* <ProductCard pic={pic1} /> */}
-          </div>
+      {/* padge */}
+      <div className=" container ">
+        <div className="row  mt-3">
+          <SmallCard
+            statement={t("Official Stores")}
+            pic={padge1}
+            className="col-3"
+          />
+          <SmallCard
+            statement={t("Jumia Global")}
+            pic={padge2}
+            className="col-3"
+          />
+          <SmallCard
+            statement={t("Recharge&Bill")}
+            pic={padge3}
+            className="col-3"
+          />
+          <SmallCard
+            statement={t("Orange Points")}
+            pic={padge4}
+            className="col-3 "
+          />
+          {/* <ProductCard pic={pic1} /> */}
         </div>
+      </div>
 
       {/* caresoul products */}
       <div className="container card mt-3">
@@ -252,6 +259,7 @@ export default function Home() {
       {/* Weakend Clearnace | Limited Stock */}
       <div className="container mt-4 card">
         <SeeAll
+          resetCategryChild={() => resetCategryChild("Detergent", "")}
           color="#FFFFFF"
           background="#B60000"
           title={t("WeakendClearnace")}
@@ -275,29 +283,37 @@ export default function Home() {
       <div className="container  card mt-4 text-center">
         <TextCenter title={t("NEWOFFERS")} />
         <SmallImagesContainer
+          resetCategryChild1={()=>resetCategryChild("", "Men")}
+          resetCategryChild2={() => resetCategryChild("", "Women")}
+          resetCategryChild3={() => resetCategryChild("smartPhone", "")}
+          resetCategryChild4={() => resetCategryChild("Electronic", "")}
+          resetCategryChild5={() => resetCategryChild("laptop", "")}
           text1={t("MenFashion")}
           text2={t("WomenFashion")}
-          text3={t("Beautyperfumes")}
-          text4={t("MobileAccessories")}
-          text5={t("HomeAppliances")}
-          text6={t("LaptopAccessories")}
+          text3={t("MobileAccessories")}
+          text4={t("LaptopAccessories")}
+          text5={t("TVsGaming")}
+          text6={t("HomeAppliances")}
           img1={x6}
           img2={x10}
-          img3={x11}
-          img4={x7}
-          img5={x2}
-          img6={x5}
+          img3={x7}
+          img4={x5}
+          img5={x9}
+
+          img6={x2}
         />
 
         {/* iiiiiiiiiiiiii */}
         <SmallImagesContainer
-          text1={t("TVsGaming")}
+          text1={t("Beautyperfumes")}
+
           text2={t("Sporting")}
           text3={t("KidsBaby")}
           text4={t("CarEssentials")}
           text5={t("FoodBeverage")}
           text6={t("HouseholdCare")}
-          img1={x9}
+          img1={x11}
+
           img2={x8}
           img3={x4}
           img4={x12}
@@ -361,6 +377,7 @@ export default function Home() {
       {/*Women's Sweatshirts | Up to 50% OFF */}
       <div className="container mt-4 card ">
         <SeeAll
+          resetCategryChild={() => resetCategryChild("", "Women")}
           color="black"
           background="#C7C7CD"
           title={t("Women'sFashion")}
@@ -399,7 +416,9 @@ export default function Home() {
 
       {/*Men's Sweatshirts | Up to 50% OFF */}
       <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title={t("Men'sFashion")} />
+        <SeeAll
+          resetCategryChild={() => resetCategryChild("", "Men")}
+          color="black" background="#C7C7CD" title={t("Men'sFashion")} />
         <div className="row mt-3">
           {menProduct.map((item, index) => {
             return (
@@ -423,7 +442,9 @@ export default function Home() {
 
       {/*Games | Up to 30% OFF */}
       <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title={t("Games")} />
+        <SeeAll
+          resetCategryChild={() => resetCategryChild("Gaming", "")}
+          color="black" background="#C7C7CD" title={t("Games")} />
         <div className="row mt-3">
           {gamesProducts.map((item, index) => {
             return (
@@ -456,7 +477,9 @@ export default function Home() {
 
       {/*SmartPone */}
       <div className="container mt-4 card">
-        <SeeAll color="black" background="#C7C7CD" title={t("SmartPone")} />
+        <SeeAll
+          resetCategryChild={() => resetCategryChild("smartPhone", "")}
+          color="black" background="#C7C7CD" title={t("SmartPone")} />
         <div className="row mt-3">
           {smartPhoneProducts.map((item, index) => {
             return (
@@ -546,6 +569,11 @@ export default function Home() {
 
       <JumiaInfo />
       <Footer1 />
+       <MessengerCustomerChat 
+       className="hidemsg"
+        pageId="106293271909112"
+        appId="424217142629496"
+      /> 
     </div>
   );
 }

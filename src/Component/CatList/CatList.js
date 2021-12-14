@@ -1,56 +1,141 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { useTranslation } from 'react-i18next'
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
-import "./CatList.scss"
+import "./CatList.scss";
 
 export default function CatList() {
-    const { t, i18n } = useTranslation();
-    // localhost: 5000/api/v1/products?categoryparent=Fashion
-    const StoreCategory = ( cat) => {
-        // e.preventDefault();
-        // console.log("eCat", e);
-        const category = localStorage.setItem("category", cat)
-    }
+  const { t, i18n } = useTranslation();
+  // localhost: 5000/api/v1/products?categoryparent=Fashion
+  const StoreCategory = (cat) => {
+    // e.preventDefault();
+    // console.log("eCat", e);
+    const category = localStorage.setItem("category", cat);
+  };
 
-    return (
-        <>
-            {/* <div className="col-lg-2   rounded "> */}
+  return (
+    <>
+      {/* <div className="col-lg-2   rounded "> */}
 
-            <div className="  d-none d-lg-block " >
-                <Link to="/products/" className="aa" ><i className="fas fa-apple-alt" style={{ "padding": "4px"  }}></i><span style={{ "fontSize": "12px" }}> {t("suber")}</span></Link><br />
+      <div className="  d-none d-lg-block ">
+        <Link to="/products/" className="aa">
+          <i className="fas fa-apple-alt" style={{ padding: "4px" }}></i>
+          <span className="ms-2" style={{ fontSize: "12px" }}>
+            {" "}
+            {t("suber")}
+          </span>
+        </Link>
+        <br />
 
-                <Link to="/products" className="aa" value="Fashion" onClick={(e)=>StoreCategory("Fashion")}>
-                    <i className="fas fa-tshirt" style={{ "padding": "4px" }}></i><span style={{ "fontSize": "12px" }}> {t('fasion')}</span></Link><br />
+        <Link
+          to="/products"
+          className="aa"
+          value="Fashion"
+          onClick={(e) => StoreCategory("Fashion")}
+        >
+          <i className="fas fa-tshirt" style={{ padding: "4px" }}></i>
+          <span style={{ fontSize: "12px" }}> {t("fasion")}</span>
+        </Link>
+        <br />
 
+        <Link
+          to="/products"
+          className="aa"
+          onClick={(e) => StoreCategory("Gaming")}
+        >
+          <i className="fas fa-gamepad" style={{ padding: "4px" }}></i>
+          <span className="ms-1" style={{ fontSize: "12px" }}>
+            {t("game")}
+          </span>
+        </Link>
+        <br />
 
-                <Link to="/products" className="aa" onClick={(e) => StoreCategory("Gaming")}><i className="fas fa-gamepad" style={{ "padding": "4px" }}></i><span style={{ "fontSize": "12px" }}>{t('game')}</span></Link><br />
+        <Link
+          to="/products"
+          className="aa"
+          onClick={(e) => StoreCategory("smartPhone")}
+        >
+          <i className="fas fa-mobile-alt" style={{ padding: "4px" }}></i>
+          <span className="ms-3" style={{ fontSize: "12px" }}>
+            {" "}
+            {t("phones")}
+          </span>
+        </Link>
+        <br />
 
-                <Link to="/products" className="aa" onClick={(e) => StoreCategory("smartPhone")}><i className="fas fa-mobile-alt" style={{ "padding": "4px" }}></i><span style={{ "fontSize": "12px" }}> {t('phones')}</span></Link><br />
+        <Link
+          to="/products"
+          className="aa"
+          onClick={(e) => StoreCategory("Fashion")}
+        >
+          <i className="fas fa-feather-alt" style={{ padding: "4px" }}></i>
+          <span className="ms-2" style={{ fontSize: "12px" }}>
+            {t("healty")}
+          </span>
+        </Link>
+        <br />
 
-                <Link to="/products" className="aa" onClick={(e) => StoreCategory("Fashion")}><i className="fas fa-feather-alt" style={{ "padding": "4px" }}></i><span style={{ "fontSize": "12px" }}>{t('healty')}</span></Link><br />
+        <Link to="/products" className="aa" onClick={(e) => StoreCategory("")}>
+          <i className="fas fa-laptop" style={{ padding: "4px" }}></i>
+          <span className="ms-1" style={{ fontSize: "12px" }}>
+            {t("electro")}
+          </span>
+        </Link>
+        <br />
+        <Link to="/products" className="aa" onClick={(e) => StoreCategory("")}>
+          <i className="fas fa-child" style={{ padding: "4px" }}></i>
+          <span className="ms-3" style={{ fontSize: "12px" }}>
+            {t("baby")}
+          </span>
+        </Link>
+        <br />
 
+        <Link to="/category" className="aa" onClick={(e) => StoreCategory("")}>
+          <i className="fas fa-home" style={{ padding: "4px" }}></i>
+          <span className="ms-2" style={{ fontSize: "12px" }}>
+            {t("nhome")}
+          </span>
+        </Link>
+        <br />
 
-                <Link to="/products" className="aa" onClick={(e) => StoreCategory('')}><i className="fas fa-laptop" style={{ "padding": "4px" }}></i><span style={{ "fontSize": "12px" }}>{t('electro')}</span></Link><br />
-                <Link to="/products" className="aa" onClick={(e) => StoreCategory('')}><i className="fas fa-child" style={{ "padding": "4px" }}></i><span style={{ "fontSize": "12px" }}>{t('baby')}</span></Link><br />
+        <Link to="/products" className="aa" onClick={(e) => StoreCategory("")}>
+          <i className="fas fa-desktop" style={{ padding: "4px" }}></i>
+          <span className="ms-1" style={{ fontSize: "12px" }}>
+            {" "}
+            {t("computer")}
+          </span>
+        </Link>
+        <br />
 
+        <Link to="/products" className="aa" onClick={(e) => StoreCategory("")}>
+          <i className="fas fa-dumbbell" style={{ padding: "4px" }}></i>
+          <span className="ms-1" style={{ fontSize: "12px" }}>
+            {t("sport")}
+          </span>
+        </Link>
+        <br />
 
-                <Link to="/category" className="aa" onClick={(e) => StoreCategory('')}><i className="fas fa-home" style={{ "padding": "4px" }}></i><span style={{ "fontSize": "12px" }}>{t('nhome')}</span></Link><br />
+        <Link to="/products" className="aa" onClick={(e) => StoreCategory("")}>
+          <i className="fas fa-car" style={{ padding: "4px" }}></i>
+          <span className="ms-1" style={{ fontSize: "12px" }}>
+            {" "}
+            {t("outomobile")}
+          </span>
+        </Link>
+        <br />
 
+        <Link to="/products" className="aa" onClick={(e) => StoreCategory("")}>
+          <i className="fas fa-ellipsis-h" style={{ padding: "4px" }}></i>
+          <span className="ms-1" style={{ fontSize: "12px" }}>
+            {" "}
+            {t("other")}
+          </span>
+        </Link>
+        <br />
+      </div>
 
-                <Link to="/products" className="aa" onClick={(e) => StoreCategory('')}><i className="fas fa-desktop" style={{ "padding": "4px" }}></i><span style={{ "fontSize": "12px" }}> {t('computer')}</span></Link><br />
-
-                <Link to="/products" className="aa" onClick={(e) => StoreCategory('')} ><i className="fas fa-dumbbell" style={{ "padding": "4px" }}></i><span style={{ "fontSize": "12px" }}>{t('sport')}</span></Link><br />
-
-
-                <Link to="/products" className="aa" onClick={(e) => StoreCategory('')} ><i className="fas fa-car" style={{ "padding": "4px" }}></i><span style={{ "fontSize": "12px" }}> {t('outomobile')}</span></Link><br />
-
-                <Link to="/products" className="aa" onClick={(e) => StoreCategory('')} ><i className="fas fa-ellipsis-h" style={{ "padding": "4px" }}></i><span style={{ "fontSize": "12px" }}> {t('other')}</span></Link><br />
-            </div>
-
-
-            {/* test */}
-            {/* <ul className="list-group border-0 ">
+      {/* test */}
+      {/* <ul className="list-group border-0 ">
                 <li className="list-group-item d-flex justify-content-between align-items-start border-0  p-0">
                     <div className="ms-2 me-auto">
                         <i className="fas fa-apple-alt" aria-hidden="true" />
@@ -140,12 +225,10 @@ export default function CatList() {
                     </div>
                 </li>
             </ul> */}
-            {/* test */}
-        </>
-    )
+      {/* test */}
+    </>
+  );
 }
-
-
 
 //   <li className=" row list-group-item d-flex justify-content-center align-item-center align-items-start border-0  p-0">
 //                     <i className="fas fa-apple-alt mt-2 ms-2  col-2" aria-hidden="true" />

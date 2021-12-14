@@ -7,7 +7,7 @@ import {
 } from "../../Store/actions/Review/ReviewAction";
 import SeeAll from "../SeeAll/SeeAll";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
-
+import { useTranslation } from 'react-i18next'
 //images for Rate
 
 import r1 from "../../assets/imgs/Rate1.PNG";
@@ -21,6 +21,7 @@ import { Button } from "bootstrap";
 import { useNavigate } from "react-router-dom";
 
 export default function ShowReview(props) {
+  const { t, i18n } = useTranslation();
   const Reviews = useSelector((state) => state.review);
   //const users = useSelector((state) => state.users);
   let user_Id 
@@ -57,11 +58,11 @@ export default function ShowReview(props) {
   // console.log("current user ", user);
   return (
     <>
-      <SeeAll className="border-bottom " title={"Verified Customer Feedback"} />
+      <SeeAll className="border-bottom " title={t("Verified Customer Feedback")} />
       <hr />
       <div className="row">
         <div className="col-4 text-center">
-          <div className="mb-3 fw-bold">{120} VERIFIED PRODUCT RATINGS</div>
+          <div className="mb-3 fw-bold">{120} {t('VERIFIED PRODUCT RATINGS')}</div>
           <div state={{ width: "90%" }} className="mx-auto bg-light">
             <div className="mb-2">{props.averageRating}/5</div>
             {props.averageRating === 1 ? (
@@ -77,11 +78,11 @@ export default function ShowReview(props) {
             ) : (
               ""
             )}
-            <div className="mb-3">{120} Verified product ratings</div>
+            <div className="mb-3">{120} {t('VERIFIED PRODUCT RATINGS')}</div>
           </div>
         </div>
         <div className="col-8">
-          <div className="mb-3">Product Reviews ({Reviews.length})</div>
+          <div className="mb-3">{t('Product Reviews')} ({Reviews.length})</div>
           {Reviews.map((item, index) => {
             return (
               <div className="mb-4 border-bottom">

@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import MessengerCustomerChat from 'react-messenger-customer-chat';
-
 
 import { ProductById } from "../../Store/actions/ProductActions/GetSingleProduct";
 
@@ -124,15 +122,9 @@ export default function Home() {
   );
   const smartPhoneProducts = smartPhone.slice(0, 6);
   // console.log("womenProducts",womenProduct)
-  // console.log("men", men);
+  console.log("men", men);
   // console.log("gamesProduct",gamesProducts)
   // console.log("smartPhoneProducts",smartPhoneProducts)
-  
-  // const LiveChat=()=>{
-  //   return(
-  //  LiveChat={LiveChat}
-  //   )
-  // }
 
   const { t, i18n } = useTranslation();
 
@@ -554,10 +546,6 @@ export default function Home() {
 
       <JumiaInfo />
       <Footer1 />
-       <MessengerCustomerChat
-        pageId="106293271909112"
-        appId="424217142629496"
-      /> 
     </div>
   );
 }

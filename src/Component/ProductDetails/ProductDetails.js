@@ -1,7 +1,9 @@
 import React from 'react'
 import './ProductDetails.scss'
+import { useTranslation } from 'react-i18next'
 
 export default function ProductDetails(props) {
+  const { t, i18n } = useTranslation();
     return (
         <>
             <div
@@ -14,7 +16,7 @@ export default function ProductDetails(props) {
     borderRadius: 4
   }}
 >
-  <h5>Product Details</h5>
+  <h5>{t('ProductDetails')}</h5>
   <hr />
   <ul style={{ fontSize: 14 }}>
     <li>{props.name}</li>

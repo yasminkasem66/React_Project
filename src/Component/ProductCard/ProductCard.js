@@ -5,6 +5,7 @@ export default function ProductCard(props) {
   // console.log("props ProductCard", props.product);
   const lang= localStorage.getItem('lang') || 'en';
   const product = props.product;
+  const price = Math.ceil(Math.random() * 30)/100
   return (
     <>
  <div className="itm col HomePage-imgElement ms-2   position-relative">
@@ -30,7 +31,7 @@ export default function ProductCard(props) {
               {product?.name}
             </div>
             <div className="fw-bold">EGP {product?.price}</div>
-            <div className="text-decoration-line-through text-muted">{Math.ceil(Math.random() * 70)}%</div>
+            <div className="text-decoration-line-through text-muted">{Math.ceil((product?.price)/(1-(Math.ceil(Math.random() * 30)/100)))}</div>
           </div>
         </Link>
         </div> 

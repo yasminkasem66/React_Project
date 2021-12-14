@@ -62,15 +62,16 @@ export default function ProductDetailsAndRating(props) {
         <span className="fa fa-star" />
         <span className="fa fa-star" />
         <p className="d-inline-block">
-          <a href={3} style={{ textDecoration: "none" }}>
-            {" "}
-            {props.product?.numOfReviews}
+          <a className="ps-2" style={{ textDecoration: "none" }}>
+            Number of reviews 
+            
+           ({props.product?.numOfReviews}) 
           </a>
         </p>
         <hr className="m-0" />
       </div>
       <div className="fs-4 fw-bold">
-        {props.product?.price}
+        {props.product?.price} EGP
         <span className="fs-6 fw-lighter text-decoration-line-through d-block">
           {props?.discountedPrice}{" "}
           <span

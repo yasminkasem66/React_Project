@@ -3,9 +3,13 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Loader from "../Component/Loader/Loader";
 import { LinearProgress } from "@material-ui/core";
 import Orders from "../Pages/Orders/Orders";
-import ProtectedRoutes from "./ProtectedRoutes"
+import ProtectedRoutes from "./ProtectedRoutes";
 
 export const Home = React.lazy(() => import("../Pages/Home/Home"));
+export const AddProduct = React.lazy(() =>
+  import("../Pages/AddProduct/AddProduct")
+);
+export const SideBar = React.lazy(() => import("../Pages/SideBar/SideBar"));
 export const Checkout = React.lazy(() => import("../Pages/Checkout/Checkout"));
 export const NextCheckOut = React.lazy(() =>
   import("../Pages/NextCheckout/NextCheckout")
@@ -51,14 +55,16 @@ export const Beforelogin = () => {
     <>
       {/* it's responsible to show data before lazy loading loading */}
       {/* <Suspense fallback={<Loader/>}> */}
-      <Suspense fallback={<LinearProgress/>}>
+      <Suspense fallback={<LinearProgress />}>
         {/* first Match win */}
         <Routes>
           <Route path="/" exact element={<Home />} />
+          <Route path="/sidebar" exact element={<SideBar />} />
+          <Route path="/addproduct" exact element={<AddProduct />} />
           <Route path="/products" exact element={<Products />} />
           {/* <Route path="/Myaccount" exact element={<Myaccount />} /> */}
-          <Route exact  element={<ProtectedRoutes/>}>
-          <Route exact path='/Myaccount' element={<Myaccount/>}/>
+          <Route exact element={<ProtectedRoutes />}>
+            <Route exact path="/Myaccount" element={<Myaccount />} />
           </Route>
           <Route path="/singleProduct" exact element={<SingleProduct />} />
           <Route path="/singleProduct/:id" exact element={<SingleProduct />} />
@@ -76,10 +82,10 @@ export const Beforelogin = () => {
             element={<ProductAfterSearch />}
           ></Route>
           {/* <Route path="/orders" exact element={<Orders />}></Route> */}
-          <Route exact  element={<ProtectedRoutes/>}>
-          <Route exact path='/orders' element={<Orders/>}/>
+          <Route exact element={<ProtectedRoutes />}>
+            <Route exact path="/orders" element={<Orders />} />
           </Route>
-          
+
           <Route path="/updatepassword" exact element={<UpdatePassword />} />
           <Route
             path="/updateReview"

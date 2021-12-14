@@ -153,7 +153,7 @@ export default function LowerHeader(props) {
               </div>
 
               <ul className="navbar-nav d-flex align-items-center mb-lg-0">
-                <li className="me-2">
+                <li className="">
                   <div className="dropdown">
                     {user ? (
                       <a
@@ -232,7 +232,7 @@ export default function LowerHeader(props) {
                     </ul>
                   </div>
                 </li>
-                <li className="me-2">
+                <li className="">
                   <div className="dropdown">
                     <a
                       href="#"

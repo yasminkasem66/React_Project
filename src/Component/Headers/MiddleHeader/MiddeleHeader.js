@@ -30,11 +30,11 @@ export default function MiddeleHeader() {
         <div className="row container d-flex justify-content-between m-auto  ">
           {/* col-2 */}
           <div className="col-lg-2 col-md-12">
-            <a href="#" className="text-decoration-none  link-dark ms-4 ">
+            <Link to="/Seller" className="text-decoration-none  link-dark ms-4 ">
               <span style={{ color: "#f68b1e", fontWeight: "bold" }}>
                 <i className="fad fa-star" /> {t("sell")}
               </span>
-            </a>
+            </Link>
           </div>
           {/* col-7 */}
           <div className="col-lg-7 col-md-12">

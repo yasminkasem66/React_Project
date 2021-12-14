@@ -89,7 +89,7 @@ export default function Home() {
   const singleproduct = useSelector((state) => state.SingleProduct);
   const items = products.slice(0, 6);
 
-  // console.log("productsnnnnnnnnnnnnnnnnnnnn", products);
+  console.log("productsnnnnnnnnnnnnnnnnnnnn", products);
   // console.log("singleproductnnnnnnnnnnnnnnnnnn", singleproduct);
   const dispatch = useDispatch();
 
@@ -122,8 +122,8 @@ export default function Home() {
       product.categoryparent === "منظفات"
   );
   const smartPhoneProducts = smartPhone.slice(0, 6);
-  // console.log("womenProducts",womenProduct)
-  console.log("men", men);
+  console.log("women", women)
+  // console.log("men", men);
   // console.log("gamesProduct",gamesProducts)
   // console.log("smartPhoneProducts",smartPhoneProducts)
 

@@ -6,6 +6,7 @@ export const AllProductsReducer = (state = fproducts, action) => {
     switch (action.type) {
         case productConstants.GET_ALL_PRODUCTS:
             return [...action.payload];
+
         default:
             return state;
     }
@@ -17,6 +18,10 @@ export const AllProductsPaginationReducer = (state = fproducts, action) => {
         case productConstants.GET_ALL_PRODUCTS_PAGANATION:
             return [...action.payload];
         case productConstants.GET_HightoLowPrice_PRODUCTS:
+            return [...action.payload];
+        case productConstants.GET_AVERGERATING_PRODUCTS:
+            return [...action.payload];
+        case productConstants.GET_SORT_AVERGERATING_PRODUCTS:
             return [...action.payload];
         default:
             return state;

@@ -18,9 +18,9 @@ export default function CatList() {
       {/* <div className="col-lg-2   rounded "> */}
 
       <div className="  d-none d-lg-block ">
-        <Link to="/products/" className="aa">
-          <i className="fas fa-apple-alt" style={{ padding: "4px" }}></i>
-          <span className="ms-2" style={{ fontSize: "12px" }}>
+        <Link to="/products/" className="aa" >
+          <i className="fas fa-apple-alt" style={{ padding: "4px" }} ></i>
+          <span className="ms-2" style={{ fontSize: "12px" }} >
             {" "}
             {t("suber")}
           </span>

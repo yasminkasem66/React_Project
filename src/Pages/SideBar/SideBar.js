@@ -1,5 +1,13 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { LinearProgress } from "@material-ui/core";
+
+// export const AddProduct = React.lazy(() =>
+//   import("../../Pages/AddProduct/AddProduct")
+// );
+
+import AddProduct from "../../Pages/AddProduct/AddProduct";
 export default function SideBar() {
   return (
     <>

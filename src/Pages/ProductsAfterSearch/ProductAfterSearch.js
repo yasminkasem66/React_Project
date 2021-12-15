@@ -44,33 +44,57 @@ import { getAllProductsPaganation } from "../../Store/actions/ProductActions/Get
 import { GetParentCategory } from "../../Store/actions/categories/category";
 
 export default function ProductAfterSearch() {
-    const category = useSelector((state) => state.category);
+  let category = localStorage.getItem("catparent")
+  category = JSON.parse(category)
+
+  // console.log(category)
+    // const category = useSelector((state) => state.category);
     const products = useSelector((state) => state.AllProductsPagination);
     let catparent,cat
     console.log("hamdyyyyyyyyy",category)
   const [pageNum, setpageNum] = useState(1);
   // const cat = undefined ? '': localStorage.getItem("category");
   const catfromsearch =localStorage.getItem("searchValue");
+  const lang = localStorage.getItem("lang")
+console.log("sssssssss",catfromsearch)
   const dispatch = useDispatch();
+
+  // useEffect(()=>{
+    
+  // })
+
   
-  for(let i=0;i<category.length;i++){
-      if(category[i]===catfromsearch){
+    for(let i=0;i<category.length;i++){
+    
+      if(category[i]== catfromsearch){
+        console.log("ddddddd",category[i])
           catparent=catfromsearch;
+          console.log("catparent",catparent)
+          
           cat=''
+          console.log("cat",cat)
           break;
 
       }else{
           catparent=''
           cat=catfromsearch
+          console.log("catparent",catparent)
+          console.log("cat",cat)
       }
-      console.log("catparent",catparent)
-      console.log("cat",cat)
+      // console.log("catparent",catparent)
+      // console.log("cat",cat)
 
   }
+
+ 
+  
+  
   useEffect(() => {
-    dispatch(getAllProductsPaganation(pageNum, catparent,cat));
-    dispatch(GetParentCategory());
-  }, [pageNum]);
+    
+      dispatch(getAllProductsPaganation(pageNum, catparent,cat));
+      // dispatch(GetParentCategory());
+  }, [pageNum,]);
+  
 
   const pagFun2 = (e) => {
     console.log("event value", e.target.innerText);

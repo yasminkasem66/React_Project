@@ -7,6 +7,7 @@ const lang = localStorage.getItem('lang') || 'en';
 
 export const getAllProductsPaganation = (page,catparent, cat) => async (dispatch) => {
     let response;
+
     try {
       //     if (cat != 'null') {
 
@@ -17,7 +18,7 @@ export const getAllProductsPaganation = (page,catparent, cat) => async (dispatch
         `/products/${lang}?page=${page}&limit=8&categoryparent=${catparent}&category=${cat}`
       );
       // }
-      // console.log("response", response);
+      console.log("responseeeeeeeeee", response);
       dispatch({
         type: productConstants.GET_ALL_PRODUCTS_PAGANATION,
         payload: response.data.products,

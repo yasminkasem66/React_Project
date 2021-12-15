@@ -73,8 +73,15 @@ export default function Login() {
     // e.preventDefault();
     // console.log("adduser", user);
     dispatch(login(user));
-    console.log("dispatch(user)", dispatch(user));
-    navigate("/");
+    setTimeout(function () {
+      let userinfo = localStorage.getItem("user");
+      if (!userinfo) {
+        navigate("/login");
+        alert("wrong email or password");
+      } else {
+        navigate("/");
+      }
+    }, 800);
     // let userinfo = localStorage.getItem("user");
     // if (!userinfo) {
     //   navigate("/login");
@@ -95,7 +102,7 @@ export default function Login() {
             <h4 className="text-center" style={{ color: "#f68b1e" }}>
               {t("Elogin")}
             </h4>
-            <form>
+            <form className="mt-4">
               {/* input email */}
               <div className="col mb-4 border-muted  border-bottom  me-4">
                 <input
@@ -168,10 +175,10 @@ export default function Login() {
           </div>
 
           <div className="col-6 px-4">
-            <h4 className="mb-5 text-center" style={{ color: "#f68b1e" }}>
+            <h4 className="mb-2 text-center" style={{ color: "#f68b1e" }}>
               {t("Ecreate")}
             </h4>
-            <p className="mb-5 ">{t("Exx")}</p>
+            <p className="mb-5 mt-4 pt-3 ">{t("Exx")}</p>
             {/* create button */}
             <div className="col10 -tac -pvl -mvl  ">
               <div className="row py-4 col-rows-1  ">

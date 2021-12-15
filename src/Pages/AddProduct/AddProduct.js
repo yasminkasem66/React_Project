@@ -488,6 +488,15 @@ export default function AddProduct() {
                 name="colors"
                 onChange={handelFormChange}
               />
+              <div className="row py-4 px-2 col-rows-1">
+                <button
+                  className="btn btn-primary border border-none p-2 rounded  fs-5 fw-bold  "
+                  style={{ backgroundColor: "#f68b1e" }}
+                >
+                  <span>Add Product</span>
+                  <span></span>
+                </button>
+              </div>
             </form>
           </div>
         </div>

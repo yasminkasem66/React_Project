@@ -22,6 +22,28 @@ export const signup = (userx) => async (dispatch) => {
     console.log(err);
   }
 };
+export const signupSeller = (userx) => async (dispatch) => {
+  try {
+    let res = await axiosInstance.post(`/auth/register`, userx);
+    console.log("res,", res);
+    const { token, user } = res.data;
+    // localStorage.setItem("token", token);
+    // localStorage.setItem("user",JSON.stringify(user));
+    // localStorage.setItem("userName", res.data.user.name);
+    // localStorage.setItem("userId", res.data.user.userId);
+    // localStorage.setItem("userRole", res.data.user.role);
+    // localStorage.setItem("")
+    dispatch({
+      type: authConstants.LOGIN_SUCCESS,
+      payload: {
+        token,
+        user,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 export const login = (userx) => async (dispatch) => {
   try {

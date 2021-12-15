@@ -1,6 +1,7 @@
 import React from 'react'
-
+import { useTranslation } from 'react-i18next'
 export default function DeliveryReturns(props) {
+  const { t, i18n } = useTranslation();
     return (
         <>
         
@@ -14,18 +15,18 @@ export default function DeliveryReturns(props) {
     }}
   >
     <div style={{ fontSize: 14, fontWeight: 500, margin: 0, paddingTop: 5 }}>
-      DELIVERY &amp; RETURNS
+     {t('DELIVERYRETURNS')}
     </div>
     <hr />
     <div style={{ margin: 0 }}>
       Jumia <span style={{ color: "#f68b1e" }}>Express</span>{" "}
     </div>
     <p style={{ fontSize: 12, margin: 0 }}>
-      Free Shipping on Jumia Express for orders above 350 EGP in Cairo &amp;
-      Giza. <a href>Details</a>{" "}
+      {t('express')}
+      {/* <a href>Details</a>{" "} */}
     </p>
     <hr />
-    <h5 style={{ margin: 1 }}>Choose Your Location</h5>
+    <h5 style={{ margin: 1 }}>{t('ChooseYourLocation')}</h5>
     <select
       className="col-12"
       name="cars"
@@ -37,10 +38,10 @@ export default function DeliveryReturns(props) {
       }}
       id="cars"
     >
-      <option>Giza</option>
-      <option>Alexandria</option>
-      <option>Qena</option>
-      <option>Menofia</option>
+      <option>{t("Giza")}</option>
+      <option>{t('Alexandria')}</option>
+      <option>{t('Qena')}</option>
+      <option>{t('Menofia')}</option>
     </select>
     <br />
     <select
@@ -75,11 +76,11 @@ export default function DeliveryReturns(props) {
       </div>
       <div className="col-10">
         <p style={{ fontSize: 13, fontWeight: 500, marginBottom: 0 }}>
-          Door Delivery
+          {t('DoorDelivery')}
         </p>
         <div style={{ fontSize: 12 }}>
-          Shipping <b>EGP 22</b>
-          Delivery by 18 October when you order within next 12hrs 2mins
+          {t("Shipping")} <b>EGP 22</b>
+          {t('Delivery by 18 October when you order within next 12hrs 2mins')}
         </div>
       </div>
     </div>
@@ -99,11 +100,10 @@ export default function DeliveryReturns(props) {
       </div>
       <div className="col-10">
         <p style={{ fontSize: 13, fontWeight: 500, marginBottom: 0 }}>
-          Return Policy
+          {t('ReturnPolicy')}
         </p>
         <div style={{ fontSize: 12 }}>
-          Shipping <b>EGP 22</b>
-          Delivery by 18 October when you order within next 12hrs 2mins
+         {t('ReturnPolicydec')}
         </div>
       </div>
     </div>
@@ -120,18 +120,18 @@ export default function DeliveryReturns(props) {
     }}
   >
     <a href className="text-dark " style={{ textDecoration: "none" }}>
-      <h6>SELLER INFORMATION</h6>{" "}
+      <h6>{t('SELLERINFORMATION')}</h6>{" "}
     </a>
     <hr className="m-0" />
-    <div style={{ marginTop: 0 }}>OnLine PHaRMaCIES </div>
+    <div style={{ marginTop: 0 }}>{t("OnLinePHaRMaCIES ")}</div>
     <div className="row">
       <div className="col-6">
         <span style={{ fontSize: 13 }}>
           {" "}
-          <b>94%</b> Seller Score <br />
+          <b>94%</b> {t("SellerScore")} <br />
         </span>
         <span style={{ fontSize: 13 }}>
-          <b>1473 </b> Followers
+          <b>1473 </b> {t("Followers")}
         </span>
       </div>
       <div className="col-6 text-end">
@@ -145,7 +145,7 @@ export default function DeliveryReturns(props) {
             marginRight: 10
           }}
         >
-          Follow
+          {t('Follow')}
         </button>
       </div>
     </div>
@@ -153,22 +153,22 @@ export default function DeliveryReturns(props) {
     <div>
       <p style={{ fontSize: 13, fontWeight: 500, marginBottom: 0 }}>
         {" "}
-        Seller performance
+       {t("Sellerperformance")}
       </p>
     </div>
     <i className="bi bi-star" style={{ color: "green" }} />{" "}
     <span style={{ fontSize: 12 }}>
-      Order Fulfillment Rate: <b>Excellent</b>{" "}
+     {t('OrderFulfillmentRate')}:<b>{t('Excellent')}</b>{" "}
     </span>
     <br />
     <i className="bi bi-star" style={{ color: "green" }} />{" "}
     <span style={{ fontSize: 12 }}>
-      Quality Score: <b>Excellent</b>{" "}
+     {t("QualityScore")}: <b>{t('Excellent')}</b>{" "}
     </span>
     <br />
     <i className="bi bi-star" style={{ color: "green" }} />
     <span style={{ fontSize: 12 }}>
-      Customer Rating: <b>Good</b>{" "}
+     {t('CustomerRating')}: <b>{t('Good')}</b>{" "}
     </span>
     <br />
   </div>
@@ -185,10 +185,10 @@ export default function DeliveryReturns(props) {
   >
     <p style={{ fontSize: 13, fontWeight: 500, marginBottom: 0 }}>
       {" "}
-      Have one to sell?
+     {t('Have one to sell')} 
     </p>
     <p style={{ fontSize: 13, marginBottom: 0 }}>
-      Click here to list your product
+      {t('Click here to list your product')}
     </p>
   </div>
   {/* end of 3rd row 3 colms */}

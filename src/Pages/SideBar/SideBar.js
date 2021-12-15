@@ -48,7 +48,6 @@ export default function SideBar() {
                     >
                       <li className="w-100">
                         <Link to="/addproduct" className="nav-link px-0">
-                          {" "}
                           <span className="d-none d-sm-inline">
                             Add Product
                           </span>
@@ -191,11 +190,11 @@ export default function SideBar() {
             </div>
             <div className="col py-3">
               lllllllllllllllllllllllllllll
-           <Suspense fallback={<LinearProgress />}>
+           {/* <Suspense fallback={<LinearProgress />}> */}
                   <Routes>
                     <Route path="/addproduct" exact element={<AddProduct />} />
                 </Routes>
-           </Suspense>
+           {/* </Suspense> */}
             </div>
           </div>
         </div>

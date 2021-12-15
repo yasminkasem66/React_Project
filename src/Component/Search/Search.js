@@ -204,27 +204,8 @@ function SearchBar() {
          })}
          
         </div>)}
-        {filteredData2.length != 0 && (
-      <div className="dataResult" >
-         
-         {filteredData2.slice(0, 3).map((value, key) => {
-          return (
-            <>
-            
-         
-            <a onClick={getCategoty} className="dataItem "style={{"height":"30px"}}  >
-             <p style={{"margin-left":"3px","padding-top":"5px"}}>{value.name} 
-               </p>
-                
-            </a>
-             
-
-            </>
-         
-           );
-         })}
-         
-        </div>)}
+       
+     
         </div>
         
    </form>

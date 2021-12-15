@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { useTranslation } from 'react-i18next'
 import "./SingleProduct.scss";
 // component
 import LowerHeader from "../../Component/Headers/LowerHeader/LowerHeader";
@@ -24,6 +25,7 @@ import Footer1 from "../../Component/Footer1/Footer1";
 import ShowReview from "../../Component/ShowReview/ShowReview";
 
 export default function SingleProduct() {
+  const { t, i18n } = useTranslation();
   const { id } = useParams();
 
   const product = useSelector((state) => state.SingleProduct);
@@ -39,7 +41,7 @@ export default function SingleProduct() {
       <ImageContainer img={image1} color={"#a42924"} />
       <MiddeleHeader />
       <LowerHeader />
-      <div className="container mt-3 mb-5">
+      <div className="container mt-3 mb-5  ">
         <div className="main row container mt-3 ">
           <div
             className="col-9 row single-firstcol ms-0"
@@ -62,7 +64,7 @@ export default function SingleProduct() {
                 />
 
                 <hr />
-                <p className="ps-2 fw-bold">SHARE THIS PRODUCT </p>
+                <p className="ps-2 fw-bold">{t('SHARETHISPRODUCT')} </p>
                 <div>
                   <a
                     className=" text-decoration-none me-3 fs-4 link-dark"
@@ -80,7 +82,7 @@ export default function SingleProduct() {
                 {/* <ProductDetailsAndRating name={product.name} rating={product.numOfReviews} price={product.price} discountedPrice="EGP 100" discountPer="-65%" shippingPrice="+ shipping from EGP 11 to 6th of October" quantity="1" /> */}
                 <ProductDetailsAndRating product={product} />
                 <>
-                  <div className="fw-bolder fs-5">Promotions</div>
+                  <div className="fw-bolder fs-5">{t('Promotions')}</div>
                   <div>
                     <a
                       href
@@ -96,7 +98,7 @@ export default function SingleProduct() {
                         style={{ color: "#f68b1e" }}
                       />{" "}
                       <span>
-                        Get free Delivery on your next order with jumia primo
+                        {t('jumia primo')}
                       </span>{" "}
                     </a>{" "}
                     <br /> <br />
@@ -114,8 +116,7 @@ export default function SingleProduct() {
                         style={{ color: "blue" }}
                       />
                       <p>
-                        Enjoy 75% cashback when paying your bills online- Code:
-                        WELCOME75 - for new customers only
+                      {t('newcustomers')}
                       </p>{" "}
                     </a>{" "}
                     <br />
@@ -134,8 +135,7 @@ export default function SingleProduct() {
                         style={{ color: "#f68b1e" }}
                       />
                       <p>
-                        span&gt;Enjoy 0% interest on installment up to 24 months
-                        with Banque Misr credit cards
+                      {t('Pay with valU over 9 months without interest')}
                       </p>
                     </a>
                   </div>
@@ -150,7 +150,7 @@ export default function SingleProduct() {
                   bottom: "2%",
                 }}
               >
-                Report incorrect product infomrmation
+                {t('Report incorrect product infomrmation')}
               </a>
             </div>
           </div>
@@ -181,7 +181,7 @@ export default function SingleProduct() {
                 borderRadius: 4,
               }}
             >
-              <h5>Specifications</h5>
+              <h5>{t('Specifications')}</h5>
               <div className="col-6">
                 <ProductDetails
                   name={product?.name}

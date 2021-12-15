@@ -12,9 +12,10 @@ export default function Checkout() {
             <div>
             <CheckHeader/>
             </div>
-            <div className="container-fluid mt-5  justify-content-center  ">
-                <div className="row  mb-5 justify-content-center text-start ">
-                    <div className="col-lg-6 text-start">
+            <div className="container-fluid pt-5  justify-content-center  " 
+            style={{backgroundColor:"#F5F5F5"}}>
+                <div className="row  pb-5 justify-content-center  ">
+                    <div className="col-lg-6 ">
                     <AddressDetails/>
                     <DelivaryMethod/>
                     <Paymentmethod/>

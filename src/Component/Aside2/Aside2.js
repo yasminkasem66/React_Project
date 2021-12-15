@@ -1,6 +1,7 @@
 import React from 'react'
-
+import { useTranslation } from 'react-i18next'
 export default function Aside2(props) {
+  const { t, i18n } = useTranslation();
     return (
         <div>
 
@@ -27,7 +28,7 @@ export default function Aside2(props) {
             className="far fa-file-alt"
             style={{ fontSize: 20, marginRight: 10 }}
           />{" "}
-          Product Details
+          {t('ProductDetails')}
         </span>
       </a>
       <hr />
@@ -41,7 +42,7 @@ export default function Aside2(props) {
             className="fas fa-list-ul"
             style={{ fontSize: 20, marginRight: 10 }}
           />{" "}
-          Specifications
+          {t('Specifications')}
         </span>
       </a>
       <hr />
@@ -51,7 +52,7 @@ export default function Aside2(props) {
             className="far fa-comment-alt-exclamation"
             style={{ fontSize: 20, marginRight: 10 }}
           />{" "}
-          Customer Feedback
+         {t("CustomerFeedback")}
         </span>
       </a>
     </div>

@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./ProductDetailsAndRating.scss";
 import { useCart } from "react-use-cart";
+import { useTranslation } from 'react-i18next'
+
+
 
 export default function ProductDetailsAndRating(props) {
+  const { t, i18n } = useTranslation();
   const {
     addItem,
     items,
@@ -148,7 +152,7 @@ export default function ProductDetailsAndRating(props) {
                  
                   }}
             >
-              Add To Cart
+             {t('ADDTOCART')}
             </button>
           </div>
         </div>

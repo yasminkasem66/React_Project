@@ -1,14 +1,16 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 import "./MyaccountList.scss";
 
 export default function MyaccountList(props) {
+  const { t, i18n } = useTranslation();
   return (
     <>
       <div
         className="col-md-3 me-1"
         style={{
-          backgroundColor: "white",
+          backgroundColor: "wite",
           borderRadius: 4,
           boxShadow: "0 2px 5px 0 rgb(0 0 0 / 5%)",
           height: "100%",
@@ -19,60 +21,60 @@ export default function MyaccountList(props) {
             <i className="far fa-user    " style={{ fontSize: 20 }} />{" "}
             <NavLink to="/Myaccount">
               <a className="nav-link text-dark active d-inline-block" href="#">
-                My Jumia Account
+                {t('My Jumia Account')}
               </a>
             </NavLink>
           </li>
           <li className="nav-item">
             <i className="far fa-box" style={{ fontSize: 20 }} />{" "}
             <NavLink to="/orders">
-              <a className="nav-link text-dark d-inline-block">Orders</a>
+              <a className="nav-link text-dark d-inline-block">{t('Orders')}</a>
             </NavLink>
           </li>
           <li className="nav-item">
             <i className="far fa-envelope" style={{ fontSize: 20 }} />
             <a className="nav-link text-dark d-inline-block" href="#">
-              Inbox
+             {t('Inbox')}
             </a>
           </li>
           <li className="nav-item">
             <i className="far fa-comment-alt" style={{ fontSize: 20 }} />{" "}
             <a className="nav-link text-dark d-inline-block" href="#">
-              Pending Reviews
+              {t('Pending Reviews')}
             </a>
           </li>
           <li className="nav-item">
             <i className="far fa-credit-card" style={{ fontSize: 20 }} />{" "}
             <a className="nav-link text-dark d-inline-block" href="#">
-              Jumia Credit
+              {t("Jumia Credit")}
             </a>
           </li>
           <li className="nav-item">
             <i className="far fa-heart" style={{ fontSize: 20 }} />{" "}
             <a className="nav-link text-dark d-inline-block" href="#">
-              Saved Items
+              {t("Saved Items")}
             </a>
           </li>
           <li className="nav-item">
             <i className="fas fa-history" style={{ fontSize: 20 }} />{" "}
             <a className="nav-link text-dark d-inline-block " href="#">
-              Recently Viewed
+              {t("Recently Viewed")}
             </a>
           </li>
           <hr />
           <li>
             <a className="nav-link text-dark" href="#">
-              Details
+              {t("Details")}
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link text-dark" href="#">
-              Address Book
+             {t('Address Book')}
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link text-dark" href="#">
-              Newsletter Preferences
+             {t('Newsletter Preferences')}
             </a>
           </li>
           <hr />
@@ -83,7 +85,7 @@ export default function MyaccountList(props) {
               style={{ color: "#f68b1e", fontWeight: 500 }}
               onClick={props.logout}
             >
-              LOGOUT
+              {t("LOGOUT")}
             </a>
           </div>
         </ul>

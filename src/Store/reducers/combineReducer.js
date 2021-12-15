@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import { orderReducer, ordersReducer } from "./orderReducer";
 import { userReducer } from "./userReducer";
 import { reviewReducer } from "./ReviewReducer";
+import { AddProductReducers } from "./AddProductReducer";
 import {
   AllProductsReducer,
   SingleProductReducer,
@@ -21,4 +22,5 @@ export default combineReducers({
   category: GetParentCategory,
   categoryChild: GetChildCategory,
   review: reviewReducer,
+  product: AddProductReducers,
 });

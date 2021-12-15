@@ -33,6 +33,7 @@ export default function SingleProduct() {
     dispatch(ProductById(id));
   }, []);
 
+  
   return (
     <>
       <ImageContainer img={image1} color={"#a42924"} />

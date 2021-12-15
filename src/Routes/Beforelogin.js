@@ -60,7 +60,6 @@ export const Beforelogin = () => {
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/sidebar" exact element={<SideBar />} />
-          <Route path="/addproduct" exact element={<AddProduct />} />
           <Route path="/products" exact element={<Products />} />
           {/* <Route path="/Myaccount" exact element={<Myaccount />} /> */}
           <Route exact element={<ProtectedRoutes />}>

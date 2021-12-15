@@ -6,13 +6,14 @@ import Footer1 from "../../Component/Footer1/Footer1";
 import MiddeleHeader from "../../Component/Headers/MiddleHeader/MiddeleHeader";
 import LowerHeader from "../../Component/Headers/LowerHeader/LowerHeader";
 import "./login.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../Store/actions/authen/authen";
 
 export default function Login() {
   const { t, i18n } = useTranslation();
 
   const [showPassword, setShowPassword] = useState(false);
+
   const togglePass = (e) => {
     e.preventDefault(); // Important! If you don't include this your page will refresh
     setShowPassword(!showPassword);
@@ -72,7 +73,22 @@ export default function Login() {
     // e.preventDefault();
     // console.log("adduser", user);
     dispatch(login(user));
-    navigate("/");
+    setTimeout(function () {
+      let userinfo = localStorage.getItem("user");
+      if (!userinfo) {
+        navigate("/login");
+        alert("wrong email or password");
+      } else {
+        navigate("/");
+      }
+    }, 800);
+    // let userinfo = localStorage.getItem("user");
+    // if (!userinfo) {
+    //   navigate("/login");
+    //   alert("wrong email or password");
+    // } else {
+    //   navigate("/");
+    // }
   };
   // End login
 

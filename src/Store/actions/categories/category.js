@@ -12,7 +12,7 @@ export const GetParentCategory = () => async (dispatch) => {
         // console.log("responseresponseresponse", response);
 
         dispatch({
-            type: catConstants.GET_PARENT_CATEGORY ,
+            type: catConstants.GET_PARENT_CATEGORY ,    
             payload: response.data.categoriesparent,
         });
     } catch (err) {

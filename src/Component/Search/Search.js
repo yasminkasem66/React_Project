@@ -7,18 +7,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "../../Store/actions/ProductActions/getAllProducts";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import { GetParentCategory } from "../../Store/actions/categories/category";
 
 
 function SearchBar() {
     const { t, i18n } = useTranslation();
     const navigate = useNavigate()
     const products = useSelector(state => state.AllProducts)
+    const category = useSelector((state) => state.category);
+    localStorage.setItem("catparent",JSON.stringify(category))
+    console.log(category)
+
     const dispatch = useDispatch();
     console.log("asdadadasdadasdasd",products)
 
     useEffect(() => {
            dispatch(getAllProducts());
-          
+           dispatch(GetParentCategory());
+
         }, []);
         console.log("products in search",products)
         

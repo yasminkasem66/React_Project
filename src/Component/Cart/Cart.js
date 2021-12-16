@@ -58,7 +58,7 @@ export default function Cart(props) {
       <MiddeleHeader />
       <LowerHeader />
       <section className="cart bg-light">
-        <div className="container mb-3">
+        <div className="container mb-3" style={{fontSize:"22px"}}>
           <h3>{t('cart')} ({totalUniqueItems}{t('nitems')})</h3>
           {/* frist row titles */}
           <div className="row  title" style={{ color: "#8E8EAC" }}>

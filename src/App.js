@@ -69,7 +69,6 @@ function App() {
 
           <Beforelogin />
 
-   
 
         </div>
       </CartProvider>

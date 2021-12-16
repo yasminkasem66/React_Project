@@ -73,11 +73,11 @@ export default function CartItem(props) {
             <option value={5}>5</option>
           </select>
         </div>
-        <div className="col-2 border-end mt-2">
+        <div className="col-2 border-end mt-2 text-center">
           {" "}
           {props.item.price} {t("EGP")}
         </div>
-        <div className="col-2 mt-2" style={{ color: "#f68b1e" }}>
+        <div className="col-2 mt-2 text-center" style={{ color: "#f68b1e" }}>
           {props.item.price * props.item.quantity}
         </div>
       </div>

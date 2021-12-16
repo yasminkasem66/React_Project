@@ -1,9 +1,10 @@
 import React, { useRef, useEffect } from "react";
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 import { useNavigate } from "react-router";
-
+import { useTranslation } from 'react-i18next'
 
 export default function Paypal(props) {
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const paypal = useRef();
 
@@ -42,7 +43,7 @@ export default function Paypal(props) {
     <>
       <div className="d-flex">
         <CheckCircleRoundedIcon style={{ color: "#a3cf62" }} />
-        <p className="fw-bold ms-1">3.PAYMENT METHOD</p>
+        <p className="fw-bold ms-1">3.{t("PAYMENT METHOD")}</p>
       </div>
       <div>
         <div ref={paypal}></div>

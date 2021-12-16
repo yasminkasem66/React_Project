@@ -5,6 +5,13 @@ import { useCart } from "react-use-cart";
 import PlusAndMinus from "../PlusAndMinus/PlusAndMinus";
 import { useTranslation } from "react-i18next";
 
+// images
+import r1 from "../../assets/imgs/Rate1.PNG";
+import r2 from "../../assets/imgs/Rate2.PNG";
+import r3 from "../../assets/imgs/Rate3.PNG";
+import r4 from "../../assets/imgs/Rate4.PNG";
+import r5 from "../../assets/imgs/Rate5.PNG";
+
 export default function CardWithHiddenButton(props) {
   const { t, i18n } = useTranslation();
 
@@ -61,13 +68,27 @@ export default function CardWithHiddenButton(props) {
     <>
       <div className="card cardStyle m-1">
         <Link to={`/singleProduct/${CartItem.id}`} className="text-dark">
-          <img
-            style={{ width: "100%", height: "20%" }}
-            src={CartItem.image}
-          />
+          <img style={{ width: "100%", height: "20%" }} src={CartItem.image} />
           <div className="card-body">
             <h5 className="card-title text-truncate">{CartItem.name}</h5>
-            <p className="card-text">{CartItem.price} {t('EGP')} </p>
+            <p className="card-text">
+              {CartItem.price} {t("EGP")}{" "}
+            </p>
+            {CartItem.averageRating === 1 ? (
+              <img className="d-block" src={r1} />
+            ) : CartItem.averageRating === 2 ? (
+              <img className="d-block" src={r2} />
+            ) : CartItem.averageRating === 3 ? (
+              <img className="d-block" src={r3} />
+            ) : CartItem.averageRating === 4 ? (
+              <img className="d-block" src={r4} />
+            ) : CartItem.averageRating === 5 ? (
+              <img className="d-block" src={r5} />
+            ) : (
+              <div className="d-block">
+                <br />
+              </div>
+            )}
           </div>
         </Link>
 

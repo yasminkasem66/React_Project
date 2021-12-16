@@ -3,6 +3,11 @@ import "./ProductDetailsAndRating.scss";
 import { useCart } from "react-use-cart";
 import { useTranslation } from "react-i18next";
 
+import r1 from "../../assets/imgs/Rate1.PNG";
+import r2 from "../../assets/imgs/Rate2.PNG";
+import r3 from "../../assets/imgs/Rate3.PNG";
+import r4 from "../../assets/imgs/Rate4.PNG";
+import r5 from "../../assets/imgs/Rate5.PNG";
 export default function ProductDetailsAndRating(props) {
   const { t, i18n } = useTranslation();
   const {
@@ -66,11 +71,26 @@ export default function ProductDetailsAndRating(props) {
       <p className="fs-5 d-inline-block mb-2">{props.product?.name}</p>
       {/* <p class="d-inline-block   " ><i class="far fa-heart  "></i></p> */}
       <div className="single-start m-0">
-        <span className="fa fa-star checked" />
+        {/* <span className="fa fa-star checked" />
         <span className="fa fa-star checked" />
         <span className="fa fa-star checked" />
         <span className="fa fa-star" />
-        <span className="fa fa-star" />
+        <span className="fa fa-star" /> */}
+        {props.product?.averageRating === 1 ? (
+          <img className="d-block" src={r1} />
+        ) : props.product?.averageRating === 2 ? (
+          <img className="d-block" src={r2} />
+        ) : props.product?.averageRating === 3 ? (
+          <img className="d-block" src={r3} />
+        ) : props.product?.averageRating === 4 ? (
+          <img className="d-block" src={r4} />
+        ) : props.product?.averageRating === 5 ? (
+          <img className="d-block" src={r5} />
+        ) : (
+          <div className="d-block">
+            <br />
+          </div>
+        )}
         <p className="d-inline-block">
           <a className="ps-2" style={{ textDecoration: "none" }}>
             Number of reviews ({props.product?.numOfReviews})

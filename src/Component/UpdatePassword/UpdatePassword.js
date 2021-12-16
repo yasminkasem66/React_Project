@@ -7,7 +7,7 @@ import MiddeleHeader from "../Headers/MiddleHeader/MiddeleHeader";
 import ImageContainer from "../ImageContainer/ImageContainer";
 import { getSingleUser } from "../../Store/actions/UserActions/getSingleUser";
 import { updatePassword } from "../../Store/actions/UserActions/updatePassword";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 export default function UpdatePassword() {
   const { t, i18n } = useTranslation();
@@ -26,16 +26,20 @@ export default function UpdatePassword() {
     oldPassword: "",
     newPassword: "",
   });
-  const [showPassword, setShowPassword] = useState(false);
-
+  const [showPassword1, setShowPassword1] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
   const [userErrors, setUserErrors] = useState({
     oldPasswordErr: null,
     newPasswordErr: null,
   });
 
-  const togglePass = (e) => {
+  const togglePass1 = (e) => {
     e.preventDefault(); // Important! If you don't include this your page will refresh
-    setShowPassword(!showPassword);
+    setShowPassword1(!showPassword1);
+  };
+  const togglePass2 = (e) => {
+    e.preventDefault(); // Important! If you don't include this your page will refresh
+    setShowPassword2(!showPassword2);
   };
   const handelFormChange = (e) => {
     // console.log(e.target.name, " :", e.target.value);
@@ -93,12 +97,12 @@ export default function UpdatePassword() {
           <div className="col  mb-4 border-muted  border-bottom  me-4 d-flex justify-content-between">
             <input
               className="form-control form-control-lg fs-6 border-0 shadow-none"
-              type={showPassword ? "text" : "password"}
+              type={showPassword1 ? "text" : "password"}
               placeholder={t("oldPassword")}
               name="oldPassword"
               onChange={handelFormChange}
             />
-            <span className="me-1 mt-3" onClick={togglePass}>
+            <span className="me-1 mt-3" onClick={togglePass1}>
               <i class="fas fa-eye"></i>
             </span>
           </div>
@@ -106,12 +110,12 @@ export default function UpdatePassword() {
           <div className="col  mb-4 border-muted  border-bottom  me-4 d-flex justify-content-between">
             <input
               className="form-control form-control-lg fs-6 border-0 shadow-none"
-              type={showPassword ? "text" : "password"}
+              type={showPassword2 ? "text" : "password"}
               placeholder={t("New Password")}
               name="newPassword"
               onChange={handelFormChange}
             />
-            <span className="me-1 mt-3" onClick={togglePass}>
+            <span className="me-1 mt-3" onClick={togglePass2}>
               <i class="fas fa-eye"></i>
             </span>
           </div>
@@ -121,7 +125,7 @@ export default function UpdatePassword() {
               style={{ backgroundColor: "#f68b1e" }}
             >
               <i className="loginBtn" class="fas fa-envelope mt-1 ms-1"></i>
-              <span>{t('Elogin')}</span>
+              <span>Update Password</span>
               <span></span>
             </button>
           </div>

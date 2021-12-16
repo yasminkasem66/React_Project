@@ -12,10 +12,9 @@ import ImageContainer from "../ImageContainer/ImageContainer";
 import MiddeleHeader from "../Headers/MiddleHeader/MiddeleHeader";
 import LowerHeader from "../Headers/LowerHeader/LowerHeader";
 
-
 import { useCart } from "react-use-cart";
 import { Link } from "react-router-dom";
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from "react-i18next";
 
 export default function Cart(props) {
   const {
@@ -58,22 +57,24 @@ export default function Cart(props) {
       <MiddeleHeader />
       <LowerHeader />
       <section className="cart bg-light">
-        <div className="container mb-3" style={{fontSize:"22px"}}>
-          <h3>{t('cart')} ({totalUniqueItems}{t('nitems')})</h3>
+        <div className="container mb-3">
+          <h3>
+            {t("cart")} ({totalUniqueItems}
+            {t("nitems")})
+          </h3>
           {/* frist row titles */}
           <div className="row  title" style={{ color: "#8E8EAC" }}>
             <div className="col-6 ">
-              <span>{t('Item')}</span>
+              <span>{t("Item")}</span>
             </div>
             <div className="col-2 text-center">
-              <span> {t('QUANTITY')}</span>
+              <span> {t("QUANTITY")}</span>
             </div>
             <div className="col-2 text-center">
-              <span>
-                {t('UNITPRICE')}</span>
+              <span>{t("UNITPRICE")}</span>
             </div>
             <div className="col-2 text-center">
-              <span>  {t('SUBTOTAL')}</span>
+              <span> {t("SUBTOTAL")}</span>
             </div>
           </div>
           {/* sechond rpw cart description */}
@@ -95,9 +96,9 @@ export default function Cart(props) {
           {/* third row total price */}
           <div className="row m-3 text-end">
             <p style={{ color: "#f68b1e", fontWeight: "bold" }}>
-              {t('nTotal')}: {t('PRICSEGP')} {cartTotal}
+              {t("nTotal")}: {t("PRICSEGP")} {cartTotal}
             </p>
-            <p>{t('Shippingfeesnot')}</p>
+            <p>{t("Shippingfeesnot")}</p>
           </div>
         </div>
       </section>
@@ -107,18 +108,20 @@ export default function Cart(props) {
         <div className="container-fluid   bg-white">
           <div className="row  p-4">
             <div className="text-end">
-              <button
-                style={{
-                  backgroundColor: "#fff",
-                  color: "#FF9800",
-                  fontSize: 17,
-                  fontWeight: "bold",
-                }}
-                type="button"
-                className="btn  w-25 me-5  shadow rounded"
-              >
-                {t('ContinueShopping')}
-              </button>
+              <Link to="/">
+                <button
+                  style={{
+                    backgroundColor: "#fff",
+                    color: "#FF9800",
+                    fontSize: 17,
+                    fontWeight: "bold",
+                  }}
+                  type="button"
+                  className="btn  w-25 me-5  shadow rounded"
+                >
+                  {t("ContinueShopping")}
+                </button>
+              </Link>
 
               {token ? (
                 <Link to="/checkout">
@@ -132,7 +135,7 @@ export default function Cart(props) {
                     type="button"
                     className="btn  w-25 shadow rounded ms-2"
                   >
-                    {t('ContinuetoCheckout')}
+                    {t("ContinuetoCheckout")}
                   </button>
                 </Link>
               ) : (
@@ -147,7 +150,7 @@ export default function Cart(props) {
                     type="button"
                     className="btn  w-25 shadow rounded"
                   >
-                    {t('ContinuetoCheckout')}
+                    {t("ContinuetoCheckout")}
                   </button>
                 </Link>
               )}
@@ -187,8 +190,6 @@ export default function Cart(props) {
           </div>
         </div>
       </section>
-
-      
 
       <Footer2 />
     </>

@@ -30,10 +30,11 @@ import image1 from "../../assets/imgs/ads.jpeg";
 import image2 from "../../assets/imgs/6253007438669408234.jfif";
 import image3 from "../../assets/imgs/Single_floor_1152x252_px_copy.jpg";
 import image4 from "../../assets/imgs/watch.jpg";
-import r1 from "../../assets/imgs/r1.PNG";
-import r2 from "../../assets/imgs/r2.PNG";
-import r3 from "../../assets/imgs/r3.PNG";
-import r4 from "../../assets/imgs/r4.PNG";
+import r1 from "../../assets/imgs/Rate1.PNG";
+import r2 from "../../assets/imgs/Rate2.PNG";
+import r3 from "../../assets/imgs/Rate3.PNG";
+import r4 from "../../assets/imgs/Rate4.PNG";
+import r5 from "../../assets/imgs/Rate5.PNG";
 import circle from "../../assets/imgs/circle.PNG";
 import square from "../../assets/imgs/sq.PNG";
 import jumiaexpress from "../../assets/imgs/jumia-ex.PNG";
@@ -109,11 +110,11 @@ export default function Products() {
     console.log("categoryChildcategoryChildcategoryChild", categoryChild);
     dispatch(getAllProductsPaganation(pageNum, catparent, categoryChild));
   };
-  // popularty 
+  // popularty
   const setratingproducts = (id) => {
-    dispatch(avergeRatingProducts(catparent,id));
+    dispatch(avergeRatingProducts(catparent, id));
   };
-  //Sort rating 
+  //Sort rating
   const sortProductRatings = () => {
     dispatch(sortProductRating(catparent));
   };
@@ -161,7 +162,6 @@ export default function Products() {
                     {catparent}
                   </h5> */}
 
-
                   {category.map((cat, index) => {
                     return (
                       <Link
@@ -200,13 +200,15 @@ export default function Products() {
                 </div>
 
                 <h5 className="mb-3 mt-3">{t("PRODUCTRATING")}</h5>
-                <CircleComponent imgList={[r4, r3, r2, r1]} img={circle} setratingproducts={setratingproducts}  />
+                <CircleComponent
+                  imgList={[r1, r2, r3, r4, r5]}
+                  img={circle}
+                  setratingproducts={setratingproducts}
+                />
                 <hr />
-
 
                 {/* PRICE RATING */}
                 <RatingSlider />
-
 
                 <h5 className="mb-3 my-4">{t("EPRESSSHIPPING")}</h5>
                 <CircleComponent img={square} imgList={[jumiaexpress]} />
@@ -225,7 +227,7 @@ export default function Products() {
                   img={square}
                 />
                 <hr />
-       
+
                 {/* disabled */}
                 {/* <hr />
                 <SearchComponent heading={t("MEGAPIXCELS")} />
@@ -273,8 +275,13 @@ export default function Products() {
             </div>
           </div>
           {/* PRODUCT SECTION */}
-          <div className="col-md-9 card"> 
-            <ProductHeader cat={catparent} sortPrice={sortPricee} setratingproducts={setratingproducts} sortProductRatings={sortProductRatings} />
+          <div className="col-md-9 card">
+            <ProductHeader
+              cat={catparent}
+              sortPrice={sortPricee}
+              setratingproducts={setratingproducts}
+              sortProductRatings={sortProductRatings}
+            />
             <hr />
             {/* displaying number of products  */}
             <div className="d-flex justify-content-between">
@@ -301,16 +308,13 @@ export default function Products() {
               </div>
               );
               }) : */}
-              { products.map((product, index) => {
+              {products.map((product, index) => {
                 return (
                   <div key={index} className="col-md-4 mb-2">
                     <CardWithHiddenButton key={index} product={product} />
                   </div>
                 );
-              })
-            
-            
-            }
+              })}
             </div>
             {/* <div className="row my-1">
               {products.map((product, index) => {

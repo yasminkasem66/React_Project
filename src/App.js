@@ -37,11 +37,8 @@ function App() {
           dir={lang === "ar" ? "rtl" : "ltr"}
         >
           <Beforelogin />
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 892dd6eccedf7f8a4758ea7bc302637f2c6d7bfe
         </div>
       </CartProvider>
 

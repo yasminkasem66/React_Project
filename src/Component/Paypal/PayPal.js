@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
+import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import { useNavigate } from "react-router";
 import { useTranslation } from 'react-i18next'
 
@@ -19,7 +19,7 @@ export default function Paypal(props) {
                 description: "Cool looking table",
                 amount: {
                   currency_code: "USD",
-                  value: props.total,
+                  value: props.total + 20,
                 },
               },
             ],

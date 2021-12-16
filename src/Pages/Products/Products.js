@@ -205,28 +205,28 @@ export default function Products() {
                   img={circle}
                   setratingproducts={setratingproducts}
                 />
-                <hr />
+                {/* <hr /> */}
 
                 {/* PRICE RATING */}
-                <RatingSlider />
+                {/* <RatingSlider />
 
                 <h5 className="mb-3 my-4">{t("EPRESSSHIPPING")}</h5>
                 <CircleComponent img={square} imgList={[jumiaexpress]} />
-                <hr />
+                <hr /> */}
                 {/* BRAND */}
-                <SearchComponent heading={t("BRAND")} />
+                {/* <SearchComponent heading={t("BRAND")} />
                 <SquareComponent
                   textList={["Alcatel", "Amazfit", "Andoer", "Apple", "Armor"]}
                   img={square}
                 />
-                <hr />
+                <hr /> */}
                 {/* COLOR */}
-                <h5 className="mb-3">{t("COLOR")}</h5>
+                {/* <h5 className="mb-3">{t("COLOR")}</h5>
                 <SquareComponent
                   textList={["Orang", "Black", "Brown", "Blue", "White"]}
                   img={square}
                 />
-                <hr />
+                <hr /> */}
 
                 {/* disabled */}
                 {/* <hr />

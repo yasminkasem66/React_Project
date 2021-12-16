@@ -34,7 +34,7 @@ export default function OrderComponent(props) {
                     />
                   </div>
                   <div className="col-8">
-                    <div>{item.name}</div>
+                    <div className="text-truncate">{item.name}</div>
                     <div className="text-secondary">
                       Price :{item.price} EGP
                     </div>

@@ -78,9 +78,12 @@ export default function UpdateReviewComponent() {
         break;
     }
   };
-  const updateOrderReview = () => {
+  const updateOrderReview = (e) => {
+    e.preventDefault()
     dispatch(updateReview(Review, oldReview._id));
-    navigate("/SingleProduct/" + oldReview.product);
+    setTimeout(()=>{
+      navigate("/SingleProduct/" + oldReview.product);
+    },800)
   };
   //   const createOrderReview = (e) => {
   //     e.preventDefault();
@@ -103,7 +106,7 @@ export default function UpdateReviewComponent() {
               name="rating"
               onChange={handelFormChange}
               className="form-select"
-              value={oldReview.rating}
+              // value={oldReview.rating}
             >
               <option value={1}>1</option>
               <option value={2}>2</option>

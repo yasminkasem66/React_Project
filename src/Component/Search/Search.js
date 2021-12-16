@@ -45,6 +45,7 @@ function SearchBar() {
     setWordEntered(searchWord);
 
     const newFilter = products.filter((product) => {
+      console.log("category",product.categoryparent)
       
       return product.categoryparent.toLowerCase().includes(searchWord.toLowerCase());
     

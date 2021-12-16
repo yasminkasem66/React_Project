@@ -122,7 +122,7 @@ export default function Home() {
       product.categoryparent === "منظفات"
   );
   const smartPhoneProducts = smartPhone.slice(0, 6);
-  console.log("women", women)
+  console.log("women", women);
   // console.log("men", men);
   // console.log("gamesProduct",gamesProducts)
   // console.log("smartPhoneProducts",smartPhoneProducts)
@@ -133,7 +133,6 @@ export default function Home() {
   let categoryChild = localStorage.getItem("categoryChild") || "";
   let catparent = localStorage.getItem("category") || "";
 
-
   const resetCategryChild = (catParnt, catChild) => {
     localStorage.setItem("categoryChild", catChild);
     localStorage.setItem("category", catParnt);
@@ -142,7 +141,7 @@ export default function Home() {
   return (
     <div className="bg-light">
       <div className="container-fluid px-0 mx-0 justify-content-center text-center">
-        <ImageContainer img={image1} color={"#a42924"} />
+      <ImageContainer img={image1} color={"#a42924"}  />
       </div>
       <MiddeleHeader />
       <LowerHeader />
@@ -173,30 +172,25 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       {/* padge */}
       <div className=" container ">
         <div className="row  mt-3">
-          <SmallCard
-            statement={t("Official Stores")}
-            pic={padge1}
-            className="col-3"
-          />
-          <SmallCard
-            statement={t("Jumia Global")}
-            pic={padge2}
-            className="col-3"
-          />
-          <SmallCard
-            statement={t("Recharge&Bill")}
-            pic={padge3}
-            className="col-3"
-          />
+          <Link to="/AboutUs" className="col-md-3 col-sm-6 col-6 p-0">
+            <SmallCard statement={t("aboutus")} pic={padge1} />
+          </Link>
+          <Link to="/contact" className="col-md-3 col-sm-6 col-6 p-0">
+            <SmallCard statement={t("contactUs")} pic={padge2} />
+          </Link>
+
+          <Link to="/Express" className="col-md-3 col-sm-6 col-6 p-0">
+            <SmallCard statement={t("Express")} pic={padge3} />
+          </Link>
           <SmallCard
             statement={t("Orange Points")}
             pic={padge4}
-            className="col-3 "
+            className="col-md-3 col-sm-6 col-6 "
           />
-          {/* <ProductCard pic={pic1} /> */}
         </div>
       </div>
 
@@ -285,7 +279,7 @@ export default function Home() {
       <div className="container  card mt-4 text-center">
         <TextCenter title={t("NEWOFFERS")} />
         <SmallImagesContainer
-          resetCategryChild1={()=>resetCategryChild("", "Men")}
+          resetCategryChild1={() => resetCategryChild("", "Men")}
           resetCategryChild2={() => resetCategryChild("", "Women")}
           resetCategryChild3={() => resetCategryChild("smartPhone", "")}
           resetCategryChild4={() => resetCategryChild("Electronic", "")}
@@ -301,21 +295,18 @@ export default function Home() {
           img3={x7}
           img4={x5}
           img5={x9}
-
           img6={x2}
         />
 
         {/* iiiiiiiiiiiiii */}
         <SmallImagesContainer
           text1={t("Beautyperfumes")}
-
           text2={t("Sporting")}
           text3={t("KidsBaby")}
           text4={t("CarEssentials")}
           text5={t("FoodBeverage")}
           text6={t("HouseholdCare")}
           img1={x11}
-
           img2={x8}
           img3={x4}
           img4={x12}
@@ -381,7 +372,10 @@ export default function Home() {
       <div className="container mt-4 card">
         <SeeAll
           resetCategryChild={() => resetCategryChild("", "Men")}
-          color="black" background="#C7C7CD" title={t("Men'sFashion")} />
+          color="black"
+          background="#C7C7CD"
+          title={t("Men'sFashion")}
+        />
         <div className="row mt-3">
           {menProduct.map((item, index) => {
             return (
@@ -421,7 +415,10 @@ export default function Home() {
       <div className="container mt-4 card">
         <SeeAll
           resetCategryChild={() => resetCategryChild("Gaming", "")}
-          color="black" background="#C7C7CD" title={t("Games")} />
+          color="black"
+          background="#C7C7CD"
+          title={t("Games")}
+        />
         <div className="row mt-3">
           {gamesProducts.map((item, index) => {
             return (
@@ -487,7 +484,10 @@ export default function Home() {
       <div className="container mt-4 card">
         <SeeAll
           resetCategryChild={() => resetCategryChild("smartPhone", "")}
-          color="black" background="#C7C7CD" title={t("SmartPone")} />
+          color="black"
+          background="#C7C7CD"
+          title={t("SmartPone")}
+        />
         <div className="row mt-3">
           {smartPhoneProducts.map((item, index) => {
             return (
@@ -577,11 +577,11 @@ export default function Home() {
 
       <JumiaInfo />
       <Footer1 />
-       <MessengerCustomerChat 
-       className="hidemsg"
+      <MessengerCustomerChat
+        className="hidemsg"
         pageId="106293271909112"
         appId="424217142629496"
-      /> 
+      />
     </div>
   );
 }

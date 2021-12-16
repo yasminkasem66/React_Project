@@ -6,7 +6,7 @@ export default function SmallCard(props) {
     return (
         <>
            {/* <div className="row  d-flex w-25"> */}
-  <a href="#" className="col me-2  card d-flex flex-row anchor text-dark  p-1">
+  <a href="" className="col me-2  card d-flex flex-row anchor text-dark  p-1">
     <img
       src={props.pic}
       alt
@@ -17,6 +17,8 @@ export default function SmallCard(props) {
       {props.statement}
     </span>
   </a>
+  
+
   
 {/* </div> */}
 

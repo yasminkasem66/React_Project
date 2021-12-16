@@ -16,6 +16,7 @@ export default function CheckoutOrder() {
     updateItemQuantity,
     removeItem,
     emptyCart,
+    
   } = useCart();
   console.log(items);
 

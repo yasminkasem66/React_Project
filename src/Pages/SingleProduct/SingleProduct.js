@@ -38,7 +38,7 @@ export default function SingleProduct() {
   
   return (
     <>
-      <ImageContainer img={image1} color={"#a42924"} />
+      <ImageContainer img={image1} color={"#a42924"} className="justify-content-center" />
       <MiddeleHeader />
       <LowerHeader />
       <div className="container mt-3 mb-5  ">
@@ -226,6 +226,7 @@ export default function SingleProduct() {
           </div>
         </div>
       </div>
+      
       {/* </div>            */}
       <Footer1 />
     </>

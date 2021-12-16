@@ -74,7 +74,7 @@ export default function Footer2() {
     </div>
   </footer>
   <footer
-    className="footer2  text-start pb-5 px-3 "
+    className="footer2  pb-5 px-3 "
     style={{ backgroundColor: "#434343" }}
   >
     <div className="container">
@@ -82,8 +82,9 @@ export default function Footer2() {
       <div className="row py-4">
         {/* one */}
         <div className="col-lg-3 col-md-6  mb-md-0 mb-4">
-          <span className="footer-heading ">LET US HELP YOU</span>
+          
           <ul className="list-unstyled pt-3">
+          <span className="footer-heading ">LET US HELP YOU</span>
             <li>
               <a
                 className=" text-decoration-none text-white link-light"
@@ -152,8 +153,9 @@ export default function Footer2() {
         </div>
         {/* two */}
         <div className="col-lg-3 col-md-6  mb-md-0 mb-4">
-          <span className="footer-heading ">{t('aBOUTJUMIAEGYPT' )}</span>
+          
           <ul className="list-unstyled pt-3">
+          <span className="footer-heading ">{t('aBOUTJUMIAEGYPT' )}</span>
             <li>
               <a
                 className="text-decoration-none text-white link-light"
@@ -223,9 +225,11 @@ export default function Footer2() {
         {/* three */}
        
         <div className="col-lg-3 col-md-6 mb-md-0 mb-4">
-          <span className="footer-heading ">{t('nJUMIAINTERNATIONAL')}</span>
+          
           <div className=" row row-cols-2">
+          
             <ul className="list-unstyled pt-3">
+            <span className="footer-heading ">{t('nJUMIAINTERNATIONAL')}</span> 
               <li>
                 <a
                   className="text-decoration-none text-white link-light"

@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from 'react-i18next'
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import "./PaymentMethod2.scss";
 // img
@@ -6,6 +7,7 @@ import image1 from "../../assets/imgs/PNg24.png";
 import image2 from "../../assets/imgs/cashIcon1_1.png";
 import image3 from "../../assets/imgs/Fawrylogo-(1).png";
 export default function PaymentMethod2() {
+  const { t, i18n } = useTranslation();
   return (
     <>
       <div className="card mb-3 pb-3 mt-3">

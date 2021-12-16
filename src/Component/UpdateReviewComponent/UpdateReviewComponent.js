@@ -103,7 +103,7 @@ export default function UpdateReviewComponent() {
               name="rating"
               onChange={handelFormChange}
               className="form-select"
-              value={oldReview.rating}
+              // value={oldReview.rating}
             >
               <option value={1}>1</option>
               <option value={2}>2</option>

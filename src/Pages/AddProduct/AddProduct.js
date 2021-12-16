@@ -334,11 +334,11 @@ export default function AddProduct() {
     <>
       <LowerHeader2 />
       <div className="row  mb-5">
-        <div className="col-3">
+        {/* <div className="col-3">
           <div className="w-75 mx-auto mt-5">
             <SideBar />
           </div>
-        </div>
+        </div> */}
         <div className="col-9">
           <div className="w-75 mx-auto">
             <h1 className="text-center ">Add Product</h1>

@@ -141,7 +141,9 @@ export default function Home() {
 
   return (
     <div className="bg-light">
-      <ImageContainer img={image1} color={"#a42924"} />
+      <div className="container-fluid px-0 mx-0 justify-content-center text-center">
+        <ImageContainer img={image1} color={"#a42924"} />
+      </div>
       <MiddeleHeader />
       <LowerHeader />
       <div className="container pe-5  ">
@@ -344,36 +346,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/*Most Liked Products*/}
-      <div className="container mt-4 card">
-        <SeeAll
-          className="container-fluid"
-          color="black"
-          background="#C7C7CD"
-          title={t("MostLikedProducts")}
-        />
-        <div className="row mt-3">
-          {items.map((item, index) => {
-            return (
-              <div className="col-md-2 mb-4" key={index}>
-                <ProductCard product={item} />
-                {/* {console.log("item", item)} */}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* <!--  Pick For You --> */}
-      <div className="container  card mt-3 px-4 pb-1">
-        <TextCenter title={t("PickForYou")} />
-        <div className="   row ">
-          <div className="col HomePage-imgElementNON m-2">
-            <ImageContainer img={Pickforyou} wid="w-100" />
-          </div>
-        </div>
-      </div>
-
       {/*Women's Sweatshirts | Up to 50% OFF */}
       <div className="container mt-4 card ">
         <SeeAll
@@ -394,22 +366,13 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="container  card mt-4">
-        <SmallImagesContainer
-          img1={y1}
-          img2={y2}
-          img3={y3}
-          img4={y4}
-          img5={y5}
-          img6={y6}
-        />
-      </div>
 
-      {/* <!-- <!-- personalcare --> --> */}
-      <div className="container card mt-4">
-        <div className=" HomePage-img  row px-2">
+      {/* <!--  Pick For You --> */}
+      <div className="container  card mt-3 px-4 pb-1">
+        <TextCenter title={t("PickForYou")} />
+        <div className="   row ">
           <div className="col HomePage-imgElementNON m-2">
-            <ImageContainer img={personalcare} wid="w-100" />
+            <ImageContainer img={Pickforyou} wid="w-100" />
           </div>
         </div>
       </div>
@@ -431,6 +394,18 @@ export default function Home() {
         </div>
       </div>
 
+
+      <div className="container  card mt-4">
+        <SmallImagesContainer
+          img1={y1}
+          img2={y2}
+          img3={y3}
+          img4={y4}
+          img5={y5}
+          img6={y6}
+        />
+      </div>
+
       {/* <!-- <!-- personalcare --> --> */}
       <div className="container card mt-4">
         <div className=" HomePage-img  row px-2">
@@ -439,6 +414,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+
 
       {/*Games | Up to 30% OFF */}
       <div className="container mt-4 card">
@@ -456,6 +433,37 @@ export default function Home() {
           })}
         </div>
       </div>
+      {/* <!-- <!-- personalcare --> --> */}
+      <div className="container card mt-4">
+        <div className=" HomePage-img  row px-2">
+          <div className="col HomePage-imgElementNON m-2">
+            <ImageContainer img={personalcare} wid="w-100" />
+          </div>
+        </div>
+      </div>
+
+      {/*Most Liked Products*/}
+      <div className="container mt-4 card">
+        <SeeAll
+          className="container-fluid"
+          color="black"
+          background="#C7C7CD"
+          title={t("MostLikedProducts")}
+        />
+        <div className="row mt-3">
+          {items.map((item, index) => {
+            return (
+              <div className="col-md-2 mb-4" key={index}>
+                <ProductCard product={item} />
+                {/* {console.log("item", item)} */}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+
+
       {/* 
       <div className="container  card mt-4">
         <SmallImagesContainer img1={card6}

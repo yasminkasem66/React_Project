@@ -29,48 +29,14 @@ const lang = localStorage.getItem('lang') || 'en';
 document.documentElement.language = lang;
 
 function App() {
-  // const [checkout, setCheckOut] = useState(false);
-
-  // const [checkout, setCheckOut]=useState(false)
   return (
-
-    // <div className="App">
-    //   {checkout ? (
-    //     <Paypal />
-    //   ) : (
-    //     <button
-    //       onClick={() => {
-    //         setCheckOut(true);
-    //       }}
-    //     >
-    //       Checkout
-    //     </button>
-    //   )}
-    // </div>
-   
-    //   <Router>
-    // <div className="App bg-white">
-
-    //   {/* <Beforelogin/> */}
-    //   <Registration/>
-
-   
-
-    // </div>
-    //       </Router>
-   
-
     <Router>
       <CartProvider>
 
         <div className="App bg-white"
           dir={lang === "ar" ? "rtl" : "ltr"}
         >
-
           <Beforelogin />
-
-   
-
         </div>
       </CartProvider>
 

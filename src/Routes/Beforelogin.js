@@ -59,9 +59,17 @@ export const Beforelogin = () => {
         {/* first Match win */}
         <Routes>
           <Route path="/" exact element={<Home />} />
-          <Route path="/sidebar" exact element={<SideBar />} />
+          
+
+          {/* Nested Routes and layout */}
+          <Route path="/sidebar"  element={<SideBar />} >
+            <Route path="AddProduct" element={<AddProduct />} />
+            <Route path="aboutus"  element={<AboutUs />} />
+
+          </Route>
+          {/* Nested Routes and layout */}
+
           <Route path="/products" exact element={<Products />} />
-          {/* <Route path="/Myaccount" exact element={<Myaccount />} /> */}
           <Route exact element={<ProtectedRoutes />}>
             <Route exact path="/Myaccount" element={<Myaccount />} />
           </Route>

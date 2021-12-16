@@ -78,9 +78,10 @@ export default function UpdateReviewComponent() {
         break;
     }
   };
-  const updateOrderReview = () => {
+  const updateOrderReview = (e) => {
+    e.preventDefault();
     dispatch(updateReview(Review, oldReview._id));
-    navigate("/SingleProduct/" + oldReview.product);
+    setTimeout(() => navigate("/SingleProduct/" + oldReview.product) ,500 )
   };
   //   const createOrderReview = (e) => {
   //     e.preventDefault();

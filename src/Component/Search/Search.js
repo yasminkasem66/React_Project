@@ -150,7 +150,7 @@ function SearchBar() {
 
         <div role="button" className="btn d-inline d-xl-block mx-1 px-3   "
           onClick={sendCategory}
-          style={{ "width": "100px", "background-color": "darkorange", "color": "white", "font-size": "14px", "font-weight": "600", "box-shadow": "0 4px 8px 0 rgba(0,0,0,0.2)", "margin-left": "10px" }}>{t("search")}</div>
+          style={{ "width": "100px", "background-color": "#f68b1e", "color": "white", "font-size": "14px", "font-weight": "600", "box-shadow": "0 4px 8px 0 rgba(0,0,0,0.2)", "margin-left": "10px" }}>{t("search")}</div>
       </div>
 
 
